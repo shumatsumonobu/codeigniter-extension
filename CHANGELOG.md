@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.0.3] - 2025/11/25
+
+### Added
+- Added form validation test script in `sandbox/form-validation-test.php` for testing CodeIgniter 3 form validation rules including checkbox array validation.
+
+### Changed
+- Renamed `prototypes/` directory to `sandbox/` for better clarity of purpose.
+- Removed obsolete prototype files from sandbox directory.
+
+### Fixed
+- Restored accidentally deleted `UserLogModel.php` in skeleton.
+
 ## [5.0.2] - 2025/11/8
 
 ### Changed
