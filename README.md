@@ -32,7 +32,7 @@ An enhanced CodeIgniter 3 package providing extended core classes (controllers, 
 - **REST Client** - HTTP client for API integrations
 - **Security** - Encryption/decryption, IP validation
 - **Validation** - Custom rules (hostname, IP, CIDR, datetime, paths)
-- **Session Management** - Database-backed sessions with custom columns
+- **Session Management** - Database-backed sessions with custom columns, PHP 7.0+ SessionHandlerInterface compliance
 - **Logging** - Enhanced logging with context
 - **Template Engine** - Twig integration with session variables
 
@@ -231,6 +231,33 @@ $hook['pre_system'] = function () {
   });
 };
 ```
+
+### Session Management
+
+The package extends CodeIgniter's database session driver with PHP 7.0+ SessionHandlerInterface compatibility:
+
+**Features:**
+- **Custom Session Columns** - Store additional data (e.g., email, user_id) directly in session table
+- **updateTimestamp Implementation** - Complies with PHP 7.0+ SessionHandlerInterface requirements
+- **No Warning Logs** - Prevents "Failed to write session data" warnings in PHP 7.0+
+
+**Configuration** (`application/config/config.php`):
+
+```php
+$config['sess_driver'] = 'database';
+$config['sess_save_path'] = 'session';
+$config['sess_table_additional_columns'] = ['email'];
+```
+
+**Technical Details:**
+
+The `SessionDatabaseDriver` class implements the `updateTimestamp()` method required by PHP 7.0+'s SessionHandlerInterface. This prevents PHP from falling back to the default file handler, which causes warnings like:
+
+```
+Warning: session_write_close(): Failed to write session data using user defined save handler.
+```
+
+For more information, see the [PHP SessionHandlerInterface documentation](https://www.php.net/manual/en/class.sessionhandlerinterface.php).
 
 ## Usage Examples
 

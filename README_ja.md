@@ -30,7 +30,7 @@ CodeIgniter 3の拡張パッケージで、拡張されたコアクラス(コン
 - **RESTクライアント** - API統合用HTTPクライアント
 - **セキュリティ** - 暗号化/復号化、IP検証
 - **バリデーション** - カスタムルール(ホスト名、IP、CIDR、日時、パス)
-- **セッション管理** - カスタムカラム付きデータベースバックセッション
+- **セッション管理** - カスタムカラム付きデータベースバックセッション、PHP 7.0+ SessionHandlerInterface準拠
 - **ロギング** - コンテキスト付き拡張ロギング
 - **テンプレートエンジン** - セッション変数統合Twig
 
@@ -229,6 +229,33 @@ $hook['pre_system'] = function () {
   });
 };
 ```
+
+### セッション管理
+
+このパッケージは、CodeIgniterのデータベースセッションドライバーをPHP 7.0+ SessionHandlerInterface準拠に拡張しています:
+
+**機能:**
+- **カスタムセッションカラム** - 追加データ(例: email, user_id)をセッションテーブルに直接保存
+- **updateTimestamp実装** - PHP 7.0+ SessionHandlerInterface要件に準拠
+- **警告ログなし** - PHP 7.0+での「セッションデータの書き込みに失敗しました」警告を防止
+
+**設定** (`application/config/config.php`):
+
+```php
+$config['sess_driver'] = 'database';
+$config['sess_save_path'] = 'session';
+$config['sess_table_additional_columns'] = ['email'];
+```
+
+**技術詳細:**
+
+`SessionDatabaseDriver`クラスは、PHP 7.0+のSessionHandlerInterfaceで必要な`updateTimestamp()`メソッドを実装しています。これにより、PHPがデフォルトのファイルハンドラーにフォールバックすることを防ぎ、以下のような警告を回避します:
+
+```
+Warning: session_write_close(): Failed to write session data using user defined save handler.
+```
+
+詳細については、[PHP SessionHandlerInterfaceドキュメント](https://www.php.net/manual/ja/class.sessionhandlerinterface.php)を参照してください。
 
 ## 使用例
 

@@ -52,6 +52,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Custom URL.
+$route['^validation-test$']['GET'] = 'validationTest/index';
+$route['^validation-test/submit$']['POST'] = 'validationTest/submit';
 $route['^api/users/email-exists$']['GET'] = 'api/users/emailExists';
 $route['^api/users/password-security-check$']['GET'] = 'api/users/passwordSecurityCheck';
 $route['^api/users/profile$']['PUT'] = 'api/users/updateProfile';

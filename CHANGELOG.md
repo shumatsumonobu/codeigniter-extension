@@ -1,14 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.0.4] - 2025/11/26 (Unreleased)
+
+### Added
+- Added interactive form validation test page to demo application (`/validation-test`) demonstrating real-time validation with visual feedback.
+- Implemented `updateTimestamp()` method in `SessionDatabaseDriver` class to comply with PHP 7.0+ SessionHandlerInterface requirements, preventing "Failed to write session data" warnings.
+
 ## [5.0.3] - 2025/11/25
 
 ### Added
 - Added form validation test script in `sandbox/form-validation-test.php` for testing CodeIgniter 3 form validation rules including checkbox array validation.
-
-### Changed
-- Renamed `prototypes/` directory to `sandbox/` for better clarity of purpose.
-- Removed obsolete prototype files from sandbox directory.
 
 ### Fixed
 - Restored accidentally deleted `UserLogModel.php` in skeleton.
