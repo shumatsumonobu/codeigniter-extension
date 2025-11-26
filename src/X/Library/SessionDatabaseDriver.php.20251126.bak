@@ -112,29 +112,6 @@ class SessionDatabaseDriver extends \CI_Session_database_driver {
   }
 
   /**
-   * Update session timestamp (PHP 7.0+ SessionHandlerInterface requirement).
-   * @param string $sessionId Session ID.
-   * @param string $sessionData Serialized session data.
-   * @return bool Whether the timestamp was successfully updated or not.
-   */
-  public function updateTimestamp($sessionId, $sessionData) {
-    try {
-      // Prevent previous QB calls from messing with our queries.
-      $this->_db->reset_query();
-
-      $this->_db->where('id', $sessionId);
-      if ($this->_config['match_ip'])
-        $this->_db->where('ip_address', $_SERVER['REMOTE_ADDR']);
-
-      $updateData = ['timestamp' => time()];
-      return $this->_db->update($this->_config['save_path'], $updateData) ? $this->_success : $this->_failure;
-    } catch (\Throwable $e) {
-      Logger::error($e->getMessage());
-      return $this->_failure;
-    }
-  }
-
-  /**
    * Unserialize the session.
    * @param string $data Serialized session data.
    * @return array|null Unserialized session data.
