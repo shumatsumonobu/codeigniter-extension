@@ -5,7 +5,11 @@ use \X\Util\Logger;
 use \Intervention\Image\ImageManager;
 
 /**
- * Image utility.
+ * Image processing utility class.
+ *
+ * Provides image manipulation including Data URL conversion, resizing,
+ * file format detection, GIF frame extraction, and PDF to image conversion.
+ * Uses Intervention Image and Imagick for advanced operations.
  */
 final class ImageHelper {
   /**

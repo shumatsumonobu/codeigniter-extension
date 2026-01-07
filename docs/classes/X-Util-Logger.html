@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -164,12 +174,16 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Logger.php"><a href="files/src-x-util-logger.html"><abbr title="src/X/Util/Logger.php">Logger.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Logger. Write logs to the file defined in `application/config/config.php#log_path`.</p>
+            <p class="phpdocumentor-summary">Logging utility class.</p>
 
+    <section class="phpdocumentor-description"><p>Provides static methods for logging messages at different levels (debug, info, error)
+with automatic file/line/class information. Logs are written to the path defined
+in <code class="prettyprint">application/config/config.php#log_path</code>.</p>
+</section>
 
 
 
@@ -260,7 +274,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Logger.php"><a href="files/src-x-util-logger.html"><abbr title="src/X/Util/Logger.php">Logger.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -272,7 +286,13 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use \X\Util\Logger;
+
+Logger::debug('User logged in', ['user_id' =&gt; 123]);
+Logger::debug($user, $request-&gt;all());
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -304,7 +324,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Logger.php"><a href="files/src-x-util-logger.html"><abbr title="src/X/Util/Logger.php">Logger.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -316,7 +336,15 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use \X\Util\Logger;
+
+// In browser: displays formatted HTML
+// In CLI: outputs to console and writes to log file
+Logger::display('Debug value:', $someVariable);
+Logger::display($user, $request-&gt;all());
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -348,7 +376,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Logger.php"><a href="files/src-x-util-logger.html"><abbr title="src/X/Util/Logger.php">Logger.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -360,7 +388,14 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use \X\Util\Logger;
+
+Logger::error('Database connection failed');
+Logger::error($exception);  // Exception objects are automatically formatted
+Logger::error('API error', ['status' =&gt; 500, 'response' =&gt; $body]);
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -392,7 +427,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Logger.php"><a href="files/src-x-util-logger.html"><abbr title="src/X/Util/Logger.php">Logger.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -404,7 +439,13 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use \X\Util\Logger;
+
+Logger::info('Processing started');
+Logger::info('Order created', ['order_id' =&gt; 456, 'total' =&gt; 1000]);
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -436,7 +477,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Logger.php"><a href="files/src-x-util-logger.html"><abbr title="src/X/Util/Logger.php">Logger.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 

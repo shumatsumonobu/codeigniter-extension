@@ -2,24 +2,46 @@
 namespace X\Database;
 
 /**
- * Query Builder.
+ * Extended Query Builder class.
+ *
+ * Provides enhanced query building with additional methods like
+ * INSERT ON DUPLICATE KEY UPDATE and improved error handling.
+ *
+ * Usage:
+ * ```php
+ * // Insert with duplicate key update
+ * $id = $this->db
+ *   ->set(['name' => 'John', 'email' => 'john@example.com'])
+ *   ->insert_on_duplicate_update('users');
+ *
+ * // Batch insert with duplicate key update
+ * $affected = $this->db->insert_on_duplicate_update_batch('users', [
+ *   ['name' => 'John', 'email' => 'john@example.com'],
+ *   ['name' => 'Jane', 'email' => 'jane@example.com']
+ * ]);
+ * ```
  */
 #[\AllowDynamicProperties]
 abstract class QueryBuilder extends \CI_DB_query_builder {
   /**
    * Initialize query builder.
-   * @param mixed $config DB Configuration.
+   *
+   * @param array $config Database configuration array.
    */
   public function __construct($config) {
     parent::__construct($config);
   }
 
   /**
-   * Insert_On_Duplicate_Key_Update.
-   * @param string $table (optional) Table name.
-   * @param array|object $set (optional) an associative array of insert values.
-   * @param bool $escape (optional) Whether to escape values and identifiers.
-   * @return int Insert ID.
+   * Insert or update on duplicate key (MySQL specific).
+   *
+   * Performs INSERT and updates existing row if duplicate key is found.
+   *
+   * @param string $table Table name. Uses qb_from if empty.
+   * @param array|object|null $set Associative array of field/value pairs.
+   * @param bool|null $escape Whether to escape values and identifiers.
+   * @return int Insert ID of the new or existing row.
+   * @throws \RuntimeException If no data or table specified.
    */
   public function insert_on_duplicate_update($table='', $set=null, $escape=null): int {
     if ($set !== null)
@@ -43,12 +65,16 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Insert_On_Duplicate_Key_Update_Batch.
-   * @param string $table (optional) Table name.
-   * @param array|object $set (optional) an associative array of insert values.
-   * @param bool $escape (optional) Whether to escape values and identifiers.
-   * @param int $batchSize (optional) Count of rows to insert at once. Default is 100.
-   * @return int Number of rows inserted or false on failure.
+   * Batch insert or update on duplicate key (MySQL specific).
+   *
+   * Performs batch INSERT and updates existing rows if duplicate keys are found.
+   *
+   * @param string $table Table name. Uses qb_from if empty.
+   * @param array|object|null $set Array of associative arrays with field/value pairs.
+   * @param bool|null $escape Whether to escape values and identifiers.
+   * @param int $batchSize Number of rows to insert per query. Default is 100.
+   * @return int Number of affected rows.
+   * @throws \RuntimeException If no data or table specified.
    */
   public function insert_on_duplicate_update_batch(string $table='', $set=null, bool $escape=null, int $batchSize=100): int {
     if ($set !== null)
@@ -78,11 +104,15 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Insert.
-   * @param string $table (optional) Table name.
-   * @param array|object $set (optional) An associative array of field/value pairs.
-   * @param bool $escape (optional) Whether to escape values and identifiers.
+   * Insert a single row.
+   *
+   * Performs INSERT and returns the auto-increment ID.
+   *
+   * @param string $table Table name.
+   * @param array|object|null $set Associative array of field/value pairs.
+   * @param bool|null $escape Whether to escape values and identifiers.
    * @return int Insert ID.
+   * @throws \RuntimeException On query failure.
    */
   public function insert($table='', $set=null, $escape=null): int {
     $result = parent::insert($table, $set, $escape);
@@ -94,12 +124,16 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Insert_Batch.
+   * Insert multiple rows.
+   *
+   * Performs batch INSERT and returns array of insert IDs.
+   *
    * @param string $table Table name.
-   * @param array|object $set (optional) Data to insert.
-   * @param bool $escape (optional) Whether to escape values and identifiers.
-   * @param int $batchSize (optional) Count of rows to insert at once. Default is 100.
-   * @return int[] Insert ID.
+   * @param array|object|null $set Array of associative arrays with field/value pairs.
+   * @param bool|null $escape Whether to escape values and identifiers.
+   * @param int $batchSize Number of rows to insert per query. Default is 100.
+   * @return int[] Array of insert IDs.
+   * @throws \RuntimeException On query failure.
    */
   public function insert_batch($table, $set=null, $escape=null, $batchSize=100):array {
     if (parent::insert_batch($table, $set, $escape, $batchSize) === false) {
@@ -111,12 +145,16 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Update.
-   * @param string $table (optional) Table name.
-   * @param array|object $set (optional) An associative array of field/value pairs.
-   * @param string|array $where (optional) The WHERE clause.
-   * @param int $limit (optional) The LIMIT clause.
+   * Update rows.
+   *
+   * Performs UPDATE query with optional WHERE and LIMIT clauses.
+   *
+   * @param string $table Table name.
+   * @param array|object|null $set Associative array of field/value pairs.
+   * @param string|array|null $where WHERE clause conditions.
+   * @param int|null $limit Maximum number of rows to update.
    * @return void
+   * @throws \RuntimeException On query failure.
    */
   public function update($table='', $set=null, $where=null, $limit=null): void {
     if (parent::update($table, $set, $where, $limit) === false) {
@@ -126,12 +164,16 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Update_Batch.
+   * Update multiple rows in batch.
+   *
+   * Performs batch UPDATE using a common index field.
+   *
    * @param string $table Table name.
-   * @param array|object $set (optional) Field name, or an associative array of field/value pairs.
-   * @param string $value (optional)  Field value, if $set is a single field.
-   * @param int $batchSize (optional) Count of rows to update at once. Default is 100.
-   * @return int Number of rows updated or FALSE on failure
+   * @param array|object|null $set Array of associative arrays with field/value pairs.
+   * @param string|null $index Index field name used to match rows.
+   * @param int $batchSize Number of rows to update per query. Default is 100.
+   * @return int Number of affected rows.
+   * @throws \RuntimeException On query failure.
    */
   public function update_batch($table, $set=null, $value=null, $batchSize=100):int {
     $affectedRows = parent::update_batch($table, $set, $value, $batchSize);
@@ -143,11 +185,15 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Execute the query.
-   * @param string $sql The SQL statement to execute.
-   * @param array|false $binds (optional) An array of binding data.
-   * @param bool $returnObject (optional) Whether to return a result object or not.
-   * @return mixed true for successful "write-type" queries, CI_DB_result instance (method chaining) on "query" success, false on failure.
+   * Execute a raw SQL query.
+   *
+   * Executes the given SQL statement with optional parameter binding.
+   *
+   * @param string $sql SQL statement to execute.
+   * @param array|false $binds Parameter bindings for prepared statements. Default is false.
+   * @param bool|null $returnObject Return result object for SELECT queries.
+   * @return mixed True for write queries, result object for SELECT queries.
+   * @throws \RuntimeException On query failure.
    */
   public function query($sql, $binds=false, $returnObject=null) {
     $result = parent::query($sql, $binds, $returnObject);
@@ -159,8 +205,11 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Load the result drivers.
-   * @return string the name of the result class.
+   * Load the result driver class.
+   *
+   * Creates and returns the appropriate result driver class name for the current database driver.
+   *
+   * @return string Fully qualified result driver class name.
    */
   public function load_rdriver(): string {
     $driver = '\X\Database\\' . ucfirst($this->dbdriver) . 'Driver';
@@ -173,21 +222,22 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Get QB FROM data.
-   * @param int $index Index of the table name list specified in the from clause. Default is 0.
-   * @return bool QB FROM.
+   * Check if FROM table is set in query builder.
+   *
+   * @param int $index Index of the table in FROM clause. Default is 0.
+   * @return bool True if table is set at the given index.
    */
   public function isset_qb_from(int $index=0): bool {
     return isset($this->qb_from[$index]);
   }
 
   /**
-   * Insert on duplicate key update statement.
-   * Generates a platform-specific insert string from the supplied data.
+   * Generate INSERT ON DUPLICATE KEY UPDATE SQL statement.
+   *
    * @param string $table Table name.
-   * @param array $keys INSERT keys.
-   * @param array $values INSERT values.
-   * @return string INSERT query.
+   * @param array $keys Column names.
+   * @param array $values Column values.
+   * @return string SQL query string.
    */
   private function _insert_on_duplicate_update(string $table, array $keys, array $values): string {
     foreach ($keys as $key)
@@ -196,12 +246,12 @@ abstract class QueryBuilder extends \CI_DB_query_builder {
   }
 
   /**
-   * Insert on duplicate key update batch statement.
-   * Generates a platform-specific insert string from the supplied data.
-   * @param string $table Table name
-   * @param array $keys INSERT keys
-   * @param array $values INSERT values
-   * @return string INSERT ON DUPLICATE KEY UPDATE query.
+   * Generate batch INSERT ON DUPLICATE KEY UPDATE SQL statement.
+   *
+   * @param string $table Table name.
+   * @param array $keys Column names.
+   * @param array $values Array of value sets.
+   * @return string SQL query string.
    */
   private function _insert_on_duplicate_update_batch(string $table, array $keys, array $values): string {
     foreach ($keys as $key)

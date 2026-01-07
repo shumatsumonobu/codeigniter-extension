@@ -2,7 +2,11 @@
 namespace X\Util;
 
 /**
- * REST API client.
+ * REST API client class.
+ *
+ * Provides HTTP client functionality using cURL with support for
+ * GET/POST/PUT/DELETE methods, SSL authentication, and basic auth.
+ *
  * ```php
  * use \X\Util\RestClient;
  * 
@@ -20,17 +24,18 @@ namespace X\Util;
  */
 class RestClient {
   /**
-   * Rest Client option.
-   * @var {
-   *   headers?: string[],
-   *   parameters?: mixed[],
-   *   curl_option?: mixed[],
-   *   user_agent? string,
-   *   base_url?: string,
-   *   username?: string,
-   *   password?: string,
-   *   ssl: {cert_file?: string, ca_file?: string, secret_key_file?: string, secret_key_passphrase?: string}
-   * }
+   * REST client options.
+   *
+   * - headers: array of HTTP headers (e.g., ['X-API-KEY' => 'xxx'])
+   * - parameters: array of default request parameters
+   * - curl_option: array of additional cURL options
+   * - user_agent: string custom user agent
+   * - base_url: string base URL for requests
+   * - username: string for basic authentication
+   * - password: string for basic authentication
+   * - ssl: array with 'cert_file', 'ca_file', 'secret_key_file', 'secret_key_passphrase'
+   *
+   * @var array
    */
   public $options;
 

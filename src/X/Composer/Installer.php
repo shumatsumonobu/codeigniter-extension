@@ -6,24 +6,39 @@ use Composer\IO\ConsoleIO;
 use \X\Util\FileHelper;
 
 /**
- * Create a codeigniter-extension project.
+ * Composer post-create-project installer.
+ *
+ * Handles the setup of a new codeigniter-extension project after
+ * `composer create-project` is executed. Configures CodeIgniter,
+ * copies skeleton files, and sets up frontend assets.
  */
 final class Installer {
   /**
-   * CodeIgniter directory path.
+   * Path to the CodeIgniter framework directory.
+   *
    * @var string
    */
   const FRAMEWORK = 'vendor/codeigniter/framework';
 
   /**
-   * The public directory path of the project to be created.
+   * Path to the public document root directory.
+   *
    * @var string
    */
   const DOCROOT = 'public';
 
   /**
-   * Create a codeigniter-extension project.
-   * @param Event $event Command Event.
+   * Run the project installation process.
+   *
+   * Performs the following steps:
+   * 1. Copy and configure application files
+   * 2. Create entry point (index.php)
+   * 3. Copy sample database schema (init.sql)
+   * 4. Configure CodeIgniter settings
+   * 5. Setup frontend module (npm install & build)
+   * 6. Clean up unnecessary files
+   *
+   * @param Event $event Composer script event.
    * @return void
    */
   public static function run(Event $event) {

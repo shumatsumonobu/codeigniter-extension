@@ -4,30 +4,48 @@ use \X\Util\HttpResponse;
 use \X\Util\Loader;
 
 /**
- * CI_Controller extension.
+ * Base controller class extending CI_Controller.
+ *
+ * Provides enhanced response handling, auto-loading of models/libraries,
+ * CORS support, and hook points for response processing.
+ *
+ * Usage:
+ * ```php
+ * class UserController extends \X\Controller\Controller {
+ *   protected $model = ['UserModel', 'RoleModel'];
+ *   protected $library = 'session';
+ *
+ *   public function index() {
+ *     $this->set('users', $this->UserModel->findAll())->view('user/index');
+ *   }
+ * }
+ * ```
  */
 #[\AllowDynamicProperties]
 abstract class Controller extends \CI_Controller {
   /**
-   * Auto-loading model name.
-   * @var string|string[]
+   * Model(s) to auto-load on instantiation.
+   *
+   * @var string|string[] Single model name or array of model names.
    */
   protected $model;
 
   /**
-   * Auto-loading library name.
-   * @var string|string[]
+   * Library(s) to auto-load on instantiation.
+   *
+   * @var string|string[] Single library name or array of library names.
    */
   protected $library;
 
   /**
-   * HttpResponse instance.
+   * HTTP response handler instance.
+   *
    * @var HttpResponse
    */
   protected $httpResponse;
 
   /**
-   * Initialize the controller.
+   * Initialize controller and auto-load models/libraries.
    */
   public function __construct() {
     parent::__construct();
@@ -38,24 +56,27 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Sets the CORS header.
+   * Set CORS (Cross-Origin Resource Sharing) headers.
+   *
+   * @example Allow all origins
    * ```php
-   * // Allow all.
-   * parent::setCorsHeader('*');
+   * $this->setCorsHeader('*');
+   * ```
    *
-   * // Only any origin is allowed.
-   * parent::setCorsHeader('http://www.example.jp');
-   * parent::setCorsHeader('http://www.example.jp https://www.example.jp http://sub.example.jp');
+   * @example Allow specific origins (space-separated)
+   * ```php
+   * $this->setCorsHeader('http://example.com https://example.com');
+   * ```
    *
-   * // To set the same Access-Control-Allow-Origin for all responses, use the hook point called before the response.
-   * abstract class AppController extends \X\Controller\Controller {
-   *   protected function beforeResponse(string $referer) {
-   *     $this->setCorsHeader('*');
-   *   }
+   * @example Set CORS for all responses via hook
+   * ```php
+   * protected function beforeResponse(string $referer) {
+   *   $this->setCorsHeader('*');
    * }
    * ```
-   * @param string $origin Allowable Origins.
-   * @return Controller
+   *
+   * @param string $origin Allowed origin(s). Use '*' for all or space-separated URLs.
+   * @return Controller Method chaining.
    */
   protected function setCorsHeader(string $origin='*') {
     $this->httpResponse->setCorsHeader($origin);
@@ -63,10 +84,29 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Set response.
-   * @param mixed $key If one argument, the response data. If two arguments, the field name of the response data.
-   * @param mixed|null $value Response data.
-   * @return Controller
+   * Set response data.
+   *
+   * @example Set single field
+   * ```php
+   * $this->set('username', 'John')->json();
+   * // Output: {"username": "John"}
+   * ```
+   *
+   * @example Set multiple fields
+   * ```php
+   * $this->set('id', 1)->set('name', 'John')->json();
+   * // Output: {"id": 1, "name": "John"}
+   * ```
+   *
+   * @example Set entire response data at once
+   * ```php
+   * $this->set(['id' => 1, 'name' => 'John'])->json();
+   * // Output: {"id": 1, "name": "John"}
+   * ```
+   *
+   * @param mixed $key Response data (1 arg) or field name (2 args).
+   * @param mixed|null $value Field value when using 2 arguments.
+   * @return Controller Method chaining.
    */
   protected function set($key, $value=null) {
     func_num_args() === 1
@@ -76,8 +116,9 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Clear response.
-   * @return Controller
+   * Clear all response data.
+   *
+   * @return Controller Method chaining.
    */
   protected function clear() {
     $this->httpResponse->clear($key, $value);
@@ -85,9 +126,10 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Set HTTP status.
-   * @param int $httpStatus HTTP status.
-   * @return Controller
+   * Set HTTP response status code.
+   *
+   * @param int $httpStatus HTTP status code (e.g., 200, 404, 500).
+   * @return Controller Method chaining.
    */
   protected function status(int $httpStatus) {
     $this->httpResponse->status($httpStatus);
@@ -95,9 +137,30 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Response JSON.
-   * @param bool $forceObject (optional) Outputs an object rather than an array when a non-associative array is used.
-   * @param bool $prettyrint (optional) Use whitespace in returned data to format it.
+   * Send JSON response.
+   *
+   * @example Basic JSON response
+   * ```php
+   * public function getUser() {
+   *   $user = $this->UserModel->get_by_id(1);
+   *   $this->set('user', $user)->json();
+   * }
+   * // Output: {"user": {"id": 1, "name": "John"}}
+   * ```
+   *
+   * @example Force object output for empty arrays
+   * ```php
+   * $this->set('items', [])->json(true);
+   * // Output: {"items": {}} instead of {"items": []}
+   * ```
+   *
+   * @example Pretty-printed JSON for debugging
+   * ```php
+   * $this->set('data', $complexData)->json(false, true);
+   * ```
+   *
+   * @param bool $forceObject Force object output for non-associative arrays.
+   * @param bool $prettyrint Pretty-print JSON with whitespace.
    * @return void
    */
   protected function json(bool $forceObject=false, bool $prettyrint=false): void {
@@ -107,8 +170,9 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Response HTML.
-   * @param string $html HTML string.
+   * Send HTML response.
+   *
+   * @param string $html HTML content string.
    * @return void
    */
   protected function html(string $html): void {
@@ -118,8 +182,25 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Responds with the result of compiling the specified template into HTML.
-   * @param string $templatePath Template path.
+   * Render and send Twig template response.
+   *
+   * @example Render a template with data
+   * ```php
+   * public function index() {
+   *   $users = $this->UserModel->get_all();
+   *   $this->set('users', $users)->set('title', 'User List')->view('user/index');
+   * }
+   * ```
+   *
+   * @example Template file (views/user/index.twig)
+   * ```twig
+   * <h1>{{ title }}</h1>
+   * {% for user in users %}
+   *   <p>{{ user.name }}</p>
+   * {% endfor %}
+   * ```
+   *
+   * @param string $templatePath Path to Twig template file.
    * @return void
    */
   protected function view(string $templatePath): void {
@@ -129,8 +210,9 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Response js.
-   * @param string $js JS Code.
+   * Send JavaScript response.
+   *
+   * @param string $js JavaScript code.
    * @return void
    */
   protected function js(string $js): void {
@@ -140,8 +222,9 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Response Plain text.
-   * @param string $plainText Plain text.
+   * Send plain text response.
+   *
+   * @param string $plainText Plain text content.
    * @return void
    */
   protected function text(string $plainText):void {
@@ -151,10 +234,26 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Download file.
-   * @param string $filename Download file name.
-   * @param string $content (optional) Downloadable Content.
-   * @param bool $mime (optional) MIME Type. The default is false and the MIME type is automatically detected.
+   * Send file download response.
+   *
+   * @example Download generated content
+   * ```php
+   * public function exportCsv() {
+   *   $csv = "id,name\n1,John\n2,Jane";
+   *   $this->download('users.csv', $csv, 'text/csv');
+   * }
+   * ```
+   *
+   * @example Download existing file
+   * ```php
+   * public function downloadReport() {
+   *   $this->download('report.pdf', file_get_contents('/path/to/report.pdf'));
+   * }
+   * ```
+   *
+   * @param string $filename Download filename for the browser.
+   * @param string $content File content or path to file.
+   * @param bool $mime MIME type. False for auto-detection.
    * @return void
    */
   protected function download(string $filename, string $content='', bool $mime=false): void {
@@ -164,8 +263,27 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Response image.
-   * @param string $imagePath Image path.
+   * Send image response.
+   *
+   * Outputs an image file with appropriate Content-Type header.
+   *
+   * @example Display user avatar
+   * ```php
+   * public function avatar($userId) {
+   *   $user = $this->UserModel->get_by_id($userId);
+   *   $this->image(FCPATH . 'uploads/avatars/' . $user['avatar']);
+   * }
+   * ```
+   *
+   * @example Display dynamically generated image
+   * ```php
+   * public function thumbnail($imageId) {
+   *   $path = $this->ImageService->getThumbnailPath($imageId);
+   *   $this->image($path);
+   * }
+   * ```
+   *
+   * @param string $imagePath Path to the image file.
    * @return void
    */
   protected function image(string $imagePath): void {
@@ -175,31 +293,32 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Internal redirect.
-   * Allows for internal redirection to a location determined by a header returned from a backend.
-   * This allows the backend to authenticate and perform any other processing,
-   * provide content to the end user from the internally redirected location,
-   * and free up the backend to handle other requests.
+   * Perform internal redirect (X-Accel-Redirect).
    *
-   * Nginx:
+   * Allows internal redirection to a location determined by a header returned from the backend.
+   * This enables the backend to authenticate and perform processing, then serve content
+   * from an internally redirected location while freeing the backend for other requests.
+   *
+   * @example Nginx configuration
    * ```nginx
-   * # Will serve /var/www/files/myfile
-   * # When passed URI /protected/myfile
+   * # Will serve /var/www/files/myfile when passed URI /protected/myfile
    * location /protected {
    *   internal;
    *   alias /var/www/files;
    * }
-   * ``
-   * 
-   * PHP:
+   * ```
+   *
+   * @example PHP usage
    * ```php
-   * class Sample extends \X\Controller\Controller {
-   *   public function index() {
-   *     parent::internalRedirect('/protected/myfile');
+   * class FileController extends \X\Controller\Controller {
+   *   public function download() {
+   *     // Authenticate user, then serve protected file
+   *     $this->internalRedirect('/protected/secret-document.pdf');
    *   }
    * }
    * ```
-   * @param string $redirectPath Path to internal redirect.
+   *
+   * @param string $redirectPath Internal redirect path.
    * @return void
    */
   public function internalRedirect(string $redirectPath): void {
@@ -209,10 +328,36 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Error response.
-   * @param string $message Error message.
-   * @param int $httpStatus (optional) HTTP status.
-   * @param bool $forceJsonResponse (optional) Force a response with Content-Type "application/json".
+   * Send error response.
+   *
+   * Outputs an error message with the specified HTTP status code.
+   *
+   * @example Return 404 error
+   * ```php
+   * public function show($id) {
+   *   $user = $this->UserModel->get_by_id($id);
+   *   if (!$user) {
+   *     $this->error('User not found', 404);
+   *     return;
+   *   }
+   *   $this->set('user', $user)->json();
+   * }
+   * ```
+   *
+   * @example Force JSON error response with additional data
+   * ```php
+   * public function create() {
+   *   if (!$this->validate()) {
+   *     $this->set('errors', $this->validation_errors())
+   *          ->error('Validation failed', 400, true);
+   *     return;
+   *   }
+   * }
+   * ```
+   *
+   * @param string $message Error message to display.
+   * @param int $httpStatus HTTP status code. Default is 500.
+   * @param bool $forceJsonResponse Force JSON response format. Default is false.
    * @return void
    */
   protected function error(string $message, int $httpStatus=500, bool $forceJsonResponse=false): void {
@@ -220,8 +365,11 @@ abstract class Controller extends \CI_Controller {
   }
 
   /**
-   * Get referrer.
-   * @return string Referrer.
+   * Get HTTP referrer URL.
+   *
+   * Returns the HTTP_REFERER if available, otherwise constructs the current URL.
+   *
+   * @return string Referrer URL.
    */
   private function getReferer(): string {
     if (!empty($_SERVER['HTTP_REFERER']))
@@ -232,57 +380,80 @@ abstract class Controller extends \CI_Controller {
     return $protocol . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   }
 
+  // =========================================================================
+  // Response Hook Methods
+  // Override these methods to add custom processing before responses.
+  // =========================================================================
+
   /**
-   * Called just before response. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before any response. Override to add global response processing.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeResponse(string $referer) {}
 
   /**
-   * Called just before the JSON response. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before JSON response.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeResponseJson(string $referer) {}
 
   /**
-   * Called just before the template response. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before template view response.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeResponseView(string $referer) {}
 
   /**
-   * Called just before the HTML response. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before HTML response.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeResponseHtml(string $referer) {}
 
   /**
-   * Called just before the JS response. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before JavaScript response.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeResponseJs(string $referer) {}
 
   /**
-   * Called just before plain text response. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before plain text response.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeResponseText(string $referer) {}
 
   /**
-   * Called just before downloading. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before file download response.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeDownload(string $referer) {}
 
   /**
-   * Called just before the image response. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before image response.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeResponseImage(string $referer) {}
 
   /**
-   * Called just before the internal redirect. Override as needed.
-   * @param string $referer Referrer.
+   * Hook called before internal redirect.
+   *
+   * @param string $referer Referrer URL.
+   * @return void
    */
   protected function beforeInternalRedirect(string $referer) {}
 }

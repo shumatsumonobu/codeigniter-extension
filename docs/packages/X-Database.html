@@ -122,7 +122,7 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="packages/X-Database.html" class="">Database</a>
+                <a href="packages/X-Database.html" class="-active">Database</a>
                 
             </li>
             </ul>
@@ -145,51 +145,133 @@
             <div class="phpdocumentor-column -nine phpdocumentor-content">
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="packages/X.html">X</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">Validation.php</h2>
+    <article class="phpdocumentor-element -package">
+        <h2 class="phpdocumentor-content__title">Database</h2>
 
         
-
-
-
-
-
 <h3 id="toc">
     Table of Contents
-    <a href="files/src-x-util-validation.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="packages/X-Database.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
 
 
-    <h4 id="toc-classes">
-        Classes
-        <a href="files/src-x-util-validation.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+
+
+
+
+<h4 id="toc-functions">
+    Functions
+    <a href="packages/X-Database.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/x-database.html#function_DB">DB()</a>
+    <span>
+                                &nbsp;: <a href="classes/X-Database-QueryBuilder.html"><abbr title="\X\Database\QueryBuilder">QueryBuilder</abbr></a>    </span>
+</dt>
+<dd>Initialize and return a database connection.</dd>
+
+    </dl>
+
+        
+
+            <section class="phpdocumentor-functions">
+        <h3 class="phpdocumentor-elements__header" id="functions">
+            Functions
+            <a href="packages/X-Database.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_DB">
+        DB()
+        <a href="namespaces/x-database.html#function_DB" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-    <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/X-Util-Validation.html"><abbr title="\X\Util\Validation">Validation</abbr></a></dt><dd>Data validation utility class.</dd>    </dl>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/X/Database/DB.php"><a href="files/src-x-database-db.html"><abbr title="src/X/Database/DB.php">DB.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
+    </aside>
 
+        <p class="phpdocumentor-summary">Initialize and return a database connection.</p>
 
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                <span class="phpdocumentor-signature__reference-operator">&amp;</span>    <span class="phpdocumentor-signature__name">DB</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queryBuilderOverride</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Database-QueryBuilder.html"><abbr title="\X\Database\QueryBuilder">QueryBuilder</abbr></a></span></code>
 
+        <section class="phpdocumentor-description"><p>Creates a database connection using the specified configuration or DSN string.
+Supports custom query builder override for extended functionality.</p>
+<p>Usage:</p>
+<pre class="prettyprint"><code class="language-php">// Using connection group name
+$db = \X\Database\DB('default');
 
+// Using DSN string
+$db = \X\Database\DB('mysqli://user:pass@localhost/dbname');
 
+// Using configuration array
+$db = \X\Database\DB([
+  'dsn' =&gt; '',
+  'hostname' =&gt; 'localhost',
+  'username' =&gt; 'root',
+  'password' =&gt; '',
+  'database' =&gt; 'mydb',
+  'dbdriver' =&gt; 'mysqli'
+]);
+</code></pre>
+</section>
 
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$config</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Connection group name, DSN string, or configuration array. Default is ''.</p>
+</section>
 
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$queryBuilderOverride</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Custom query builder instance to override default.</p>
+</section>
 
+            </dd>
+            </dl>
 
-        
+    
 
-        
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/X-Database-QueryBuilder.html"><abbr title="\X\Database\QueryBuilder">QueryBuilder</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Database query builder instance.</p>
+</section>
+
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/X/Util/Validation.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -288,11 +370,17 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                        <li><a href="files/src-x-util-validation.html#toc-classes">Classes</a></li>
-                                                                                                                    </ul>
+                                                                                                                                                                                        <li><a href="packages/X-Database.html#toc-functions">Functions</a></li>
+                                    </ul>
             </li>
 
             
+                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="namespaces/x-database.html#function_DB">DB()</a></li>
+                                            </ul>
+                </li>
                     </ul>
     </section>
 
@@ -310,7 +398,7 @@
     </section>
 </section>
         </div>
-        <a href="files/src-x-util-validation.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="packages/X-Database.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

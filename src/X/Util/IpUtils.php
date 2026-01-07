@@ -3,7 +3,10 @@ namespace X\Util;
 use \X\Util\Logger;
 
 /**
- * IP Utility.
+ * IP address utility class.
+ *
+ * Provides IP address validation, format detection (IPv4/IPv6),
+ * CIDR range checking, and client IP extraction from X-Forwarded-For header.
  */
 final class IpUtils {
   /**

@@ -3,7 +3,10 @@ namespace X\Util;
 use MathieuViossat\Util\ArrayToTextTable;
 
 /**
- * Array utility.
+ * Array utility class.
+ *
+ * Provides helper methods for array manipulation including nested key search,
+ * sorting, filtering, and text table generation.
  */
 final class ArrayHelper {
   /**

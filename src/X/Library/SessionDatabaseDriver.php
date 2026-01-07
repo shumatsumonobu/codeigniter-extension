@@ -6,13 +6,25 @@ use \X\Util\ArrayHelper;
 use \X\Util\Logger;
 
 /**
- * CI_Session_database_driver extension.
- * Added reading of additional columns (application/config/config.php - sess_table_additional_columns) to be stored in the session management table.
+ * Extended session database driver.
+ *
+ * Extends CodeIgniter's session database driver to support additional columns
+ * in the session table. Configure additional columns via `sess_table_additional_columns`
+ * in application/config/config.php.
+ *
+ * Configuration example:
+ * ```php
+ * // In application/config/config.php
+ * $config['sess_table_additional_columns'] = ['user_id', 'username'];
+ * ```
+ *
+ * @implements \SessionHandlerInterface
  */
 class SessionDatabaseDriver extends \CI_Session_database_driver {
   /**
-   * Initialize SessionDatabaseDriver.
-   * @param array $params Configuration parameters.
+   * Initialize session database driver.
+   *
+   * @param array $params Configuration parameters from CI session config.
    */
   public function __construct(&$params) {
     parent::__construct($params);
@@ -20,9 +32,10 @@ class SessionDatabaseDriver extends \CI_Session_database_driver {
   }
 
   /**
-   * Reads session data and acquires a lock.
+   * Read session data and acquire lock.
+   *
    * @param string $sessionId Session ID.
-   * @return string Serialized session data.
+   * @return string Serialized session data, or empty string if not found.
    */
   public function read($sessionId) {
     if ($this->_get_lock($sessionId) === false)
@@ -56,10 +69,11 @@ class SessionDatabaseDriver extends \CI_Session_database_driver {
   }
 
   /**
-   * Writes (create / update) session data
+   * Write session data (create or update).
+   *
    * @param string $sessionId Session ID.
    * @param string $sessionData Serialized session data.
-   * @return bool Whether the session was successfully written or not.
+   * @return bool True on success, false on failure.
    */
   public function write($sessionId, $sessionData) {
     try {
@@ -112,10 +126,13 @@ class SessionDatabaseDriver extends \CI_Session_database_driver {
   }
 
   /**
-   * Update session timestamp (PHP 7.0+ SessionHandlerInterface requirement).
+   * Update session timestamp without modifying data.
+   *
+   * Required by PHP 7.0+ SessionHandlerInterface for lazy write support.
+   *
    * @param string $sessionId Session ID.
-   * @param string $sessionData Serialized session data.
-   * @return bool Whether the timestamp was successfully updated or not.
+   * @param string $sessionData Serialized session data (unused).
+   * @return bool True on success, false on failure.
    */
   public function updateTimestamp($sessionId, $sessionData) {
     try {
@@ -135,9 +152,10 @@ class SessionDatabaseDriver extends \CI_Session_database_driver {
   }
 
   /**
-   * Unserialize the session.
+   * Unserialize session data to array.
+   *
    * @param string $data Serialized session data.
-   * @return array|null Unserialized session data.
+   * @return array|null Unserialized data array, or null if empty.
    */
   private function unserialize(string $data): ?array {
     $fieldset = preg_split('/([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)\|/', $data, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
@@ -149,10 +167,12 @@ class SessionDatabaseDriver extends \CI_Session_database_driver {
   }
 
   /**
-   * Add additional columns to table data.
-   * @param array $insertData Data to be registered in the session table.
-   * @param string $sessionData Session data.
-   * @return array Registration data for session tables with additional column information.
+   * Add configured additional columns to session table data.
+   *
+   * @param array $insertData Base session data for INSERT/UPDATE.
+   * @param string $sessionData Serialized session data to extract values from.
+   * @return array Session data with additional column values added.
+   * @throws \RuntimeException If configured column does not exist in session table.
    */
   private function addAdditionalColumnsToTableData(array $insertData, string $sessionData): array {
     $additionalColumns = !is_array($this->_config['table_additional_columns'])

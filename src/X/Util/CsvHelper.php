@@ -3,7 +3,10 @@ namespace X\Util;
 use \X\Util\Logger;
 
 /**
- * CSV Utility.
+ * CSV file utility class.
+ *
+ * Provides methods for reading and writing CSV files with
+ * proper encoding support and row manipulation callbacks.
  */
 final class CsvHelper {
   /**

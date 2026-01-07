@@ -1,12 +1,41 @@
 <?php
+/**
+ * Database initialization function.
+ *
+ * Initializes and returns a database connection with extended query builder support.
+ *
+ * @package X\Database
+ */
 namespace X\Database;
-// use \X\Util\Logger;
 
 /**
- * Initialize the database.
- * @param mixed $config (optional) Connection group name or database configuration options.
- * @param mixed $queryBuilderOverride (optional) An instance that overrides the existing CI_DB_query_builder.
- * @return void
+ * Initialize and return a database connection.
+ *
+ * Creates a database connection using the specified configuration or DSN string.
+ * Supports custom query builder override for extended functionality.
+ *
+ * Usage:
+ * ```php
+ * // Using connection group name
+ * $db = \X\Database\DB('default');
+ *
+ * // Using DSN string
+ * $db = \X\Database\DB('mysqli://user:pass@localhost/dbname');
+ *
+ * // Using configuration array
+ * $db = \X\Database\DB([
+ *   'dsn' => '',
+ *   'hostname' => 'localhost',
+ *   'username' => 'root',
+ *   'password' => '',
+ *   'database' => 'mydb',
+ *   'dbdriver' => 'mysqli'
+ * ]);
+ * ```
+ *
+ * @param string|array $config Connection group name, DSN string, or configuration array. Default is ''.
+ * @param mixed $queryBuilderOverride Custom query builder instance to override default.
+ * @return \X\Database\QueryBuilder Database query builder instance.
  */
 function &DB($config='', $queryBuilderOverride=null) {
   // Load the DB config file if a DSN string wasn't passed.

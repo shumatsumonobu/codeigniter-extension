@@ -7,6 +7,10 @@ All notable changes to this project will be documented in this file.
 - Added interactive form validation test page to demo application (`/validation-test`) demonstrating real-time validation with visual feedback.
 - Implemented `updateTimestamp()` method in `SessionDatabaseDriver` class to comply with PHP 7.0+ SessionHandlerInterface requirements, preventing "Failed to write session data" warnings.
 
+### Changed
+- Improved PHPDoc comments across all classes in `src/X/` with enhanced class descriptions, usage examples, and standardized annotations.
+- Enhanced README.md and README_ja.md with badges, architecture section, API reference tables, and troubleshooting guide.
+
 ## [5.0.3] - 2025/11/25
 
 ### Added
@@ -1069,3 +1073,5 @@ All notable changes to this project will be documented in this file.
 [5.0.0]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v4.2.0...v5.0.0
 [5.0.1]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.0...v5.0.1
 [5.0.2]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.1...v5.0.2
+[5.0.3]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.2...v5.0.3
+[5.0.4]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.3...v5.0.4

@@ -4,7 +4,11 @@ namespace X\Util;
 use \X\Util\Loader;
 
 /**
- * HTTP response processing Utility.
+ * HTTP response builder utility class.
+ *
+ * Provides fluent interface for building HTTP responses including JSON, HTML,
+ * JavaScript, plain text, file downloads, images, and error responses.
+ * Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.
  */
 final class HttpResponse {
   /**

@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -165,12 +175,18 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Exception/AccessDeniedException.php"><a href="files/src-x-exception-accessdeniedexception.html"><abbr title="src/X/Exception/AccessDeniedException.php">AccessDeniedException.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Access Denied Error Class.</p>
+            <p class="phpdocumentor-summary">Exception thrown when access to a resource is denied.</p>
 
+    <section class="phpdocumentor-description"><p>Typically thrown when @Access annotation restrictions are violated
+(e.g., unauthorized user role, unauthenticated access attempt).</p>
+<p>Usage:</p>
+<pre class="prettyprint"><code class="language-php">throw new AccessDeniedException('You do not have permission to access this resource');
+</code></pre>
+</section>
 
 
 

@@ -3,7 +3,10 @@ namespace X\Util;
 use \X\Util\Logger;
 
 /**
- * Various CI class loaders.
+ * CodeIgniter resource loader utility class.
+ *
+ * Provides static methods for loading models, libraries, databases,
+ * and configuration files with extended query builder support.
  */
 final class Loader {
   /**

@@ -3,7 +3,10 @@ namespace X\Util;
 use \X\Util\Logger;
 
 /**
- * HTML Utility.
+ * HTML utility class.
+ *
+ * Provides HTML content manipulation including URL content fetching,
+ * base tag injection, charset detection, and link extraction.
  */
 final class HtmlHelper {
   /**

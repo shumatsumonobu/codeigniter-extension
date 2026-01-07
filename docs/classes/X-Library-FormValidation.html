@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -167,12 +177,21 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">CI_Form_validation extension.</p>
+            <p class="phpdocumentor-summary">Extended form validation class.</p>
 
+    <section class="phpdocumentor-description"><p>Provides additional validation rules beyond CodeIgniter's built-in form validation.
+Includes validation for datetime, hostname, IP address, email, file paths, etc.</p>
+<p>Usage:</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;form_validation
+  -&gt;set_data(['email' =&gt; 'user@example.com', 'port' =&gt; '8080'])
+  -&gt;set_rules('email', 'Email', 'required|email')
+  -&gt;set_rules('port', 'Port', 'required|port');
+</code></pre>
+</section>
 
 
 
@@ -204,70 +223,70 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Initialize FormValidation.</dd>
+<dd>Initialize form validation.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_datetime">datetime()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is the date and time.</dd>
+<dd>Validate datetime format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_email">email()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is an e-mail.</dd>
+<dd>Validate email address format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_hostname">hostname()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a host name.</dd>
+<dd>Validate hostname format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_hostname_or_ipaddress">hostname_or_ipaddress()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a host name or IP.</dd>
+<dd>Validate hostname or IP address format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_ipaddress">ipaddress()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is an IP.</dd>
+<dd>Validate IP address format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_ipaddress_or_cidr">ipaddress_or_cidr()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is IP or CIDR format.</dd>
+<dd>Validate IP address or CIDR notation format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_is_path">is_path()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a file (directory) path.</dd>
+<dd>Validate file or directory path format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_port">port()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a port number.</dd>
+<dd>Validate port number (1-65535).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-FormValidation.html#method_unix_username">unix_username()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a unix user name.</dd>
+<dd>Validate UNIX username format.</dd>
 
     </dl>
 
@@ -298,11 +317,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize FormValidation.</p>
+        <p class="phpdocumentor-summary">Initialize form validation.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -318,7 +337,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Validation Rules.</p>
+                    <section class="phpdocumentor-description"><p>Initial validation rules. Default is empty array.</p>
 </section>
 
             </dd>
@@ -342,11 +361,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is the date and time.</p>
+        <p class="phpdocumentor-summary">Validate datetime format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -354,12 +373,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$this-&gt;form_validation
-  -&gt;set_data(['datetime' =&gt; '2021-02-03 17:46:00'])
-  -&gt;set_rules('datetime', 'datetime', 'required|datetime[Y-m-d H:i:s]');
-</code></pre>
-</section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -367,7 +381,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
@@ -376,19 +390,38 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Date Format.</p>
+                    <section class="phpdocumentor-description"><p>Expected date format (PHP date format string).</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Library-FormValidation.html#method_datetime#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$this-&gt;form_validation
+  -&gt;set_data(['datetime' =&gt; '2021-02-03 17:46:00'])
+  -&gt;set_rules('datetime', 'datetime', 'required|datetime[Y-m-d H:i:s]');
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid, false otherwise.</p>
 </section>
 
             </section>
@@ -408,11 +441,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is an e-mail.</p>
+        <p class="phpdocumentor-summary">Validate email address format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -420,8 +453,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>The verification method uses the regular expression proposed in the HTML5 specification.
-https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
+        <section class="phpdocumentor-description"><p>Uses the regular expression from the HTML5 specification for validation.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -431,19 +463,34 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Library-FormValidation.html#method_email#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address">https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid email address, false otherwise.</p>
 </section>
 
             </section>
@@ -463,11 +510,11 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a host name.</p>
+        <p class="phpdocumentor-summary">Validate hostname format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -483,7 +530,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
@@ -495,7 +542,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid hostname, false otherwise.</p>
 </section>
 
             </section>
@@ -515,11 +562,11 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a host name or IP.</p>
+        <p class="phpdocumentor-summary">Validate hostname or IP address format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -535,7 +582,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
@@ -547,7 +594,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid hostname or IP address, false otherwise.</p>
 </section>
 
             </section>
@@ -567,11 +614,11 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is an IP.</p>
+        <p class="phpdocumentor-summary">Validate IP address format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -587,7 +634,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
@@ -599,7 +646,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid IP address, false otherwise.</p>
 </section>
 
             </section>
@@ -619,11 +666,11 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is IP or CIDR format.</p>
+        <p class="phpdocumentor-summary">Validate IP address or CIDR notation format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -639,7 +686,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
@@ -651,7 +698,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid IP address or CIDR, false otherwise.</p>
 </section>
 
             </section>
@@ -671,11 +718,11 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a file (directory) path.</p>
+        <p class="phpdocumentor-summary">Validate file or directory path format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -691,7 +738,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
@@ -700,7 +747,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Whether leading slashes are allowed or not.</p>
+                    <section class="phpdocumentor-description"><p>Deny leading slashes if true. Default is false.</p>
 </section>
 
             </dd>
@@ -712,7 +759,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid path, false otherwise.</p>
 </section>
 
             </section>
@@ -732,11 +779,11 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a port number.</p>
+        <p class="phpdocumentor-summary">Validate port number (1-65535).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -752,7 +799,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
@@ -764,7 +811,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid port number, false otherwise.</p>
 </section>
 
             </section>
@@ -784,11 +831,11 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/FormValidation.php"><a href="files/src-x-library-formvalidation.html"><abbr title="src/X/Library/FormValidation.php">FormValidation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a unix user name.</p>
+        <p class="phpdocumentor-summary">Validate UNIX username format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -804,7 +851,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input value.</p>
+                    <section class="phpdocumentor-description"><p>Input value to validate.</p>
 </section>
 
             </dd>
@@ -816,7 +863,7 @@ https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Check Results.</p>
+                <section class="phpdocumentor-description"><p>True if valid UNIX username, false otherwise.</p>
 </section>
 
             </section>

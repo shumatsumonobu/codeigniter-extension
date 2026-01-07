@@ -3,7 +3,21 @@ namespace X\Model;
 use \X\Util\Loader;
 
 /**
- * CI_Model extension.
+ * Extended Model class with query builder integration.
+ *
+ * Base model class that wraps CodeIgniter's query builder methods
+ * and provides automatic table name resolution via the TABLE constant.
+ *
+ * Usage:
+ * ```php
+ * class UserModel extends \X\Model\Model {
+ *   const TABLE = 'users';
+ *
+ *   public function findActive() {
+ *     return $this->where('active', 1)->get_all();
+ *   }
+ * }
+ * ```
  */
 #[\AllowDynamicProperties]
 abstract class Model extends \CI_Model {
@@ -36,6 +50,18 @@ abstract class Model extends \CI_Model {
 
   /**
    * Get database object.
+   *
+   * @example Execute raw query
+   * ```php
+   * $result = UserModel::db()->query('SELECT * FROM users WHERE status = ?', ['active']);
+   * ```
+   *
+   * @example Use different database connection
+   * ```php
+   * $logDb = UserModel::db('logging');
+   * $logDb->insert('access_logs', ['user_id' => 1, 'action' => 'login']);
+   * ```
+   *
    * @param string $config Connection group name. Default is "default".
    * @return CI_DB CI_DB instance.
    */
@@ -60,6 +86,27 @@ abstract class Model extends \CI_Model {
 
   /**
    * Query result. "array" version.
+   *
+   * @example Get all records
+   * ```php
+   * $users = $this->UserModel->get_all();
+   * // [['id' => 1, 'name' => 'John'], ['id' => 2, 'name' => 'Jane']]
+   * ```
+   *
+   * @example Get filtered records
+   * ```php
+   * $activeUsers = $this->UserModel->where('status', 'active')->get_all();
+   * ```
+   *
+   * @example Get with conditions and ordering
+   * ```php
+   * $recentUsers = $this->UserModel
+   *   ->where('created_at >', '2024-01-01')
+   *   ->order_by('created_at', 'DESC')
+   *   ->limit(10)
+   *   ->get_all();
+   * ```
+   *
    * @return array Search result data.
    */
   public function get_all() {
@@ -68,6 +115,25 @@ abstract class Model extends \CI_Model {
 
   /**
    * Find records matching the ID.
+   *
+   * @example Get single record by ID
+   * ```php
+   * $user = $this->UserModel->get_by_id(1);
+   * // ['id' => 1, 'name' => 'John', 'email' => 'john@example.com']
+   * ```
+   *
+   * @example Use in controller
+   * ```php
+   * public function show($id) {
+   *   $user = $this->UserModel->get_by_id($id);
+   *   if (!$user) {
+   *     $this->error('User not found', 404);
+   *     return;
+   *   }
+   *   $this->set('user', $user)->json();
+   * }
+   * ```
+   *
    * @param int $id ID.
    * @return array Search result data.
    */
@@ -86,6 +152,19 @@ abstract class Model extends \CI_Model {
 
   /**
    * Check if the ID exists.
+   *
+   * @example Check existence before delete
+   * ```php
+   * public function delete($id) {
+   *   if (!$this->UserModel->exists_by_id($id)) {
+   *     $this->error('User not found', 404);
+   *     return;
+   *   }
+   *   $this->UserModel->delete('', ['id' => $id]);
+   *   $this->set('success', true)->json();
+   * }
+   * ```
+   *
    * @param int $id ID.
    * @return bool Whether the ID exists.
    */
@@ -146,6 +225,25 @@ abstract class Model extends \CI_Model {
 
   /**
    * Insert.
+   *
+   * @example Insert with set() method
+   * ```php
+   * $this->UserModel
+   *   ->set('name', 'John')
+   *   ->set('email', 'john@example.com')
+   *   ->insert();
+   * ```
+   *
+   * @example Insert with array
+   * ```php
+   * $id = $this->UserModel->insert('', [
+   *   'name' => 'John',
+   *   'email' => 'john@example.com',
+   *   'created_at' => date('Y-m-d H:i:s')
+   * ]);
+   * echo "New user ID: $id";
+   * ```
+   *
    * @param string $table (optional) Table name.
    * @param array|object $set (optional) An associative array of field/value pairs.
    * @param bool $escape (optional) Whether to escape values and identifiers.
@@ -171,6 +269,32 @@ abstract class Model extends \CI_Model {
 
   /**
    * Update.
+   *
+   * @example Update with set() and where()
+   * ```php
+   * $this->UserModel
+   *   ->set('name', 'John Doe')
+   *   ->set('updated_at', date('Y-m-d H:i:s'))
+   *   ->where('id', 1)
+   *   ->update();
+   * ```
+   *
+   * @example Update with array
+   * ```php
+   * $this->UserModel->update('', [
+   *   'status' => 'inactive',
+   *   'updated_at' => date('Y-m-d H:i:s')
+   * ], ['id' => 1]);
+   * ```
+   *
+   * @example Batch update with condition
+   * ```php
+   * $this->UserModel
+   *   ->set('status', 'expired')
+   *   ->where('subscription_end <', date('Y-m-d'))
+   *   ->update();
+   * ```
+   *
    * @param string $table (optional) Table name.
    * @param array|object $set (optional) An associative array of field/value pairs.
    * @param string|array $where (optional) The WHERE clause.
@@ -218,6 +342,19 @@ abstract class Model extends \CI_Model {
   // Override QueryBuilder method
   /**
    * Generates the SELECT portion of the query.
+   *
+   * @example Select specific columns
+   * ```php
+   * $users = $this->UserModel->select('id, name, email')->get_all();
+   * ```
+   *
+   * @example Select with alias
+   * ```php
+   * $users = $this->UserModel
+   *   ->select('id, CONCAT(first_name, " ", last_name) as full_name')
+   *   ->get_all();
+   * ```
+   *
    * @param string $select (optional) The SELECT portion of a query.
    * @param bool $escape (optional) Whether to escape values and identifiers.
    * @return Model
@@ -293,6 +430,23 @@ abstract class Model extends \CI_Model {
 
   /**
    * Generates the JOIN portion of the query
+   *
+   * @example Inner join
+   * ```php
+   * $users = $this->UserModel
+   *   ->select('users.*, roles.name as role_name')
+   *   ->join('roles', 'roles.id = users.role_id')
+   *   ->get_all();
+   * ```
+   *
+   * @example Left join
+   * ```php
+   * $users = $this->UserModel
+   *   ->select('users.*, profiles.avatar')
+   *   ->join('profiles', 'profiles.user_id = users.id', 'left')
+   *   ->get_all();
+   * ```
+   *
    * @param string $table Table name.
    * @param string $cond The JOIN ON condition.
    * @param string $type (optional) The JOIN type.
@@ -306,6 +460,30 @@ abstract class Model extends \CI_Model {
 
   /**
    * Generates the WHERE portion of the query. Separates multiple calls with 'AND'.
+   *
+   * @example Simple equality
+   * ```php
+   * $users = $this->UserModel->where('status', 'active')->get_all();
+   * // SELECT * FROM users WHERE status = 'active'
+   * ```
+   *
+   * @example Comparison operators
+   * ```php
+   * $users = $this->UserModel
+   *   ->where('age >=', 18)
+   *   ->where('age <=', 65)
+   *   ->get_all();
+   * // SELECT * FROM users WHERE age >= 18 AND age <= 65
+   * ```
+   *
+   * @example Multiple conditions with array
+   * ```php
+   * $users = $this->UserModel->where([
+   *   'status' => 'active',
+   *   'role' => 'admin'
+   * ])->get_all();
+   * ```
+   *
    * @param string $key Name of field to compare, or associative array.
    * @param mixed $value (optional) If a single key, compared to this value.
    * @param bool $escape (optional) Whether to escape values and identifiers.
@@ -512,6 +690,25 @@ abstract class Model extends \CI_Model {
 
   /**
    * ORDER BY.
+   *
+   * @example Order by single column
+   * ```php
+   * $users = $this->UserModel->order_by('created_at', 'DESC')->get_all();
+   * ```
+   *
+   * @example Multiple order by
+   * ```php
+   * $users = $this->UserModel
+   *   ->order_by('role', 'ASC')
+   *   ->order_by('name', 'ASC')
+   *   ->get_all();
+   * ```
+   *
+   * @example Random order
+   * ```php
+   * $users = $this->UserModel->order_by('id', 'RANDOM')->limit(5)->get_all();
+   * ```
+   *
    * @param string $orderby Field to order by.
    * @param string $direction The order requested - ASC, DESC or random.
    * @param bool $escape (optional) Whether to escape values and identifiers.
@@ -524,6 +721,23 @@ abstract class Model extends \CI_Model {
 
   /**
    * LIMIT.
+   *
+   * @example Limit results
+   * ```php
+   * $users = $this->UserModel->limit(10)->get_all();
+   * // SELECT * FROM users LIMIT 10
+   * ```
+   *
+   * @example Pagination
+   * ```php
+   * $page = 2;
+   * $perPage = 10;
+   * $users = $this->UserModel
+   *   ->limit($perPage, ($page - 1) * $perPage)
+   *   ->get_all();
+   * // SELECT * FROM users LIMIT 10 OFFSET 10
+   * ```
+   *
    * @param int $value Number of rows to limit the results to.
    * @param int $offset Number of rows to skip.
    * @return Model
@@ -705,6 +919,25 @@ abstract class Model extends \CI_Model {
 
   /**
    * Delete.
+   *
+   * @example Delete by ID
+   * ```php
+   * $this->UserModel->delete('', ['id' => 1]);
+   * ```
+   *
+   * @example Delete with where()
+   * ```php
+   * $this->UserModel->where('id', 1)->delete();
+   * ```
+   *
+   * @example Delete with multiple conditions
+   * ```php
+   * $this->UserModel
+   *   ->where('status', 'inactive')
+   *   ->where('last_login <', '2023-01-01')
+   *   ->delete();
+   * ```
+   *
    * @param string $table (optional) The table(s) to delete from; string or array.
    * @param string $where (optional) The WHERE clause.
    * @param int $limit The (optional) LIMIT clause.
@@ -779,6 +1012,19 @@ abstract class Model extends \CI_Model {
   // Override CI_DB_driver method
   /**
    * Start Transaction.
+   *
+   * @example Basic transaction
+   * ```php
+   * $this->UserModel->trans_start();
+   * $this->UserModel->insert('', ['name' => 'John']);
+   * $this->OrderModel->insert('', ['user_id' => 1, 'total' => 100]);
+   * $this->UserModel->trans_complete();
+   *
+   * if ($this->UserModel->trans_status() === false) {
+   *   // Transaction failed
+   * }
+   * ```
+   *
    * @param bool $testMode (optional) Test mode flag.
    * @return bool TRUE on success, FALSE on failure.
    */
@@ -788,6 +1034,21 @@ abstract class Model extends \CI_Model {
 
   /**
    * Begin Transaction.
+   *
+   * @example Manual transaction control
+   * ```php
+   * $this->UserModel->trans_begin();
+   *
+   * try {
+   *   $this->UserModel->insert('', ['name' => 'John']);
+   *   $this->OrderModel->insert('', ['user_id' => 1]);
+   *   $this->UserModel->trans_commit();
+   * } catch (\Exception $e) {
+   *   $this->UserModel->trans_rollback();
+   *   throw $e;
+   * }
+   * ```
+   *
    * @param bool $testMode (optional) Test mode flag.
    * @return bool TRUE on success, FALSE on failure.
    */

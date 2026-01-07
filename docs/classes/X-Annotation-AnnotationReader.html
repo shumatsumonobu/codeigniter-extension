@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -164,12 +174,21 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Annotation/AnnotationReader.php"><a href="files/src-x-annotation-annotationreader.html"><abbr title="src/X/Annotation/AnnotationReader.php">AnnotationReader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Read the annotations of the controller&#039;s methods.</p>
+            <p class="phpdocumentor-summary">Annotation reader for controller methods.</p>
 
+    <section class="phpdocumentor-description"><p>Reads and parses Doctrine annotations from controller methods to extract
+access control information.</p>
+<p>Usage:</p>
+<pre class="prettyprint"><code class="language-php">$access = AnnotationReader::getAccessibility('UserController', 'edit');
+if (!$access-&gt;allow_logoff) {
+  redirect('/login');
+}
+</code></pre>
+</section>
 
 
 
@@ -199,23 +218,23 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Annotation-AnnotationReader.html#method_getAccessibility">getAccessibility()</a>
     <span>
-                                &nbsp;: array{allow_login: bool, allow_logoff: bool, allow_role: string, allow_http: bool}    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Get Access annotation information.</dd>
+<dd>Get Access annotation information from a controller method.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Annotation-AnnotationReader.html#method_getMethodAnnotation">getMethodAnnotation()</a>
     <span>
                                 &nbsp;: object|null    </span>
 </dt>
-<dd>Get method annotation.</dd>
+<dd>Get a specific annotation from a method.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Annotation-AnnotationReader.html#method_reader">reader()</a>
     <span>
                                 &nbsp;: <abbr title="\Doctrine\Common\Annotations\AnnotationReader">AnnotationReader</abbr>    </span>
 </dt>
-<dd>Get AnnotationReader instance.</dd>
+<dd>Get singleton Doctrine AnnotationReader instance.</dd>
 
     </dl>
 
@@ -246,25 +265,20 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Annotation/AnnotationReader.php"><a href="files/src-x-annotation-annotationreader.html"><abbr title="src/X/Annotation/AnnotationReader.php">AnnotationReader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get Access annotation information.</p>
+        <p class="phpdocumentor-summary">Get Access annotation information from a controller method.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getAccessibility</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array{allow_login: bool, allow_logoff: bool, allow_role: string, allow_http: bool}</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getAccessibility</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>The Access annotation contains the following fields.</p>
-<ul>
-<li>allow_login: Set to true to allow access for logged-in users or false to disallow access.</li>
-<li>allow_logoff: Set to true to allow access for logoff users, or false to disallow access.</li>
-<li>allow_role: Role names of logged-in users to be allowed access. You can specify multiple comma-separated names.</li>
-<li>allow_http: Set to true to allow access from HTTP, false to disallow. For example, if you want to allow access only from the CLI, set false.</li>
-</ul>
+        <section class="phpdocumentor-description"><p>Returns the access control settings defined by @Access annotation.
+If no annotation is found, returns default Access values (all allowed).</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -274,7 +288,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Controller class name.</p>
+                    <section class="phpdocumentor-description"><p>Controller class name (without namespace).</p>
 </section>
 
             </dd>
@@ -293,9 +307,9 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array{allow_login: bool, allow_logoff: bool, allow_role: string, allow_http: bool}</span>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Access annotation object.</p>
+                <section class="phpdocumentor-description"><p>Access settings.</p>
 </section>
 
             </section>
@@ -315,11 +329,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Annotation/AnnotationReader.php"><a href="files/src-x-annotation-annotationreader.html"><abbr title="src/X/Annotation/AnnotationReader.php">AnnotationReader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get method annotation.</p>
+        <p class="phpdocumentor-summary">Get a specific annotation from a method.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -353,7 +367,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Annotation Name.</p>
+                    <section class="phpdocumentor-description"><p>Annotation class short name (e.g., &quot;Access&quot;).</p>
 </section>
 
             </dd>
@@ -365,7 +379,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">object|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Method annotation object.</p>
+                <section class="phpdocumentor-description"><p>Annotation object or null if not found.</p>
 </section>
 
             </section>
@@ -385,11 +399,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Annotation/AnnotationReader.php"><a href="files/src-x-annotation-annotationreader.html"><abbr title="src/X/Annotation/AnnotationReader.php">AnnotationReader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get AnnotationReader instance.</p>
+        <p class="phpdocumentor-summary">Get singleton Doctrine AnnotationReader instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -405,7 +419,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Doctrine\Common\Annotations\AnnotationReader">AnnotationReader</abbr></span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>AnnotationReader instance.</p>
+                <section class="phpdocumentor-description"><p>Cached reader instance.</p>
 </section>
 
             </section>

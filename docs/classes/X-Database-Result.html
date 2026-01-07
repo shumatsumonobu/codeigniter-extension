@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -147,12 +157,14 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Database/Result.php"><a href="files/src-x-database-result.html"><abbr title="src/X/Database/Result.php">Result.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">9</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Query Result Extension.</p>
+            <p class="phpdocumentor-summary">Query result extension trait.</p>
 
+    <section class="phpdocumentor-description"><p>Provides additional result processing methods for database queries.</p>
+</section>
 
 
 
@@ -184,7 +196,7 @@
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>The result of the select is converted to an object where the specified column name is the key and the search result is the value.</dd>
+<dd>Get results as associative array keyed by a column value.</dd>
 
     </dl>
 
@@ -215,11 +227,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Database/Result.php"><a href="files/src-x-database-result.html"><abbr title="src/X/Database/Result.php">Result.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The result of the select is converted to an object where the specified column name is the key and the search result is the value.</p>
+        <p class="phpdocumentor-summary">Get results as associative array keyed by a column value.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -227,23 +239,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$rows = parent
-  -&gt;select('id,name')
-  -&gt;from('user')
-  -&gt;get()
-  -&gt;result_keyvalue('id');
-var_export($rows);
-// array (
-//   1 =&gt; array (
-//     'id' =&gt; 1,
-//     'name' =&gt; 'Oliver',
-//   ),
-//   2 =&gt; array (
-//     'id' =&gt; 2,
-//     'name' =&gt; 'Harry',
-//   ),
-// )
-</code></pre>
+        <section class="phpdocumentor-description"><p>Converts query results to an array where the specified column value becomes the key.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -253,19 +249,56 @@ var_export($rows);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;id&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Column Name. Default is &quot;id&quot;.</p>
+                    <section class="phpdocumentor-description"><p>Column name to use as array key. Default is 'id'.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Database-Result.html#method_result_keyvalue#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$rows = $this-&gt;db
+  -&gt;select('id, name')
+  -&gt;from('users')
+  -&gt;get()
+  -&gt;result_keyvalue('id');
+
+// Result:
+// [
+//   1 =&gt; ['id' =&gt; 1, 'name' =&gt; 'Oliver'],
+//   2 =&gt; ['id' =&gt; 2, 'name' =&gt; 'Harry'],
+// ]
+</code></pre>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the specified column does not exist in results.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>An object in which the column name is the key and the select result is the value.</p>
+                <section class="phpdocumentor-description"><p>Associative array keyed by the specified column value.</p>
 </section>
 
             </section>

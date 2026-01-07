@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -165,16 +175,38 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/SessionDatabaseDriver.php"><a href="files/src-x-library-sessiondatabasedriver.html"><abbr title="src/X/Library/SessionDatabaseDriver.php">SessionDatabaseDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">CI_Session_database_driver extension.</p>
+            <p class="phpdocumentor-summary">Extended session database driver.</p>
 
-    <section class="phpdocumentor-description"><p>Added reading of additional columns (application/config/config.php - sess_table_additional_columns) to be stored in the session management table.</p>
+    <section class="phpdocumentor-description"><p>Extends CodeIgniter's session database driver to support additional columns
+in the session table. Configure additional columns via <code class="prettyprint">sess_table_additional_columns</code>
+in application/config/config.php.</p>
+<p>Configuration example:</p>
+<pre class="prettyprint"><code class="language-php">// In application/config/config.php
+$config['sess_table_additional_columns'] = ['user_id', 'username'];
+</code></pre>
 </section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Library-SessionDatabaseDriver.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">implements</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>\SessionHandlerInterface</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
 
 
@@ -204,35 +236,42 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Initialize SessionDatabaseDriver.</dd>
+<dd>Initialize session database driver.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-SessionDatabaseDriver.html#method_read">read()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Reads session data and acquires a lock.</dd>
+<dd>Read session data and acquire lock.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/X-Library-SessionDatabaseDriver.html#method_updateTimestamp">updateTimestamp()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Update session timestamp without modifying data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Library-SessionDatabaseDriver.html#method_write">write()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Writes (create / update) session data</dd>
+<dd>Write session data (create or update).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Library-SessionDatabaseDriver.html#method_addAdditionalColumnsToTableData">addAdditionalColumnsToTableData()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Add additional columns to table data.</dd>
+<dd>Add configured additional columns to session table data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Library-SessionDatabaseDriver.html#method_unserialize">unserialize()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
 </dt>
-<dd>Unserialize the session.</dd>
+<dd>Unserialize session data to array.</dd>
 
     </dl>
 
@@ -263,11 +302,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/SessionDatabaseDriver.php"><a href="files/src-x-library-sessiondatabasedriver.html"><abbr title="src/X/Library/SessionDatabaseDriver.php">SessionDatabaseDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize SessionDatabaseDriver.</p>
+        <p class="phpdocumentor-summary">Initialize session database driver.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -283,7 +322,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Configuration parameters.</p>
+                    <section class="phpdocumentor-description"><p>Configuration parameters from CI session config.</p>
 </section>
 
             </dd>
@@ -307,11 +346,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/SessionDatabaseDriver.php"><a href="files/src-x-library-sessiondatabasedriver.html"><abbr title="src/X/Library/SessionDatabaseDriver.php">SessionDatabaseDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Reads session data and acquires a lock.</p>
+        <p class="phpdocumentor-summary">Read session data and acquire lock.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -339,7 +378,70 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Serialized session data.</p>
+                <section class="phpdocumentor-description"><p>Serialized session data, or empty string if not found.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_updateTimestamp">
+        updateTimestamp()
+        <a href="classes/X-Library-SessionDatabaseDriver.html#method_updateTimestamp" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/SessionDatabaseDriver.php"><a href="files/src-x-library-sessiondatabasedriver.html"><abbr title="src/X/Library/SessionDatabaseDriver.php">SessionDatabaseDriver.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">137</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Update session timestamp without modifying data.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">updateTimestamp</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sessionId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sessionData</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Required by PHP 7.0+ SessionHandlerInterface for lazy write support.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sessionId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Session ID.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sessionData</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Serialized session data (unused).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success, false on failure.</p>
 </section>
 
             </section>
@@ -359,11 +461,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/SessionDatabaseDriver.php"><a href="files/src-x-library-sessiondatabasedriver.html"><abbr title="src/X/Library/SessionDatabaseDriver.php">SessionDatabaseDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Writes (create / update) session data</p>
+        <p class="phpdocumentor-summary">Write session data (create or update).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -400,7 +502,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Whether the session was successfully written or not.</p>
+                <section class="phpdocumentor-description"><p>True on success, false on failure.</p>
 </section>
 
             </section>
@@ -420,11 +522,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/SessionDatabaseDriver.php"><a href="files/src-x-library-sessiondatabasedriver.html"><abbr title="src/X/Library/SessionDatabaseDriver.php">SessionDatabaseDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">134</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Add additional columns to table data.</p>
+        <p class="phpdocumentor-summary">Add configured additional columns to session table data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -440,7 +542,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data to be registered in the session table.</p>
+                    <section class="phpdocumentor-description"><p>Base session data for INSERT/UPDATE.</p>
 </section>
 
             </dd>
@@ -449,19 +551,36 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Session data.</p>
+                    <section class="phpdocumentor-description"><p>Serialized session data to extract values from.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Library-SessionDatabaseDriver.html#method_addAdditionalColumnsToTableData#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If configured column does not exist in session table.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Registration data for session tables with additional column information.</p>
+                <section class="phpdocumentor-description"><p>Session data with additional column values added.</p>
 </section>
 
             </section>
@@ -481,11 +600,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Library/SessionDatabaseDriver.php"><a href="files/src-x-library-sessiondatabasedriver.html"><abbr title="src/X/Library/SessionDatabaseDriver.php">SessionDatabaseDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">160</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Unserialize the session.</p>
+        <p class="phpdocumentor-summary">Unserialize session data to array.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -513,7 +632,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Unserialized session data.</p>
+                <section class="phpdocumentor-description"><p>Unserialized data array, or null if empty.</p>
 </section>
 
             </section>
@@ -634,6 +753,7 @@
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/X-Library-SessionDatabaseDriver.html#method___construct">__construct()</a></li>
                                             <li><a href="classes/X-Library-SessionDatabaseDriver.html#method_read">read()</a></li>
+                                            <li><a href="classes/X-Library-SessionDatabaseDriver.html#method_updateTimestamp">updateTimestamp()</a></li>
                                             <li><a href="classes/X-Library-SessionDatabaseDriver.html#method_write">write()</a></li>
                                             <li><a href="classes/X-Library-SessionDatabaseDriver.html#method_addAdditionalColumnsToTableData">addAdditionalColumnsToTableData()</a></li>
                                             <li><a href="classes/X-Library-SessionDatabaseDriver.html#method_unserialize">unserialize()</a></li>

@@ -3,7 +3,10 @@ namespace X\Util;
 use \X\Util\Logger;
 
 /**
- * Session Helper.
+ * Session data utility class.
+ *
+ * Provides methods for unserializing PHP session data with support for
+ * different serialize handlers (php, php_binary).
  */
 final class SessionHelper {
   /**

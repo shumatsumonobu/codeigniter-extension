@@ -2,7 +2,10 @@
 namespace X\Util;
 
 /**
- * Email Utility.
+ * Email sending utility class.
+ *
+ * Provides email sending functionality using CodeIgniter's email library
+ * with support for HTML/text emails, attachments, and CC/BCC recipients.
  */
 abstract class EMail {
   /**

@@ -2,7 +2,25 @@
 namespace X\Model;
 
 /**
- * Session management model.
+ * Abstract session management model.
+ *
+ * Provides a standardized interface for storing and retrieving user session data.
+ * Extend this class and implement getUser() to define custom user data retrieval.
+ *
+ * Usage:
+ * ```php
+ * class UserSession extends \X\Model\SessionModel {
+ *   protected static function getUser(string $id): array {
+ *     return (new UserModel())->get_by_id((int)$id);
+ *   }
+ * }
+ *
+ * // Set user session
+ * UserSession::set($userId);
+ *
+ * // Get session data
+ * $user = UserSession::get();
+ * ```
  */
 abstract class SessionModel implements SessionModelInterface {
   /**
