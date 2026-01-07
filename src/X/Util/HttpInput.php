@@ -3,7 +3,10 @@ namespace X\Util;
 use \X\Util\Logger;
 
 /**
- * Assists in processing input data for requests.
+ * HTTP request input processing utility class.
+ *
+ * Provides methods for parsing PUT request data including multipart form data,
+ * nested parameters, and file uploads from php://input stream.
  */
 final class HttpInput {
   /**

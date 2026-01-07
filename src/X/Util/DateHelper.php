@@ -2,7 +2,10 @@
 namespace X\Util;
 
 /**
- * Date Utility.
+ * Date utility class.
+ *
+ * Provides date manipulation methods including week period calculation,
+ * month range handling, and date formatting.
  */
 final class DateHelper {
   /**

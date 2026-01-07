@@ -3,462 +3,462 @@ Search.appendIndex(
                 {
             "fqsen": "\\X\\Annotation\\Access",
             "name": "Access",
-            "summary": "Controller\u0020method\u0020access\u0020permission\u0020information.",
+            "summary": "Access\u0020control\u0020annotation\u0020for\u0020controller\u0020methods.",
             "url": "classes/X-Annotation-Access.html"
         },                {
             "fqsen": "\\X\\Annotation\\Access\u003A\u003A\u0024allow_login",
             "name": "allow_login",
-            "summary": "Set\u0020to\u0020true\u0020to\u0020allow\u0020access\u0020for\u0020logged\u002Din\u0020users\u0020or\u0020false\u0020to\u0020disallow\u0020access.",
+            "summary": "Allow\u0020access\u0020for\u0020logged\u002Din\u0020users.",
             "url": "classes/X-Annotation-Access.html#property_allow_login"
         },                {
             "fqsen": "\\X\\Annotation\\Access\u003A\u003A\u0024allow_logoff",
             "name": "allow_logoff",
-            "summary": "Set\u0020to\u0020true\u0020to\u0020allow\u0020access\u0020for\u0020logoff\u0020users,\u0020or\u0020false\u0020to\u0020disallow\u0020access.",
+            "summary": "Allow\u0020access\u0020for\u0020logged\u002Doff\u0020\u0028guest\u0029\u0020users.",
             "url": "classes/X-Annotation-Access.html#property_allow_logoff"
         },                {
             "fqsen": "\\X\\Annotation\\Access\u003A\u003A\u0024allow_role",
             "name": "allow_role",
-            "summary": "Role\u0020names\u0020of\u0020logged\u002Din\u0020users\u0020to\u0020be\u0020allowed\u0020access.\u0020You\u0020can\u0020specify\u0020multiple\u0020comma\u002Dseparated\u0020names.",
+            "summary": "Allowed\u0020role\u0020names\u0020for\u0020logged\u002Din\u0020users.",
             "url": "classes/X-Annotation-Access.html#property_allow_role"
         },                {
             "fqsen": "\\X\\Annotation\\Access\u003A\u003A\u0024allow_http",
             "name": "allow_http",
-            "summary": "Set\u0020to\u0020true\u0020to\u0020allow\u0020access\u0020from\u0020HTTP,\u0020false\u0020to\u0020disallow.\u0020For\u0020example,\u0020if\u0020you\u0020want\u0020to\u0020allow\u0020access\u0020only\u0020from\u0020the\u0020CLI,\u0020set\u0020false.",
+            "summary": "Allow\u0020access\u0020from\u0020HTTP\u0020requests.",
             "url": "classes/X-Annotation-Access.html#property_allow_http"
         },                {
             "fqsen": "\\X\\Annotation\\AnnotationReader",
             "name": "AnnotationReader",
-            "summary": "Read\u0020the\u0020annotations\u0020of\u0020the\u0020controller\u0027s\u0020methods.",
+            "summary": "Annotation\u0020reader\u0020for\u0020controller\u0020methods.",
             "url": "classes/X-Annotation-AnnotationReader.html"
         },                {
             "fqsen": "\\X\\Annotation\\AnnotationReader\u003A\u003AgetAccessibility\u0028\u0029",
             "name": "getAccessibility",
-            "summary": "Get\u0020Access\u0020annotation\u0020information.",
+            "summary": "Get\u0020Access\u0020annotation\u0020information\u0020from\u0020a\u0020controller\u0020method.",
             "url": "classes/X-Annotation-AnnotationReader.html#method_getAccessibility"
         },                {
             "fqsen": "\\X\\Annotation\\AnnotationReader\u003A\u003AgetMethodAnnotation\u0028\u0029",
             "name": "getMethodAnnotation",
-            "summary": "Get\u0020method\u0020annotation.",
+            "summary": "Get\u0020a\u0020specific\u0020annotation\u0020from\u0020a\u0020method.",
             "url": "classes/X-Annotation-AnnotationReader.html#method_getMethodAnnotation"
         },                {
             "fqsen": "\\X\\Annotation\\AnnotationReader\u003A\u003Areader\u0028\u0029",
             "name": "reader",
-            "summary": "Get\u0020AnnotationReader\u0020instance.",
+            "summary": "Get\u0020singleton\u0020Doctrine\u0020AnnotationReader\u0020instance.",
             "url": "classes/X-Annotation-AnnotationReader.html#method_reader"
         },                {
             "fqsen": "\\X\\Composer\\Installer",
             "name": "Installer",
-            "summary": "Create\u0020a\u0020codeigniter\u002Dextension\u0020project.",
+            "summary": "Composer\u0020post\u002Dcreate\u002Dproject\u0020installer.",
             "url": "classes/X-Composer-Installer.html"
         },                {
             "fqsen": "\\X\\Composer\\Installer\u003A\u003Arun\u0028\u0029",
             "name": "run",
-            "summary": "Create\u0020a\u0020codeigniter\u002Dextension\u0020project.",
+            "summary": "Run\u0020the\u0020project\u0020installation\u0020process.",
             "url": "classes/X-Composer-Installer.html#method_run"
         },                {
             "fqsen": "\\X\\Composer\\Installer\u003A\u003AFRAMEWORK",
             "name": "FRAMEWORK",
-            "summary": "CodeIgniter\u0020directory\u0020path.",
+            "summary": "Path\u0020to\u0020the\u0020CodeIgniter\u0020framework\u0020directory.",
             "url": "classes/X-Composer-Installer.html#constant_FRAMEWORK"
         },                {
             "fqsen": "\\X\\Composer\\Installer\u003A\u003ADOCROOT",
             "name": "DOCROOT",
-            "summary": "The\u0020public\u0020directory\u0020path\u0020of\u0020the\u0020project\u0020to\u0020be\u0020created.",
+            "summary": "Path\u0020to\u0020the\u0020public\u0020document\u0020root\u0020directory.",
             "url": "classes/X-Composer-Installer.html#constant_DOCROOT"
         },                {
             "fqsen": "\\X\\Constant\\ENV_PRODUCTION",
             "name": "ENV_PRODUCTION",
-            "summary": "Production\u0020Environment.",
+            "summary": "Production\u0020environment\u0020identifier.",
             "url": "namespaces/x-constant.html#constant_ENV_PRODUCTION"
         },                {
             "fqsen": "\\X\\Constant\\ENV_TESTING",
             "name": "ENV_TESTING",
-            "summary": "Test\u0020Environment.",
+            "summary": "Testing\u0020environment\u0020identifier.",
             "url": "namespaces/x-constant.html#constant_ENV_TESTING"
         },                {
             "fqsen": "\\X\\Constant\\ENV_DEVELOPMENT",
             "name": "ENV_DEVELOPMENT",
-            "summary": "Development\u0020environment.",
+            "summary": "Development\u0020environment\u0020identifier.",
             "url": "namespaces/x-constant.html#constant_ENV_DEVELOPMENT"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_CONTINUE",
             "name": "HTTP_CONTINUE",
-            "summary": "100\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_CONTINUE"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_SWITCHING_PROTOCOLS",
             "name": "HTTP_SWITCHING_PROTOCOLS",
-            "summary": "101\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_SWITCHING_PROTOCOLS"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_OK",
             "name": "HTTP_OK",
-            "summary": "200\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_OK"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_CREATED",
             "name": "HTTP_CREATED",
-            "summary": "201\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_CREATED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_ACCEPTED",
             "name": "HTTP_ACCEPTED",
-            "summary": "202\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_ACCEPTED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_NONAUTHORITATIVE_INFORMATION",
             "name": "HTTP_NONAUTHORITATIVE_INFORMATION",
-            "summary": "203\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_NONAUTHORITATIVE_INFORMATION"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_NO_CONTENT",
             "name": "HTTP_NO_CONTENT",
-            "summary": "204\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_NO_CONTENT"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_RESET_CONTENT",
             "name": "HTTP_RESET_CONTENT",
-            "summary": "205\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_RESET_CONTENT"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_PARTIAL_CONTENT",
             "name": "HTTP_PARTIAL_CONTENT",
-            "summary": "206\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_PARTIAL_CONTENT"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_MULTIPLE_CHOICES",
             "name": "HTTP_MULTIPLE_CHOICES",
-            "summary": "300\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_MULTIPLE_CHOICES"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_MOVED_PERMANENTLY",
             "name": "HTTP_MOVED_PERMANENTLY",
-            "summary": "301\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_MOVED_PERMANENTLY"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_FOUND",
             "name": "HTTP_FOUND",
-            "summary": "302\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_FOUND"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_SEE_OTHER",
             "name": "HTTP_SEE_OTHER",
-            "summary": "303\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_SEE_OTHER"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_NOT_MODIFIED",
             "name": "HTTP_NOT_MODIFIED",
-            "summary": "304\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_NOT_MODIFIED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_USE_PROXY",
             "name": "HTTP_USE_PROXY",
-            "summary": "305\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_USE_PROXY"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_UNUSED",
             "name": "HTTP_UNUSED",
-            "summary": "306\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_UNUSED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_TEMPORARY_REDIRECT",
             "name": "HTTP_TEMPORARY_REDIRECT",
-            "summary": "307\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_TEMPORARY_REDIRECT"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_BAD_REQUEST",
             "name": "HTTP_BAD_REQUEST",
-            "summary": "400\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_BAD_REQUEST"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_UNAUTHORIZED",
             "name": "HTTP_UNAUTHORIZED",
-            "summary": "401\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_UNAUTHORIZED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_PAYMENT_REQUIRED",
             "name": "HTTP_PAYMENT_REQUIRED",
-            "summary": "402\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_PAYMENT_REQUIRED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_FORBIDDEN",
             "name": "HTTP_FORBIDDEN",
-            "summary": "403\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_FORBIDDEN"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_NOT_FOUND",
             "name": "HTTP_NOT_FOUND",
-            "summary": "404\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_NOT_FOUND"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_METHOD_NOT_ALLOWED",
             "name": "HTTP_METHOD_NOT_ALLOWED",
-            "summary": "405\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_METHOD_NOT_ALLOWED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_NOT_ACCEPTABLE",
             "name": "HTTP_NOT_ACCEPTABLE",
-            "summary": "406\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_NOT_ACCEPTABLE"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_PROXY_AUTHENTICATION_REQUIRED",
             "name": "HTTP_PROXY_AUTHENTICATION_REQUIRED",
-            "summary": "407\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_PROXY_AUTHENTICATION_REQUIRED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_REQUEST_TIMEOUT",
             "name": "HTTP_REQUEST_TIMEOUT",
-            "summary": "408\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_REQUEST_TIMEOUT"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_CONFLICT",
             "name": "HTTP_CONFLICT",
-            "summary": "409\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_CONFLICT"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_GONE",
             "name": "HTTP_GONE",
-            "summary": "410\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_GONE"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_LENGTH_REQUIRED",
             "name": "HTTP_LENGTH_REQUIRED",
-            "summary": "411\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_LENGTH_REQUIRED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_PRECONDITION_FAILED",
             "name": "HTTP_PRECONDITION_FAILED",
-            "summary": "412\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_PRECONDITION_FAILED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_REQUEST_ENTITY_TOO_LARGE",
             "name": "HTTP_REQUEST_ENTITY_TOO_LARGE",
-            "summary": "413\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_REQUEST_ENTITY_TOO_LARGE"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_REQUEST_URI_TOO_LONG",
             "name": "HTTP_REQUEST_URI_TOO_LONG",
-            "summary": "414\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_REQUEST_URI_TOO_LONG"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_UNSUPPORTED_MEDIA_TYPE",
             "name": "HTTP_UNSUPPORTED_MEDIA_TYPE",
-            "summary": "415\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_UNSUPPORTED_MEDIA_TYPE"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_REQUESTED_RANGE_NOT_SATISFIABLE",
             "name": "HTTP_REQUESTED_RANGE_NOT_SATISFIABLE",
-            "summary": "416\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_REQUESTED_RANGE_NOT_SATISFIABLE"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_EXPECTATION_FAILED",
             "name": "HTTP_EXPECTATION_FAILED",
-            "summary": "417\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_EXPECTATION_FAILED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_INTERNAL_SERVER_ERROR",
             "name": "HTTP_INTERNAL_SERVER_ERROR",
-            "summary": "500\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_INTERNAL_SERVER_ERROR"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_NOT_IMPLEMENTED",
             "name": "HTTP_NOT_IMPLEMENTED",
-            "summary": "501\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_NOT_IMPLEMENTED"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_BAD_GATEWAY",
             "name": "HTTP_BAD_GATEWAY",
-            "summary": "502\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_BAD_GATEWAY"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_SERVICE_UNAVAILABLE",
             "name": "HTTP_SERVICE_UNAVAILABLE",
-            "summary": "503\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_SERVICE_UNAVAILABLE"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_GATEWAY_TIMEOUT",
             "name": "HTTP_GATEWAY_TIMEOUT",
-            "summary": "504\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_GATEWAY_TIMEOUT"
         },                {
             "fqsen": "\\X\\Constant\\HTTP_VERSION_NOT_SUPPORTED",
             "name": "HTTP_VERSION_NOT_SUPPORTED",
-            "summary": "505\u0020HTTP\u0020status\u0020code.",
+            "summary": "",
             "url": "namespaces/x-constant.html#constant_HTTP_VERSION_NOT_SUPPORTED"
         },                {
             "fqsen": "\\X\\Controller\\Controller",
             "name": "Controller",
-            "summary": "CI_Controller\u0020extension.",
+            "summary": "Base\u0020controller\u0020class\u0020extending\u0020CI_Controller.",
             "url": "classes/X-Controller-Controller.html"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Initialize\u0020the\u0020controller.",
+            "summary": "Initialize\u0020controller\u0020and\u0020auto\u002Dload\u0020models\/libraries.",
             "url": "classes/X-Controller-Controller.html#method___construct"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AsetCorsHeader\u0028\u0029",
             "name": "setCorsHeader",
-            "summary": "Sets\u0020the\u0020CORS\u0020header.",
+            "summary": "Set\u0020CORS\u0020\u0028Cross\u002DOrigin\u0020Resource\u0020Sharing\u0029\u0020headers.",
             "url": "classes/X-Controller-Controller.html#method_setCorsHeader"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "Set\u0020response.",
+            "summary": "Set\u0020response\u0020data.",
             "url": "classes/X-Controller-Controller.html#method_set"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Aclear\u0028\u0029",
             "name": "clear",
-            "summary": "Clear\u0020response.",
+            "summary": "Clear\u0020all\u0020response\u0020data.",
             "url": "classes/X-Controller-Controller.html#method_clear"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Astatus\u0028\u0029",
             "name": "status",
-            "summary": "Set\u0020HTTP\u0020status.",
+            "summary": "Set\u0020HTTP\u0020response\u0020status\u0020code.",
             "url": "classes/X-Controller-Controller.html#method_status"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Ajson\u0028\u0029",
             "name": "json",
-            "summary": "Response\u0020JSON.",
+            "summary": "Send\u0020JSON\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_json"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Ahtml\u0028\u0029",
             "name": "html",
-            "summary": "Response\u0020HTML.",
+            "summary": "Send\u0020HTML\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_html"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Aview\u0028\u0029",
             "name": "view",
-            "summary": "Responds\u0020with\u0020the\u0020result\u0020of\u0020compiling\u0020the\u0020specified\u0020template\u0020into\u0020HTML.",
+            "summary": "Render\u0020and\u0020send\u0020Twig\u0020template\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_view"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Ajs\u0028\u0029",
             "name": "js",
-            "summary": "Response\u0020js.",
+            "summary": "Send\u0020JavaScript\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_js"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Atext\u0028\u0029",
             "name": "text",
-            "summary": "Response\u0020Plain\u0020text.",
+            "summary": "Send\u0020plain\u0020text\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_text"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Adownload\u0028\u0029",
             "name": "download",
-            "summary": "Download\u0020file.",
+            "summary": "Send\u0020file\u0020download\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_download"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Aimage\u0028\u0029",
             "name": "image",
-            "summary": "Response\u0020image.",
+            "summary": "Send\u0020image\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_image"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AinternalRedirect\u0028\u0029",
             "name": "internalRedirect",
-            "summary": "Internal\u0020redirect.",
+            "summary": "Perform\u0020internal\u0020redirect\u0020\u0028X\u002DAccel\u002DRedirect\u0029.",
             "url": "classes/X-Controller-Controller.html#method_internalRedirect"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003Aerror\u0028\u0029",
             "name": "error",
-            "summary": "Error\u0020response.",
+            "summary": "Send\u0020error\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_error"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AgetReferer\u0028\u0029",
             "name": "getReferer",
-            "summary": "Get\u0020referrer.",
+            "summary": "Get\u0020HTTP\u0020referrer\u0020URL.",
             "url": "classes/X-Controller-Controller.html#method_getReferer"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeResponse\u0028\u0029",
             "name": "beforeResponse",
-            "summary": "Called\u0020just\u0020before\u0020response.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020any\u0020response.\u0020Override\u0020to\u0020add\u0020global\u0020response\u0020processing.",
             "url": "classes/X-Controller-Controller.html#method_beforeResponse"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeResponseJson\u0028\u0029",
             "name": "beforeResponseJson",
-            "summary": "Called\u0020just\u0020before\u0020the\u0020JSON\u0020response.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020JSON\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_beforeResponseJson"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeResponseView\u0028\u0029",
             "name": "beforeResponseView",
-            "summary": "Called\u0020just\u0020before\u0020the\u0020template\u0020response.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020template\u0020view\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_beforeResponseView"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeResponseHtml\u0028\u0029",
             "name": "beforeResponseHtml",
-            "summary": "Called\u0020just\u0020before\u0020the\u0020HTML\u0020response.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020HTML\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_beforeResponseHtml"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeResponseJs\u0028\u0029",
             "name": "beforeResponseJs",
-            "summary": "Called\u0020just\u0020before\u0020the\u0020JS\u0020response.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020JavaScript\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_beforeResponseJs"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeResponseText\u0028\u0029",
             "name": "beforeResponseText",
-            "summary": "Called\u0020just\u0020before\u0020plain\u0020text\u0020response.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020plain\u0020text\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_beforeResponseText"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeDownload\u0028\u0029",
             "name": "beforeDownload",
-            "summary": "Called\u0020just\u0020before\u0020downloading.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020file\u0020download\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_beforeDownload"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeResponseImage\u0028\u0029",
             "name": "beforeResponseImage",
-            "summary": "Called\u0020just\u0020before\u0020the\u0020image\u0020response.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020image\u0020response.",
             "url": "classes/X-Controller-Controller.html#method_beforeResponseImage"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003AbeforeInternalRedirect\u0028\u0029",
             "name": "beforeInternalRedirect",
-            "summary": "Called\u0020just\u0020before\u0020the\u0020internal\u0020redirect.\u0020Override\u0020as\u0020needed.",
+            "summary": "Hook\u0020called\u0020before\u0020internal\u0020redirect.",
             "url": "classes/X-Controller-Controller.html#method_beforeInternalRedirect"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003A\u0024model",
             "name": "model",
-            "summary": "Auto\u002Dloading\u0020model\u0020name.",
+            "summary": "Model\u0028s\u0029\u0020to\u0020auto\u002Dload\u0020on\u0020instantiation.",
             "url": "classes/X-Controller-Controller.html#property_model"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003A\u0024library",
             "name": "library",
-            "summary": "Auto\u002Dloading\u0020library\u0020name.",
+            "summary": "Library\u0028s\u0029\u0020to\u0020auto\u002Dload\u0020on\u0020instantiation.",
             "url": "classes/X-Controller-Controller.html#property_library"
         },                {
             "fqsen": "\\X\\Controller\\Controller\u003A\u003A\u0024httpResponse",
             "name": "httpResponse",
-            "summary": "HttpResponse\u0020instance.",
+            "summary": "HTTP\u0020response\u0020handler\u0020instance.",
             "url": "classes/X-Controller-Controller.html#property_httpResponse"
         },                {
             "fqsen": "\\X\\Core\\Loader",
             "name": "Loader",
-            "summary": "Loader\u0020Class.",
+            "summary": "Extended\u0020CodeIgniter\u0020Loader\u0020class.",
             "url": "classes/X-Core-Loader.html"
         },                {
             "fqsen": "\\X\\Core\\Loader\u003A\u003Adatabase\u0028\u0029",
             "name": "database",
-            "summary": "Database\u0020Loader.",
+            "summary": "Load\u0020database\u0020connection.",
             "url": "classes/X-Core-Loader.html#method_database"
         },                {
             "fqsen": "\\X\\Core\\Router",
             "name": "Router",
-            "summary": "Router\u0020Class.",
+            "summary": "Extended\u0020CodeIgniter\u0020Router\u0020class.",
             "url": "classes/X-Core-Router.html"
         },                {
             "fqsen": "\\X\\Core\\URI",
             "name": "URI",
-            "summary": "URI\u0020Class.",
+            "summary": "Extended\u0020CodeIgniter\u0020URI\u0020class.",
             "url": "classes/X-Core-URI.html"
         },                {
             "fqsen": "\\X\\Database\\DB\u0028\u0029",
             "name": "DB",
-            "summary": "Initialize\u0020the\u0020database.",
+            "summary": "Initialize\u0020and\u0020return\u0020a\u0020database\u0020connection.",
             "url": "namespaces/x-database.html#function_DB"
         },                {
             "fqsen": "\\X\\Database\\Driver",
             "name": "Driver",
-            "summary": "Database\u0020Driver\u0020Class.",
+            "summary": "Abstract\u0020database\u0020driver\u0020class.",
             "url": "classes/X-Database-Driver.html"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder",
             "name": "QueryBuilder",
-            "summary": "Query\u0020Builder.",
+            "summary": "Extended\u0020Query\u0020Builder\u0020class.",
             "url": "classes/X-Database-QueryBuilder.html"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003A__construct\u0028\u0029",
@@ -468,202 +468,207 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Ainsert_on_duplicate_update\u0028\u0029",
             "name": "insert_on_duplicate_update",
-            "summary": "Insert_On_Duplicate_Key_Update.",
+            "summary": "Insert\u0020or\u0020update\u0020on\u0020duplicate\u0020key\u0020\u0028MySQL\u0020specific\u0029.",
             "url": "classes/X-Database-QueryBuilder.html#method_insert_on_duplicate_update"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Ainsert_on_duplicate_update_batch\u0028\u0029",
             "name": "insert_on_duplicate_update_batch",
-            "summary": "Insert_On_Duplicate_Key_Update_Batch.",
+            "summary": "Batch\u0020insert\u0020or\u0020update\u0020on\u0020duplicate\u0020key\u0020\u0028MySQL\u0020specific\u0029.",
             "url": "classes/X-Database-QueryBuilder.html#method_insert_on_duplicate_update_batch"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
-            "summary": "Insert.",
+            "summary": "Insert\u0020a\u0020single\u0020row.",
             "url": "classes/X-Database-QueryBuilder.html#method_insert"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Ainsert_batch\u0028\u0029",
             "name": "insert_batch",
-            "summary": "Insert_Batch.",
+            "summary": "Insert\u0020multiple\u0020rows.",
             "url": "classes/X-Database-QueryBuilder.html#method_insert_batch"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
-            "summary": "Update.",
+            "summary": "Update\u0020rows.",
             "url": "classes/X-Database-QueryBuilder.html#method_update"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Aupdate_batch\u0028\u0029",
             "name": "update_batch",
-            "summary": "Update_Batch.",
+            "summary": "Update\u0020multiple\u0020rows\u0020in\u0020batch.",
             "url": "classes/X-Database-QueryBuilder.html#method_update_batch"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Aquery\u0028\u0029",
             "name": "query",
-            "summary": "Execute\u0020the\u0020query.",
+            "summary": "Execute\u0020a\u0020raw\u0020SQL\u0020query.",
             "url": "classes/X-Database-QueryBuilder.html#method_query"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Aload_rdriver\u0028\u0029",
             "name": "load_rdriver",
-            "summary": "Load\u0020the\u0020result\u0020drivers.",
+            "summary": "Load\u0020the\u0020result\u0020driver\u0020class.",
             "url": "classes/X-Database-QueryBuilder.html#method_load_rdriver"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003Aisset_qb_from\u0028\u0029",
             "name": "isset_qb_from",
-            "summary": "Get\u0020QB\u0020FROM\u0020data.",
+            "summary": "Check\u0020if\u0020FROM\u0020table\u0020is\u0020set\u0020in\u0020query\u0020builder.",
             "url": "classes/X-Database-QueryBuilder.html#method_isset_qb_from"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003A_insert_on_duplicate_update\u0028\u0029",
             "name": "_insert_on_duplicate_update",
-            "summary": "Insert\u0020on\u0020duplicate\u0020key\u0020update\u0020statement.",
+            "summary": "Generate\u0020INSERT\u0020ON\u0020DUPLICATE\u0020KEY\u0020UPDATE\u0020SQL\u0020statement.",
             "url": "classes/X-Database-QueryBuilder.html#method__insert_on_duplicate_update"
         },                {
             "fqsen": "\\X\\Database\\QueryBuilder\u003A\u003A_insert_on_duplicate_update_batch\u0028\u0029",
             "name": "_insert_on_duplicate_update_batch",
-            "summary": "Insert\u0020on\u0020duplicate\u0020key\u0020update\u0020batch\u0020statement.",
+            "summary": "Generate\u0020batch\u0020INSERT\u0020ON\u0020DUPLICATE\u0020KEY\u0020UPDATE\u0020SQL\u0020statement.",
             "url": "classes/X-Database-QueryBuilder.html#method__insert_on_duplicate_update_batch"
         },                {
             "fqsen": "\\X\\Database\\Result",
             "name": "Result",
-            "summary": "Query\u0020Result\u0020Extension.",
+            "summary": "Query\u0020result\u0020extension\u0020trait.",
             "url": "classes/X-Database-Result.html"
         },                {
             "fqsen": "\\X\\Database\\Result\u003A\u003Aresult_keyvalue\u0028\u0029",
             "name": "result_keyvalue",
-            "summary": "The\u0020result\u0020of\u0020the\u0020select\u0020is\u0020converted\u0020to\u0020an\u0020object\u0020where\u0020the\u0020specified\u0020column\u0020name\u0020is\u0020the\u0020key\u0020and\u0020the\u0020search\u0020result\u0020is\u0020the\u0020value.",
+            "summary": "Get\u0020results\u0020as\u0020associative\u0020array\u0020keyed\u0020by\u0020a\u0020column\u0020value.",
             "url": "classes/X-Database-Result.html#method_result_keyvalue"
         },                {
             "fqsen": "\\X\\Exception\\AccessDeniedException",
             "name": "AccessDeniedException",
-            "summary": "Access\u0020Denied\u0020Error\u0020Class.",
+            "summary": "Exception\u0020thrown\u0020when\u0020access\u0020to\u0020a\u0020resource\u0020is\u0020denied.",
             "url": "classes/X-Exception-AccessDeniedException.html"
         },                {
             "fqsen": "\\X\\Exception\\RestClientException",
             "name": "RestClientException",
-            "summary": "REST\u0020API\u0020request\u0020error\u0020class.",
+            "summary": "Exception\u0020thrown\u0020when\u0020REST\u0020API\u0020request\u0020fails.",
             "url": "classes/X-Exception-RestClientException.html"
         },                {
             "fqsen": "\\X\\Hook\\Authenticate",
             "name": "Authenticate",
-            "summary": "Authentication\u0020Hook\u0020class.",
+            "summary": "Authentication\u0020hook\u0020class.",
             "url": "classes/X-Hook-Authenticate.html"
         },                {
             "fqsen": "\\X\\Library\\FormValidation",
             "name": "FormValidation",
-            "summary": "CI_Form_validation\u0020extension.",
+            "summary": "Extended\u0020form\u0020validation\u0020class.",
             "url": "classes/X-Library-FormValidation.html"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Initialize\u0020FormValidation.",
+            "summary": "Initialize\u0020form\u0020validation.",
             "url": "classes/X-Library-FormValidation.html#method___construct"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Adatetime\u0028\u0029",
             "name": "datetime",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020the\u0020date\u0020and\u0020time.",
+            "summary": "Validate\u0020datetime\u0020format.",
             "url": "classes/X-Library-FormValidation.html#method_datetime"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Ahostname\u0028\u0029",
             "name": "hostname",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020host\u0020name.",
+            "summary": "Validate\u0020hostname\u0020format.",
             "url": "classes/X-Library-FormValidation.html#method_hostname"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Aipaddress\u0028\u0029",
             "name": "ipaddress",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020an\u0020IP.",
+            "summary": "Validate\u0020IP\u0020address\u0020format.",
             "url": "classes/X-Library-FormValidation.html#method_ipaddress"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Aipaddress_or_cidr\u0028\u0029",
             "name": "ipaddress_or_cidr",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020IP\u0020or\u0020CIDR\u0020format.",
+            "summary": "Validate\u0020IP\u0020address\u0020or\u0020CIDR\u0020notation\u0020format.",
             "url": "classes/X-Library-FormValidation.html#method_ipaddress_or_cidr"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Ahostname_or_ipaddress\u0028\u0029",
             "name": "hostname_or_ipaddress",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020host\u0020name\u0020or\u0020IP.",
+            "summary": "Validate\u0020hostname\u0020or\u0020IP\u0020address\u0020format.",
             "url": "classes/X-Library-FormValidation.html#method_hostname_or_ipaddress"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Aunix_username\u0028\u0029",
             "name": "unix_username",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020unix\u0020user\u0020name.",
+            "summary": "Validate\u0020UNIX\u0020username\u0020format.",
             "url": "classes/X-Library-FormValidation.html#method_unix_username"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Aport\u0028\u0029",
             "name": "port",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020port\u0020number.",
+            "summary": "Validate\u0020port\u0020number\u0020\u00281\u002D65535\u0029.",
             "url": "classes/X-Library-FormValidation.html#method_port"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Aemail\u0028\u0029",
             "name": "email",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020an\u0020e\u002Dmail.",
+            "summary": "Validate\u0020email\u0020address\u0020format.",
             "url": "classes/X-Library-FormValidation.html#method_email"
         },                {
             "fqsen": "\\X\\Library\\FormValidation\u003A\u003Ais_path\u0028\u0029",
             "name": "is_path",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020file\u0020\u0028directory\u0029\u0020path.",
+            "summary": "Validate\u0020file\u0020or\u0020directory\u0020path\u0020format.",
             "url": "classes/X-Library-FormValidation.html#method_is_path"
         },                {
             "fqsen": "\\X\\Library\\Input",
             "name": "Input",
-            "summary": "CI_Input\u0020extension.",
+            "summary": "Extended\u0020input\u0020handling\u0020class.",
             "url": "classes/X-Library-Input.html"
         },                {
             "fqsen": "\\X\\Library\\Input\u003A\u003Aput\u0028\u0029",
             "name": "put",
-            "summary": "Fetch\u0020an\u0020item\u0020from\u0020the\u0020PUT\u0020array.",
+            "summary": "Fetch\u0020an\u0020item\u0020from\u0020PUT\u0020request\u0020data.",
             "url": "classes/X-Library-Input.html#method_put"
         },                {
             "fqsen": "\\X\\Library\\Input\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "Fetch\u0020an\u0020item\u0020from\u0020the\u0020DELETE\u0020array.",
+            "summary": "Fetch\u0020an\u0020item\u0020from\u0020DELETE\u0020request\u0020data.",
             "url": "classes/X-Library-Input.html#method_delete"
         },                {
             "fqsen": "\\X\\Library\\Router",
             "name": "Router",
-            "summary": "CI_Router\u0020extension.",
+            "summary": "Extended\u0020router\u0020class.",
             "url": "classes/X-Library-Router.html"
         },                {
             "fqsen": "\\X\\Library\\SessionDatabaseDriver",
             "name": "SessionDatabaseDriver",
-            "summary": "CI_Session_database_driver\u0020extension.",
+            "summary": "Extended\u0020session\u0020database\u0020driver.",
             "url": "classes/X-Library-SessionDatabaseDriver.html"
         },                {
             "fqsen": "\\X\\Library\\SessionDatabaseDriver\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Initialize\u0020SessionDatabaseDriver.",
+            "summary": "Initialize\u0020session\u0020database\u0020driver.",
             "url": "classes/X-Library-SessionDatabaseDriver.html#method___construct"
         },                {
             "fqsen": "\\X\\Library\\SessionDatabaseDriver\u003A\u003Aread\u0028\u0029",
             "name": "read",
-            "summary": "Reads\u0020session\u0020data\u0020and\u0020acquires\u0020a\u0020lock.",
+            "summary": "Read\u0020session\u0020data\u0020and\u0020acquire\u0020lock.",
             "url": "classes/X-Library-SessionDatabaseDriver.html#method_read"
         },                {
             "fqsen": "\\X\\Library\\SessionDatabaseDriver\u003A\u003Awrite\u0028\u0029",
             "name": "write",
-            "summary": "Writes\u0020\u0028create\u0020\/\u0020update\u0029\u0020session\u0020data",
+            "summary": "Write\u0020session\u0020data\u0020\u0028create\u0020or\u0020update\u0029.",
             "url": "classes/X-Library-SessionDatabaseDriver.html#method_write"
+        },                {
+            "fqsen": "\\X\\Library\\SessionDatabaseDriver\u003A\u003AupdateTimestamp\u0028\u0029",
+            "name": "updateTimestamp",
+            "summary": "Update\u0020session\u0020timestamp\u0020without\u0020modifying\u0020data.",
+            "url": "classes/X-Library-SessionDatabaseDriver.html#method_updateTimestamp"
         },                {
             "fqsen": "\\X\\Library\\SessionDatabaseDriver\u003A\u003Aunserialize\u0028\u0029",
             "name": "unserialize",
-            "summary": "Unserialize\u0020the\u0020session.",
+            "summary": "Unserialize\u0020session\u0020data\u0020to\u0020array.",
             "url": "classes/X-Library-SessionDatabaseDriver.html#method_unserialize"
         },                {
             "fqsen": "\\X\\Library\\SessionDatabaseDriver\u003A\u003AaddAdditionalColumnsToTableData\u0028\u0029",
             "name": "addAdditionalColumnsToTableData",
-            "summary": "Add\u0020additional\u0020columns\u0020to\u0020table\u0020data.",
+            "summary": "Add\u0020configured\u0020additional\u0020columns\u0020to\u0020session\u0020table\u0020data.",
             "url": "classes/X-Library-SessionDatabaseDriver.html#method_addAdditionalColumnsToTableData"
         },                {
             "fqsen": "\\X\\Model\\AddressModel",
             "name": "AddressModel",
-            "summary": "Address\u0020search\u0020model.",
+            "summary": "Japanese\u0020address\u0020lookup\u0020model.",
             "url": "classes/X-Model-AddressModel.html"
         },                {
             "fqsen": "\\X\\Model\\AddressModel\u003A\u003AgetAddressByPostCode\u0028\u0029",
             "name": "getAddressByPostCode",
-            "summary": "Get\u0020address\u0020by\u0020post\u0020code.",
+            "summary": "Get\u0020address\u0020by\u0020postal\u0020code.",
             "url": "classes/X-Model-AddressModel.html#method_getAddressByPostCode"
         },                {
             "fqsen": "\\X\\Model\\Model",
             "name": "Model",
-            "summary": "CI_Model\u0020extension.",
+            "summary": "Extended\u0020Model\u0020class\u0020with\u0020query\u0020builder\u0020integration.",
             "url": "classes/X-Model-Model.html"
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003A__construct\u0028\u0029",
@@ -1123,7 +1128,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Model\\SessionModel",
             "name": "SessionModel",
-            "summary": "Session\u0020management\u0020model.",
+            "summary": "Abstract\u0020session\u0020management\u0020model.",
             "url": "classes/X-Model-SessionModel.html"
         },                {
             "fqsen": "\\X\\Model\\SessionModel\u003A\u003AgetUser\u0028\u0029",
@@ -1158,7 +1163,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Model\\SessionModelInterface",
             "name": "SessionModelInterface",
-            "summary": "Session\u0020management\u0020model\u0020interface.",
+            "summary": "Interface\u0020for\u0020session\u0020management\u0020models.",
             "url": "classes/X-Model-SessionModelInterface.html"
         },                {
             "fqsen": "\\X\\Model\\SessionModelInterface\u003A\u003Aset\u0028\u0029",
@@ -1183,7 +1188,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Rekognition\\Client",
             "name": "Client",
-            "summary": "Amazon\u0020Rekognition\u0020API\u0020Client.",
+            "summary": "Amazon\u0020Rekognition\u0020API\u0020client\u0020wrapper.",
             "url": "classes/X-Rekognition-Client.html"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003A__construct\u0028\u0029",
@@ -1276,9 +1281,84 @@ Search.appendIndex(
             "summary": "Debug\u0020mode.",
             "url": "classes/X-Rekognition-Client.html#property_debug"
         },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient",
+            "name": "AmazonSesClient",
+            "summary": "Amazon\u0020SES\u0020email\u0020client\u0020wrapper\u0020class.",
+            "url": "classes/X-Util-AmazonSesClient.html"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Initialize\u0020AmazonSesClient.",
+            "url": "classes/X-Util-AmazonSesClient.html#method___construct"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024charset",
+            "name": "charset",
+            "summary": "Character\u0020code\u0020of\u0020the\u0020email.\u0020Default\u0020is\u0020\u0022UTF\u002D8\u0022.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_charset"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024from",
+            "name": "from",
+            "summary": "Sender\u0027s\u0020email\u0020address.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_from"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024to",
+            "name": "to",
+            "summary": "Destination\u0020email\u0020address.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_to"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024bcc",
+            "name": "bcc",
+            "summary": "BCC\u0020email\u0020address.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_bcc"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024cc",
+            "name": "cc",
+            "summary": "CC\u0020email\u0020address.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_cc"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024subject",
+            "name": "subject",
+            "summary": "Subject.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_subject"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "Body.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_message"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003AmessageFromXml\u0028\u0029",
+            "name": "messageFromXml",
+            "summary": "Set\u0020the\u0020mail\u0020body\u0020based\u0020on\u0020XML.",
+            "url": "classes/X-Util-AmazonSesClient.html#method_messageFromXml"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "Send.",
+            "url": "classes/X-Util-AmazonSesClient.html#method_send"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003Aclient\u0028\u0029",
+            "name": "client",
+            "summary": "Get\u0020SES\u0020client\u0020instance.",
+            "url": "classes/X-Util-AmazonSesClient.html#method_client"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003Areset\u0028\u0029",
+            "name": "reset",
+            "summary": "Reset\u0020options.",
+            "url": "classes/X-Util-AmazonSesClient.html#method_reset"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024options",
+            "name": "options",
+            "summary": "SES\u0020client\u0020options.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_options"
+        },                {
+            "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024fromName",
+            "name": "fromName",
+            "summary": "Sender\u0020name.",
+            "url": "classes/X-Util-AmazonSesClient.html#property_fromName"
+        },                {
             "fqsen": "\\X\\Util\\ArrayHelper",
             "name": "ArrayHelper",
-            "summary": "Array\u0020utility.",
+            "summary": "Array\u0020utility\u0020class.",
             "url": "classes/X-Util-ArrayHelper.html"
         },                {
             "fqsen": "\\X\\Util\\ArrayHelper\u003A\u003AsearchArrayByKey\u0028\u0029",
@@ -1318,7 +1398,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Cipher",
             "name": "Cipher",
-            "summary": "Cipher\u0020utility.",
+            "summary": "Cryptographic\u0020utility\u0020class.",
             "url": "classes/X-Util-Cipher.html"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003Aencode_sha256\u0028\u0029",
@@ -1373,7 +1453,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\CsvHelper",
             "name": "CsvHelper",
-            "summary": "CSV\u0020Utility.",
+            "summary": "CSV\u0020file\u0020utility\u0020class.",
             "url": "classes/X-Util-CsvHelper.html"
         },                {
             "fqsen": "\\X\\Util\\CsvHelper\u003A\u003AputRow\u0028\u0029",
@@ -1388,7 +1468,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\DateHelper",
             "name": "DateHelper",
-            "summary": "Date\u0020Utility.",
+            "summary": "Date\u0020utility\u0020class.",
             "url": "classes/X-Util-DateHelper.html"
         },                {
             "fqsen": "\\X\\Util\\DateHelper\u003A\u003AgetWeekPeriod\u0028\u0029",
@@ -1403,7 +1483,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\EMail",
             "name": "EMail",
-            "summary": "Email\u0020Utility.",
+            "summary": "Email\u0020sending\u0020utility\u0020class.",
             "url": "classes/X-Util-EMail.html"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Ainitialize\u0028\u0029",
@@ -1483,7 +1563,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\FileHelper",
             "name": "FileHelper",
-            "summary": "File\u0020Utility.",
+            "summary": "File\u0020system\u0020utility\u0020class.",
             "url": "classes/X-Util-FileHelper.html"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AmakeDirectory\u0028\u0029",
@@ -1558,7 +1638,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\HtmlHelper",
             "name": "HtmlHelper",
-            "summary": "HTML\u0020Utility.",
+            "summary": "HTML\u0020utility\u0020class.",
             "url": "classes/X-Util-HtmlHelper.html"
         },                {
             "fqsen": "\\X\\Util\\HtmlHelper\u003A\u003AgetContentForIframe\u0028\u0029",
@@ -1603,7 +1683,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\HttpInput",
             "name": "HttpInput",
-            "summary": "Assists\u0020in\u0020processing\u0020input\u0020data\u0020for\u0020requests.",
+            "summary": "HTTP\u0020request\u0020input\u0020processing\u0020utility\u0020class.",
             "url": "classes/X-Util-HttpInput.html"
         },                {
             "fqsen": "\\X\\Util\\HttpInput\u003A\u003Aput\u0028\u0029",
@@ -1623,7 +1703,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\HttpResponse",
             "name": "HttpResponse",
-            "summary": "HTTP\u0020response\u0020processing\u0020Utility.",
+            "summary": "HTTP\u0020response\u0020builder\u0020utility\u0020class.",
             "url": "classes/X-Util-HttpResponse.html"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003A__construct\u0028\u0029",
@@ -1713,7 +1793,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\ImageHelper",
             "name": "ImageHelper",
-            "summary": "Image\u0020utility.",
+            "summary": "Image\u0020processing\u0020utility\u0020class.",
             "url": "classes/X-Util-ImageHelper.html"
         },                {
             "fqsen": "\\X\\Util\\ImageHelper\u003A\u003AwriteDataURLToFile\u0028\u0029",
@@ -1773,7 +1853,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\IpUtils",
             "name": "IpUtils",
-            "summary": "IP\u0020Utility.",
+            "summary": "IP\u0020address\u0020utility\u0020class.",
             "url": "classes/X-Util-IpUtils.html"
         },                {
             "fqsen": "\\X\\Util\\IpUtils\u003A\u003AisIPv4\u0028\u0029",
@@ -1813,7 +1893,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Iterator",
             "name": "Iterator",
-            "summary": "Iterator\u0020utility.",
+            "summary": "Combinatorics\u0020iterator\u0020utility\u0020class.",
             "url": "classes/X-Util-Iterator.html"
         },                {
             "fqsen": "\\X\\Util\\Iterator\u003A\u003AduplicatePermutation\u0028\u0029",
@@ -1838,7 +1918,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Loader",
             "name": "Loader",
-            "summary": "Various\u0020CI\u0020class\u0020loaders.",
+            "summary": "CodeIgniter\u0020resource\u0020loader\u0020utility\u0020class.",
             "url": "classes/X-Util-Loader.html"
         },                {
             "fqsen": "\\X\\Util\\Loader\u003A\u003Amodel\u0028\u0029",
@@ -1863,7 +1943,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Logger",
             "name": "Logger",
-            "summary": "Logger.\u0020Write\u0020logs\u0020to\u0020the\u0020file\u0020defined\u0020in\u0020\u0060application\/config\/config.php\u0023log_path\u0060.",
+            "summary": "Logging\u0020utility\u0020class.",
             "url": "classes/X-Util-Logger.html"
         },                {
             "fqsen": "\\X\\Util\\Logger\u003A\u003Adebug\u0028\u0029",
@@ -1891,9 +1971,89 @@ Search.appendIndex(
             "summary": "Create\u0020a\u0020log\u0020message.",
             "url": "classes/X-Util-Logger.html#method_createMessage"
         },                {
+            "fqsen": "\\X\\Util\\RestClient",
+            "name": "RestClient",
+            "summary": "REST\u0020API\u0020client\u0020class.",
+            "url": "classes/X-Util-RestClient.html"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Initialize\u0020RestClient.",
+            "url": "classes/X-Util-RestClient.html#method___construct"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "GET\u0020Request.",
+            "url": "classes/X-Util-RestClient.html#method_get"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003Apost\u0028\u0029",
+            "name": "post",
+            "summary": "Send\u0020POST\u0020request.",
+            "url": "classes/X-Util-RestClient.html#method_post"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003Aput\u0028\u0029",
+            "name": "put",
+            "summary": "Send\u0020PUT\u0020request.",
+            "url": "classes/X-Util-RestClient.html#method_put"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Send\u0020DELETE\u0020request.",
+            "url": "classes/X-Util-RestClient.html#method_delete"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "Common\u0020Requests.",
+            "url": "classes/X-Util-RestClient.html#method_send"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "Set\u0020response\u0020data\u0020\u0028responseHeaders,responseRaw,response\u0029.",
+            "url": "classes/X-Util-RestClient.html#method_parse"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024options",
+            "name": "options",
+            "summary": "REST\u0020client\u0020options.",
+            "url": "classes/X-Util-RestClient.html#property_options"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024requestUrl",
+            "name": "requestUrl",
+            "summary": "Request\u0020URL.",
+            "url": "classes/X-Util-RestClient.html#property_requestUrl"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024response",
+            "name": "response",
+            "summary": "Response\u0020data.",
+            "url": "classes/X-Util-RestClient.html#property_response"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024responseRaw",
+            "name": "responseRaw",
+            "summary": "Raw\u0020response\u0020data.",
+            "url": "classes/X-Util-RestClient.html#property_responseRaw"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024responseHeaders",
+            "name": "responseHeaders",
+            "summary": "Response\u0020header.",
+            "url": "classes/X-Util-RestClient.html#property_responseHeaders"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024info",
+            "name": "info",
+            "summary": "Result\u0020of\u0020curl_getinfo\u0028\u0029.",
+            "url": "classes/X-Util-RestClient.html#property_info"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024error",
+            "name": "error",
+            "summary": "Response\u0020Error.",
+            "url": "classes/X-Util-RestClient.html#property_error"
+        },                {
+            "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024status",
+            "name": "status",
+            "summary": "HTTP\u0020Status.",
+            "url": "classes/X-Util-RestClient.html#property_status"
+        },                {
             "fqsen": "\\X\\Util\\SessionHelper",
             "name": "SessionHelper",
-            "summary": "Session\u0020Helper.",
+            "summary": "Session\u0020data\u0020utility\u0020class.",
             "url": "classes/X-Util-SessionHelper.html"
         },                {
             "fqsen": "\\X\\Util\\SessionHelper\u003A\u003Aunserialize\u0028\u0029",
@@ -1913,7 +2073,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\StringHelper",
             "name": "StringHelper",
-            "summary": "String\u0020Utility.",
+            "summary": "String\u0020manipulation\u0020utility\u0020class.",
             "url": "classes/X-Util-StringHelper.html"
         },                {
             "fqsen": "\\X\\Util\\StringHelper\u003A\u003Atrim\u0028\u0029",
@@ -1933,7 +2093,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Template",
             "name": "Template",
-            "summary": "Twig\u002Dbased\u0020template.",
+            "summary": "Twig\u0020template\u0020engine\u0020wrapper\u0020class.",
             "url": "classes/X-Util-Template.html"
         },                {
             "fqsen": "\\X\\Util\\Template\u003A\u003A__construct\u0028\u0029",
@@ -1953,7 +2113,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\UrlHelper",
             "name": "UrlHelper",
-            "summary": "URL\u0020Utility.",
+            "summary": "URL\u0020parsing\u0020utility\u0020class.",
             "url": "classes/X-Util-UrlHelper.html"
         },                {
             "fqsen": "\\X\\Util\\UrlHelper\u003A\u003AwithoutFile\u0028\u0029",
@@ -1968,7 +2128,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Validation",
             "name": "Validation",
-            "summary": "Validator\u0020Utility.",
+            "summary": "Data\u0020validation\u0020utility\u0020class.",
             "url": "classes/X-Util-Validation.html"
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Ahostname\u0028\u0029",
@@ -2013,22 +2173,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\VideoHelper",
             "name": "VideoHelper",
-            "summary": "",
+            "summary": "Video\u0020processing\u0020utility\u0020class.",
             "url": "classes/X-Util-VideoHelper.html"
         },                {
             "fqsen": "\\X\\Util\\VideoHelper\u003A\u003AwriteDataURLToFile\u0028\u0029",
             "name": "writeDataURLToFile",
-            "summary": "Put\u0020base64\u0020video.",
+            "summary": "Write\u0020video\u0020Data\u0020URL\u0020to\u0020a\u0020file.",
             "url": "classes/X-Util-VideoHelper.html#method_writeDataURLToFile"
         },                {
             "fqsen": "\\X\\Util\\VideoHelper\u003A\u003AdataURL2Blob\u0028\u0029",
             "name": "dataURL2Blob",
-            "summary": "Convert\u0020Base64\u0020to\u0020blob.",
+            "summary": "Convert\u0020video\u0020Data\u0020URL\u0020to\u0020blob.",
             "url": "classes/X-Util-VideoHelper.html#method_dataURL2Blob"
         },                {
             "fqsen": "\\X\\Util\\VideoHelper\u003A\u003AisDataURL\u0028\u0029",
             "name": "isDataURL",
-            "summary": "Is\u0020Base64.",
+            "summary": "Check\u0020if\u0020string\u0020is\u0020a\u0020video\u0020Data\u0020URL.",
             "url": "classes/X-Util-VideoHelper.html#method_isDataURL"
         },                {
             "fqsen": "\\",

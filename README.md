@@ -1,5 +1,10 @@
 # CodeIgniter Extension
 
+[![PHP Version](https://img.shields.io/packagist/php-v/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
+[![License](https://img.shields.io/packagist/l/takuya-motoshima/codeigniter-extension)](LICENSE)
+[![Packagist Downloads](https://img.shields.io/packagist/dt/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
+[![Latest Version](https://img.shields.io/packagist/v/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
+
 [日本語](README_ja.md) | [Changelog](CHANGELOG.md) | [変更履歴](CHANGELOG_ja.md)
 
 An enhanced CodeIgniter 3 package providing extended core classes (controllers, models, views) and utility classes.
@@ -11,7 +16,10 @@ An enhanced CodeIgniter 3 package providing extended core classes (controllers, 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Configuration](#configuration)
+- [Architecture](#architecture)
 - [Usage Examples](#usage-examples)
+- [API Reference](#api-reference)
+- [Troubleshooting](#troubleshooting)
 - [Testing](#testing)
 - [Documentation](#documentation)
 - [License](#license)
@@ -259,6 +267,90 @@ Warning: session_write_close(): Failed to write session data using user defined 
 
 For more information, see the [PHP SessionHandlerInterface documentation](https://www.php.net/manual/en/class.sessionhandlerinterface.php).
 
+## Architecture
+
+### Directory Structure
+
+```
+src/X/
+├── Annotation/          # Access control annotations
+│   ├── Access.php           # @Access annotation definition
+│   └── AnnotationReader.php # Annotation parser
+├── Composer/            # Composer installer
+│   └── Installer.php        # Post create-project handler
+├── Constant/            # Constants
+│   ├── Environment.php      # Environment constants (DEVELOPMENT, TESTING, PRODUCTION)
+│   └── HttpStatus.php       # HTTP status code constants
+├── Controller/          # Controller extensions
+│   └── Controller.php       # Base controller with response helpers
+├── Core/                # CodeIgniter core extensions
+│   ├── Loader.php           # Extended loader
+│   ├── Router.php           # Extended router
+│   └── URI.php              # Extended URI
+├── Database/            # Database extensions
+│   ├── DB.php               # DB factory
+│   ├── Driver.php           # Base driver
+│   ├── QueryBuilder.php     # Extended query builder
+│   └── Result.php           # Extended result set
+├── Exception/           # Custom exceptions
+│   ├── AccessDeniedException.php
+│   └── RestClientException.php
+├── Hook/                # Hooks
+│   └── Authenticate.php     # Authentication hook
+├── Library/             # Library extensions
+│   ├── FormValidation.php   # Extended form validation
+│   ├── Input.php            # Extended input library
+│   ├── Router.php           # Router library
+│   └── SessionDatabaseDriver.php # Database session driver (PHP 7.0+)
+├── Model/               # Model extensions
+│   ├── Model.php            # Base model with query builder
+│   ├── AddressModel.php     # Address model
+│   ├── SessionModel.php     # Session model
+│   └── SessionModelInterface.php
+├── Rekognition/         # AWS Rekognition
+│   └── Client.php           # Face detection/comparison client
+└── Util/                # Utility classes (21 classes)
+    ├── AmazonSesClient.php  # Amazon SES email
+    ├── ArrayHelper.php      # Array operations
+    ├── Cipher.php           # Encryption (AES-256-CTR)
+    ├── CsvHelper.php        # CSV import/export
+    ├── DateHelper.php       # Date operations
+    ├── EMail.php            # Email with templates
+    ├── FileHelper.php       # File/directory operations
+    ├── HtmlHelper.php       # HTML utilities
+    ├── HttpInput.php        # HTTP input processing
+    ├── HttpResponse.php     # HTTP response builder
+    ├── ImageHelper.php      # Image processing
+    ├── IpUtils.php          # IP address utilities
+    ├── Iterator.php         # Combinatorics
+    ├── Loader.php           # Resource loader
+    ├── Logger.php           # Logging
+    ├── RestClient.php       # REST API client
+    ├── SessionHelper.php    # Session utilities
+    ├── StringHelper.php     # String operations
+    ├── Template.php         # Twig integration
+    ├── UrlHelper.php        # URL utilities
+    ├── Validation.php       # Data validation
+    └── VideoHelper.php      # Video processing
+```
+
+### Application Structure (skeleton/)
+
+Projects created with this package follow this structure:
+
+```
+application/
+├── core/
+│   ├── AppController.php    # Extends \X\Controller\Controller
+│   └── AppModel.php         # Extends \X\Model\Model
+├── config/
+│   ├── hooks.php            # Access control via AnnotationReader
+│   └── constants.php        # SESSION_NAME, ENV_DIR constants
+├── controllers/             # Application controllers
+├── models/                  # Application models
+└── views/                   # Twig templates
+```
+
 ## Usage Examples
 
 ### Controllers
@@ -339,6 +431,91 @@ $encrypted = Cipher::encrypt('secret data', 'encryption-key');
 use \X\Util\RestClient;
 $client = new RestClient(['base_url' => 'https://api.example.com']);
 $response = $client->get('/users');
+```
+
+## API Reference
+
+### Controller Methods
+
+| Method | Description |
+|--------|-------------|
+| `json()` | Send JSON response |
+| `view($template)` | Render Twig template |
+| `html($html)` | Send HTML response |
+| `text($text)` | Send plain text response |
+| `image($path)` | Send image response |
+| `download($filename, $content)` | Force file download |
+| `set($key, $value)` | Set response data |
+| `setCorsHeader($origin)` | Set CORS headers |
+
+### Model Methods
+
+| Method | Description |
+|--------|-------------|
+| `get_all()` | Get all records |
+| `get_by_id($id)` | Get record by ID |
+| `count_by_id($id)` | Count records by ID |
+| `exists_by_id($id)` | Check if record exists |
+| `insert_on_duplicate_update()` | INSERT ... ON DUPLICATE KEY UPDATE |
+| `insert_on_duplicate_update_batch()` | Batch upsert |
+
+### Utility Classes
+
+| Class | Key Methods |
+|-------|-------------|
+| `ImageHelper` | `resize()`, `crop()`, `writeDataURLToFile()`, `pdf2Image()` |
+| `FileHelper` | `makeDirectory()`, `delete()`, `copyFile()`, `move()` |
+| `Cipher` | `encrypt()`, `decrypt()`, `encode_sha256()` |
+| `RestClient` | `get()`, `post()`, `put()`, `delete()` |
+| `Logger` | `debug()`, `info()`, `error()`, `display()` |
+| `Validation` | `hostname()`, `ipaddress()`, `email()`, `is_path()` |
+| `IpUtils` | `isIPv4()`, `isIPv6()`, `inRange()` |
+| `Template` | `load($template, $params)` |
+
+## Troubleshooting
+
+### Common Issues
+
+#### "Failed to write session data" Warning
+
+**Problem:** PHP 7.0+ shows session write warnings.
+
+**Solution:** This package includes `SessionDatabaseDriver` which implements `updateTimestamp()` for PHP 7.0+ compatibility. Ensure you're using:
+
+```php
+$config['sess_driver'] = 'database';
+```
+
+#### Imagick Extension Not Found
+
+**Problem:** `extractFirstFrameOfGif()` throws error.
+
+**Solution:** Install ImageMagick and php-imagick:
+
+```sh
+# Amazon Linux 2023
+sudo dnf -y install ImageMagick ImageMagick-devel php-pear.noarch
+sudo pecl install imagick
+echo "extension=imagick.so" | sudo tee -a /etc/php.ini
+sudo systemctl restart php-fpm
+```
+
+#### Access Annotation Not Working
+
+**Problem:** `@Access` annotations are ignored.
+
+**Solution:**
+1. Enable hooks in `config.php`: `$config['enable_hooks'] = TRUE;`
+2. Configure `hooks.php` with `AnnotationReader::getAccessibility()`
+
+#### Template Cache Issues
+
+**Problem:** Twig templates not updating.
+
+**Solution:** Clear the cache directory:
+
+```sh
+rm -rf application/cache/templates/*
 ```
 
 ## Testing

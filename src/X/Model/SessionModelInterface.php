@@ -2,7 +2,9 @@
 namespace X\Model;
 
 /**
- * Session management model interface.
+ * Interface for session management models.
+ *
+ * Defines the contract for session data manipulation.
  */
 interface SessionModelInterface {
   /**

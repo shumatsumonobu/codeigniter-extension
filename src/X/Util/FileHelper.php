@@ -3,7 +3,10 @@ namespace X\Util;
 use \X\Util\Logger;
 
 /**
- * File Utility.
+ * File system utility class.
+ *
+ * Provides file and directory operations including creation, deletion,
+ * copying, permission handling, and path manipulation.
  */
 final class FileHelper {
   /**

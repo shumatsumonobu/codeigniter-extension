@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -167,12 +177,25 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">CI_Controller extension.</p>
+            <p class="phpdocumentor-summary">Base controller class extending CI_Controller.</p>
 
+    <section class="phpdocumentor-description"><p>Provides enhanced response handling, auto-loading of models/libraries,
+CORS support, and hook points for response processing.</p>
+<p>Usage:</p>
+<pre class="prettyprint"><code class="language-php">class UserController extends \X\Controller\Controller {
+  protected $model = ['UserModel', 'RoleModel'];
+  protected $library = 'session';
+
+  public function index() {
+    $this-&gt;set('users', $this-&gt;UserModel-&gt;findAll())-&gt;view('user/index');
+  }
+}
+</code></pre>
+</section>
 
 
 
@@ -203,21 +226,21 @@
     <span>
                         &nbsp;: <a href="classes/X-Util-HttpResponse.html"><abbr title="\X\Util\HttpResponse">HttpResponse</abbr></a>            </span>
 </dt>
-<dd>HttpResponse instance.</dd>
+<dd>HTTP response handler instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/X-Controller-Controller.html#property_library">$library</a>
     <span>
                         &nbsp;: string|array&lt;string|int, string&gt;            </span>
 </dt>
-<dd>Auto-loading library name.</dd>
+<dd>Library(s) to auto-load on instantiation.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/X-Controller-Controller.html#property_model">$model</a>
     <span>
                         &nbsp;: string|array&lt;string|int, string&gt;            </span>
 </dt>
-<dd>Auto-loading model name.</dd>
+<dd>Model(s) to auto-load on instantiation.</dd>
 
     </dl>
 
@@ -232,168 +255,168 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Initialize the controller.</dd>
+<dd>Initialize controller and auto-load models/libraries.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Controller-Controller.html#method_internalRedirect">internalRedirect()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Internal redirect.</dd>
+<dd>Perform internal redirect (X-Accel-Redirect).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeDownload">beforeDownload()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before downloading. Override as needed.</dd>
+<dd>Hook called before file download response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeInternalRedirect">beforeInternalRedirect()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before the internal redirect. Override as needed.</dd>
+<dd>Hook called before internal redirect.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeResponse">beforeResponse()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before response. Override as needed.</dd>
+<dd>Hook called before any response. Override to add global response processing.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeResponseHtml">beforeResponseHtml()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before the HTML response. Override as needed.</dd>
+<dd>Hook called before HTML response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeResponseImage">beforeResponseImage()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before the image response. Override as needed.</dd>
+<dd>Hook called before image response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeResponseJs">beforeResponseJs()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before the JS response. Override as needed.</dd>
+<dd>Hook called before JavaScript response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeResponseJson">beforeResponseJson()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before the JSON response. Override as needed.</dd>
+<dd>Hook called before JSON response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeResponseText">beforeResponseText()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before plain text response. Override as needed.</dd>
+<dd>Hook called before plain text response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_beforeResponseView">beforeResponseView()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Called just before the template response. Override as needed.</dd>
+<dd>Hook called before template view response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_clear">clear()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Controller-Controller.html"><abbr title="\X\Controller\Controller">Controller</abbr></a>    </span>
 </dt>
-<dd>Clear response.</dd>
+<dd>Clear all response data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_download">download()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Download file.</dd>
+<dd>Send file download response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_error">error()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Error response.</dd>
+<dd>Send error response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_html">html()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response HTML.</dd>
+<dd>Send HTML response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_image">image()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response image.</dd>
+<dd>Send image response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_js">js()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response js.</dd>
+<dd>Send JavaScript response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_json">json()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response JSON.</dd>
+<dd>Send JSON response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_set">set()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Controller-Controller.html"><abbr title="\X\Controller\Controller">Controller</abbr></a>    </span>
 </dt>
-<dd>Set response.</dd>
+<dd>Set response data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_setCorsHeader">setCorsHeader()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Controller-Controller.html"><abbr title="\X\Controller\Controller">Controller</abbr></a>    </span>
 </dt>
-<dd>Sets the CORS header.</dd>
+<dd>Set CORS (Cross-Origin Resource Sharing) headers.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_status">status()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Controller-Controller.html"><abbr title="\X\Controller\Controller">Controller</abbr></a>    </span>
 </dt>
-<dd>Set HTTP status.</dd>
+<dd>Set HTTP response status code.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_text">text()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response Plain text.</dd>
+<dd>Send plain text response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/X-Controller-Controller.html#method_view">view()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Responds with the result of compiling the specified template into HTML.</dd>
+<dd>Render and send Twig template response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Controller-Controller.html#method_getReferer">getReferer()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Get referrer.</dd>
+<dd>Get HTTP referrer URL.</dd>
 
     </dl>
 
@@ -426,11 +449,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">HttpResponse instance.</p>
+        <p class="phpdocumentor-summary">HTTP response handler instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -460,11 +483,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Auto-loading library name.</p>
+        <p class="phpdocumentor-summary">Library(s) to auto-load on instantiation.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -473,7 +496,9 @@
     </code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Single library name or array of library names.</p>
+</section>
+
     
 
 </article>
@@ -494,11 +519,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Auto-loading model name.</p>
+        <p class="phpdocumentor-summary">Model(s) to auto-load on instantiation.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -507,7 +532,9 @@
     </code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Single model name or array of model names.</p>
+</section>
+
     
 
 </article>
@@ -533,11 +560,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the controller.</p>
+        <p class="phpdocumentor-summary">Initialize controller and auto-load models/libraries.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -565,11 +592,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">324</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Internal redirect.</p>
+        <p class="phpdocumentor-summary">Perform internal redirect (X-Accel-Redirect).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -577,27 +604,9 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>Allows for internal redirection to a location determined by a header returned from a backend.
-This allows the backend to authenticate and perform any other processing,
-provide content to the end user from the internally redirected location,
-and free up the backend to handle other requests.</p>
-<p>Nginx:</p>
-<pre class="prettyprint"><code class="language-nginx"># Will serve /var/www/files/myfile
-# When passed URI /protected/myfile
-location /protected {
-  internal;
-  alias /var/www/files;
-}
-``
-
-PHP:
-```php
-class Sample extends \X\Controller\Controller {
-  public function index() {
-    parent::internalRedirect('/protected/myfile');
-  }
-}
-</code></pre>
+        <section class="phpdocumentor-description"><p>Allows internal redirection to a location determined by a header returned from the backend.
+This enables the backend to authenticate and perform processing, then serve content
+from an internally redirected location while freeing the backend for other requests.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -607,13 +616,51 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Path to internal redirect.</p>
+                    <section class="phpdocumentor-description"><p>Internal redirect path.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_internalRedirect#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Nginx configuration</p>
+<pre class="prettyprint"><code class="language-nginx"># Will serve /var/www/files/myfile when passed URI /protected/myfile
+location /protected {
+  internal;
+  alias /var/www/files;
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>PHP usage</p>
+<pre class="prettyprint"><code class="language-php">class FileController extends \X\Controller\Controller {
+  public function download() {
+    // Authenticate user, then serve protected file
+    $this-&gt;internalRedirect('/protected/secret-document.pdf');
+  }
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -631,15 +678,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">275</span>
+    <span class="phpdocumentor-element-found-in__line">442</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before downloading. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before file download response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeDownload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeDownload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -651,7 +698,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -675,15 +722,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">287</span>
+    <span class="phpdocumentor-element-found-in__line">458</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before the internal redirect. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before internal redirect.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeInternalRedirect</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeInternalRedirect</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -695,7 +742,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -719,15 +766,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">239</span>
+    <span class="phpdocumentor-element-found-in__line">394</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before response. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before any response. Override to add global response processing.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -739,7 +786,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -763,15 +810,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">257</span>
+    <span class="phpdocumentor-element-found-in__line">418</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before the HTML response. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before HTML response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeResponseHtml</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeResponseHtml</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -783,7 +830,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -807,15 +854,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">281</span>
+    <span class="phpdocumentor-element-found-in__line">450</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before the image response. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before image response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeResponseImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeResponseImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -827,7 +874,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -851,15 +898,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">263</span>
+    <span class="phpdocumentor-element-found-in__line">426</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before the JS response. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before JavaScript response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeResponseJs</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeResponseJs</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -871,7 +918,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -895,15 +942,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">245</span>
+    <span class="phpdocumentor-element-found-in__line">402</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before the JSON response. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before JSON response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeResponseJson</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeResponseJson</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -915,7 +962,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -939,15 +986,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">269</span>
+    <span class="phpdocumentor-element-found-in__line">434</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before plain text response. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before plain text response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeResponseText</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeResponseText</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -959,7 +1006,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -983,15 +1030,15 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">251</span>
+    <span class="phpdocumentor-element-found-in__line">410</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Called just before the template response. Override as needed.</p>
+        <p class="phpdocumentor-summary">Hook called before template view response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">beforeResponseView</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">beforeResponseView</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$referer</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1003,7 +1050,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Referrer.</p>
+                    <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </dd>
@@ -1027,11 +1074,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Clear response.</p>
+        <p class="phpdocumentor-summary">Clear all response data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1046,6 +1093,10 @@ class Sample extends \X\Controller\Controller {
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Controller-Controller.html"><abbr title="\X\Controller\Controller">Controller</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1063,11 +1114,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">160</span>
+    <span class="phpdocumentor-element-found-in__line">259</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Download file.</p>
+        <p class="phpdocumentor-summary">Send file download response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1083,7 +1134,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Download file name.</p>
+                    <section class="phpdocumentor-description"><p>Download filename for the browser.</p>
 </section>
 
             </dd>
@@ -1092,7 +1143,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Downloadable Content.</p>
+                    <section class="phpdocumentor-description"><p>File content or path to file.</p>
 </section>
 
             </dd>
@@ -1101,13 +1152,47 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) MIME Type. The default is false and the MIME type is automatically detected.</p>
+                    <section class="phpdocumentor-description"><p>MIME type. False for auto-detection.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_download#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Download generated content</p>
+<pre class="prettyprint"><code class="language-php">public function exportCsv() {
+  $csv = &quot;id,name\n1,John\n2,Jane&quot;;
+  $this-&gt;download('users.csv', $csv, 'text/csv');
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Download existing file</p>
+<pre class="prettyprint"><code class="language-php">public function downloadReport() {
+  $this-&gt;download('report.pdf', file_get_contents('/path/to/report.pdf'));
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1125,11 +1210,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">218</span>
+    <span class="phpdocumentor-element-found-in__line">363</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Error response.</p>
+        <p class="phpdocumentor-summary">Send error response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1137,7 +1222,9 @@ class Sample extends \X\Controller\Controller {
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Outputs an error message with the specified HTTP status code.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1145,7 +1232,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Error message.</p>
+                    <section class="phpdocumentor-description"><p>Error message to display.</p>
 </section>
 
             </dd>
@@ -1154,7 +1241,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">500</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) HTTP status.</p>
+                    <section class="phpdocumentor-description"><p>HTTP status code. Default is 500.</p>
 </section>
 
             </dd>
@@ -1163,13 +1250,55 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Force a response with Content-Type &quot;application/json&quot;.</p>
+                    <section class="phpdocumentor-description"><p>Force JSON response format. Default is false.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_error#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Return 404 error</p>
+<pre class="prettyprint"><code class="language-php">public function show($id) {
+  $user = $this-&gt;UserModel-&gt;get_by_id($id);
+  if (!$user) {
+    $this-&gt;error('User not found', 404);
+    return;
+  }
+  $this-&gt;set('user', $user)-&gt;json();
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Force JSON error response with additional data</p>
+<pre class="prettyprint"><code class="language-php">public function create() {
+  if (!$this-&gt;validate()) {
+    $this-&gt;set('errors', $this-&gt;validation_errors())
+         -&gt;error('Validation failed', 400, true);
+    return;
+  }
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1187,11 +1316,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response HTML.</p>
+        <p class="phpdocumentor-summary">Send HTML response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1207,7 +1336,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>HTML string.</p>
+                    <section class="phpdocumentor-description"><p>HTML content string.</p>
 </section>
 
             </dd>
@@ -1231,11 +1360,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">289</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response image.</p>
+        <p class="phpdocumentor-summary">Send image response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1243,7 +1372,9 @@ class Sample extends \X\Controller\Controller {
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Outputs an image file with appropriate Content-Type header.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1251,13 +1382,48 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Image path.</p>
+                    <section class="phpdocumentor-description"><p>Path to the image file.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_image#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Display user avatar</p>
+<pre class="prettyprint"><code class="language-php">public function avatar($userId) {
+  $user = $this-&gt;UserModel-&gt;get_by_id($userId);
+  $this-&gt;image(FCPATH . 'uploads/avatars/' . $user['avatar']);
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Display dynamically generated image</p>
+<pre class="prettyprint"><code class="language-php">public function thumbnail($imageId) {
+  $path = $this-&gt;ImageService-&gt;getThumbnailPath($imageId);
+  $this-&gt;image($path);
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1275,11 +1441,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">136</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response js.</p>
+        <p class="phpdocumentor-summary">Send JavaScript response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1295,7 +1461,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>JS Code.</p>
+                    <section class="phpdocumentor-description"><p>JavaScript code.</p>
 </section>
 
             </dd>
@@ -1319,11 +1485,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response JSON.</p>
+        <p class="phpdocumentor-summary">Send JSON response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1339,7 +1505,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Outputs an object rather than an array when a non-associative array is used.</p>
+                    <section class="phpdocumentor-description"><p>Force object output for non-associative arrays.</p>
 </section>
 
             </dd>
@@ -1348,13 +1514,58 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Use whitespace in returned data to format it.</p>
+                    <section class="phpdocumentor-description"><p>Pretty-print JSON with whitespace.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_json#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Basic JSON response</p>
+<pre class="prettyprint"><code class="language-php">public function getUser() {
+  $user = $this-&gt;UserModel-&gt;get_by_id(1);
+  $this-&gt;set('user', $user)-&gt;json();
+}
+// Output: {&quot;user&quot;: {&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;}}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Force object output for empty arrays</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;set('items', [])-&gt;json(true);
+// Output: {&quot;items&quot;: }} instead of {&quot;items&quot;: []}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Pretty-printed JSON for debugging</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;set('data', $complexData)-&gt;json(false, true);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1372,11 +1583,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set response.</p>
+        <p class="phpdocumentor-summary">Set response data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1392,7 +1603,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>If one argument, the response data. If two arguments, the field name of the response data.</p>
+                    <section class="phpdocumentor-description"><p>Response data (1 arg) or field name (2 args).</p>
 </section>
 
             </dd>
@@ -1401,17 +1612,64 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">mixed|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Response data.</p>
+                    <section class="phpdocumentor-description"><p>Field value when using 2 arguments.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_set#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set single field</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;set('username', 'John')-&gt;json();
+// Output: {&quot;username&quot;: &quot;John&quot;}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set multiple fields</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;set('id', 1)-&gt;set('name', 'John')-&gt;json();
+// Output: {&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set entire response data at once</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;set(['id' =&gt; 1, 'name' =&gt; 'John'])-&gt;json();
+// Output: {&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Controller-Controller.html"><abbr title="\X\Controller\Controller">Controller</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1429,11 +1687,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Sets the CORS header.</p>
+        <p class="phpdocumentor-summary">Set CORS (Cross-Origin Resource Sharing) headers.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1441,22 +1699,7 @@ class Sample extends \X\Controller\Controller {
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">// Allow all.
-parent::setCorsHeader('*');
-
-// Only any origin is allowed.
-parent::setCorsHeader('http://www.example.jp');
-parent::setCorsHeader('http://www.example.jp https://www.example.jp http://sub.example.jp');
-
-// To set the same Access-Control-Allow-Origin for all responses, use the hook point called before the response.
-abstract class AppController extends \X\Controller\Controller {
-  protected function beforeResponse(string $referer) {
-    $this-&gt;setCorsHeader('*');
-  }
-}
-</code></pre>
-</section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1464,17 +1707,63 @@ abstract class AppController extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;*&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Allowable Origins.</p>
+                    <section class="phpdocumentor-description"><p>Allowed origin(s). Use '*' for all or space-separated URLs.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_setCorsHeader#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Allow all origins</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;setCorsHeader('*');
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Allow specific origins (space-separated)</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;setCorsHeader('http://example.com https://example.com');
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set CORS for all responses via hook</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeResponse(string $referer) {
+  $this-&gt;setCorsHeader('*');
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Controller-Controller.html"><abbr title="\X\Controller\Controller">Controller</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1492,11 +1781,11 @@ abstract class AppController extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set HTTP status.</p>
+        <p class="phpdocumentor-summary">Set HTTP response status code.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1512,7 +1801,7 @@ abstract class AppController extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>HTTP status.</p>
+                    <section class="phpdocumentor-description"><p>HTTP status code (e.g., 200, 404, 500).</p>
 </section>
 
             </dd>
@@ -1523,6 +1812,10 @@ abstract class AppController extends \X\Controller\Controller {
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Controller-Controller.html"><abbr title="\X\Controller\Controller">Controller</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1540,11 +1833,11 @@ abstract class AppController extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response Plain text.</p>
+        <p class="phpdocumentor-summary">Send plain text response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1560,7 +1853,7 @@ abstract class AppController extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Plain text.</p>
+                    <section class="phpdocumentor-description"><p>Plain text content.</p>
 </section>
 
             </dd>
@@ -1584,11 +1877,11 @@ abstract class AppController extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Responds with the result of compiling the specified template into HTML.</p>
+        <p class="phpdocumentor-summary">Render and send Twig template response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1604,13 +1897,48 @@ abstract class AppController extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Template path.</p>
+                    <section class="phpdocumentor-description"><p>Path to Twig template file.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_view#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Render a template with data</p>
+<pre class="prettyprint"><code class="language-php">public function index() {
+  $users = $this-&gt;UserModel-&gt;get_all();
+  $this-&gt;set('users', $users)-&gt;set('title', 'User List')-&gt;view('user/index');
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Template file (views/user/index.twig)</p>
+<pre class="prettyprint"><code class="language-twig">&lt;h1&gt;{{ title }}&lt;/h1&gt;
+{% for user in users %}
+  &lt;p&gt;{{ user.name }}&lt;/p&gt;
+{% endfor %}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1628,11 +1956,11 @@ abstract class AppController extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">226</span>
+    <span class="phpdocumentor-element-found-in__line">374</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get referrer.</p>
+        <p class="phpdocumentor-summary">Get HTTP referrer URL.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1640,7 +1968,9 @@ abstract class AppController extends \X\Controller\Controller {
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Returns the HTTP_REFERER if available, otherwise constructs the current URL.</p>
+</section>
+
     
     
 
@@ -1648,7 +1978,7 @@ abstract class AppController extends \X\Controller\Controller {
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Referrer.</p>
+                <section class="phpdocumentor-description"><p>Referrer URL.</p>
 </section>
 
             </section>

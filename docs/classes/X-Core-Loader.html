@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -165,12 +175,24 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Core/Loader.php"><a href="files/src-x-core-loader.html"><abbr title="src/X/Core/Loader.php">Loader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Loader Class.</p>
+            <p class="phpdocumentor-summary">Extended CodeIgniter Loader class.</p>
 
+    <section class="phpdocumentor-description"><p>Provides enhanced database loading with custom query builder support.</p>
+<p>Usage:</p>
+<pre class="prettyprint"><code class="language-php">// In controller, load default database
+$this-&gt;load-&gt;database();
+
+// Load specific connection group
+$this-&gt;load-&gt;database('secondary');
+
+// Get database instance directly
+$db = $this-&gt;load-&gt;database('default', true);
+</code></pre>
+</section>
 
 
 
@@ -202,7 +224,7 @@
     <span>
                                 &nbsp;: <abbr title="\X\Database\DB">DB</abbr>|<a href="classes/X-Core-Loader.html"><abbr title="\X\Core\Loader">Loader</abbr></a>|false    </span>
 </dt>
-<dd>Database Loader.</dd>
+<dd>Load database connection.</dd>
 
     </dl>
 
@@ -233,11 +255,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Core/Loader.php"><a href="files/src-x-core-loader.html"><abbr title="src/X/Core/Loader.php">Loader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Database Loader.</p>
+        <p class="phpdocumentor-summary">Load database connection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -253,7 +275,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Connection group name or database configuration options.</p>
+                    <section class="phpdocumentor-description"><p>Connection group name or database configuration array. Default is 'default'.</p>
 </section>
 
             </dd>
@@ -262,7 +284,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Whether to return a DB instance. Default is false.</p>
+                    <section class="phpdocumentor-description"><p>Return the database object instead of assigning to CI instance. Default is false.</p>
 </section>
 
             </dd>
@@ -271,7 +293,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) An instance that overrides the existing CI_DB_query_builder.</p>
+                    <section class="phpdocumentor-description"><p>Custom query builder instance to use.</p>
 </section>
 
             </dd>
@@ -283,7 +305,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\X\Database\DB">DB</abbr>|<a href="classes/X-Core-Loader.html"><abbr title="\X\Core\Loader">Loader</abbr></a>|false</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Database object if $return is set to true, false on failure, Loader instance in any other case.</p>
+                <section class="phpdocumentor-description"><p>Database object if $return is true, Loader instance otherwise, false on failure.</p>
 </section>
 
             </section>

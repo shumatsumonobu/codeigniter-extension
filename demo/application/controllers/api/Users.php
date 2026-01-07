@@ -2,6 +2,12 @@
 use \X\Annotation\Access;
 use \X\Util\Logger;
 
+/**
+ * Users API controller.
+ *
+ * RESTful API endpoints for user authentication and management.
+ * All responses are JSON format.
+ */
 class Users extends AppController {
   protected $model = [
     'UserModel',
@@ -9,6 +15,11 @@ class Users extends AppController {
   ];
 
   /**
+   * Authenticate user (POST).
+   *
+   * Request body: { email, password }
+   * Response: true on success, false on failure.
+   *
    * @Access(allow_login=false, allow_logoff=true)
    */
   public function login() {
@@ -30,6 +41,8 @@ class Users extends AppController {
   }
 
   /**
+   * Logout user and redirect to home.
+   *
    * @Access(allow_login=true, allow_logoff=false)
    */
   public function logout() {
@@ -44,6 +57,11 @@ class Users extends AppController {
   }
 
   /**
+   * Query users with pagination (GET).
+   *
+   * Query params: start, length, order, dir, search[keyword], draw
+   * Response: DataTables compatible JSON.
+   *
    * @Access(allow_login=true, allow_logoff=false, allow_role="admin,member")
    */
   public function query() {
@@ -74,6 +92,11 @@ class Users extends AppController {
   }
 
   /**
+   * Create new user (POST).
+   *
+   * Request body: { user: { role, email, name, password, icon } }
+   * Response: true on success.
+   *
    * @Access(allow_login=true, allow_logoff=false, allow_role="admin,member")
    */
   public function post() {
@@ -90,6 +113,11 @@ class Users extends AppController {
   }
 
   /**
+   * Check if email exists (GET).
+   *
+   * Query params: user[email], excludeUserId (optional)
+   * Response: { valid: true/false }
+   *
    * @Access(allow_login=true, allow_logoff=false, allow_role="admin,member")
    */
   public function emailExists() {
@@ -105,6 +133,11 @@ class Users extends AppController {
   }
 
   /**
+   * Get user by ID (GET).
+   *
+   * @param int $userId User ID.
+   * Response: User data object.
+   *
    * @Access(allow_login=true, allow_logoff=false, allow_role="admin,member")
    */
   public function get(int $userId) {
@@ -117,6 +150,12 @@ class Users extends AppController {
   }
 
   /**
+   * Update user by ID (PUT).
+   *
+   * @param int $userId User ID.
+   * Request body: { user: { email, name, role, password, icon, changePassword } }
+   * Response: true on success, { error: 'userNotFound' } if user not found.
+   *
    * @Access(allow_login=true, allow_logoff=false, allow_role="admin,member")
    */
   public function put(int $userId) {
@@ -135,10 +174,16 @@ class Users extends AppController {
   }
 
   /**
+   * Delete user by ID (DELETE).
+   *
+   * @param int $userId User ID.
+   * Response: true on success, { error: 'userNotFound' } if user not found.
+   *
    * @Access(allow_login=true, allow_logoff=false, allow_role="admin,member")
    */
   public function delete(int $userId) {
     try {
+      // Get user name for logging before deletion
       $userName = $this->UserModel
         ->select('name')
         ->where('id', $userId)
@@ -156,12 +201,16 @@ class Users extends AppController {
   }
 
   /**
+   * Validate password security requirements (GET).
+   *
+   * Query params: user[password]
+   * Response: { valid: true/false }
+   *
    * @Access(allow_login=true, allow_logoff=false)
    */
   public function passwordSecurityCheck() {
     try {
       $set = $this->input->get();
-      // Logger::debug('$set=', $set);
       $this->form_validation
         ->set_data($set)
         ->set_rules('user[password]', 'user[password]', 'required');
@@ -177,12 +226,16 @@ class Users extends AppController {
   }
 
   /**
+   * Update current user's profile (PUT).
+   *
+   * Request body: { user: { email, name, password, icon, changePassword } }
+   * Response: true on success, { error: 'userNotFound' } if user not found.
+   *
    * @Access(allow_login=true, allow_logoff=false)
    */
   public function updateProfile() {
     try {
       $set = $this->input->put();
-      // Logger::debug('$set=', $set);
       $this->formValidation($set, 'updateProfile');
       $this->UserModel->updateUser($_SESSION[SESSION_NAME]['id'], $set['user']);
       $this->UserLogModel->createUserLog($_SESSION[SESSION_NAME]['name'], 'Updated profile');
@@ -195,10 +248,17 @@ class Users extends AppController {
     }
   }
 
+  /**
+   * Validate user form data.
+   *
+   * @param array $set Form data to validate.
+   * @param string $mode Validation mode: 'create', 'update', or 'updateProfile'.
+   * @return void
+   * @throws \RuntimeException If validation fails.
+   */
   private function formValidation(array $set, string $mode) {
     $this->form_validation
       ->set_data($set)
-      // ->set_rules('user[role]', 'user[role]', 'required|in_list[admin,member]')
       ->set_rules('user[email]', 'user[email]', 'required')
       ->set_rules('user[name]', 'user[name]', 'required')
       ->set_rules('user[icon]', 'user[icon]', 'required|regex_match[/^data:image\/[a-z]+;base64,[a-zA-Z0-9\/\+=]+$/]');

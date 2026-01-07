@@ -2,7 +2,10 @@
 namespace X\Util;
 
 /**
- * URL Utility.
+ * URL parsing utility class.
+ *
+ * Provides URL manipulation methods including filename stripping
+ * and domain extraction.
  */
 final class UrlHelper {
   /**

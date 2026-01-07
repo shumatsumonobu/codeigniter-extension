@@ -3,28 +3,43 @@ namespace X\Library;
 use \X\Util\Validation;
 
 /**
- * CI_Form_validation extension.
+ * Extended form validation class.
+ *
+ * Provides additional validation rules beyond CodeIgniter's built-in form validation.
+ * Includes validation for datetime, hostname, IP address, email, file paths, etc.
+ *
+ * Usage:
+ * ```php
+ * $this->form_validation
+ *   ->set_data(['email' => 'user@example.com', 'port' => '8080'])
+ *   ->set_rules('email', 'Email', 'required|email')
+ *   ->set_rules('port', 'Port', 'required|port');
+ * ```
  */
 abstract class FormValidation extends \CI_Form_validation {
   /**
-   * Initialize FormValidation.
-   * @param array $rules (optional) Validation Rules.
+   * Initialize form validation.
+   *
+   * @param array $rules Initial validation rules. Default is empty array.
    */
   function __construct($rules=[]) {
     parent::__construct($rules);
   }
 
   /**
-  * Check if it is the date and time.
-  * ```php
-  * $this->form_validation
-  *   ->set_data(['datetime' => '2021-02-03 17:46:00'])
-  *   ->set_rules('datetime', 'datetime', 'required|datetime[Y-m-d H:i:s]');
-  * ```
-   * @param string $value Input value.
-   * @param string $format Date Format.
-   * @return bool Check Results.
-  */
+   * Validate datetime format.
+   *
+   * @example
+   * ```php
+   * $this->form_validation
+   *   ->set_data(['datetime' => '2021-02-03 17:46:00'])
+   *   ->set_rules('datetime', 'datetime', 'required|datetime[Y-m-d H:i:s]');
+   * ```
+   *
+   * @param string $value Input value to validate.
+   * @param string $format Expected date format (PHP date format string).
+   * @return bool True if valid, false otherwise.
+   */
   public function datetime(string $value, string $format): bool {
     $value = str_replace(['-', '/'], '-', $value);
     if (date($format, strtotime($value)) == $value)
@@ -34,9 +49,10 @@ abstract class FormValidation extends \CI_Form_validation {
   }
 
   /**
-   * Check if it is a host name.
-   * @param string $value Input value.
-   * @return bool Check Results.
+   * Validate hostname format.
+   *
+   * @param string $value Input value to validate.
+   * @return bool True if valid hostname, false otherwise.
    */
   public function hostname(string $value): bool {
     if (Validation::hostname($value))
@@ -46,9 +62,10 @@ abstract class FormValidation extends \CI_Form_validation {
   }
 
   /**
-   * Check if it is an IP.
-   * @param string $value Input value.
-   * @return bool Check Results.
+   * Validate IP address format.
+   *
+   * @param string $value Input value to validate.
+   * @return bool True if valid IP address, false otherwise.
    */
   public function ipaddress(string $value): bool {
     if (Validation::ipaddress($value))
@@ -58,9 +75,10 @@ abstract class FormValidation extends \CI_Form_validation {
   }
 
   /**
-   * Check if it is IP or CIDR format.
-   * @param string $value Input value.
-   * @return bool Check Results.
+   * Validate IP address or CIDR notation format.
+   *
+   * @param string $value Input value to validate.
+   * @return bool True if valid IP address or CIDR, false otherwise.
    */
   public function ipaddress_or_cidr(string $value): bool {
     if (Validation::ipaddress_or_cidr($value))
@@ -70,9 +88,10 @@ abstract class FormValidation extends \CI_Form_validation {
   }
 
   /**
-   * Check if it is a host name or IP.
-   * @param string $value Input value.
-   * @return bool Check Results.
+   * Validate hostname or IP address format.
+   *
+   * @param string $value Input value to validate.
+   * @return bool True if valid hostname or IP address, false otherwise.
    */
   public function hostname_or_ipaddress(string $value): bool {
     if (Validation::hostname_or_ipaddress($value))
@@ -82,9 +101,10 @@ abstract class FormValidation extends \CI_Form_validation {
   }
 
   /**
-   * Check if it is a unix user name.
-   * @param string $value Input value.
-   * @return bool Check Results.
+   * Validate UNIX username format.
+   *
+   * @param string $value Input value to validate.
+   * @return bool True if valid UNIX username, false otherwise.
    */
   public function unix_username(string $value): bool {
     if (Validation::unix_username($value))
@@ -94,9 +114,10 @@ abstract class FormValidation extends \CI_Form_validation {
   }
 
   /**
-   * Check if it is a port number.
-   * @param string $value Input value.
-   * @return bool Check Results.
+   * Validate port number (1-65535).
+   *
+   * @param string $value Input value to validate.
+   * @return bool True if valid port number, false otherwise.
    */
   public function port(string $value): bool {
     if (Validation::port($value))
@@ -106,11 +127,13 @@ abstract class FormValidation extends \CI_Form_validation {
   }
 
   /**
-   * Check if it is an e-mail.
-   * The verification method uses the regular expression proposed in the HTML5 specification.
-   * https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address
-   * @param string $value Input value.
-   * @return bool Check Results.
+   * Validate email address format.
+   *
+   * Uses the regular expression from the HTML5 specification for validation.
+   *
+   * @see https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address
+   * @param string $value Input value to validate.
+   * @return bool True if valid email address, false otherwise.
    */
   public function email(string $value): bool {
     if (Validation::email($value))
@@ -120,10 +143,11 @@ abstract class FormValidation extends \CI_Form_validation {
   }
 
   /**
-   * Check if it is a file (directory) path.
-   * @param string $value Input value.
-   * @param mixed $denyLeadingSlash Whether leading slashes are allowed or not.
-   * @return bool Check Results.
+   * Validate file or directory path format.
+   *
+   * @param string $value Input value to validate.
+   * @param mixed $denyLeadingSlash Deny leading slashes if true. Default is false.
+   * @return bool True if valid path, false otherwise.
    */
   public function is_path(string $value, $denyLeadingSlash=false): bool {
     if (Validation::is_path($value, filter_var($denyLeadingSlash, FILTER_VALIDATE_BOOLEAN)))

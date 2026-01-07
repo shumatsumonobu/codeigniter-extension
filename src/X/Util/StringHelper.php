@@ -2,7 +2,10 @@
 namespace X\Util;
 
 /**
- * String Utility.
+ * String manipulation utility class.
+ *
+ * Provides string helper methods including trimming (with full-width space support),
+ * empty checking, and text ellipsis truncation.
  */
 final class StringHelper {
   /**

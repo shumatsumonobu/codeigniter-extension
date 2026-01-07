@@ -6,7 +6,25 @@ use \X\Util\ImageHelper;
 use \X\Util\Logger;
 
 /**
- * Amazon Rekognition API Client.
+ * Amazon Rekognition API client wrapper.
+ *
+ * Provides simplified interface for AWS Rekognition face detection and comparison.
+ * Supports face collections, face matching, and face detection operations.
+ *
+ * Usage:
+ * ```php
+ * $client = new Client([
+ *   'key' => 'AWS_ACCESS_KEY',
+ *   'secret' => 'AWS_SECRET_KEY',
+ *   'region' => 'ap-northeast-1'
+ * ]);
+ *
+ * // Add face to collection
+ * $faceId = $client->addFaceToCollection('my-collection', $imageDataUrl);
+ *
+ * // Search for similar faces
+ * $match = $client->getFaceFromCollectionByImage('my-collection', $searchImage);
+ * ```
  */
 class Client {
   /**

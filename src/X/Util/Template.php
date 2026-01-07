@@ -5,7 +5,10 @@ use \X\Util\Loader;
 use \X\Util\Logger;
 
 /**
- * Twig-based template.
+ * Twig template engine wrapper class.
+ *
+ * Provides Twig-based template rendering with CodeIgniter integration,
+ * cache busting for assets, and global variables (baseUrl, session, action).
  */
 final class Template {
   /**

@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -162,12 +172,25 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Hook/Authenticate.php"><a href="files/src-x-hook-authenticate.html"><abbr title="src/X/Hook/Authenticate.php">Authenticate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Authentication Hook class.</p>
+            <p class="phpdocumentor-summary">Authentication hook class.</p>
 
+    <section class="phpdocumentor-description"><p>Base class for implementing authentication hooks in CodeIgniter.
+Extend this class and configure in application/config/hooks.php
+to add pre-controller authentication logic.</p>
+<p>Usage:</p>
+<pre class="prettyprint"><code class="language-php">// In application/config/hooks.php
+$hook['post_controller_constructor'] = [
+  'class' =&gt; 'MyAuthHook',
+  'function' =&gt; 'authenticate',
+  'filename' =&gt; 'MyAuthHook.php',
+  'filepath' =&gt; 'hooks'
+];
+</code></pre>
+</section>
 
 
 

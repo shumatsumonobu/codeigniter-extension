@@ -4,19 +4,29 @@ use \X\Annotation\Access;
 use \X\Util\Logger;
 
 /**
- * Read the annotations of the controller's methods.
+ * Annotation reader for controller methods.
+ *
+ * Reads and parses Doctrine annotations from controller methods to extract
+ * access control information.
+ *
+ * Usage:
+ * ```php
+ * $access = AnnotationReader::getAccessibility('UserController', 'edit');
+ * if (!$access->allow_logoff) {
+ *   redirect('/login');
+ * }
+ * ```
  */
 final class AnnotationReader {
   /**
-   * Get Access annotation information.
-   * The Access annotation contains the following fields.
-   * - allow_login: Set to true to allow access for logged-in users or false to disallow access.
-   * - allow_logoff: Set to true to allow access for logoff users, or false to disallow access.
-   * - allow_role: Role names of logged-in users to be allowed access. You can specify multiple comma-separated names.
-   * - allow_http: Set to true to allow access from HTTP, false to disallow. For example, if you want to allow access only from the CLI, set false.
-   * @param string $class Controller class name.
+   * Get Access annotation information from a controller method.
+   *
+   * Returns the access control settings defined by @Access annotation.
+   * If no annotation is found, returns default Access values (all allowed).
+   *
+   * @param string $class Controller class name (without namespace).
    * @param string $method Method name.
-   * @return array{allow_login: bool, allow_logoff: bool, allow_role: string, allow_http: bool} Access annotation object.
+   * @return object{allow_login: bool, allow_logoff: bool, allow_role: string, allow_http: bool} Access settings.
    */
   public static function getAccessibility(string $class, string $method): object {
     $annotation = self::getMethodAnnotation($class, $method, 'Access');
@@ -26,11 +36,12 @@ final class AnnotationReader {
   }
 
   /**
-   * Get method annotation.
+   * Get a specific annotation from a method.
+   *
    * @param string $class Controller class name.
    * @param string $method Method name.
-   * @param string $annotationName Annotation Name.
-   * @return object|null Method annotation object.
+   * @param string $annotationName Annotation class short name (e.g., "Access").
+   * @return object|null Annotation object or null if not found.
    */
   private static function getMethodAnnotation(string $class, string $method, string $annotationName): ?object {
     $annotations = self::reader()->getMethodAnnotations(new \ReflectionMethod(ucfirst($class), $method));
@@ -44,8 +55,9 @@ final class AnnotationReader {
   }
 
   /**
-   * Get AnnotationReader instance.
-   * @return \Doctrine\Common\Annotations\AnnotationReader AnnotationReader instance.
+   * Get singleton Doctrine AnnotationReader instance.
+   *
+   * @return \Doctrine\Common\Annotations\AnnotationReader Cached reader instance.
    */
   private static function reader(): \Doctrine\Common\Annotations\AnnotationReader {
     static $reader = null;

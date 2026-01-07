@@ -3,7 +3,10 @@ namespace X\Util;
 use \X\Util\Loader;
 
 /**
- * Cipher utility.
+ * Cryptographic utility class.
+ *
+ * Provides encryption and hashing methods including SHA-256, AES-256,
+ * IV generation, and secure random token generation.
  */
 final class Cipher {
   /**

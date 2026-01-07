@@ -1,5 +1,12 @@
 # CodeIgniter Extension
 
+[![PHP Version](https://img.shields.io/packagist/php-v/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
+[![License](https://img.shields.io/packagist/l/takuya-motoshima/codeigniter-extension)](LICENSE)
+[![Packagist Downloads](https://img.shields.io/packagist/dt/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
+[![Latest Version](https://img.shields.io/packagist/v/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
+
+[English](README.md) | [Changelog](CHANGELOG.md) | [変更履歴](CHANGELOG_ja.md)
+
 CodeIgniter 3の拡張パッケージで、拡張されたコアクラス(コントローラー、モデル、ビュー)とユーティリティクラスを提供します。
 
 ## 目次
@@ -9,7 +16,10 @@ CodeIgniter 3の拡張パッケージで、拡張されたコアクラス(コン
 - [インストール](#インストール)
 - [クイックスタート](#クイックスタート)
 - [設定](#設定)
+- [アーキテクチャ](#アーキテクチャ)
 - [使用例](#使用例)
+- [APIリファレンス](#apiリファレンス)
+- [トラブルシューティング](#トラブルシューティング)
 - [テスト](#テスト)
 - [ドキュメント](#ドキュメント)
 - [ライセンス](#ライセンス)
@@ -257,6 +267,90 @@ Warning: session_write_close(): Failed to write session data using user defined 
 
 詳細については、[PHP SessionHandlerInterfaceドキュメント](https://www.php.net/manual/ja/class.sessionhandlerinterface.php)を参照してください。
 
+## アーキテクチャ
+
+### ディレクトリ構造
+
+```
+src/X/
+├── Annotation/          # アクセス制御アノテーション
+│   ├── Access.php           # @Accessアノテーション定義
+│   └── AnnotationReader.php # アノテーションパーサー
+├── Composer/            # Composerインストーラー
+│   └── Installer.php        # create-project後処理
+├── Constant/            # 定数
+│   ├── Environment.php      # 環境定数 (DEVELOPMENT, TESTING, PRODUCTION)
+│   └── HttpStatus.php       # HTTPステータスコード定数
+├── Controller/          # コントローラー拡張
+│   └── Controller.php       # レスポンスヘルパー付き基底コントローラー
+├── Core/                # CodeIgniterコア拡張
+│   ├── Loader.php           # 拡張ローダー
+│   ├── Router.php           # 拡張ルーター
+│   └── URI.php              # 拡張URI
+├── Database/            # データベース拡張
+│   ├── DB.php               # DBファクトリー
+│   ├── Driver.php           # 基底ドライバー
+│   ├── QueryBuilder.php     # 拡張クエリビルダー
+│   └── Result.php           # 拡張結果セット
+├── Exception/           # カスタム例外
+│   ├── AccessDeniedException.php
+│   └── RestClientException.php
+├── Hook/                # フック
+│   └── Authenticate.php     # 認証フック
+├── Library/             # ライブラリ拡張
+│   ├── FormValidation.php   # 拡張フォームバリデーション
+│   ├── Input.php            # 拡張入力ライブラリ
+│   ├── Router.php           # ルーターライブラリ
+│   └── SessionDatabaseDriver.php # DBセッションドライバー (PHP 7.0+)
+├── Model/               # モデル拡張
+│   ├── Model.php            # クエリビルダー付き基底モデル
+│   ├── AddressModel.php     # 住所モデル
+│   ├── SessionModel.php     # セッションモデル
+│   └── SessionModelInterface.php
+├── Rekognition/         # AWS Rekognition
+│   └── Client.php           # 顔検出/比較クライアント
+└── Util/                # ユーティリティクラス (21クラス)
+    ├── AmazonSesClient.php  # Amazon SESメール
+    ├── ArrayHelper.php      # 配列操作
+    ├── Cipher.php           # 暗号化 (AES-256-CTR)
+    ├── CsvHelper.php        # CSVインポート/エクスポート
+    ├── DateHelper.php       # 日付操作
+    ├── EMail.php            # テンプレート付きメール
+    ├── FileHelper.php       # ファイル/ディレクトリ操作
+    ├── HtmlHelper.php       # HTMLユーティリティ
+    ├── HttpInput.php        # HTTP入力処理
+    ├── HttpResponse.php     # HTTPレスポンスビルダー
+    ├── ImageHelper.php      # 画像処理
+    ├── IpUtils.php          # IPアドレスユーティリティ
+    ├── Iterator.php         # 組み合わせ演算
+    ├── Loader.php           # リソースローダー
+    ├── Logger.php           # ロギング
+    ├── RestClient.php       # REST APIクライアント
+    ├── SessionHelper.php    # セッションユーティリティ
+    ├── StringHelper.php     # 文字列操作
+    ├── Template.php         # Twig統合
+    ├── UrlHelper.php        # URLユーティリティ
+    ├── Validation.php       # データバリデーション
+    └── VideoHelper.php      # 動画処理
+```
+
+### アプリケーション構造 (skeleton/)
+
+このパッケージで作成されるプロジェクトは以下の構造に従います:
+
+```
+application/
+├── core/
+│   ├── AppController.php    # \X\Controller\Controller を継承
+│   └── AppModel.php         # \X\Model\Model を継承
+├── config/
+│   ├── hooks.php            # AnnotationReaderによるアクセス制御
+│   └── constants.php        # SESSION_NAME, ENV_DIR 定数
+├── controllers/             # アプリケーションコントローラー
+├── models/                  # アプリケーションモデル
+└── views/                   # Twigテンプレート
+```
+
 ## 使用例
 
 ### コントローラー
@@ -337,6 +431,91 @@ $encrypted = Cipher::encrypt('secret data', 'encryption-key');
 use \X\Util\RestClient;
 $client = new RestClient(['base_url' => 'https://api.example.com']);
 $response = $client->get('/users');
+```
+
+## APIリファレンス
+
+### コントローラーメソッド
+
+| メソッド | 説明 |
+|---------|------|
+| `json()` | JSONレスポンスを送信 |
+| `view($template)` | Twigテンプレートをレンダリング |
+| `html($html)` | HTMLレスポンスを送信 |
+| `text($text)` | プレーンテキストレスポンスを送信 |
+| `image($path)` | 画像レスポンスを送信 |
+| `download($filename, $content)` | ファイルダウンロードを強制 |
+| `set($key, $value)` | レスポンスデータを設定 |
+| `setCorsHeader($origin)` | CORSヘッダーを設定 |
+
+### モデルメソッド
+
+| メソッド | 説明 |
+|---------|------|
+| `get_all()` | 全レコードを取得 |
+| `get_by_id($id)` | IDでレコードを取得 |
+| `count_by_id($id)` | IDでレコード数をカウント |
+| `exists_by_id($id)` | レコードの存在確認 |
+| `insert_on_duplicate_update()` | INSERT ... ON DUPLICATE KEY UPDATE |
+| `insert_on_duplicate_update_batch()` | バッチアップサート |
+
+### ユーティリティクラス
+
+| クラス | 主要メソッド |
+|--------|-------------|
+| `ImageHelper` | `resize()`, `crop()`, `writeDataURLToFile()`, `pdf2Image()` |
+| `FileHelper` | `makeDirectory()`, `delete()`, `copyFile()`, `move()` |
+| `Cipher` | `encrypt()`, `decrypt()`, `encode_sha256()` |
+| `RestClient` | `get()`, `post()`, `put()`, `delete()` |
+| `Logger` | `debug()`, `info()`, `error()`, `display()` |
+| `Validation` | `hostname()`, `ipaddress()`, `email()`, `is_path()` |
+| `IpUtils` | `isIPv4()`, `isIPv6()`, `inRange()` |
+| `Template` | `load($template, $params)` |
+
+## トラブルシューティング
+
+### よくある問題
+
+#### 「セッションデータの書き込みに失敗しました」警告
+
+**問題:** PHP 7.0+でセッション書き込み警告が表示される。
+
+**解決策:** このパッケージにはPHP 7.0+互換の`updateTimestamp()`を実装した`SessionDatabaseDriver`が含まれています。以下を使用していることを確認してください:
+
+```php
+$config['sess_driver'] = 'database';
+```
+
+#### Imagick拡張が見つからない
+
+**問題:** `extractFirstFrameOfGif()`がエラーをスローする。
+
+**解決策:** ImageMagickとphp-imagickをインストール:
+
+```sh
+# Amazon Linux 2023
+sudo dnf -y install ImageMagick ImageMagick-devel php-pear.noarch
+sudo pecl install imagick
+echo "extension=imagick.so" | sudo tee -a /etc/php.ini
+sudo systemctl restart php-fpm
+```
+
+#### Accessアノテーションが機能しない
+
+**問題:** `@Access`アノテーションが無視される。
+
+**解決策:**
+1. `config.php`でフックを有効化: `$config['enable_hooks'] = TRUE;`
+2. `hooks.php`で`AnnotationReader::getAccessibility()`を設定
+
+#### テンプレートキャッシュの問題
+
+**問題:** Twigテンプレートが更新されない。
+
+**解決策:** キャッシュディレクトリをクリア:
+
+```sh
+rm -rf application/cache/templates/*
 ```
 
 ## テスト

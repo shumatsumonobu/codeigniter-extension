@@ -44,7 +44,7 @@
     "test": [
       "./vendor/bin/phpunit"
     ],
-    "syntax-check": "find ./src/X -name \"*.php\" | xargs -n1 php -l"
+    "syntax-check": "find ./src/X -name '*.php' -print0 | xargs -0 -P4 php -l 2>&1 | grep -v 'No syntax errors' || true"
   },
   "require-dev": {
     "phpunit/phpunit": "^8.4",

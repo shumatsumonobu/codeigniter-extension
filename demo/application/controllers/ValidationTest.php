@@ -1,16 +1,34 @@
 <?php
 use \X\Util\Logger;
 
+/**
+ * Form validation test controller.
+ *
+ * Provides an interactive form for testing CodeIgniter's form validation functionality.
+ */
 class ValidationTest extends AppController {
 
   public function __construct() {
     parent::__construct();
   }
 
+  /**
+   * Display validation test form page.
+   *
+   * @return void
+   */
   public function index() {
     $this->view('validation-test');
   }
 
+  /**
+   * Process form submission and validate input (POST).
+   *
+   * Validates: username, email, password, password_confirm, colors
+   * Response: JSON with success status, errors array or validated data.
+   *
+   * @return void
+   */
   public function submit() {
     // Set validation rules
     $this->form_validation->set_rules('username', 'Username', 'required|min_length[3]|max_length[20]');
@@ -21,7 +39,7 @@ class ValidationTest extends AppController {
 
     // Run validation
     if ($this->form_validation->run() === FALSE) {
-      // Validation failed
+      // Validation failed - return errors
       parent
         ::set([
           'success' => false,
@@ -35,7 +53,7 @@ class ValidationTest extends AppController {
         ])
         ::json();
     } else {
-      // Validation passed
+      // Validation passed - return submitted data
       parent
         ::set([
           'success' => true,

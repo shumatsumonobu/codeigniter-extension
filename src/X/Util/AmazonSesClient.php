@@ -4,7 +4,11 @@ use \X\Util\Logger;
 use \X\Util\Template;
 
 /**
- * Amazon SES Client.
+ * Amazon SES email client wrapper class.
+ *
+ * Provides fluent interface for sending emails via AWS Simple Email Service
+ * with support for XML-based templates, CC/BCC recipients, and configuration sets.
+ *
  * ```php
  * use \X\Util\AmazonSesClient;
  *
@@ -36,8 +40,14 @@ use \X\Util\Template;
  */
 class AmazonSesClient {
   /**
-   * Options.
-   * @var array{credentials: {key: string, secret: string}, configuration: string|null, region: string, version: string}
+   * SES client options.
+   *
+   * - credentials: array with 'key' and 'secret' for AWS credentials
+   * - configuration: string|null configuration set name
+   * - region: string AWS region (e.g., 'ap-northeast-1')
+   * - version: string API version (default: 'latest')
+   *
+   * @var array
    */
   private $options = null;
 

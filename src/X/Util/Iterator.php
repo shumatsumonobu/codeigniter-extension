@@ -2,7 +2,10 @@
 namespace X\Util;
 
 /**
- * Iterator utility.
+ * Combinatorics iterator utility class.
+ *
+ * Provides permutation and combination algorithms including
+ * duplicate/non-duplicate permutations and combinations.
  */
 final class Iterator {
   /**

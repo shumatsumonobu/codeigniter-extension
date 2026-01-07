@@ -117,6 +117,16 @@
     <a href="packages/Application.html" class="">Application</a>
 </h4>
 
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/X.html" class="">X</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/X-Database.html" class="">Database</a>
+                
+            </li>
+            </ul>
+
                         </section>
             
     <section class="phpdocumentor-sidebar__category">
@@ -157,7 +167,7 @@
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/X-Database-Driver.html"><abbr title="\X\Database\Driver">Driver</abbr></a></dt><dd>Database Driver Class.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/X-Database-QueryBuilder.html"><abbr title="\X\Database\QueryBuilder">QueryBuilder</abbr></a></dt><dd>Query Builder.</dd>    </dl>
+                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/X-Database-Driver.html"><abbr title="\X\Database\Driver">Driver</abbr></a></dt><dd>Abstract database driver class.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/X-Database-QueryBuilder.html"><abbr title="\X\Database\QueryBuilder">QueryBuilder</abbr></a></dt><dd>Extended Query Builder class.</dd>    </dl>
 
     <h4 id="toc-traits">
         Traits
@@ -165,7 +175,7 @@
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/X-Database-Result.html"><abbr title="\X\Database\Result">Result</abbr></a></dt><dd>Query Result Extension.</dd>    </dl>
+            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/X-Database-Result.html"><abbr title="\X\Database\Result">Result</abbr></a></dt><dd>Query result extension trait.</dd>    </dl>
 
 
 
@@ -181,9 +191,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/x-database.html#function_DB">DB()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: <a href="classes/X-Database-QueryBuilder.html"><abbr title="\X\Database\QueryBuilder">QueryBuilder</abbr></a>    </span>
 </dt>
-<dd>Initialize the database.</dd>
+<dd>Initialize and return a database connection.</dd>
 
     </dl>
 
@@ -204,25 +214,45 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Database/DB.php"><a href="files/src-x-database-db.html"><abbr title="src/X/Database/DB.php">DB.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the database.</p>
+        <p class="phpdocumentor-summary">Initialize and return a database connection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                <span class="phpdocumentor-signature__reference-operator">&amp;</span>    <span class="phpdocumentor-signature__name">DB</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queryBuilderOverride</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__reference-operator">&amp;</span>    <span class="phpdocumentor-signature__name">DB</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$queryBuilderOverride</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Database-QueryBuilder.html"><abbr title="\X\Database\QueryBuilder">QueryBuilder</abbr></a></span></code>
 
-    
+        <section class="phpdocumentor-description"><p>Creates a database connection using the specified configuration or DSN string.
+Supports custom query builder override for extended functionality.</p>
+<p>Usage:</p>
+<pre class="prettyprint"><code class="language-php">// Using connection group name
+$db = \X\Database\DB('default');
+
+// Using DSN string
+$db = \X\Database\DB('mysqli://user:pass@localhost/dbname');
+
+// Using configuration array
+$db = \X\Database\DB([
+  'dsn' =&gt; '',
+  'hostname' =&gt; 'localhost',
+  'username' =&gt; 'root',
+  'password' =&gt; '',
+  'database' =&gt; 'mydb',
+  'dbdriver' =&gt; 'mysqli'
+]);
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$config</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Connection group name or database configuration options.</p>
+                    <section class="phpdocumentor-description"><p>Connection group name, DSN string, or configuration array. Default is ''.</p>
 </section>
 
             </dd>
@@ -231,7 +261,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) An instance that overrides the existing CI_DB_query_builder.</p>
+                    <section class="phpdocumentor-description"><p>Custom query builder instance to override default.</p>
 </section>
 
             </dd>
@@ -239,7 +269,15 @@
 
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/X-Database-QueryBuilder.html"><abbr title="\X\Database\QueryBuilder">QueryBuilder</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Database query builder instance.</p>
+</section>
+
+            </section>
+
 </article>
             </section>
 

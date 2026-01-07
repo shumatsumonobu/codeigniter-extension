@@ -1,37 +1,41 @@
 # 変更履歴
-このプロジェクトの主な変更はこのファイルに記録されます。
+このプロジェクトの主な変更はこのファイルに記録される
 
 ## [5.0.4] - 2025/11/26 (未リリース)
 
 ### 追加
-- デモアプリケーションにリアルタイムバリデーションと視覚的フィードバックを実装したインタラクティブなフォーム検証テストページ(`/validation-test`)を追加しました。
-- PHP 7.0+ SessionHandlerInterface要件に準拠するため、`SessionDatabaseDriver`クラスに`updateTimestamp()`メソッドを実装し、「セッションデータの書き込みに失敗しました」警告を防止しました。
+- デモアプリケーションにリアルタイムバリデーションと視覚的フィードバックを実装したインタラクティブなフォーム検証テストページ(`/validation-test`)を追加
+- PHP 7.0+ SessionHandlerInterface要件に準拠するため、`SessionDatabaseDriver`クラスに`updateTimestamp()`メソッドを実装し、「セッションデータの書き込みに失敗しました」警告を防止
+
+### 変更
+- `src/X/`配下の全クラスのPHPDocコメントを改善（クラス説明、使用例、アノテーションの標準化）
+- README.mdとREADME_ja.mdにバッジ、アーキテクチャセクション、APIリファレンス表、トラブルシューティングガイドを追加
 
 ## [5.0.3] - 2025/11/25
 
 ### 追加
-- CodeIgniter 3のフォームバリデーションルール(チェックボックス配列バリデーションを含む)をテストするための`sandbox/form-validation-test.php`スクリプトを追加しました。
+- CodeIgniter 3のフォームバリデーションルール(チェックボックス配列バリデーションを含む)をテストするための`sandbox/form-validation-test.php`スクリプトを追加
 
 ### 修正
-- skeletonで誤って削除された`UserLogModel.php`を復元しました。
+- skeletonで誤って削除された`UserLogModel.php`を復元
 
 ## [5.0.2] - 2025/11/8
 
 ### 変更
-- LICENSEの著作権年を2024から2025に更新しました。
-- デモとスケルトンの構成を改善しました(コアパッケージ機能への変更はありません)。
+- LICENSEの著作権年を2024から2025に更新
+- デモとスケルトンの構成を改善(コアパッケージ機能への変更はなし)
 
 ## [5.0.1] - 2024/5/14
 
 ### 変更
-- インストーラープログラムを修正しました。インストール後に`prototypes/`、`__tests__/`、`phpunit-printer.yml`、`phpunit.xml`を削除する処理を追加しました。
-- スケルトンに`client/package-lock.json`を追加しました。
+- インストーラープログラムを修正。インストール後に`prototypes/`、`__tests__/`、`phpunit-printer.yml`、`phpunit.xml`を削除する処理を追加
+- スケルトンに`client/package-lock.json`を追加
 
 ## [5.0.0] - 2024/5/13
 
 ### 変更
-- PHP8サポート。PHP8以上が必要です。
-  PHP8をサポートするには、アプリケーション内でcodeigniter-extensionのコアクラスを拡張してください。
+- PHP8サポート。PHP8以上が必要
+  PHP8をサポートするには、アプリケーション内でcodeigniter-extensionのコアクラスを拡張する
   |application/core/|PHP|
   |--|--|
   |AppController.php|`abstract class AppController extends \X\Controller\Controller {}`|
@@ -41,15 +45,15 @@
   |AppRouter.php|`class AppRouter extends \X\Core\Router {}`|
   |AppURI.php|`class AppURI extends \X\Core\URI {}`|
 
-  <!-- [https://github.com/bcit-ci/CodeIgniter/pull/6173](https://github.com/bcit-ci/CodeIgniter/pull/6173) が非常に参考になりました。 -->
+  <!-- [https://github.com/bcit-ci/CodeIgniter/pull/6173](https://github.com/bcit-ci/CodeIgniter/pull/6173) が非常に参考になった -->
 
 ## [4.2.0] - 2024/5/13
 
 ### 変更
-- `X\Rekognition\Client`クラスの`generateCollectionId`メソッドから`$baseDir`引数を削除しました。
-- `\X\Util\EMail`クラスから非推奨メソッド`message_from_template`、`message_from_xml`、`set_mailtype`、`attachment_cid`を削除しました。
-  代わりに`messageFromTemplate`、`messageFromXml`、`setMailType`、`attachmentCid`を使用してください。
-- メソッド名をより適切な名前に変更しました。
+- `X\Rekognition\Client`クラスの`generateCollectionId`メソッドから`$baseDir`引数を削除
+- `\X\Util\EMail`クラスから非推奨メソッド`message_from_template`、`message_from_xml`、`set_mailtype`、`attachment_cid`を削除
+  代わりに`messageFromTemplate`、`messageFromXml`、`setMailType`、`attachmentCid`を使用
+- メソッド名をより適切な名前に変更
   |変更前|変更後|
   |--|--|
   |ImageHelper::putBase64|ImageHelper::writeDataURLToFile|
@@ -65,95 +69,95 @@
 ## [4.1.9] - 2023/9/15
 
 ### 変更
-- パス検証関数に先頭スラッシュ拒否オプションを追加しました。デフォルトでは先頭スラッシュを許可します(`\X\Util\Validation#is_path`)。
+- パス検証関数に先頭スラッシュ拒否オプションを追加。デフォルトでは先頭スラッシュを許可(`\X\Util\Validation#is_path`)
 
 ## [4.1.8] - 2023/9/15
 
 ### 変更
-- ファイル(ディレクトリ)パス検証関数名を"directory_path"から"is_path"に変更しました。
+- ファイル(ディレクトリ)パス検証関数名を"directory_path"から"is_path"に変更
 
 ## [4.1.7] - 2023/8/29
 
 ### 変更
-- ディレクトリ作成メソッドを、作成に成功した場合はtrueを、失敗した場合はfalseを返すように修正しました。
-  また、失敗時のエラーメッセージのログタイプをerrorからinfoに変更しました。(\X\Util\FileHelper::makeDirectory)
+- ディレクトリ作成メソッドを、作成成功時はtrue、失敗時はfalseを返すように修正
+  また、失敗時のエラーメッセージのログタイプをerrorからinfoに変更(\X\Util\FileHelper::makeDirectory)
 
 ## [4.1.6] - 2023/8/9
 
 ### 変更
-- 顔比較(<code>\X\RekognitionClient#compareFaces()</code>)は、以前は画像に顔がない場合にRuntimeExceptionを返していましたが、類似度として0を返すようになりました。
-- 再帰的ディレクトリ削除(<code>\X\Util\FileHelper#delete()</code>)は、自身のディレクトリを削除する前にファイル状態キャッシュ(<code>clearstatcache</code>)をクリアするようになりました。
+- 顔比較(<code>\X\RekognitionClient#compareFaces()</code>)は、以前は画像に顔がない場合にRuntimeExceptionを返していたが、類似度として0を返すように変更
+- 再帰的ディレクトリ削除(<code>\X\Util\FileHelper#delete()</code>)は、自身のディレクトリを削除する前にファイル状態キャッシュ(<code>clearstatcache</code>)をクリアするように変更
 
 ## [4.1.5] - 2023/5/25
 
 ### 追加
-- PDFを画像に変換する機能を追加しました(`\X\Util\ImageHelper::pdf2Image`)。
+- PDFを画像に変換する機能を追加(`\X\Util\ImageHelper::pdf2Image`)
 
 ## [4.1.4] - 2023/5/11
 
 ### 変更
-- 顔認識クラス(\X\Rekognition\Client)のユニットテストを追加しました。
-- Util\RestClientのメンバー変数名をリファクタリングしました。
+- 顔認識クラス(\X\Rekognition\Client)のユニットテストを追加
+- Util\RestClientのメンバー変数名をリファクタリング
   |変更前|変更後|
   |--|--|
   |public $option|public $options|
   |public $response_source|public $responseRaw|
   |public $headers|public $responseHeaders|
-- ユニットテストディレクトリをtestsから__tests__に変更しました。
+- ユニットテストディレクトリをtestsから__tests__に変更
 
 ## [4.1.3] - 2023/2/28
 
 ### 追加
-- "\X\Util\ImageHelper"クラスにGIFの最初のフレームを抽出するメソッドを追加しました。
-- "\X\Util\ImageHelper"クラスにGIFのフレーム数を取得するメソッドを追加しました。
+- "\X\Util\ImageHelper"クラスにGIFの最初のフレームを抽出するメソッドを追加
+- "\X\Util\ImageHelper"クラスにGIFのフレーム数を取得するメソッドを追加
 
 
 ### 変更
-- "\X\Util\ImageHelper"クラスのユニットテストを追加しました。
+- "\X\Util\ImageHelper"クラスのユニットテストを追加
 
 ## [4.1.2] - 2023/2/10
 
 ### 追加
-- 連想配列リストから連想配列、または任意のキーの要素のみの配列を作成するメソッドを追加しました(\X\Util\ArrayHelper#filteringElements())。
+- 連想配列リストから連想配列、または任意のキーの要素のみの配列を作成するメソッドを追加(\X\Util\ArrayHelper#filteringElements())
 
 
 ### 修正
-- RESTクライアントクラス(\X\Util\RestClient)が削除されたロガークラスのメソッドを参照していたバグを修正しました。
+- RESTクライアントクラス(\X\Util\RestClient)が削除されたロガークラスのメソッドを参照していたバグを修正
 
 ## [4.1.1] - 2023/1/20
 
 ### 追加
-- リクエストデータを読み取るユーティリティクラスを追加しました(\X\Util\HttpInput)。
+- リクエストデータを読み取るユーティリティクラスを追加(\X\Util\HttpInput)
 
 ## [4.1.0] - 2023/1/20
 
 ### 変更
-- 依存するCodeIgniterフレームワークのバージョンを3.1.11から3.1.13に更新しました。
+- 依存するCodeIgniterフレームワークのバージョンを3.1.11から3.1.13に更新
 
 ## [4.0.25] - 2022/12/26
 
 ### 修正
-- SES送信バリデーションを実行する前に検証ルールなどをリセットするようにしました(\X\Util\AmazonSesClient)。
+- SES送信バリデーションを実行する前に検証ルールなどをリセットするように変更(\X\Util\AmazonSesClient)
 
 ## [4.0.24] - 2022/12/26
 
 ### 変更
-- XSSとRFDのリスクを軽減するために、以下のレスポンスヘッダーをJSONレスポンスに追加しました。
+- XSSとRFDのリスクを軽減するために、以下のレスポンスヘッダーをJSONレスポンスに追加
   - X-Content-Type-Options: nosniff
   - Content-Disposition: attachment; filename="{リクエストURLのベース名}.json"
-    例えば、リクエストURLが"https://example.com/api/users/123"の場合、添付ファイル名は"123.json"になります。
+    例えば、リクエストURLが"https://example.com/api/users/123"の場合、添付ファイル名は"123.json"になる
 
 ## [4.0.23] - 2022/12/26
 
 ### 変更
-- 内部リダイレクトレスポンスメソッドが適切なレスポンスコンテンツタイプを設定するようになりました(\X\Controller\Controller#internalRedirect())。
+- 内部リダイレクトレスポンスメソッドが適切なレスポンスコンテンツタイプを設定するように変更(\X\Controller\Controller#internalRedirect())
 
 ## [4.0.22] - 2022/12/13
 
 ### 変更
-- コントローラーのエラーレスポンスメソッドに強制JSONレスポンスオプションを追加しました。
-  このオプションがtrueの場合、レスポンダーのコンテンツタイプはapplication/jsonとして返されます。
-  setメソッドを使用してエラーレスポンスにレスポンスデータを設定することもできます。
+- コントローラーのエラーレスポンスメソッドに強制JSONレスポンスオプションを追加
+  このオプションがtrueの場合、レスポンダーのコンテンツタイプはapplication/jsonとして返される
+  setメソッドを使用してエラーレスポンスにレスポンスデータを設定することも可能
   ```php
   class User extends AppController {
     public function deliberateError() {
@@ -168,7 +172,7 @@
 ## [4.0.21] - 2022/12/9
 
 ### 変更
-- メールアドレスの検証ルールを修正しました。
+- メールアドレスの検証ルールを修正
   <table>
     <tr><th>メールアドレス</th><th>変更前</th><th>変更後</th><th>変更</th></tr>
     <tr><td>email@domain.com</td><td>有効</td><td>有効</td></tr>
@@ -204,67 +208,67 @@
 ## [4.0.20] - 2022/9/26
 
 ### 修正
-- "\X\Library\Input"でputデータの読み込みに関する警告を修正しました。
+- "\X\Library\Input"でputデータの読み込みに関する警告を修正
 
 ## [4.0.19] - 2022/9/25
 
 ### 変更
-- "\X\Util\Logger"のログ出力からPIDを削除しました。
-- "\X\Util\Logger"からprintWithoutPathメソッドを削除しました。
-- "\X\Util\Logger"の"print"メソッド名を"display"に変更しました。
-- スケルトンの未使用ファイルを削除しました。
-- "\X\Util\Logger"からprintHidepathメソッドを削除しました。代わりに"display"メソッドを使用してください。
-- サンプルとスケルトンの$config['log_file_permissions']を0644から0666に変更しました。
+- "\X\Util\Logger"のログ出力からPIDを削除
+- "\X\Util\Logger"からprintWithoutPathメソッドを削除
+- "\X\Util\Logger"の"print"メソッド名を"display"に変更
+- スケルトンの未使用ファイルを削除
+- "\X\Util\Logger"からprintHidepathメソッドを削除。代わりに"display"メソッドを使用
+- サンプルとスケルトンの$config['log_file_permissions']を0644から0666に変更
 
 ## [4.0.18] - 2022/9/24
 
 ### 変更
-- README.mdを修正しました。
+- README.mdを修正
 
 ## [4.0.17] - 2022/9/23
 
 ### 追加
-- サンプルテストコントローラーにform_validation_testアクションを追加しました。
+- サンプルテストコントローラーにform_validation_testアクションを追加
 
 ## [4.0.16] - 2022/9/23
 
 ### 修正
-- インストーラーのバグを修正しました。
+- インストーラーのバグを修正
 
 ## [4.0.15] - 2022/9/23
 
 ### 変更
-- スケルトンの.gitignoreを更新しました。
+- スケルトンの.gitignoreを更新
 
 ## [4.0.14] - 2022/9/23
 
 ### 変更
-- hostnameとhostname_or_ipaddress検証で文字列"localhost"を許可するようになりました。
+- hostnameとhostname_or_ipaddress検証で文字列"localhost"を許可するように変更
 
 ## [4.0.13] - 2022/6/6
 
 ### 変更
-- 長い文字列を省略するメソッド(\X\UtilStringHelper#ellipsis)をUnicodeに対応するように修正しました。
+- 長い文字列を省略するメソッド(\X\UtilStringHelper#ellipsis)をUnicodeに対応するように修正
 
 ## [4.0.12] - 2021/11/10
 
 ### 修正
-- ファイル削除機能のバグを修正しました。
+- ファイル削除機能のバグを修正
 
 ## [4.0.11] - 2021/11/10
 
 ### 変更
-- ファイル削除時にロックを有効/無効にするかを指定できる機能を追加しました。
+- ファイル削除時にロックを有効/無効にするかを指定できる機能を追加
 
 ## [4.0.10] - 2021/10/20
 
 ### 変更
-- ファイルサイズを取得する前にファイルステータスキャッシュをクリアする処理を追加しました。
+- ファイルサイズを取得する前にファイルステータスキャッシュをクリアする処理を追加
 
 ## [4.0.9] - 2021/9/27
 
 ### 変更
-- クエリロギング動作を変更しました。
+- クエリロギング動作を変更
   ```php
   use \X\Util\Logger;
   $users = $this->UserModel->select('id, name')->get()->result_array();
@@ -275,44 +279,44 @@
 ## [4.0.8] - 2021/9/22
 
 ### 追加
-- IPアドレスまたはCIDRの検証ルールを追加しました。
+- IPアドレスまたはCIDRの検証ルールを追加
 
 ## [4.0.7] - 2021/9/16
 
 ### 変更
-- ランダム文字生成関数名をキャメルケースに変更しました。
+- ランダム文字生成関数名をキャメルケースに変更
 
 ## [4.0.6] - 2021/9/16
 
 ### 追加
-- ランダム文字列生成関数を追加しました。
+- ランダム文字列生成関数を追加
 
 ## [4.0.5] - 2021/8/10
 
 ### 変更
-- ファイル移動メソッドで、移動したファイルにグループと所有者を設定できるようになりました。
-- ファイルコピーメソッドで、移動したファイルにグループと所有者を設定できるようになりました。
+- ファイル移動メソッドで、移動したファイルにグループと所有者を設定できるように変更
+- ファイルコピーメソッドで、移動したファイルにグループと所有者を設定できるように変更
 
 ## [4.0.4] - 2021/7/29
 
 ### 追加
-- ディレクトリパスの検証ルールを追加しました。
+- ディレクトリパスの検証ルールを追加
 
 ## [4.0.3] - 2021/6/30
 
 ### 追加
-- キーペア生成処理と公開鍵OpenSSHエンコード処理を追加しました。
+- キーペア生成処理と公開鍵OpenSSHエンコード処理を追加
 
 ## [4.0.2] - 2021/6/15
 
 ### 修正
-- \X\Model\ModelクラスのExists_by_idメソッドのバグを修正しました。
+- \X\Model\ModelクラスのExists_by_idメソッドのバグを修正
 
 ## [4.0.1] - 2021/5/25
 
 ### 追加
-- モデルで検索クエリ結果をキャッシュする機能を追加しました。
-  モデルキャッシングの詳細については<a href="https://www.codeigniter.com/userguide3/database/caching.html" target="_blank">こちら</a>をご覧ください。
+- モデルで検索クエリ結果をキャッシュする機能を追加
+  モデルキャッシングの詳細については<a href="https://www.codeigniter.com/userguide3/database/caching.html" target="_blank">こちら</a>を参照
 
 [3.3.8]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v1.0.0...v3.3.8
 [3.3.9]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v3.3.8...v3.3.9
@@ -407,3 +411,5 @@
 [5.0.0]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v4.2.0...v5.0.0
 [5.0.1]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.0...v5.0.1
 [5.0.2]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.1...v5.0.2
+[5.0.3]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.2...v5.0.3
+[5.0.4]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.3...v5.0.4

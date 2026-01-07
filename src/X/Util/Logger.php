@@ -2,11 +2,23 @@
 namespace X\Util;
 
 /**
- * Logger. Write logs to the file defined in `application/config/config.php#log_path`.
+ * Logging utility class.
+ *
+ * Provides static methods for logging messages at different levels (debug, info, error)
+ * with automatic file/line/class information. Logs are written to the path defined
+ * in `application/config/config.php#log_path`.
  */
 final class Logger {
   /**
    * Debug log.
+   *
+   * ```php
+   * use \X\Util\Logger;
+   *
+   * Logger::debug('User logged in', ['user_id' => 123]);
+   * Logger::debug($user, $request->all());
+   * ```
+   *
    * @param mixed ...$params Log Message.
    * @return void
    */
@@ -16,6 +28,14 @@ final class Logger {
 
   /**
    * Info log.
+   *
+   * ```php
+   * use \X\Util\Logger;
+   *
+   * Logger::info('Processing started');
+   * Logger::info('Order created', ['order_id' => 456, 'total' => 1000]);
+   * ```
+   *
    * @param mixed ...$params Log Message.
    * @return void
    */
@@ -25,6 +45,15 @@ final class Logger {
 
   /**
    * Error log.
+   *
+   * ```php
+   * use \X\Util\Logger;
+   *
+   * Logger::error('Database connection failed');
+   * Logger::error($exception);  // Exception objects are automatically formatted
+   * Logger::error('API error', ['status' => 500, 'response' => $body]);
+   * ```
+   *
    * @param mixed ...$params Log Message.
    * @return void
    */
@@ -37,6 +66,16 @@ final class Logger {
 
   /**
    * Log to browser or console.
+   *
+   * ```php
+   * use \X\Util\Logger;
+   *
+   * // In browser: displays formatted HTML
+   * // In CLI: outputs to console and writes to log file
+   * Logger::display('Debug value:', $someVariable);
+   * Logger::display($user, $request->all());
+   * ```
+   *
    * @param mixed ...$params Log Message.
    * @return void
    */

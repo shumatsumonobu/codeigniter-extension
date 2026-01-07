@@ -2,31 +2,34 @@
 namespace X\Database;
 
 /**
- * Query Result Extension.
+ * Query result extension trait.
+ *
+ * Provides additional result processing methods for database queries.
  */
 trait Result {
   /**
-   * The result of the select is converted to an object where the specified column name is the key and the search result is the value.
+   * Get results as associative array keyed by a column value.
+   *
+   * Converts query results to an array where the specified column value becomes the key.
+   *
+   * @example
    * ```php
-   * $rows = parent
-   *   ->select('id,name')
-   *   ->from('user')
+   * $rows = $this->db
+   *   ->select('id, name')
+   *   ->from('users')
    *   ->get()
    *   ->result_keyvalue('id');
-   * var_export($rows);
-   * // array (
-   * //   1 => array (
-   * //     'id' => 1,
-   * //     'name' => 'Oliver',
-   * //   ),
-   * //   2 => array (
-   * //     'id' => 2,
-   * //     'name' => 'Harry',
-   * //   ),
-   * // )
+   *
+   * // Result:
+   * // [
+   * //   1 => ['id' => 1, 'name' => 'Oliver'],
+   * //   2 => ['id' => 2, 'name' => 'Harry'],
+   * // ]
    * ```
-   * @param string $column (optional) Column Name. Default is "id".
-   * @return array An object in which the column name is the key and the select result is the value.
+   *
+   * @param string $column Column name to use as array key. Default is 'id'.
+   * @return array Associative array keyed by the specified column value.
+   * @throws \RuntimeException If the specified column does not exist in results.
    */
   public function result_keyvalue(string $column='id'): array {
     $rows = $this->result_array();

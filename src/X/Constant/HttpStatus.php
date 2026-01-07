@@ -2,247 +2,107 @@
 namespace X\Constant;
 
 /**
- * 100 HTTP status code.
- * @var int
+ * HTTP status code constants.
+ *
+ * Standard HTTP response status codes as defined in RFC 7231.
+ *
+ * Usage:
+ * ```php
+ * use const X\Constant\HTTP_OK;
+ * use const X\Constant\HTTP_NOT_FOUND;
+ *
+ * http_response_code(HTTP_OK);
+ * ```
  */
-const HTTP_CONTINUE = 100;
 
-/**
- * 101 HTTP status code.
- * @var int
- */
+// 1xx Informational
+/** @var int 100 Continue */
+const HTTP_CONTINUE = 100;
+/** @var int 101 Switching Protocols */
 const HTTP_SWITCHING_PROTOCOLS = 101;
 
-/**
- * 200 HTTP status code.
- * @var int
- */
+// 2xx Success
+/** @var int 200 OK */
 const HTTP_OK = 200;
-
-/**
- * 201 HTTP status code.
- * @var int
- */
+/** @var int 201 Created */
 const HTTP_CREATED = 201;
-
-/**
- * 202 HTTP status code.
- * @var int
- */
+/** @var int 202 Accepted */
 const HTTP_ACCEPTED = 202;
-
-/**
- * 203 HTTP status code.
- * @var int
- */
+/** @var int 203 Non-Authoritative Information */
 const HTTP_NONAUTHORITATIVE_INFORMATION = 203;
-
-/**
- * 204 HTTP status code.
- * @var int
- */
+/** @var int 204 No Content */
 const HTTP_NO_CONTENT = 204;
-
-/**
- * 205 HTTP status code.
- * @var int
- */
+/** @var int 205 Reset Content */
 const HTTP_RESET_CONTENT = 205;
-
-/**
- * 206 HTTP status code.
- * @var int
- */
+/** @var int 206 Partial Content */
 const HTTP_PARTIAL_CONTENT = 206;
 
-/**
- * 300 HTTP status code.
- * @var int
- */
+// 3xx Redirection
+/** @var int 300 Multiple Choices */
 const HTTP_MULTIPLE_CHOICES = 300;
-
-/**
- * 301 HTTP status code.
- * @var int
- */
+/** @var int 301 Moved Permanently */
 const HTTP_MOVED_PERMANENTLY = 301;
-
-/**
- * 302 HTTP status code.
- * @var int
- */
+/** @var int 302 Found */
 const HTTP_FOUND = 302;
-
-/**
- * 303 HTTP status code.
- * @var int
- */
+/** @var int 303 See Other */
 const HTTP_SEE_OTHER = 303;
-
-/**
- * 304 HTTP status code.
- * @var int
- */
+/** @var int 304 Not Modified */
 const HTTP_NOT_MODIFIED = 304;
-
-/**
- * 305 HTTP status code.
- * @var int
- */
+/** @var int 305 Use Proxy */
 const HTTP_USE_PROXY = 305;
-
-/**
- * 306 HTTP status code.
- * @var int
- */
-const HTTP_UNUSED= 306;
-
-/**
- * 307 HTTP status code.
- * @var int
- */
+/** @var int 306 (Unused) */
+const HTTP_UNUSED = 306;
+/** @var int 307 Temporary Redirect */
 const HTTP_TEMPORARY_REDIRECT = 307;
 
-/**
- * 400 HTTP status code.
- * @var int
- */
+// 4xx Client Error
+/** @var int 400 Bad Request */
 const HTTP_BAD_REQUEST = 400;
-
-/**
- * 401 HTTP status code.
- * @var int
- */
-const HTTP_UNAUTHORIZED  = 401;
-
-/**
- * 402 HTTP status code.
- * @var int
- */
+/** @var int 401 Unauthorized */
+const HTTP_UNAUTHORIZED = 401;
+/** @var int 402 Payment Required */
 const HTTP_PAYMENT_REQUIRED = 402;
-
-/**
- * 403 HTTP status code.
- * @var int
- */
+/** @var int 403 Forbidden */
 const HTTP_FORBIDDEN = 403;
-
-/**
- * 404 HTTP status code.
- * @var int
- */
+/** @var int 404 Not Found */
 const HTTP_NOT_FOUND = 404;
-
-/**
- * 405 HTTP status code.
- * @var int
- */
+/** @var int 405 Method Not Allowed */
 const HTTP_METHOD_NOT_ALLOWED = 405;
-
-/**
- * 406 HTTP status code.
- * @var int
- */
+/** @var int 406 Not Acceptable */
 const HTTP_NOT_ACCEPTABLE = 406;
-
-/**
- * 407 HTTP status code.
- * @var int
- */
+/** @var int 407 Proxy Authentication Required */
 const HTTP_PROXY_AUTHENTICATION_REQUIRED = 407;
-
-/**
- * 408 HTTP status code.
- * @var int
- */
+/** @var int 408 Request Timeout */
 const HTTP_REQUEST_TIMEOUT = 408;
-
-/**
- * 409 HTTP status code.
- * @var int
- */
+/** @var int 409 Conflict */
 const HTTP_CONFLICT = 409;
-
-/**
- * 410 HTTP status code.
- * @var int
- */
+/** @var int 410 Gone */
 const HTTP_GONE = 410;
-
-/**
- * 411 HTTP status code.
- * @var int
- */
+/** @var int 411 Length Required */
 const HTTP_LENGTH_REQUIRED = 411;
-
-/**
- * 412 HTTP status code.
- * @var int
- */
+/** @var int 412 Precondition Failed */
 const HTTP_PRECONDITION_FAILED = 412;
-
-/**
- * 413 HTTP status code.
- * @var int
- */
+/** @var int 413 Request Entity Too Large */
 const HTTP_REQUEST_ENTITY_TOO_LARGE = 413;
-
-/**
- * 414 HTTP status code.
- * @var int
- */
+/** @var int 414 Request-URI Too Long */
 const HTTP_REQUEST_URI_TOO_LONG = 414;
-
-/**
- * 415 HTTP status code.
- * @var int
- */
+/** @var int 415 Unsupported Media Type */
 const HTTP_UNSUPPORTED_MEDIA_TYPE = 415;
-
-/**
- * 416 HTTP status code.
- * @var int
- */
+/** @var int 416 Requested Range Not Satisfiable */
 const HTTP_REQUESTED_RANGE_NOT_SATISFIABLE = 416;
-
-/**
- * 417 HTTP status code.
- * @var int
- */
+/** @var int 417 Expectation Failed */
 const HTTP_EXPECTATION_FAILED = 417;
 
-/**
- * 500 HTTP status code.
- * @var int
- */
+// 5xx Server Error
+/** @var int 500 Internal Server Error */
 const HTTP_INTERNAL_SERVER_ERROR = 500;
-
-/**
- * 501 HTTP status code.
- * @var int
- */
+/** @var int 501 Not Implemented */
 const HTTP_NOT_IMPLEMENTED = 501;
-
-/**
- * 502 HTTP status code.
- * @var int
- */
+/** @var int 502 Bad Gateway */
 const HTTP_BAD_GATEWAY = 502;
-
-/**
- * 503 HTTP status code.
- * @var int
- */
+/** @var int 503 Service Unavailable */
 const HTTP_SERVICE_UNAVAILABLE = 503;
-
-/**
- * 504 HTTP status code.
- * @var int
- */
+/** @var int 504 Gateway Timeout */
 const HTTP_GATEWAY_TIMEOUT = 504;
-
-/**
- * 505 HTTP status code.
- * @var int
- */
+/** @var int 505 HTTP Version Not Supported */
 const HTTP_VERSION_NOT_SUPPORTED = 505;

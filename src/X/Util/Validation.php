@@ -2,7 +2,10 @@
 namespace X\Util;
 
 /**
- * Validator Utility.
+ * Data validation utility class.
+ *
+ * Provides validation methods for common data types including hostname,
+ * IP address, CIDR notation, email, port number, Unix username, and file paths.
  */
 final class Validation {
   /**
