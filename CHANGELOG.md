@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [5.0.4] - 2025/11/26 (Unreleased)
+## [5.0.4] - 2026/1/7
 
 ### Added
 - Added interactive form validation test page to demo application (`/validation-test`) demonstrating real-time validation with visual feedback.
