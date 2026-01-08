@@ -683,7 +683,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003Ais_connect\u0028\u0029",
             "name": "is_connect",
-            "summary": "DB\u0020connection\u0020check",
+            "summary": "DB\u0020connection\u0020check.",
             "url": "classes/X-Model-Model.html#method_is_connect"
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003Aget_all\u0028\u0029",
@@ -758,17 +758,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003Aselect_min\u0028\u0029",
             "name": "select_min",
-            "summary": "Generates\u0020a\u0020SELECT\u0020MIN\u0028field\u0029\u0020portion\u0020of\u0020a\u0020query",
+            "summary": "Generates\u0020a\u0020SELECT\u0020MIN\u0028field\u0029\u0020portion\u0020of\u0020a\u0020query.",
             "url": "classes/X-Model-Model.html#method_select_min"
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003Aselect_avg\u0028\u0029",
             "name": "select_avg",
-            "summary": "Generates\u0020a\u0020SELECT\u0020AVG\u0028field\u0029\u0020portion\u0020of\u0020a\u0020query",
+            "summary": "Generates\u0020a\u0020SELECT\u0020AVG\u0028field\u0029\u0020portion\u0020of\u0020a\u0020query.",
             "url": "classes/X-Model-Model.html#method_select_avg"
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003Aselect_sum\u0028\u0029",
             "name": "select_sum",
-            "summary": "Generates\u0020a\u0020SELECT\u0020SUM\u0028field\u0029\u0020portion\u0020of\u0020a\u0020query",
+            "summary": "Generates\u0020a\u0020SELECT\u0020SUM\u0028field\u0029\u0020portion\u0020of\u0020a\u0020query.",
             "url": "classes/X-Model-Model.html#method_select_sum"
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003Adistinct\u0028\u0029",
@@ -1103,7 +1103,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003Acache_delete\u0028\u0029",
             "name": "cache_delete",
-            "summary": "Delete\u0020the\u0020cache\u0020files\u0020associated\u0020with\u0020a\u0020particular\u0020URI",
+            "summary": "Delete\u0020the\u0020cache\u0020files\u0020associated\u0020with\u0020a\u0020particular\u0020URI.",
             "url": "classes/X-Model-Model.html#method_cache_delete"
         },                {
             "fqsen": "\\X\\Model\\Model\u003A\u003Acache_delete_all\u0028\u0029",

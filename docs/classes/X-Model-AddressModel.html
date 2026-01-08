@@ -260,7 +260,7 @@
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Delete the cache files associated with a particular URI</dd>
+<dd>Delete the cache files associated with a particular URI.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-Model.html#method_cache_delete_all">cache_delete_all()</a>
@@ -533,7 +533,7 @@
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>DB connection check</dd>
+<dd>DB connection check.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-Model.html#method_join">join()</a>
@@ -708,7 +708,7 @@
     <span>
                                 &nbsp;: <a href="classes/X-Model-Model.html"><abbr title="\X\Model\Model">Model</abbr></a>    </span>
 </dt>
-<dd>Generates a SELECT AVG(field) portion of a query</dd>
+<dd>Generates a SELECT AVG(field) portion of a query.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-Model.html#method_select_max">select_max()</a>
@@ -722,14 +722,14 @@
     <span>
                                 &nbsp;: <a href="classes/X-Model-Model.html"><abbr title="\X\Model\Model">Model</abbr></a>    </span>
 </dt>
-<dd>Generates a SELECT MIN(field) portion of a query</dd>
+<dd>Generates a SELECT MIN(field) portion of a query.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-Model.html#method_select_sum">select_sum()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Model-Model.html"><abbr title="\X\Model\Model">Model</abbr></a>    </span>
 </dt>
-<dd>Generates a SELECT SUM(field) portion of a query</dd>
+<dd>Generates a SELECT SUM(field) portion of a query.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-Model.html#method_set">set()</a>
@@ -1043,11 +1043,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1253</span>
+    <span class="phpdocumentor-element-found-in__line">1519</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Delete the cache files associated with a particular URI</p>
+        <p class="phpdocumentor-summary">Delete the cache files associated with a particular URI.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1079,6 +1079,25 @@
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_cache_delete#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Delete specific cache</p>
+<pre class="prettyprint"><code class="language-php">// Delete cache for /users/list page
+$this-&gt;UserModel-&gt;cache_delete('users', 'list');
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1096,7 +1115,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1261</span>
+    <span class="phpdocumentor-element-found-in__line">1533</span>
 
     </aside>
 
@@ -1111,6 +1130,24 @@
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_cache_delete_all#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Clear all query cache</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;UserModel-&gt;cache_delete_all();
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1128,7 +1165,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1243</span>
+    <span class="phpdocumentor-element-found-in__line">1502</span>
 
     </aside>
 
@@ -1160,7 +1197,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1235</span>
+    <span class="phpdocumentor-element-found-in__line">1494</span>
 
     </aside>
 
@@ -1175,6 +1212,27 @@
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_cache_on#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Cache query results</p>
+<pre class="prettyprint"><code class="language-php">// config/database.php: $db['default']['cachedir'] = APPPATH . 'cache';
+$this-&gt;UserModel-&gt;cache_on();
+$users = $this-&gt;UserModel-&gt;where('status', 'active')-&gt;get_all(); // Cached
+$this-&gt;UserModel-&gt;cache_off();
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1192,7 +1250,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1155</span>
+    <span class="phpdocumentor-element-found-in__line">1395</span>
 
     </aside>
 
@@ -1244,7 +1302,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">805</span>
+    <span class="phpdocumentor-element-found-in__line">1016</span>
 
     </aside>
 
@@ -1283,6 +1341,44 @@ returned by an Query Builder query.</p>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_count_all_results#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Count filtered records</p>
+<pre class="prettyprint"><code class="language-php">$activeCount = $this-&gt;UserModel
+  -&gt;where('status', 'active')
+  -&gt;count_all_results();
+// SELECT COUNT(*) FROM users WHERE status = 'active'
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Count for pagination</p>
+<pre class="prettyprint"><code class="language-php">$totalCount = $this-&gt;UserModel
+  -&gt;like('name', $searchKeyword)
+  -&gt;count_all_results('', false); // false = don't reset query
+
+$users = $this-&gt;UserModel
+  -&gt;limit($perPage, $offset)
+  -&gt;get_all();
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1304,7 +1400,7 @@ returned by an Query Builder query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">175</span>
 
     </aside>
 
@@ -1331,6 +1427,25 @@ returned by an Query Builder query.</p>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_count_by_id#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Count specific user</p>
+<pre class="prettyprint"><code class="language-php">$count = $this-&gt;UserModel-&gt;count_by_id(1);
+// Returns 1 if user exists, 0 if not
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1356,7 +1471,7 @@ returned by an Query Builder query.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
@@ -1394,8 +1509,14 @@ returned by an Query Builder query.</p>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>Execute raw query</p>
-<pre class="prettyprint"><code class="language-php">$result = UserModel::db()-&gt;query('SELECT * FROM users WHERE status = ?', ['active']);
+                                                 <section class="phpdocumentor-description"><p>Execute raw query with parameter binding</p>
+<pre class="prettyprint"><code class="language-php">$result = UserModel::db()-&gt;query(
+  'SELECT * FROM users WHERE status = ? AND created_at &gt; ?',
+  ['active', '2024-01-01']
+);
+foreach ($result-&gt;result_array() as $row) {
+  echo $row['name'];
+}
 </code></pre>
 </section>
 
@@ -1405,9 +1526,13 @@ returned by an Query Builder query.</p>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>Use different database connection</p>
-<pre class="prettyprint"><code class="language-php">$logDb = UserModel::db('logging');
-$logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
+                                                 <section class="phpdocumentor-description"><p>Use different database connection (config/database.php)</p>
+<pre class="prettyprint"><code class="language-php">// Read from replica database
+$users = UserModel::db('replica')
+  -&gt;select('*')
+  -&gt;from('users')
+  -&gt;get()
+  -&gt;result_array();
 </code></pre>
 </section>
 
@@ -1438,7 +1563,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">958</span>
+    <span class="phpdocumentor-element-found-in__line">1183</span>
 
     </aside>
 
@@ -1490,7 +1615,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">947</span>
+    <span class="phpdocumentor-element-found-in__line">1172</span>
 
     </aside>
 
@@ -1612,7 +1737,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">416</span>
+    <span class="phpdocumentor-element-found-in__line">529</span>
 
     </aside>
 
@@ -1639,6 +1764,28 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_distinct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Get unique values</p>
+<pre class="prettyprint"><code class="language-php">$categories = $this-&gt;ProductModel
+  -&gt;distinct()
+  -&gt;select('category')
+  -&gt;get_all();
+// SELECT DISTINCT category FROM products
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1660,7 +1807,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">890</span>
+    <span class="phpdocumentor-element-found-in__line">1108</span>
 
     </aside>
 
@@ -1687,6 +1834,25 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_empty_table#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Delete all records from table</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;LogModel-&gt;empty_table();
+// DELETE FROM logs
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1712,7 +1878,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1219</span>
+    <span class="phpdocumentor-element-found-in__line">1469</span>
 
     </aside>
 
@@ -1727,6 +1893,28 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_error#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Check for database errors</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;UserModel-&gt;insert('', $data);
+$error = $this-&gt;UserModel-&gt;error();
+if ($error['code']) {
+  \X\Util\Logger::error(&quot;DB Error: {$error['message']}&quot;);
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1752,7 +1940,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1116</span>
+    <span class="phpdocumentor-element-found-in__line">1356</span>
 
     </aside>
 
@@ -1779,6 +1967,25 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_escape#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Escape user input for raw queries</p>
+<pre class="prettyprint"><code class="language-php">$name = $this-&gt;UserModel-&gt;escape($this-&gt;input-&gt;post('name'));
+$this-&gt;UserModel-&gt;query(&quot;SELECT * FROM users WHERE name = {$name}&quot;);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1804,7 +2011,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1135</span>
+    <span class="phpdocumentor-element-found-in__line">1375</span>
 
     </aside>
 
@@ -1856,7 +2063,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1126</span>
+    <span class="phpdocumentor-element-found-in__line">1366</span>
 
     </aside>
 
@@ -1917,7 +2124,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">197</span>
 
     </aside>
 
@@ -1994,7 +2201,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1209</span>
+    <span class="phpdocumentor-element-found-in__line">1449</span>
 
     </aside>
 
@@ -2046,7 +2253,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1198</span>
+    <span class="phpdocumentor-element-found-in__line">1438</span>
 
     </aside>
 
@@ -2107,7 +2314,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">996</span>
+    <span class="phpdocumentor-element-found-in__line">1221</span>
 
     </aside>
 
@@ -2145,7 +2352,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">426</span>
+    <span class="phpdocumentor-element-found-in__line">539</span>
 
     </aside>
 
@@ -2193,7 +2400,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">791</span>
+    <span class="phpdocumentor-element-found-in__line">982</span>
 
     </aside>
 
@@ -2259,7 +2466,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">131</span>
 
     </aside>
 
@@ -2344,7 +2551,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">140</span>
+    <span class="phpdocumentor-element-found-in__line">159</span>
 
     </aside>
 
@@ -2433,7 +2640,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">914</span>
+    <span class="phpdocumentor-element-found-in__line">1139</span>
 
     </aside>
 
@@ -2494,7 +2701,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">843</span>
+    <span class="phpdocumentor-element-found-in__line">1054</span>
 
     </aside>
 
@@ -2555,7 +2762,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">778</span>
+    <span class="phpdocumentor-element-found-in__line">969</span>
 
     </aside>
 
@@ -2616,7 +2823,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">867</span>
+    <span class="phpdocumentor-element-found-in__line">1078</span>
 
     </aside>
 
@@ -2677,7 +2884,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">819</span>
+    <span class="phpdocumentor-element-found-in__line">1030</span>
 
     </aside>
 
@@ -2804,7 +3011,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">662</span>
+    <span class="phpdocumentor-element-found-in__line">841</span>
 
     </aside>
 
@@ -2840,6 +3047,42 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_group_by#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Group by single column</p>
+<pre class="prettyprint"><code class="language-php">$stats = $this-&gt;OrderModel
+  -&gt;select('status, COUNT(*) as count')
+  -&gt;group_by('status')
+  -&gt;get_all();
+// [['status' =&gt; 'pending', 'count' =&gt; 5], ['status' =&gt; 'completed', 'count' =&gt; 20]]
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Group by multiple columns</p>
+<pre class="prettyprint"><code class="language-php">$stats = $this-&gt;OrderModel
+  -&gt;select('YEAR(created_at) as year, MONTH(created_at) as month, SUM(total) as total')
+  -&gt;group_by(['YEAR(created_at)', 'MONTH(created_at)'])
+  -&gt;get_all();
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2861,7 +3104,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">651</span>
+    <span class="phpdocumentor-element-found-in__line">812</span>
 
     </aside>
 
@@ -2897,7 +3140,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">615</span>
+    <span class="phpdocumentor-element-found-in__line">776</span>
 
     </aside>
 
@@ -2933,6 +3176,31 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_group_start#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Complex WHERE conditions with grouping</p>
+<pre class="prettyprint"><code class="language-php">$users = $this-&gt;UserModel
+  -&gt;where('status', 'active')
+  -&gt;group_start()
+    -&gt;where('role', 'admin')
+    -&gt;or_where('role', 'manager')
+  -&gt;group_end()
+  -&gt;get_all();
+// SELECT * FROM users WHERE status = 'active' AND (role = 'admin' OR role = 'manager')
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2954,7 +3222,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">674</span>
+    <span class="phpdocumentor-element-found-in__line">865</span>
 
     </aside>
 
@@ -2999,6 +3267,30 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_having#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Filter grouped results</p>
+<pre class="prettyprint"><code class="language-php">$topCustomers = $this-&gt;OrderModel
+  -&gt;select('user_id, SUM(total) as total_spent')
+  -&gt;group_by('user_id')
+  -&gt;having('total_spent &gt;', 10000)
+  -&gt;get_all();
+// SELECT user_id, SUM(total) as total_spent FROM orders
+// GROUP BY user_id HAVING total_spent &gt; 10000
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3020,7 +3312,7 @@ $logDb-&gt;insert('access_logs', ['user_id' =&gt; 1, 'action' =&gt; 'login']);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">252</span>
+    <span class="phpdocumentor-element-found-in__line">288</span>
 
     </aside>
 
@@ -3127,7 +3419,7 @@ echo &quot;New user ID: $id&quot;;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">266</span>
+    <span class="phpdocumentor-element-found-in__line">312</span>
 
     </aside>
 
@@ -3181,6 +3473,28 @@ echo &quot;New user ID: $id&quot;;
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_insert_batch#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Insert multiple records at once</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;UserModel-&gt;insert_batch('users', [
+  ['name' =&gt; 'John', 'email' =&gt; 'john@example.com'],
+  ['name' =&gt; 'Jane', 'email' =&gt; 'jane@example.com'],
+  ['name' =&gt; 'Bob', 'email' =&gt; 'bob@example.com']
+]);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3206,7 +3520,7 @@ echo &quot;New user ID: $id&quot;;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1227</span>
+    <span class="phpdocumentor-element-found-in__line">1477</span>
 
     </aside>
 
@@ -3246,7 +3560,7 @@ echo &quot;New user ID: $id&quot;;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 
     </aside>
 
@@ -3258,21 +3572,7 @@ echo &quot;New user ID: $id&quot;;
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$SampleModel
-  -&gt;set([
-    'key' =&gt; '1',
-    'title' =&gt; 'My title',
-    'name' =&gt; 'My Name'
-  ])
-  -&gt;insert_on_duplicate_update();
-$SampleModel
-  -&gt;set('key', '1')
-  -&gt;set('title', 'My title')
-  -&gt;set('name', 'My Name')
-  -&gt;insert_on_duplicate_update();
-</code></pre>
-</section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -3305,6 +3605,45 @@ $SampleModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_insert_on_duplicate_update#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Insert or update user by email</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;UserModel
+  -&gt;set([
+    'email' =&gt; 'john@example.com',
+    'name' =&gt; 'John',
+    'updated_at' =&gt; date('Y-m-d H:i:s')
+  ])
+  -&gt;insert_on_duplicate_update();
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Using chained set() calls</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;UserModel
+  -&gt;set('email', 'john@example.com')
+  -&gt;set('name', 'John')
+  -&gt;set('login_count', 1)
+  -&gt;insert_on_duplicate_update();
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3330,7 +3669,7 @@ $SampleModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">220</span>
+    <span class="phpdocumentor-element-found-in__line">256</span>
 
     </aside>
 
@@ -3342,15 +3681,7 @@ $SampleModel
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$SampleModel
-  -&gt;set_insert_batch([
-    ['key' =&gt; '1', 'title' =&gt; 'My title', 'name' =&gt; 'My Name'],
-    ['key' =&gt; '2', 'title' =&gt; 'Another title', 'name' =&gt; 'Another Name']
-  ])
-  -&gt;insert_on_duplicate_update_batch();
-</code></pre>
-</section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -3392,6 +3723,29 @@ $SampleModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_insert_on_duplicate_update_batch#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Batch upsert users</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;UserModel
+  -&gt;set_insert_batch([
+    ['email' =&gt; 'john@example.com', 'name' =&gt; 'John', 'role' =&gt; 'user'],
+    ['email' =&gt; 'jane@example.com', 'name' =&gt; 'Jane', 'role' =&gt; 'admin']
+  ])
+  -&gt;insert_on_duplicate_update_batch();
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3417,11 +3771,11 @@ $SampleModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">DB connection check</p>
+        <p class="phpdocumentor-summary">DB connection check.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -3444,6 +3798,27 @@ $SampleModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_is_connect#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Check database availability</p>
+<pre class="prettyprint"><code class="language-php">if (!UserModel::is_connect()) {
+  $this-&gt;error('Database connection failed', 503);
+  return;
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3469,7 +3844,7 @@ $SampleModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">456</span>
+    <span class="phpdocumentor-element-found-in__line">569</span>
 
     </aside>
 
@@ -3579,7 +3954,7 @@ $SampleModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1104</span>
+    <span class="phpdocumentor-element-found-in__line">1337</span>
 
     </aside>
 
@@ -3594,6 +3969,26 @@ $SampleModel
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_last_query#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Debug query</p>
+<pre class="prettyprint"><code class="language-php">$users = $this-&gt;UserModel-&gt;where('status', 'active')-&gt;get_all();
+\X\Util\Logger::debug($this-&gt;UserModel-&gt;last_query());
+// SELECT * FROM users WHERE status = 'active'
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3619,7 +4014,7 @@ $SampleModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">565</span>
+    <span class="phpdocumentor-element-found-in__line">713</span>
 
     </aside>
 
@@ -3657,7 +4052,7 @@ $SampleModel
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;both&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Which side of the expression to put the ‘%’ wildcard on.</p>
+                    <section class="phpdocumentor-description"><p>(optional) Which side of the expression to put the '%' wildcard on.</p>
 </section>
 
             </dd>
@@ -3673,6 +4068,49 @@ $SampleModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_like#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Search with wildcard on both sides (default)</p>
+<pre class="prettyprint"><code class="language-php">$users = $this-&gt;UserModel-&gt;like('name', 'john')-&gt;get_all();
+// SELECT * FROM users WHERE name LIKE '%john%'
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Search with wildcard on right side only (starts with)</p>
+<pre class="prettyprint"><code class="language-php">$users = $this-&gt;UserModel-&gt;like('email', 'admin', 'after')-&gt;get_all();
+// SELECT * FROM users WHERE email LIKE 'admin%'
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Search with wildcard on left side only (ends with)</p>
+<pre class="prettyprint"><code class="language-php">$users = $this-&gt;UserModel-&gt;like('email', '@gmail.com', 'before')-&gt;get_all();
+// SELECT * FROM users WHERE email LIKE '%@gmail.com'
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3694,7 +4132,7 @@ $SampleModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">745</span>
+    <span class="phpdocumentor-element-found-in__line">936</span>
 
     </aside>
 
@@ -3786,7 +4224,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1186</span>
+    <span class="phpdocumentor-element-found-in__line">1426</span>
 
     </aside>
 
@@ -3838,7 +4276,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1166</span>
+    <span class="phpdocumentor-element-found-in__line">1406</span>
 
     </aside>
 
@@ -3890,7 +4328,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">337</span>
+    <span class="phpdocumentor-element-found-in__line">408</span>
 
     </aside>
 
@@ -3930,7 +4368,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">633</span>
+    <span class="phpdocumentor-element-found-in__line">794</span>
 
     </aside>
 
@@ -3966,7 +4404,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">578</span>
+    <span class="phpdocumentor-element-found-in__line">726</span>
 
     </aside>
 
@@ -4041,7 +4479,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">755</span>
+    <span class="phpdocumentor-element-found-in__line">946</span>
 
     </aside>
 
@@ -4089,7 +4527,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">624</span>
+    <span class="phpdocumentor-element-found-in__line">785</span>
 
     </aside>
 
@@ -4125,7 +4563,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">686</span>
+    <span class="phpdocumentor-element-found-in__line">877</span>
 
     </aside>
 
@@ -4191,7 +4629,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">591</span>
+    <span class="phpdocumentor-element-found-in__line">739</span>
 
     </aside>
 
@@ -4266,7 +4704,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">642</span>
+    <span class="phpdocumentor-element-found-in__line">803</span>
 
     </aside>
 
@@ -4302,7 +4740,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">604</span>
+    <span class="phpdocumentor-element-found-in__line">752</span>
 
     </aside>
 
@@ -4377,7 +4815,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">504</span>
+    <span class="phpdocumentor-element-found-in__line">617</span>
 
     </aside>
 
@@ -4443,7 +4881,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">528</span>
+    <span class="phpdocumentor-element-found-in__line">657</span>
 
     </aside>
 
@@ -4509,7 +4947,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">552</span>
+    <span class="phpdocumentor-element-found-in__line">681</span>
 
     </aside>
 
@@ -4575,7 +5013,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">717</span>
+    <span class="phpdocumentor-element-found-in__line">908</span>
 
     </aside>
 
@@ -4684,7 +5122,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1144</span>
+    <span class="phpdocumentor-element-found-in__line">1384</span>
 
     </aside>
 
@@ -4736,7 +5174,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">329</span>
+    <span class="phpdocumentor-element-found-in__line">400</span>
 
     </aside>
 
@@ -4781,6 +5219,39 @@ $users = $this-&gt;UserModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_query#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Execute SELECT query</p>
+<pre class="prettyprint"><code class="language-php">$result = $this-&gt;UserModel-&gt;query(
+  'SELECT * FROM users WHERE role = ? ORDER BY name',
+  ['admin']
+);
+$users = $result-&gt;result_array();
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Execute stored procedure</p>
+<pre class="prettyprint"><code class="language-php">$result = $this-&gt;UserModel-&gt;query('CALL get_user_stats(?)', [$userId]);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -4806,7 +5277,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">855</span>
+    <span class="phpdocumentor-element-found-in__line">1066</span>
 
     </aside>
 
@@ -4867,7 +5338,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1006</span>
+    <span class="phpdocumentor-element-found-in__line">1231</span>
 
     </aside>
 
@@ -4905,7 +5376,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">362</span>
+    <span class="phpdocumentor-element-found-in__line">433</span>
 
     </aside>
 
@@ -4993,11 +5464,11 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">395</span>
+    <span class="phpdocumentor-element-found-in__line">487</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generates a SELECT AVG(field) portion of a query</p>
+        <p class="phpdocumentor-summary">Generates a SELECT AVG(field) portion of a query.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -5029,6 +5500,25 @@ $users = $this-&gt;UserModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_select_avg#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Get average value</p>
+<pre class="prettyprint"><code class="language-php">$result = $this-&gt;OrderModel-&gt;select_avg('total', 'avg_order')-&gt;get()-&gt;row_array();
+echo $result['avg_order']; // 5420.50
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -5050,7 +5540,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">373</span>
+    <span class="phpdocumentor-element-found-in__line">451</span>
 
     </aside>
 
@@ -5086,6 +5576,25 @@ $users = $this-&gt;UserModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_select_max#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Get maximum value</p>
+<pre class="prettyprint"><code class="language-php">$result = $this-&gt;OrderModel-&gt;select_max('total', 'max_total')-&gt;get()-&gt;row_array();
+echo $result['max_total']; // 99800
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -5107,11 +5616,11 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">384</span>
+    <span class="phpdocumentor-element-found-in__line">469</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generates a SELECT MIN(field) portion of a query</p>
+        <p class="phpdocumentor-summary">Generates a SELECT MIN(field) portion of a query.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -5143,6 +5652,25 @@ $users = $this-&gt;UserModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_select_min#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Get minimum value</p>
+<pre class="prettyprint"><code class="language-php">$result = $this-&gt;ProductModel-&gt;select_min('price', 'min_price')-&gt;get()-&gt;row_array();
+echo $result['min_price']; // 100
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -5164,11 +5692,11 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">406</span>
+    <span class="phpdocumentor-element-found-in__line">509</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generates a SELECT SUM(field) portion of a query</p>
+        <p class="phpdocumentor-summary">Generates a SELECT SUM(field) portion of a query.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -5200,6 +5728,29 @@ $users = $this-&gt;UserModel
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_select_sum#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Get sum of values</p>
+<pre class="prettyprint"><code class="language-php">$result = $this-&gt;OrderModel
+  -&gt;select_sum('total', 'total_sales')
+  -&gt;where('created_at &gt;=', '2024-01-01')
+  -&gt;get()
+  -&gt;row_array();
+echo $result['total_sales']; // 1250000
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -5221,7 +5772,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">767</span>
+    <span class="phpdocumentor-element-found-in__line">958</span>
 
     </aside>
 
@@ -5287,7 +5838,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">969</span>
+    <span class="phpdocumentor-element-found-in__line">1194</span>
 
     </aside>
 
@@ -5339,7 +5890,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1096</span>
+    <span class="phpdocumentor-element-found-in__line">1321</span>
 
     </aside>
 
@@ -5391,7 +5942,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">832</span>
+    <span class="phpdocumentor-element-found-in__line">1043</span>
 
     </aside>
 
@@ -5457,7 +6008,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">880</span>
+    <span class="phpdocumentor-element-found-in__line">1091</span>
 
     </aside>
 
@@ -5523,7 +6074,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">977</span>
+    <span class="phpdocumentor-element-found-in__line">1202</span>
 
     </aside>
 
@@ -5559,7 +6110,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">986</span>
+    <span class="phpdocumentor-element-found-in__line">1211</span>
 
     </aside>
 
@@ -5595,7 +6146,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1175</span>
+    <span class="phpdocumentor-element-found-in__line">1415</span>
 
     </aside>
 
@@ -5647,7 +6198,7 @@ $users = $this-&gt;UserModel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1055</span>
+    <span class="phpdocumentor-element-found-in__line">1280</span>
 
     </aside>
 
@@ -5726,7 +6277,7 @@ try {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1079</span>
+    <span class="phpdocumentor-element-found-in__line">1304</span>
 
     </aside>
 
@@ -5766,7 +6317,7 @@ try {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1063</span>
+    <span class="phpdocumentor-element-found-in__line">1288</span>
 
     </aside>
 
@@ -5806,7 +6357,7 @@ try {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1087</span>
+    <span class="phpdocumentor-element-found-in__line">1312</span>
 
     </aside>
 
@@ -5846,7 +6397,7 @@ try {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1031</span>
+    <span class="phpdocumentor-element-found-in__line">1256</span>
 
     </aside>
 
@@ -5923,7 +6474,7 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1071</span>
+    <span class="phpdocumentor-element-found-in__line">1296</span>
 
     </aside>
 
@@ -5963,7 +6514,7 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">902</span>
+    <span class="phpdocumentor-element-found-in__line">1127</span>
 
     </aside>
 
@@ -5990,6 +6541,25 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_truncate#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Reset table and auto-increment</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;TempDataModel-&gt;truncate();
+// TRUNCATE TABLE temp_data
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -6015,7 +6585,7 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">304</span>
+    <span class="phpdocumentor-element-found-in__line">350</span>
 
     </aside>
 
@@ -6136,7 +6706,7 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">318</span>
+    <span class="phpdocumentor-element-found-in__line">374</span>
 
     </aside>
 
@@ -6190,6 +6760,28 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_update_batch#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Update multiple records by ID</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;UserModel-&gt;update_batch('users', [
+  ['id' =&gt; 1, 'status' =&gt; 'active'],
+  ['id' =&gt; 2, 'status' =&gt; 'inactive'],
+  ['id' =&gt; 3, 'status' =&gt; 'active']
+], 'id');
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -6215,7 +6807,7 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">492</span>
+    <span class="phpdocumentor-element-found-in__line">605</span>
 
     </aside>
 
@@ -6329,7 +6921,7 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">516</span>
+    <span class="phpdocumentor-element-found-in__line">645</span>
 
     </aside>
 
@@ -6374,6 +6966,40 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Model-Model.html#method_where_in#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Filter by multiple IDs</p>
+<pre class="prettyprint"><code class="language-php">$users = $this-&gt;UserModel
+  -&gt;where_in('id', [1, 5, 10, 15])
+  -&gt;get_all();
+// SELECT * FROM users WHERE id IN (1, 5, 10, 15)
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Filter by multiple statuses</p>
+<pre class="prettyprint"><code class="language-php">$orders = $this-&gt;OrderModel
+  -&gt;where_in('status', ['pending', 'processing'])
+  -&gt;get_all();
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -6395,7 +7021,7 @@ if ($this-&gt;UserModel-&gt;trans_status() === false) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/Model.php"><a href="files/src-x-model-model.html"><abbr title="src/X/Model/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">540</span>
+    <span class="phpdocumentor-element-found-in__line">669</span>
 
     </aside>
 
