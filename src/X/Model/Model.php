@@ -51,15 +51,25 @@ abstract class Model extends \CI_Model {
   /**
    * Get database object.
    *
-   * @example Execute raw query
+   * @example Execute raw query with parameter binding
    * ```php
-   * $result = UserModel::db()->query('SELECT * FROM users WHERE status = ?', ['active']);
+   * $result = UserModel::db()->query(
+   *   'SELECT * FROM users WHERE status = ? AND created_at > ?',
+   *   ['active', '2024-01-01']
+   * );
+   * foreach ($result->result_array() as $row) {
+   *   echo $row['name'];
+   * }
    * ```
    *
-   * @example Use different database connection
+   * @example Use different database connection (config/database.php)
    * ```php
-   * $logDb = UserModel::db('logging');
-   * $logDb->insert('access_logs', ['user_id' => 1, 'action' => 'login']);
+   * // Read from replica database
+   * $users = UserModel::db('replica')
+   *   ->select('*')
+   *   ->from('users')
+   *   ->get()
+   *   ->result_array();
    * ```
    *
    * @param string $config Connection group name. Default is "default".
@@ -73,7 +83,16 @@ abstract class Model extends \CI_Model {
   }
 
   /**
-   * DB connection check
+   * DB connection check.
+   *
+   * @example Check database availability
+   * ```php
+   * if (!UserModel::is_connect()) {
+   *   $this->error('Database connection failed', 503);
+   *   return;
+   * }
+   * ```
+   *
    * @param string $config Connection group name. Default is "default".
    * @return bool Whether you could connect to DB or not.
    */
@@ -143,6 +162,13 @@ abstract class Model extends \CI_Model {
 
   /**
    * Get counts matching ID.
+   *
+   * @example Count specific user
+   * ```php
+   * $count = $this->UserModel->count_by_id(1);
+   * // Returns 1 if user exists, 0 if not
+   * ```
+   *
    * @param int $id ID.
    * @return int Search result count.
    */
@@ -176,20 +202,27 @@ abstract class Model extends \CI_Model {
   // ----------------------------------------------------------------
   /**
    * Insert_On_Duplicate_Key_Update.
+   *
+   * @example Insert or update user by email
    * ```php
-   * $SampleModel
+   * $this->UserModel
    *   ->set([
-   *     'key' => '1',
-   *     'title' => 'My title',
-   *     'name' => 'My Name'
+   *     'email' => 'john@example.com',
+   *     'name' => 'John',
+   *     'updated_at' => date('Y-m-d H:i:s')
    *   ])
    *   ->insert_on_duplicate_update();
-   * $SampleModel
-   *   ->set('key', '1')
-   *   ->set('title', 'My title')
-   *   ->set('name', 'My Name')
+   * ```
+   *
+   * @example Using chained set() calls
+   * ```php
+   * $this->UserModel
+   *   ->set('email', 'john@example.com')
+   *   ->set('name', 'John')
+   *   ->set('login_count', 1)
    *   ->insert_on_duplicate_update();
    * ```
+   *
    * @param string $table (optional) Table name.
    * @param array|object $set (optional) an associative array of insert values.
    * @param bool $escape (optional) Whether to escape values and identifiers.
@@ -203,14 +236,17 @@ abstract class Model extends \CI_Model {
 
   /**
    * Insert_On_Duplicate_Key_Update_Batch.
+   *
+   * @example Batch upsert users
    * ```php
-   * $SampleModel
+   * $this->UserModel
    *   ->set_insert_batch([
-   *     ['key' => '1', 'title' => 'My title', 'name' => 'My Name'],
-   *     ['key' => '2', 'title' => 'Another title', 'name' => 'Another Name']
+   *     ['email' => 'john@example.com', 'name' => 'John', 'role' => 'user'],
+   *     ['email' => 'jane@example.com', 'name' => 'Jane', 'role' => 'admin']
    *   ])
    *   ->insert_on_duplicate_update_batch();
    * ```
+   *
    * @param string $table (optional) Table name.
    * @param array|object $set (optional) an associative array of insert values.
    * @param bool $escape (optional) Whether to escape values and identifiers.
@@ -257,6 +293,16 @@ abstract class Model extends \CI_Model {
 
   /**
    * Insert_Batch.
+   *
+   * @example Insert multiple records at once
+   * ```php
+   * $this->UserModel->insert_batch('users', [
+   *   ['name' => 'John', 'email' => 'john@example.com'],
+   *   ['name' => 'Jane', 'email' => 'jane@example.com'],
+   *   ['name' => 'Bob', 'email' => 'bob@example.com']
+   * ]);
+   * ```
+   *
    * @param string $table Table name.
    * @param array|object $set (optional) Data to insert.
    * @param bool $escape (optional) Whether to escape values and identifiers.
@@ -309,6 +355,16 @@ abstract class Model extends \CI_Model {
 
   /**
    * Update_Batch.
+   *
+   * @example Update multiple records by ID
+   * ```php
+   * $this->UserModel->update_batch('users', [
+   *   ['id' => 1, 'status' => 'active'],
+   *   ['id' => 2, 'status' => 'inactive'],
+   *   ['id' => 3, 'status' => 'active']
+   * ], 'id');
+   * ```
+   *
    * @param string $table Table name.
    * @param array|object $set (optional) Field name, or an associative array of field/value pairs.
    * @param string $value (optional)  Field value, if $set is a single field.
@@ -321,6 +377,21 @@ abstract class Model extends \CI_Model {
 
   /**
    * Execute the query.
+   *
+   * @example Execute SELECT query
+   * ```php
+   * $result = $this->UserModel->query(
+   *   'SELECT * FROM users WHERE role = ? ORDER BY name',
+   *   ['admin']
+   * );
+   * $users = $result->result_array();
+   * ```
+   *
+   * @example Execute stored procedure
+   * ```php
+   * $result = $this->UserModel->query('CALL get_user_stats(?)', [$userId]);
+   * ```
+   *
    * @param string $sql The SQL statement to execute.
    * @param array|false $binds (optional) An array of binding data.
    * @param bool $returnObject (optional) Whether to return a result object or not.
@@ -366,6 +437,13 @@ abstract class Model extends \CI_Model {
 
   /**
    * Generates a SELECT MAX(field) portion of a query.
+   *
+   * @example Get maximum value
+   * ```php
+   * $result = $this->OrderModel->select_max('total', 'max_total')->get()->row_array();
+   * echo $result['max_total']; // 99800
+   * ```
+   *
    * @param string $select (optional)  Field to compute the maximum of.
    * @param string $alias (optional) Alias for the resulting value name.
    * @return Model
@@ -376,7 +454,14 @@ abstract class Model extends \CI_Model {
   }
 
   /**
-   * Generates a SELECT MIN(field) portion of a query
+   * Generates a SELECT MIN(field) portion of a query.
+   *
+   * @example Get minimum value
+   * ```php
+   * $result = $this->ProductModel->select_min('price', 'min_price')->get()->row_array();
+   * echo $result['min_price']; // 100
+   * ```
+   *
    * @param string $select (optional) Field to compute the minimum of.
    * @param string $alias (optional) Alias for the resulting value name.
    * @return Model
@@ -387,7 +472,14 @@ abstract class Model extends \CI_Model {
   }
 
   /**
-   * Generates a SELECT AVG(field) portion of a query
+   * Generates a SELECT AVG(field) portion of a query.
+   *
+   * @example Get average value
+   * ```php
+   * $result = $this->OrderModel->select_avg('total', 'avg_order')->get()->row_array();
+   * echo $result['avg_order']; // 5420.50
+   * ```
+   *
    * @param string $select (optional) Field to compute the average of.
    * @param string $alias (optional) Alias for the resulting value name.
    * @return Model
@@ -398,7 +490,18 @@ abstract class Model extends \CI_Model {
   }
 
   /**
-   * Generates a SELECT SUM(field) portion of a query
+   * Generates a SELECT SUM(field) portion of a query.
+   *
+   * @example Get sum of values
+   * ```php
+   * $result = $this->OrderModel
+   *   ->select_sum('total', 'total_sales')
+   *   ->where('created_at >=', '2024-01-01')
+   *   ->get()
+   *   ->row_array();
+   * echo $result['total_sales']; // 1250000
+   * ```
+   *
    * @param string $select (optional) Field to compute the sum of.
    * @param string $alias (optional) Alias for the resulting value name.
    * @return Model
@@ -410,6 +513,16 @@ abstract class Model extends \CI_Model {
 
   /**
    * Sets a flag which tells the query string compiler to add DISTINCT.
+   *
+   * @example Get unique values
+   * ```php
+   * $categories = $this->ProductModel
+   *   ->distinct()
+   *   ->select('category')
+   *   ->get_all();
+   * // SELECT DISTINCT category FROM products
+   * ```
+   *
    * @param bool $val Desired value of the "distinct" flag.
    * @return Model
    */
@@ -508,6 +621,22 @@ abstract class Model extends \CI_Model {
 
   /**
    * Generates a WHERE field IN('item', 'item') SQL query, joined with 'AND' if appropriate.
+   *
+   * @example Filter by multiple IDs
+   * ```php
+   * $users = $this->UserModel
+   *   ->where_in('id', [1, 5, 10, 15])
+   *   ->get_all();
+   * // SELECT * FROM users WHERE id IN (1, 5, 10, 15)
+   * ```
+   *
+   * @example Filter by multiple statuses
+   * ```php
+   * $orders = $this->OrderModel
+   *   ->where_in('status', ['pending', 'processing'])
+   *   ->get_all();
+   * ```
+   *
    * @param string $key (optional) The field to search.
    * @param array $values (optional) The values searched on.
    * @param bool $escape (optional) Whether to escape values and identifiers.
@@ -556,9 +685,28 @@ abstract class Model extends \CI_Model {
 
   /**
    * Generates a %LIKE% portion of the query. Separates multiple calls with 'AND'.
+   *
+   * @example Search with wildcard on both sides (default)
+   * ```php
+   * $users = $this->UserModel->like('name', 'john')->get_all();
+   * // SELECT * FROM users WHERE name LIKE '%john%'
+   * ```
+   *
+   * @example Search with wildcard on right side only (starts with)
+   * ```php
+   * $users = $this->UserModel->like('email', 'admin', 'after')->get_all();
+   * // SELECT * FROM users WHERE email LIKE 'admin%'
+   * ```
+   *
+   * @example Search with wildcard on left side only (ends with)
+   * ```php
+   * $users = $this->UserModel->like('email', '@gmail.com', 'before')->get_all();
+   * // SELECT * FROM users WHERE email LIKE '%@gmail.com'
+   * ```
+   *
    * @param mixed $field Field name.
    * @param string $match (optional) Text portion to match.
-   * @param string $side (optional) Which side of the expression to put the ‘%’ wildcard on.
+   * @param string $side (optional) Which side of the expression to put the '%' wildcard on.
    * @param bool $escape (optional) Whether to escape values and identifiers.
    * @return Model
    */
@@ -608,6 +756,19 @@ abstract class Model extends \CI_Model {
 
   /**
    * Starts a query group.
+   *
+   * @example Complex WHERE conditions with grouping
+   * ```php
+   * $users = $this->UserModel
+   *   ->where('status', 'active')
+   *   ->group_start()
+   *     ->where('role', 'admin')
+   *     ->or_where('role', 'manager')
+   *   ->group_end()
+   *   ->get_all();
+   * // SELECT * FROM users WHERE status = 'active' AND (role = 'admin' OR role = 'manager')
+   * ```
+   *
    * @param string $not (Internal use only).
    * @param string $type (Internal use only).
    * @return Model
@@ -655,6 +816,24 @@ abstract class Model extends \CI_Model {
 
   /**
    * GROUP BY.
+   *
+   * @example Group by single column
+   * ```php
+   * $stats = $this->OrderModel
+   *   ->select('status, COUNT(*) as count')
+   *   ->group_by('status')
+   *   ->get_all();
+   * // [['status' => 'pending', 'count' => 5], ['status' => 'completed', 'count' => 20]]
+   * ```
+   *
+   * @example Group by multiple columns
+   * ```php
+   * $stats = $this->OrderModel
+   *   ->select('YEAR(created_at) as year, MONTH(created_at) as month, SUM(total) as total')
+   *   ->group_by(['YEAR(created_at)', 'MONTH(created_at)'])
+   *   ->get_all();
+   * ```
+   *
    * @param string $by Field(s) to group by; string or array.
    * @param bool $escape (optional) Whether to escape values and identifiers.
    * @return Model
@@ -666,6 +845,18 @@ abstract class Model extends \CI_Model {
 
   /**
    * HAVING. Separates multiple calls with 'AND'.
+   *
+   * @example Filter grouped results
+   * ```php
+   * $topCustomers = $this->OrderModel
+   *   ->select('user_id, SUM(total) as total_spent')
+   *   ->group_by('user_id')
+   *   ->having('total_spent >', 10000)
+   *   ->get_all();
+   * // SELECT user_id, SUM(total) as total_spent FROM orders
+   * // GROUP BY user_id HAVING total_spent > 10000
+   * ```
+   *
    * @param string $key Identifier (string) or associative array of field/value pairs.
    * @param string $value Value sought if $key is an identifier.
    * @param bool $escape (optional) Whether to escape values and identifiers.
@@ -798,6 +989,26 @@ abstract class Model extends \CI_Model {
    * "Count All Results" query.
    * Generates a platform-specific query string that counts all records
    * returned by an Query Builder query.
+   *
+   * @example Count filtered records
+   * ```php
+   * $activeCount = $this->UserModel
+   *   ->where('status', 'active')
+   *   ->count_all_results();
+   * // SELECT COUNT(*) FROM users WHERE status = 'active'
+   * ```
+   *
+   * @example Count for pagination
+   * ```php
+   * $totalCount = $this->UserModel
+   *   ->like('name', $searchKeyword)
+   *   ->count_all_results('', false); // false = don't reset query
+   *
+   * $users = $this->UserModel
+   *   ->limit($perPage, $offset)
+   *   ->get_all();
+   * ```
+   *
    * @param string $table (optional) Table name.
    * @param bool $reset Whether to reset values for SELECTs.
    * @return int
@@ -884,6 +1095,13 @@ abstract class Model extends \CI_Model {
 
   /**
    * Empty Table.
+   *
+   * @example Delete all records from table
+   * ```php
+   * $this->LogModel->empty_table();
+   * // DELETE FROM logs
+   * ```
+   *
    * @param string $table (optional) Table name.
    * @return bool true on success, false on failure.
    */
@@ -896,6 +1114,13 @@ abstract class Model extends \CI_Model {
 
   /**
    * Truncate.
+   *
+   * @example Reset table and auto-increment
+   * ```php
+   * $this->TempDataModel->truncate();
+   * // TRUNCATE TABLE temp_data
+   * ```
+   *
    * @param string $table (optional) Table name.
    * @return bool true on success, false on failure.
    */
@@ -1099,6 +1324,14 @@ abstract class Model extends \CI_Model {
 
   /**
    * Returns the last query that was executed.
+   *
+   * @example Debug query
+   * ```php
+   * $users = $this->UserModel->where('status', 'active')->get_all();
+   * \X\Util\Logger::debug($this->UserModel->last_query());
+   * // SELECT * FROM users WHERE status = 'active'
+   * ```
+   *
    * @return string The last query executed.
    */
   public function last_query() {
@@ -1110,6 +1343,13 @@ abstract class Model extends \CI_Model {
 
   /**
    * Escapes input data based on type, including boolean and NULLs.
+   *
+   * @example Escape user input for raw queries
+   * ```php
+   * $name = $this->UserModel->escape($this->input->post('name'));
+   * $this->UserModel->query("SELECT * FROM users WHERE name = {$name}");
+   * ```
+   *
    * @param mixed $str The value to escape, or an array of multiple ones.
    * @return mixed The escaped value(s).
    */
@@ -1214,6 +1454,16 @@ abstract class Model extends \CI_Model {
 
   /**
    * Last error.
+   *
+   * @example Check for database errors
+   * ```php
+   * $this->UserModel->insert('', $data);
+   * $error = $this->UserModel->error();
+   * if ($error['code']) {
+   *   \X\Util\Logger::error("DB Error: {$error['message']}");
+   * }
+   * ```
+   *
    * @return array{code: string|null, message: string|null} Error data.
    */
   public function error() {
@@ -1230,6 +1480,15 @@ abstract class Model extends \CI_Model {
 
   /**
    * Enable Query Caching.
+   *
+   * @example Cache query results
+   * ```php
+   * // config/database.php: $db['default']['cachedir'] = APPPATH . 'cache';
+   * $this->UserModel->cache_on();
+   * $users = $this->UserModel->where('status', 'active')->get_all(); // Cached
+   * $this->UserModel->cache_off();
+   * ```
+   *
    * @return void
    */
   public function cache_on() {
@@ -1245,7 +1504,14 @@ abstract class Model extends \CI_Model {
   }
 
   /**
-   * Delete the cache files associated with a particular URI
+   * Delete the cache files associated with a particular URI.
+   *
+   * @example Delete specific cache
+   * ```php
+   * // Delete cache for /users/list page
+   * $this->UserModel->cache_delete('users', 'list');
+   * ```
+   *
    * @param string $segmentOne First URI segment.
    * @param string $segmentTwo Second URI segment.
    * @return void
@@ -1256,6 +1522,12 @@ abstract class Model extends \CI_Model {
 
   /**
    * Delete All cache files.
+   *
+   * @example Clear all query cache
+   * ```php
+   * $this->UserModel->cache_delete_all();
+   * ```
+   *
    * @return void
    */
   public function cache_delete_all() {

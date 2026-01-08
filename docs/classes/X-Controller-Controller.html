@@ -678,7 +678,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">442</span>
+    <span class="phpdocumentor-element-found-in__line">498</span>
 
     </aside>
 
@@ -705,6 +705,26 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeDownload#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Log file downloads</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeDownload(string $referer) {
+  \X\Util\Logger::info(&quot;File download from: {$referer}, User: &quot; . ($_SESSION['user']['id'] ?? 'guest'));
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -722,7 +742,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">458</span>
+    <span class="phpdocumentor-element-found-in__line">529</span>
 
     </aside>
 
@@ -749,6 +769,26 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeInternalRedirect#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Log protected file access</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeInternalRedirect(string $referer) {
+  \X\Util\Logger::info(&quot;Protected file access from: {$referer}, User: &quot; . $_SESSION['user']['id']);
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -766,7 +806,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">394</span>
+    <span class="phpdocumentor-element-found-in__line">404</span>
 
     </aside>
 
@@ -793,6 +833,29 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeResponse#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set security headers and CORS for all responses</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeResponse(string $referer) {
+  $this-&gt;output-&gt;set_header('X-Content-Type-Options: nosniff');
+  $this-&gt;output-&gt;set_header('X-Frame-Options: SAMEORIGIN');
+  $this-&gt;output-&gt;set_header('Cache-Control: no-store, no-cache, must-revalidate');
+  $this-&gt;setCorsHeader('https://example.com https://app.example.com');
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -810,7 +873,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">418</span>
+    <span class="phpdocumentor-element-found-in__line">452</span>
 
     </aside>
 
@@ -837,6 +900,26 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeResponseHtml#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set content language header</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeResponseHtml(string $referer) {
+  $this-&gt;output-&gt;set_header('Content-Language: ja');
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -854,7 +937,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">450</span>
+    <span class="phpdocumentor-element-found-in__line">514</span>
 
     </aside>
 
@@ -881,6 +964,27 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeResponseImage#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set image cache headers for browser caching</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeResponseImage(string $referer) {
+  $this-&gt;output-&gt;set_header('Cache-Control: public, max-age=86400');
+  $this-&gt;output-&gt;set_header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 86400) . ' GMT');
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -898,7 +1002,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">426</span>
+    <span class="phpdocumentor-element-found-in__line">467</span>
 
     </aside>
 
@@ -925,6 +1029,26 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeResponseJs#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set JavaScript cache control</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeResponseJs(string $referer) {
+  $this-&gt;output-&gt;set_header('Cache-Control: public, max-age=31536000');
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -942,7 +1066,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">402</span>
+    <span class="phpdocumentor-element-found-in__line">420</span>
 
     </aside>
 
@@ -969,6 +1093,27 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeResponseJson#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Add API response metadata</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeResponseJson(string $referer) {
+  $this-&gt;set('requestId', uniqid('api_'));
+  $this-&gt;set('timestamp', date('c'));
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -986,7 +1131,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">434</span>
+    <span class="phpdocumentor-element-found-in__line">483</span>
 
     </aside>
 
@@ -1013,6 +1158,27 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeResponseText#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Disable caching for plain text API responses</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeResponseText(string $referer) {
+  $this-&gt;output-&gt;set_header('Cache-Control: no-cache');
+  $this-&gt;output-&gt;set_header('Pragma: no-cache');
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1030,7 +1196,7 @@ location /protected {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Controller/Controller.php"><a href="files/src-x-controller-controller.html"><abbr title="src/X/Controller/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">410</span>
+    <span class="phpdocumentor-element-found-in__line">437</span>
 
     </aside>
 
@@ -1057,6 +1223,28 @@ location /protected {
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Controller-Controller.html#method_beforeResponseView#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Set common template variables (logged-in user, site name, etc.)</p>
+<pre class="prettyprint"><code class="language-php">protected function beforeResponseView(string $referer) {
+  $this-&gt;set('siteName', 'My Application');
+  $this-&gt;set('currentUser', $_SESSION['user'] ?? null);
+  $this-&gt;set('csrfToken', $this-&gt;security-&gt;get_csrf_hash());
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>

@@ -388,6 +388,16 @@ abstract class Controller extends \CI_Controller {
   /**
    * Hook called before any response. Override to add global response processing.
    *
+   * @example Set security headers and CORS for all responses
+   * ```php
+   * protected function beforeResponse(string $referer) {
+   *   $this->output->set_header('X-Content-Type-Options: nosniff');
+   *   $this->output->set_header('X-Frame-Options: SAMEORIGIN');
+   *   $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate');
+   *   $this->setCorsHeader('https://example.com https://app.example.com');
+   * }
+   * ```
+   *
    * @param string $referer Referrer URL.
    * @return void
    */
@@ -395,6 +405,14 @@ abstract class Controller extends \CI_Controller {
 
   /**
    * Hook called before JSON response.
+   *
+   * @example Add API response metadata
+   * ```php
+   * protected function beforeResponseJson(string $referer) {
+   *   $this->set('requestId', uniqid('api_'));
+   *   $this->set('timestamp', date('c'));
+   * }
+   * ```
    *
    * @param string $referer Referrer URL.
    * @return void
@@ -404,6 +422,15 @@ abstract class Controller extends \CI_Controller {
   /**
    * Hook called before template view response.
    *
+   * @example Set common template variables (logged-in user, site name, etc.)
+   * ```php
+   * protected function beforeResponseView(string $referer) {
+   *   $this->set('siteName', 'My Application');
+   *   $this->set('currentUser', $_SESSION['user'] ?? null);
+   *   $this->set('csrfToken', $this->security->get_csrf_hash());
+   * }
+   * ```
+   *
    * @param string $referer Referrer URL.
    * @return void
    */
@@ -411,6 +438,13 @@ abstract class Controller extends \CI_Controller {
 
   /**
    * Hook called before HTML response.
+   *
+   * @example Set content language header
+   * ```php
+   * protected function beforeResponseHtml(string $referer) {
+   *   $this->output->set_header('Content-Language: ja');
+   * }
+   * ```
    *
    * @param string $referer Referrer URL.
    * @return void
@@ -420,6 +454,13 @@ abstract class Controller extends \CI_Controller {
   /**
    * Hook called before JavaScript response.
    *
+   * @example Set JavaScript cache control
+   * ```php
+   * protected function beforeResponseJs(string $referer) {
+   *   $this->output->set_header('Cache-Control: public, max-age=31536000');
+   * }
+   * ```
+   *
    * @param string $referer Referrer URL.
    * @return void
    */
@@ -427,6 +468,14 @@ abstract class Controller extends \CI_Controller {
 
   /**
    * Hook called before plain text response.
+   *
+   * @example Disable caching for plain text API responses
+   * ```php
+   * protected function beforeResponseText(string $referer) {
+   *   $this->output->set_header('Cache-Control: no-cache');
+   *   $this->output->set_header('Pragma: no-cache');
+   * }
+   * ```
    *
    * @param string $referer Referrer URL.
    * @return void
@@ -436,6 +485,13 @@ abstract class Controller extends \CI_Controller {
   /**
    * Hook called before file download response.
    *
+   * @example Log file downloads
+   * ```php
+   * protected function beforeDownload(string $referer) {
+   *   \X\Util\Logger::info("File download from: {$referer}, User: " . ($_SESSION['user']['id'] ?? 'guest'));
+   * }
+   * ```
+   *
    * @param string $referer Referrer URL.
    * @return void
    */
@@ -444,6 +500,14 @@ abstract class Controller extends \CI_Controller {
   /**
    * Hook called before image response.
    *
+   * @example Set image cache headers for browser caching
+   * ```php
+   * protected function beforeResponseImage(string $referer) {
+   *   $this->output->set_header('Cache-Control: public, max-age=86400');
+   *   $this->output->set_header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 86400) . ' GMT');
+   * }
+   * ```
+   *
    * @param string $referer Referrer URL.
    * @return void
    */
@@ -451,6 +515,13 @@ abstract class Controller extends \CI_Controller {
 
   /**
    * Hook called before internal redirect.
+   *
+   * @example Log protected file access
+   * ```php
+   * protected function beforeInternalRedirect(string $referer) {
+   *   \X\Util\Logger::info("Protected file access from: {$referer}, User: " . $_SESSION['user']['id']);
+   * }
+   * ```
    *
    * @param string $referer Referrer URL.
    * @return void
