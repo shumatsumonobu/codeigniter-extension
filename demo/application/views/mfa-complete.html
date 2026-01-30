@@ -1,0 +1,82 @@
+{% extends 'layout/default.html' %}
+{% block title %}MFA Setup Complete{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{{cache_busting('/build/mfa.css')}}">{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Two-Factor Authentication Enabled!</h3>
+  </div>
+  <div class="card-body">
+    <div class="text-center mb-10">
+      <div class="mb-5">
+        <i class="ki-outline ki-shield-tick fs-5tx text-success"></i>
+      </div>
+      <h2 class="text-success mb-3">Setup Complete!</h2>
+      <p class="text-gray-600">Two-factor authentication is now enabled on your account.</p>
+    </div>
+
+    <div class="alert alert-warning mb-10">
+      <div class="d-flex">
+        <i class="ki-outline ki-information-5 fs-2hx text-warning me-4"></i>
+        <div>
+          <h4 class="fw-bold">Save Your Backup Codes!</h4>
+          <p class="mb-0">These codes can be used to access your account if you lose your phone. Each code can only be used once. Store them in a safe place.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-light rounded p-5 mb-10">
+      <div class="row g-3 justify-content-center" id="backupCodes">
+        {% for code in backup_codes %}
+        <div class="col-6 col-md-4 text-center">
+          <code class="fs-4 fw-bold">{{code}}</code>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 mb-10">
+      <button type="button" class="btn btn-light-primary" onclick="downloadCodes()">
+        <i class="ki-outline ki-cloud-download fs-2"></i> Download
+      </button>
+      <button type="button" class="btn btn-light-primary" onclick="printCodes()">
+        <i class="ki-outline ki-printer fs-2"></i> Print
+      </button>
+      <button type="button" class="btn btn-light-primary" onclick="copyCodes()">
+        <i class="ki-outline ki-copy fs-2"></i> Copy
+      </button>
+    </div>
+
+    <div class="text-center">
+      <a href="/" class="btn btn-primary btn-lg">
+        <i class="ki-outline ki-home fs-2 me-2"></i> Continue to Dashboard
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const backupCodes = [{% for code in backup_codes %}'{{code}}'{% if not loop.last %},{% endif %}{% endfor %}];
+
+function downloadCodes() {
+  const content = 'CodeIgniter Demo - Backup Codes\n' + '='.repeat(35) + '\n\n' + backupCodes.join('\n') + '\n\nEach code can only be used once.\nStore these codes in a safe place.';
+  const blob = new Blob([content], {type: 'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'backup-codes.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function printCodes() {
+  const w = window.open('', '_blank');
+  w.document.write('<html><head><title>Backup Codes</title></head><body style="font-family:monospace;padding:20px;"><h2>Backup Codes</h2><p>Each code can only be used once.</p><pre style="font-size:18px;line-height:2;">' + backupCodes.join('\n') + '</pre><script>window.print();window.close();<\/script></body></html>');
+}
+
+function copyCodes() {
+  navigator.clipboard.writeText(backupCodes.join('\n'));
+  alert('Backup codes copied to clipboard!');
+}
+</script>
+{% endblock %}

@@ -43,6 +43,7 @@ CodeIgniter 3の拡張パッケージで、拡張されたコアクラス(コン
 - **セッション管理** - カスタムカラム付きデータベースバックセッション、PHP 7.0+ SessionHandlerInterface準拠
 - **ロギング** - コンテキスト付き拡張ロギング
 - **テンプレートエンジン** - セッション変数統合Twig
+- **Google Authenticator MFA** - バックアップコードとリカバリーフロー付きTOTPベース二要素認証
 
 ### AWS統合
 - **Amazon Rekognition** - 顔検出、比較、分析
@@ -136,6 +137,24 @@ npm run build
 <p align="left">
   <img alt="サインイン" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
   <img alt="ユーザーリスト" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
+</p>
+
+#### MFAスクリーンショット
+
+<p align="left">
+  <img alt="ログインページ" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/01-login-page.png" width="45%">
+  <img alt="MFA設定（無効）" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/02-mfa-settings-disabled.png" width="45%">
+</p>
+<p align="left">
+  <img alt="MFA設定（有効）" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/03-mfa-settings-enabled.png" width="45%">
+  <img alt="MFAセットアップ画面" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/04-mfa-settings-setup-screen.png" width="45%">
+</p>
+<p align="left">
+  <img alt="MFAバックアップコード" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/05-mfa-settings-setup-recover-code.png" width="45%">
+  <img alt="MFA検証" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/07-mfa-verify.png" width="45%">
+</p>
+<p align="left">
+  <img alt="MFAリカバリー" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/08-mfa-recovery.png" width="45%">
 </p>
 
 ## 設定
@@ -309,7 +328,7 @@ src/X/
 │   └── SessionModelInterface.php
 ├── Rekognition/         # AWS Rekognition
 │   └── Client.php           # 顔検出/比較クライアント
-└── Util/                # ユーティリティクラス (21クラス)
+└── Util/                # ユーティリティクラス (22クラス)
     ├── AmazonSesClient.php  # Amazon SESメール
     ├── ArrayHelper.php      # 配列操作
     ├── Cipher.php           # 暗号化 (AES-256-CTR)
@@ -317,6 +336,7 @@ src/X/
     ├── DateHelper.php       # 日付操作
     ├── EMail.php            # テンプレート付きメール
     ├── FileHelper.php       # ファイル/ディレクトリ操作
+    ├── GoogleAuthenticator.php # バックアップコード付きTOTP MFA
     ├── HtmlHelper.php       # HTMLユーティリティ
     ├── HttpInput.php        # HTTP入力処理
     ├── HttpResponse.php     # HTTPレスポンスビルダー
@@ -433,6 +453,79 @@ $client = new RestClient(['base_url' => 'https://api.example.com']);
 $response = $client->get('/users');
 ```
 
+### Google Authenticator MFA
+
+TOTPコード、バックアップコード、アカウントリカバリー機能付きの完全な二要素認証実装。
+
+#### ユーザーのMFAセットアップ
+
+```php
+use \X\Util\GoogleAuthenticator;
+
+// 完全なMFAセットアップバンドルを生成
+$setup = GoogleAuthenticator::createMfaSetup('user@example.com', 'MyApp');
+
+// データベースに保存
+$user['mfa_secret'] = $setup['secret'];
+$user['mfa_enabled'] = true;
+$user['backup_codes'] = GoogleAuthenticator::serializeBackupHashes($setup['backup_hashes']);
+
+// ユーザーに表示（一度だけ！）
+echo "このQRコードをスキャン: " . $setup['qr_code_url'];
+echo "または手動で入力: " . $setup['secret'];
+echo "バックアップコード: " . implode(', ', $setup['backup_codes']);
+```
+
+#### ログイン時のTOTPコード検証
+
+```php
+use \X\Util\GoogleAuthenticator;
+
+// MFAが必要かチェック
+if (GoogleAuthenticator::isMfaEnforced($user['mfa_secret'], $user['mfa_enabled'])) {
+    $code = $_POST['mfa_code'];
+    $backupHashes = GoogleAuthenticator::deserializeBackupHashes($user['backup_codes']);
+
+    // TOTPまたはバックアップコードを検証
+    $result = GoogleAuthenticator::verifyTotpOrBackup($user['mfa_secret'], $code, $backupHashes);
+
+    if ($result['valid']) {
+        if ($result['type'] === 'backup') {
+            // 使用済みバックアップコードを削除
+            $backupHashes = GoogleAuthenticator::removeUsedBackupCode($backupHashes, $result['backup_index']);
+            $user['backup_codes'] = GoogleAuthenticator::serializeBackupHashes($backupHashes);
+            // データベースを更新
+        }
+        // アクセスを許可
+        $_SESSION['mfa_verified'] = true;
+    } else {
+        // 無効なコード
+        echo "無効な認証コード";
+    }
+}
+```
+
+#### アカウントリカバリー
+
+```php
+use \X\Util\GoogleAuthenticator;
+
+// リカバリートークンを生成（1時間で期限切れ）
+$recovery = GoogleAuthenticator::generateRecoveryToken(3600);
+
+// データベースにハッシュを保存
+$user['recovery_hash'] = $recovery['hash'];
+$user['recovery_expires'] = $recovery['expires_at'];
+
+// ユーザーにトークンをメールで送信
+sendEmail($user['email'], "リカバリートークン: " . $recovery['token']);
+
+// 後でトークンを検証
+if (GoogleAuthenticator::verifyRecoveryToken($submittedToken, $user['recovery_hash'], $user['recovery_expires'])) {
+    // MFAを無効化してアクセスを回復
+}
+```
+
 ## APIリファレンス
 
 ### コントローラーメソッド
@@ -471,6 +564,7 @@ $response = $client->get('/users');
 | `Validation` | `hostname()`, `ipaddress()`, `email()`, `is_path()` |
 | `IpUtils` | `isIPv4()`, `isIPv6()`, `inRange()` |
 | `Template` | `load($template, $params)` |
+| `GoogleAuthenticator` | `createMfaSetup()`, `verifyCode()`, `verifyTotpOrBackup()`, `generateBackupCodes()` |
 
 ## トラブルシューティング
 

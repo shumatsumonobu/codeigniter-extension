@@ -32,4 +32,37 @@ export default class extends Api {
   async updateProfile(formData) {
     return this.client.put('/profile', formData);
   }
+
+  // MFA Methods
+  async mfaStatus() {
+    return this.client.get('/mfa-status');
+  }
+
+  async mfaSetup() {
+    return this.client.post('/mfa-setup');
+  }
+
+  async mfaVerifySetup(formData) {
+    return this.client.post('/mfa-verify-setup', formData);
+  }
+
+  async mfaVerifyLogin(formData) {
+    return this.client.post('/mfa-verify-login', formData);
+  }
+
+  async mfaDisable(formData) {
+    return this.client.post('/mfa-disable', formData);
+  }
+
+  async mfaRegenerateBackupCodes(formData) {
+    return this.client.post('/mfa-regenerate-backup-codes', formData);
+  }
+
+  async mfaRequestRecovery(formData) {
+    return this.client.post('/mfa-request-recovery', formData);
+  }
+
+  async mfaVerifyRecovery(formData) {
+    return this.client.post('/mfa-verify-recovery', formData);
+  }
 }
