@@ -27,8 +27,23 @@ function initForm() {
       validation.onIndicator();
       const {data} = await userApi.login(new FormData(validation.form));
       validation.offIndicator();
-      if (!data)
+
+      // Handle new response format
+      if (!data || !data.success)
         return void validation.setError('email', 'userNotFound');
+
+      // Check if MFA verification is required (MFA enabled)
+      if (data.mfa_required) {
+        location.href = '/users/mfa-verify';
+        return;
+      }
+
+      // Check if MFA setup should be prompted (MFA not enabled yet)
+      if (data.mfa_setup_prompt) {
+        location.href = '/users/mfa-setup';
+        return;
+      }
+
       location.href = '/';
     } catch (err) {
       validation.offIndicator();

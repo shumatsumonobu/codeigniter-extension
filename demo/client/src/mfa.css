@@ -1,0 +1,57 @@
+/* MFA Pages Styles */
+
+.letter-spacing-lg {
+  letter-spacing: 0.5em;
+}
+
+/* QR Code container */
+.mfa-qr-code {
+  display: inline-block;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Backup codes grid */
+.backup-codes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.backup-codes-grid code {
+  display: block;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-family: monospace;
+}
+
+/* Stepper customizations */
+.stepper-item.current .stepper-icon {
+  background-color: var(--bs-primary);
+}
+
+.stepper-item.current .stepper-number {
+  color: white;
+}
+
+.stepper-item.completed .stepper-icon {
+  background-color: var(--bs-success);
+}
+
+/* Code input styling */
+input[name="code"] {
+  font-family: monospace;
+}
+
+/* MFA status badges */
+.mfa-status-enabled {
+  color: var(--bs-success);
+}
+
+.mfa-status-disabled {
+  color: var(--bs-danger);
+}

@@ -1,6 +1,30 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.0.5] - 2026/1/31
+
+### Added
+- Added `GoogleAuthenticator` utility class (`\X\Util\GoogleAuthenticator`) for TOTP-based two-factor authentication
+  - RFC 6238 compliant TOTP code generation and verification
+  - QR code URL generation for authenticator app setup
+  - Backup codes generation with bcrypt hashing (10 codes per user)
+  - Account recovery token generation and verification
+  - Helper methods: `isMfaEnforced()`, `verifyTotpOrBackup()`, `createMfaSetup()`
+- Added complete MFA flow to demo application
+  - MFA setup page with QR code scanning
+  - MFA verification page for login
+  - MFA settings page for management
+  - Account recovery page for lost authenticator access
+- Added 69 PHPUnit tests for GoogleAuthenticator class
+- Added Playwright E2E tests for MFA user flows
+- Added MFA setup documentation (`docs/MFA-SETUP-GUIDE.md`)
+
+### Changed
+- Updated `demo/init.sql` with MFA database columns (`mfa_secret`, `mfa_enabled`, `backup_codes`, `recovery_hash`, `recovery_expires`)
+- Updated demo UserModel with MFA methods
+- Updated demo Users controller with MFA page handlers
+- Updated demo API controller with MFA endpoints
+
 ## [5.0.4] - 2026/1/7
 
 ### Added

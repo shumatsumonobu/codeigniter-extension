@@ -59,6 +59,25 @@ $route['^api/users/password-security-check$']['GET'] = 'api/users/passwordSecuri
 $route['^api/users/profile$']['PUT'] = 'api/users/updateProfile';
 $route['^users/edit-personal$']['GET'] = 'users/editPersonal';
 
+// MFA routes (translate dashes to underscores)
+$route['^users/mfa-verify$']['GET'] = 'users/mfa_verify';
+$route['^users/mfa-setup$']['GET'] = 'users/mfa_setup';
+$route['^users/mfa-setup$']['POST'] = 'users/mfa_setup';
+$route['^users/mfa-complete$']['GET'] = 'users/mfa_complete';
+$route['^users/mfa-settings$']['GET'] = 'users/mfa_settings';
+$route['^users/mfa-recovery$']['GET'] = 'users/mfa_recovery';
+
+// MFA API routes
+$route['^api/users/mfa-status$']['GET'] = 'api/users/mfaStatus';
+$route['^api/users/mfa-setup$']['POST'] = 'api/users/mfaSetup';
+$route['^api/users/mfa-verify-setup$']['POST'] = 'api/users/mfaVerifySetup';
+$route['^api/users/mfa-verify$']['POST'] = 'api/users/mfaVerifyLogin';
+$route['^api/users/mfa-verify-login$']['POST'] = 'api/users/mfaVerifyLogin';
+$route['^api/users/mfa-disable$']['POST'] = 'api/users/mfaDisable';
+$route['^api/users/mfa-regenerate-backup-codes$']['POST'] = 'api/users/mfaRegenerateBackupCodes';
+$route['^api/users/mfa-request-recovery$']['POST'] = 'api/users/mfaRequestRecovery';
+$route['^api/users/mfa-verify-recovery$']['POST'] = 'api/users/mfaVerifyRecovery';
+
 // The basic URL of the API.
 $route['^api/(:any)/(:num)$']['GET'] = 'api/$1/get/$2';
 $route['^api/(:any)\??']['GET'] = 'api/$1/query';
