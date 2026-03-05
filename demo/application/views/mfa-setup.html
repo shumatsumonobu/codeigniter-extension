@@ -1,0 +1,60 @@
+{% extends 'layout/default.html' %}
+{% block title %}Setup Two-Factor Authentication{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{{cache_busting('/build/mfa.css')}}">{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Setup Two-Factor Authentication</h3>
+  </div>
+  <div class="card-body">
+    {% if error %}
+    <div class="alert alert-danger mb-10">
+      <i class="ki-outline ki-information-5 fs-2 me-3"></i>
+      {{error}}
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <!-- Step 1: QR Code -->
+      <div class="col-md-6 mb-10">
+        <h4 class="mb-5">Step 1: Scan QR Code</h4>
+        <div class="text-center mb-5">
+          <img src="/qrcode.php?data={{setup.otpauth_url|url_encode}}" alt="QR Code" style="max-width: 200px; border-radius: 8px;" />
+        </div>
+        <p class="text-gray-600 mb-3">Scan this QR code with Google Authenticator or another TOTP app.</p>
+        <p class="text-gray-600 mb-3">Or manually enter this secret key:</p>
+        <div class="bg-light-primary rounded p-3 text-center">
+          <code class="fs-4 fw-bold text-primary">{{setup.secret}}</code>
+        </div>
+      </div>
+
+      <!-- Step 2: Enter Code -->
+      <div class="col-md-6 mb-10">
+        <h4 class="mb-5">Step 2: Enter Verification Code</h4>
+        <p class="text-gray-600 mb-5">Enter the 6-digit code from your authenticator app to verify setup.</p>
+
+        <form method="POST" action="/users/mfa-setup">
+          <div class="mb-5">
+            <input type="text" name="code" class="form-control form-control-lg text-center fs-2"
+                   placeholder="000000" maxlength="6" inputmode="numeric" pattern="[0-9]*"
+                   autocomplete="one-time-code" autofocus required />
+          </div>
+          <div class="d-flex gap-3">
+            <button type="submit" class="btn btn-primary btn-lg flex-grow-1">
+              <i class="ki-outline ki-shield-tick fs-2 me-2"></i> Enable MFA
+            </button>
+            <a href="/" class="btn btn-light btn-lg">Skip</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="separator my-10"></div>
+
+    <div class="text-center text-gray-600">
+      <i class="ki-outline ki-information fs-2 me-2"></i>
+      After enabling MFA, you will receive backup codes that can be used if you lose access to your authenticator app.
+    </div>
+  </div>
+</div>
+{% endblock %}

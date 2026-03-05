@@ -1,0 +1,100 @@
+{% extends 'layout/default.html' %}
+{% block title %}Account Recovery{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{{cache_busting('/build/mfa.css')}}">{% endblock %}
+{% block script %}<script src="{{cache_busting('/build/mfa-recovery.js')}}"></script>{% endblock %}
+{% block content %}
+<!--begin::Root-->
+<div class="d-flex flex-column flex-root" id="kt_app_root">
+  <!--begin::Page-->
+  <div class="d-flex flex-column flex-center flex-column-fluid">
+    <!--begin::Content-->
+    <div class="d-flex flex-column flex-center text-center p-10">
+      <!--begin::Wrapper-->
+      <div class="card card-flush w-md-650px py-5">
+        <div class="card-body py-15 py-lg-20">
+          <!--begin::Request Recovery Form-->
+          <div data-ref="requestStep">
+            <div class="text-center mb-11">
+              <div class="mb-10">
+                <i class="ki-outline ki-key fs-5tx text-warning"></i>
+              </div>
+              <h1 class="text-dark fw-bolder mb-3">Account Recovery</h1>
+              <div class="text-gray-500 fw-semibold fs-6">
+                Lost access to your authenticator? We'll send you a recovery link.
+              </div>
+            </div>
+            <form data-ref="requestRecoveryForm" class="form w-100" novalidate="novalidate">
+              <div class="fv-row mb-8 text-start">
+                <label class="form-label">Email Address</label>
+                <input type="email" placeholder="your@email.com" name="email" class="form-control bg-transparent" autocomplete="email" autofocus />
+              </div>
+              <div class="d-grid mb-5">
+                <button type="submit" class="btn btn-warning">
+                  <span class="indicator-label">Send Recovery Link</span>
+                  <span class="indicator-progress">Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                </button>
+              </div>
+              <div class="text-center">
+                <a href="/users/login" class="link-primary fs-6 fw-semibold">Back to Login</a>
+              </div>
+            </form>
+          </div>
+          <!--end::Request Recovery Form-->
+
+          <!--begin::Verify Token Form-->
+          <div data-ref="verifyStep" style="display: none;">
+            <div class="text-center mb-11">
+              <div class="mb-10">
+                <i class="ki-outline ki-sms fs-5tx text-success"></i>
+              </div>
+              <h1 class="text-dark fw-bolder mb-3">Check Your Email</h1>
+              <div class="text-gray-500 fw-semibold fs-6">
+                We've sent a recovery token to your email. Enter it below to disable 2FA.
+              </div>
+            </div>
+            <form data-ref="verifyRecoveryForm" class="form w-100" novalidate="novalidate">
+              <input type="hidden" name="email" data-ref="recoveryEmail" />
+              <div class="fv-row mb-8 text-start">
+                <label class="form-label">Recovery Token</label>
+                <input type="text" placeholder="Enter recovery token" name="token" class="form-control bg-transparent" autocomplete="off" />
+                <div class="text-muted fs-7 mt-2">Check your email for the recovery token</div>
+              </div>
+              <div class="d-grid mb-5">
+                <button type="submit" class="btn btn-success">
+                  <span class="indicator-label">Disable 2FA & Login</span>
+                  <span class="indicator-progress">Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                </button>
+              </div>
+              <div class="text-center">
+                <a href="#" data-ref="backToRequest" class="link-primary fs-6 fw-semibold">Try a different email</a>
+              </div>
+            </form>
+          </div>
+          <!--end::Verify Token Form-->
+
+          <!--begin::Success Message-->
+          <div data-ref="successStep" style="display: none;">
+            <div class="text-center">
+              <div class="mb-10">
+                <i class="ki-outline ki-check-circle fs-5tx text-success"></i>
+              </div>
+              <h1 class="text-dark fw-bolder mb-3">Recovery Successful!</h1>
+              <div class="text-gray-500 fw-semibold fs-6 mb-10">
+                Two-factor authentication has been disabled for your account. You can now login with just your password.
+              </div>
+              <a href="/users/login" class="btn btn-primary">
+                <i class="ki-outline ki-entrance-right fs-2"></i> Go to Login
+              </a>
+            </div>
+          </div>
+          <!--end::Success Message-->
+        </div>
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Content-->
+  </div>
+  <!--end::Page-->
+</div>
+<!--end::Root-->
+{% endblock %}
