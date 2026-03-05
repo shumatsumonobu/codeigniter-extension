@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 > Looking for older versions? See the [changelog archive (v3.3.8 — v4.1.9)](CHANGELOG_archive.md).
 
+## [5.0.6] - 2026/3/5
+
+### Fixed
+- Fixed broken links in README, CHANGELOG, and demo docs — migrated GitHub URLs from `takuya-motoshima` to `shumatsumonobu`.
+
 ## [5.0.5] - 2026/3/5
 
 ### Changed
@@ -72,10 +77,11 @@ All notable changes to this project will be documented in this file.
   | `VideoHelper::isBase64` | `VideoHelper::isDataURL` |
   | `VideoHelper::convertBase64ToBlob` | `VideoHelper::dataURL2Blob` |
 
-[4.2.0]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v4.1.9...v4.2.0
-[5.0.0]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v4.2.0...v5.0.0
-[5.0.1]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.0...v5.0.1
-[5.0.2]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.1...v5.0.2
-[5.0.3]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.2...v5.0.3
-[5.0.4]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.3...v5.0.4
-[5.0.5]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.4...v5.0.5
+[4.2.0]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v4.1.9...v4.2.0
+[5.0.0]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v4.2.0...v5.0.0
+[5.0.1]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.0...v5.0.1
+[5.0.2]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.1...v5.0.2
+[5.0.3]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.2...v5.0.3
+[5.0.4]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.3...v5.0.4
+[5.0.5]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.4...v5.0.5
+[5.0.6]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.5...v5.0.6

@@ -33,13 +33,13 @@
 1. Open `http://{public IP of the server}:3000/` in a browser and the following screen will appear.  
     **NOTE**: You can log in with the username `robin@example.com` and password `password`.  
     <p align="left">
-      <img alt="sign-in.png" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
-      <img alt="list-of-users.png" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
+      <img alt="sign-in.png" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
+      <img alt="list-of-users.png" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
     </p>
     <p align="left">
-      <img alt="update-user.png" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/update-user.png" width="45%">
-      <img alt="personal-settings.png" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/personal-settings.png" width="45%">
+      <img alt="update-user.png" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/update-user.png" width="45%">
+      <img alt="personal-settings.png" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/personal-settings.png" width="45%">
     </p>
     <p align="left">
-      <img alt="page-not-found.png" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/page-not-found.png" width="45%">
+      <img alt="page-not-found.png" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/page-not-found.png" width="45%">
     </p>

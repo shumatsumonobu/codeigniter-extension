@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="README.md">English</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG_ja.md">変更履歴</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://takuya-motoshima.github.io/codeigniter-extension/">API Docs</a>
+  <a href="README.md">English</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG_ja.md">変更履歴</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://shumatsumonobu.github.io/codeigniter-extension/">API Docs</a>
 </p>
 
 ---
@@ -58,8 +58,8 @@ cd client && npm install && npm run build
 `http://{your-server-ip}:3000/` を開く — デフォルト認証情報: `robin@example.com` / `password`
 
 <p align="center">
-  <img alt="サインイン" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
-  <img alt="ユーザーリスト" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
+  <img alt="サインイン" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
+  <img alt="ユーザーリスト" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
 </p>
 
 ---
@@ -303,7 +303,7 @@ composer test
 
 ## ドキュメント
 
-- [API リファレンス](https://takuya-motoshima.github.io/codeigniter-extension/)
+- [API リファレンス](https://shumatsumonobu.github.io/codeigniter-extension/)
 - [デモアプリケーション](demo/)
 - [変更履歴](CHANGELOG_ja.md)
 - [CodeIgniter 3 ユーザーガイド](https://codeigniter.com/userguide3/)
@@ -327,7 +327,7 @@ composer test
 
 ## 著者
 
-**Takuya Motoshima** — [GitHub](https://github.com/takuya-motoshima) / [Twitter](https://x.com/takuya_motech) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
+**Takuya Motoshima** — [GitHub](https://github.com/shumatsumonobu) / [Twitter](https://x.com/shumatsumonobu) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
 
 ## ライセンス
 

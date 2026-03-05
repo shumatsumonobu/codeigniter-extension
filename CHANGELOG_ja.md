@@ -4,6 +4,11 @@
 
 > 過去のバージョンは [変更履歴アーカイブ (v3.3.8 — v4.1.9)](CHANGELOG_ja_archive.md) を参照してください。
 
+## [5.0.6] - 2026/3/5
+
+### 修正
+- README、CHANGELOG、デモドキュメントのリンク切れを修正 — GitHub URL を `takuya-motoshima` から `shumatsumonobu` に移行。
+
 ## [5.0.5] - 2026/3/5
 
 ### 変更
@@ -72,10 +77,11 @@
   | `VideoHelper::isBase64` | `VideoHelper::isDataURL` |
   | `VideoHelper::convertBase64ToBlob` | `VideoHelper::dataURL2Blob` |
 
-[4.2.0]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v4.1.9...v4.2.0
-[5.0.0]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v4.2.0...v5.0.0
-[5.0.1]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.0...v5.0.1
-[5.0.2]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.1...v5.0.2
-[5.0.3]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.2...v5.0.3
-[5.0.4]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.3...v5.0.4
-[5.0.5]: https://github.com/takuya-motoshima/codeigniter-extension/compare/v5.0.4...v5.0.5
+[4.2.0]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v4.1.9...v4.2.0
+[5.0.0]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v4.2.0...v5.0.0
+[5.0.1]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.0...v5.0.1
+[5.0.2]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.1...v5.0.2
+[5.0.3]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.2...v5.0.3
+[5.0.4]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.3...v5.0.4
+[5.0.5]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.4...v5.0.5
+[5.0.6]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.5...v5.0.6

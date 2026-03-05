@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="README_ja.md">日本語</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG_ja.md">変更履歴</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://takuya-motoshima.github.io/codeigniter-extension/">API Docs</a>
+  <a href="README_ja.md">日本語</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG_ja.md">変更履歴</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://shumatsumonobu.github.io/codeigniter-extension/">API Docs</a>
 </p>
 
 
@@ -56,8 +56,8 @@ cd client && npm install && npm run build
 Open `http://{your-server-ip}:3000/` — default credentials: `robin@example.com` / `password`
 
 <p align="center">
-  <img alt="Sign In" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
-  <img alt="User List" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
+  <img alt="Sign In" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
+  <img alt="User List" src="https://raw.githubusercontent.com/shumatsumonobu/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
 </p>
 
 
@@ -294,7 +294,7 @@ composer test
 
 ## Documentation
 
-- [API Reference](https://takuya-motoshima.github.io/codeigniter-extension/)
+- [API Reference](https://shumatsumonobu.github.io/codeigniter-extension/)
 - [Demo Application](demo/)
 - [Changelog](CHANGELOG.md)
 - [CodeIgniter 3 User Guide](https://codeigniter.com/userguide3/)
@@ -316,7 +316,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Author
 
-**Takuya Motoshima** — [GitHub](https://github.com/takuya-motoshima) / [Twitter](https://x.com/takuya_motech) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
+**Takuya Motoshima** — [GitHub](https://github.com/shumatsumonobu) / [Twitter](https://x.com/shumatsumonobu) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
 
 ## License
 
