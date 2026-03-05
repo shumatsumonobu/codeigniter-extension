@@ -8,11 +8,6 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `password` text NOT NULL,
   `name` varchar(30) NOT NULL,
-  `mfa_secret` varchar(64) DEFAULT NULL COMMENT 'TOTP secret key for MFA',
-  `mfa_enabled` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Whether MFA is enabled',
-  `backup_codes` text DEFAULT NULL COMMENT 'JSON array of hashed backup codes',
-  `recovery_hash` varchar(255) DEFAULT NULL COMMENT 'Hash for account recovery token',
-  `recovery_expires` int(10) unsigned DEFAULT NULL COMMENT 'Recovery token expiration timestamp',
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
@@ -26,9 +21,8 @@ CREATE TABLE IF NOT EXISTS `session` (
   `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
   `data` blob NOT NULL,
   `email` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
   KEY `session_timestamp` (`timestamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 DROP TABLE IF EXISTS `userLog`;
 CREATE TABLE `userLog` (

@@ -43,7 +43,6 @@ An enhanced CodeIgniter 3 package providing extended core classes (controllers, 
 - **Session Management** - Database-backed sessions with custom columns, PHP 7.0+ SessionHandlerInterface compliance
 - **Logging** - Enhanced logging with context
 - **Template Engine** - Twig integration with session variables
-- **Google Authenticator MFA** - TOTP-based two-factor authentication with backup codes and recovery flow
 
 ### AWS Integration
 - **Amazon Rekognition** - Face detection, comparison, and analysis
@@ -137,24 +136,6 @@ Open `http://{your-server-ip}:3000/` in your browser.
 <p align="left">
   <img alt="Sign In" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
   <img alt="User List" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
-</p>
-
-#### MFA Screenshots
-
-<p align="left">
-  <img alt="Login Page" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/01-login-page.png" width="45%">
-  <img alt="MFA Settings (Disabled)" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/02-mfa-settings-disabled.png" width="45%">
-</p>
-<p align="left">
-  <img alt="MFA Settings (Enabled)" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/03-mfa-settings-enabled.png" width="45%">
-  <img alt="MFA Setup Screen" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/04-mfa-settings-setup-screen.png" width="45%">
-</p>
-<p align="left">
-  <img alt="MFA Backup Codes" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/05-mfa-settings-setup-recover-code.png" width="45%">
-  <img alt="MFA Verify" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/07-mfa-verify.png" width="45%">
-</p>
-<p align="left">
-  <img alt="MFA Recovery" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/08-mfa-recovery.png" width="45%">
 </p>
 
 ## Configuration
@@ -328,7 +309,7 @@ src/X/
 │   └── SessionModelInterface.php
 ├── Rekognition/         # AWS Rekognition
 │   └── Client.php           # Face detection/comparison client
-└── Util/                # Utility classes (22 classes)
+└── Util/                # Utility classes (21 classes)
     ├── AmazonSesClient.php  # Amazon SES email
     ├── ArrayHelper.php      # Array operations
     ├── Cipher.php           # Encryption (AES-256-CTR)
@@ -336,7 +317,6 @@ src/X/
     ├── DateHelper.php       # Date operations
     ├── EMail.php            # Email with templates
     ├── FileHelper.php       # File/directory operations
-    ├── GoogleAuthenticator.php # TOTP MFA with backup codes
     ├── HtmlHelper.php       # HTML utilities
     ├── HttpInput.php        # HTTP input processing
     ├── HttpResponse.php     # HTTP response builder
@@ -453,92 +433,6 @@ $client = new RestClient(['base_url' => 'https://api.example.com']);
 $response = $client->get('/users');
 ```
 
-### Google Authenticator MFA
-
-Complete two-factor authentication implementation with TOTP codes, backup codes, and account recovery.
-
-#### Setup MFA for a User
-
-```php
-use \X\Util\GoogleAuthenticator;
-
-// Generate complete MFA setup bundle
-$setup = GoogleAuthenticator::createMfaSetup('user@example.com', 'MyApp');
-
-// Store in database
-$user['mfa_secret'] = $setup['secret'];
-$user['mfa_enabled'] = true;
-$user['backup_codes'] = GoogleAuthenticator::serializeBackupHashes($setup['backup_hashes']);
-
-// Show to user (once only!)
-echo "Scan this QR code: " . $setup['qr_code_url'];
-echo "Or enter manually: " . $setup['secret'];
-echo "Backup codes: " . implode(', ', $setup['backup_codes']);
-```
-
-#### Verify TOTP Code at Login
-
-```php
-use \X\Util\GoogleAuthenticator;
-
-// Check if MFA is required
-if (GoogleAuthenticator::isMfaEnforced($user['mfa_secret'], $user['mfa_enabled'])) {
-    $code = $_POST['mfa_code'];
-    $backupHashes = GoogleAuthenticator::deserializeBackupHashes($user['backup_codes']);
-
-    // Verify TOTP or backup code
-    $result = GoogleAuthenticator::verifyTotpOrBackup($user['mfa_secret'], $code, $backupHashes);
-
-    if ($result['valid']) {
-        if ($result['type'] === 'backup') {
-            // Remove used backup code
-            $backupHashes = GoogleAuthenticator::removeUsedBackupCode($backupHashes, $result['backup_index']);
-            $user['backup_codes'] = GoogleAuthenticator::serializeBackupHashes($backupHashes);
-            // Update database
-        }
-        // Grant access
-        $_SESSION['mfa_verified'] = true;
-    } else {
-        // Invalid code
-        throw new \Exception('Invalid MFA code');
-    }
-}
-```
-
-#### Account Recovery Flow
-
-```php
-use \X\Util\GoogleAuthenticator;
-
-// Generate recovery token (send via email)
-$recovery = GoogleAuthenticator::generateRecoveryToken(3600); // 1 hour expiry
-
-// Store hash and expiry in database
-$user['recovery_hash'] = $recovery['hash'];
-$user['recovery_expires'] = $recovery['expires_at'];
-
-// Send $recovery['token'] to user's email
-
-// When user clicks recovery link
-$token = $_GET['token'];
-if (GoogleAuthenticator::verifyRecoveryToken($token, $user['recovery_hash'], $user['recovery_expires'])) {
-    // Disable MFA
-    $user['mfa_enabled'] = false;
-    // Clear recovery token
-    $user['recovery_hash'] = null;
-}
-```
-
-#### Database Schema
-
-```sql
-ALTER TABLE `user` ADD COLUMN `mfa_secret` VARCHAR(64) NULL;
-ALTER TABLE `user` ADD COLUMN `mfa_enabled` TINYINT(1) DEFAULT 0;
-ALTER TABLE `user` ADD COLUMN `backup_codes` TEXT NULL;
-ALTER TABLE `user` ADD COLUMN `recovery_hash` VARCHAR(255) NULL;
-ALTER TABLE `user` ADD COLUMN `recovery_expires` INT NULL;
-```
-
 ## API Reference
 
 ### Controller Methods
@@ -577,32 +471,6 @@ ALTER TABLE `user` ADD COLUMN `recovery_expires` INT NULL;
 | `Validation` | `hostname()`, `ipaddress()`, `email()`, `is_path()` |
 | `IpUtils` | `isIPv4()`, `isIPv6()`, `inRange()` |
 | `Template` | `load($template, $params)` |
-| `GoogleAuthenticator` | `generateSecret()`, `verifyCode()`, `getQrCodeUrl()`, `createMfaSetup()` |
-
-### GoogleAuthenticator Methods
-
-| Method | Description |
-|--------|-------------|
-| `generateSecret($length)` | Generate Base32-encoded TOTP secret |
-| `getCode($secret, $timeSlice)` | Get current 6-digit TOTP code |
-| `verifyCode($secret, $code, $discrepancy)` | Verify a TOTP code with time drift tolerance |
-| `getQrCodeUrl($account, $secret, $issuer)` | Generate QR code URL for authenticator apps |
-| `getOtpauthUrl($account, $secret, $issuer)` | Generate otpauth:// URL for manual entry |
-| `generateBackupCodes($count, $length)` | Generate single-use backup codes with hashes |
-| `verifyBackupCode($code, $hashes)` | Verify a backup code, returns index for removal |
-| `formatBackupCodes($codes, $groupSize)` | Format codes for display (e.g., "1234-5678") |
-| `normalizeBackupCode($code)` | Remove formatting from user input |
-| `serializeBackupHashes($hashes)` | JSON encode hashes for database storage |
-| `deserializeBackupHashes($json)` | Restore hashes from database |
-| `removeUsedBackupCode($hashes, $index)` | Remove used code from hash array |
-| `getRemainingBackupCodesCount($hashes)` | Count remaining backup codes |
-| `generateRecoveryToken($expiry)` | Generate email recovery token with hash |
-| `verifyRecoveryToken($token, $hash, $expires)` | Verify recovery token |
-| `isMfaEnforced($secret, $enabled)` | Check if MFA should be required |
-| `createMfaSetup($account, $issuer, $backupCount)` | Generate complete MFA setup bundle |
-| `verifyTotpOrBackup($secret, $code, $backupHashes)` | Verify TOTP or backup code |
-| `getTimeRemaining($timestamp)` | Seconds until current code expires |
-| `isValidSecret($secret)` | Validate Base32 secret format |
 
 ## Troubleshooting
 

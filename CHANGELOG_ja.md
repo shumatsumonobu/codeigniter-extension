@@ -1,30 +1,6 @@
 # 変更履歴
 このプロジェクトの主な変更はこのファイルに記録される
 
-## [5.0.5] - 2026/1/31
-
-### 追加
-- TOTPベースの二要素認証のための`GoogleAuthenticator`ユーティリティクラス(`\X\Util\GoogleAuthenticator`)を追加
-  - RFC 6238準拠のTOTPコード生成と検証
-  - 認証アプリ設定用QRコードURL生成
-  - bcryptハッシュによるバックアップコード生成（ユーザーあたり10コード）
-  - アカウント回復トークンの生成と検証
-  - ヘルパーメソッド: `isMfaEnforced()`, `verifyTotpOrBackup()`, `createMfaSetup()`
-- デモアプリケーションに完全なMFAフローを追加
-  - QRコードスキャン付きMFAセットアップページ
-  - ログイン用MFA検証ページ
-  - 管理用MFA設定ページ
-  - 認証アプリ紛失時のアカウント回復ページ
-- GoogleAuthenticatorクラスの69個のPHPUnitテストを追加
-- MFAユーザーフローのPlaywright E2Eテストを追加
-- MFAセットアップドキュメント(`docs/MFA-SETUP-GUIDE.md`)を追加
-
-### 変更
-- MFAデータベースカラム(`mfa_secret`, `mfa_enabled`, `backup_codes`, `recovery_hash`, `recovery_expires`)で`demo/init.sql`を更新
-- デモUserModelにMFAメソッドを追加
-- デモUsersコントローラーにMFAページハンドラーを追加
-- デモAPIコントローラーにMFAエンドポイントを追加
-
 ## [5.0.4] - 2026/1/7
 
 ### 追加

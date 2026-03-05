@@ -96,46 +96,4 @@
   <!--end::Card body-->
 </div>
 <!--end::details View-->
-
-<!--begin::MFA Card-->
-<div class="card mb-5 mb-xl-10">
-  <!--begin::Card header-->
-  <div class="card-header cursor-pointer justify-content-between">
-    <div class="card-title m-0">
-      <h3 class="fw-bold m-0">Two-Factor Authentication</h3>
-    </div>
-    <a href="/users/mfa-settings" class="btn btn-primary align-self-center">Manage 2FA</a>
-  </div>
-  <!--end::Card header-->
-  <!--begin::Card body-->
-  <div class="card-body p-9">
-    <div class="d-flex align-items-center">
-      {% if mfa.enabled %}
-      <div class="symbol symbol-50px me-5">
-        <span class="symbol-label bg-light-success">
-          <i class="ki-outline ki-shield-tick fs-1 text-success"></i>
-        </span>
-      </div>
-      <div class="flex-grow-1">
-        <span class="text-gray-800 fw-bold fs-6">Enabled</span>
-        <span class="text-muted fw-semibold d-block fs-7">Your account is protected with 2FA</span>
-      </div>
-      <span class="badge badge-light-success fs-7 fw-bold">{{mfa.backup_codes_remaining}} backup codes</span>
-      {% else %}
-      <div class="symbol symbol-50px me-5">
-        <span class="symbol-label bg-light-danger">
-          <i class="ki-outline ki-shield-cross fs-1 text-danger"></i>
-        </span>
-      </div>
-      <div class="flex-grow-1">
-        <span class="text-gray-800 fw-bold fs-6">Not Enabled</span>
-        <span class="text-muted fw-semibold d-block fs-7">Add extra security to your account</span>
-      </div>
-      <a href="/users/mfa-setup" class="btn btn-sm btn-light-primary">Enable Now</a>
-      {% endif %}
-    </div>
-  </div>
-  <!--end::Card body-->
-</div>
-<!--end::MFA Card-->
 {% endblock %}

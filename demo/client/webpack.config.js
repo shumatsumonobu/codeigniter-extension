@@ -18,10 +18,6 @@ module.exports = {
     login: './src/login.js',
     users: './src/users.js',
     editPersonal: './src/editPersonal.js',
-    'mfa-verify': './src/mfa-verify.js',
-    'mfa-setup': './src/mfa-setup.js',
-    'mfa-settings': './src/mfa-settings.js',
-    'mfa-recovery': './src/mfa-recovery.js',
   },
   output: {
     path: path.resolve(__dirname, '../public/build'),
