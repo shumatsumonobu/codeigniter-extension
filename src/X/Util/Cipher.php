@@ -10,10 +10,12 @@ use \X\Util\Loader;
  */
 final class Cipher {
   /**
-   * Encode with SHA-256.
-   * @param string $plaintext String to be hashed.
-   * @param string|null $key (optional) Encoding key. If not specified, get it from "encryption_key" in "application/config/config.php".
-   * @return string
+   * Generate SHA-256 hash with a secret key.
+   *
+   * @param string $plaintext String to hash.
+   * @param string|null $key Secret key appended before hashing. Default is `encryption_key` from config.
+   * @return string 64-character hexadecimal hash string.
+   * @throws \RuntimeException If no key is provided and encryption_key is not configured.
    */
   public static function encode_sha256(string $plaintext, string $key=null): string {
     if (empty($key))
@@ -24,9 +26,10 @@ final class Cipher {
   }
 
   /**
-   * Generate IV.
-   * @param string $algorithm (optional) Cryptographic Algorithm. Default is "AES-256-CTR".
-   * @return string IV.
+   * Generate a cryptographic initialization vector (IV).
+   *
+   * @param string $algorithm Cipher algorithm. Default is "AES-256-CTR".
+   * @return string Binary IV string of the appropriate length for the algorithm.
    */
   public static function generateInitialVector(string $algorithm='AES-256-CTR'): string {
     $len = openssl_cipher_iv_length($algorithm);
@@ -34,7 +37,8 @@ final class Cipher {
   }
 
   /**
-   * Encryption.
+   * Encrypt a string using symmetric encryption.
+   *
    * ```php
    * use \X\Util\Cipher;
    *
@@ -56,7 +60,8 @@ final class Cipher {
   }
 
   /**
-   * Decryption.
+   * Decrypt a string encrypted with symmetric encryption.
+   *
    * ```php
    * use \X\Util\Cipher;
    *
@@ -78,9 +83,11 @@ final class Cipher {
   }
 
   /**
-   * Generate a random key.
-   * @param int $len (optional) Key length. Default is 32.
-   * @return string Key.
+   * Generate a random base64-encoded key.
+   *
+   * @param int $len Number of random bytes to generate. Default is 32.
+   * @return string Base64-encoded random key.
+   * @throws \RuntimeException If length is less than 1.
    */
   public static function generateKey(int $len=32): string {
     if ($len < 1)
@@ -121,17 +128,23 @@ final class Cipher {
    *  // Debug OpenSSH-encoded public key.
    *  echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;
    * ```
-   * @param string &$privateKey The generated private key is set.
-   * @param string &$publicKey The generated public key is set.
-   * @param string $options[digest_alg] Digest method or signature hash, usually one of openssl_get_md_methods(). The default value is "sha512".
-   * @param string $options[x509_extensions] Selects which extensions should be used when creating an x509 certificate. The default value is none.
-   * @param string $options[req_extensions] Selects which extensions should be used when creating a CSR. The default value is none.
-   * @param int $options[private_key_bits] Specifies how many bits should be used to generate a private key. The default value is 4096.
-   * @param int $options[private_key_type] Specifies the type of private key to create. This can be one of OPENSSL_KEYTYPE_DSA, OPENSSL_KEYTYPE_DH, OPENSSL_KEYTYPE_RSA or OPENSSL_KEYTYPE_EC. The default value is OPENSSL_KEYTYPE_RSA.
-   * @param bool $options[encrypt_key] Should an exported key (with passphrase) be encrypted?
-   * @param int $options[encrypt_key_cipher] One of cipher constants. The default value is none.
-   * @param string $options[curve_name] One of openssl_get_curve_names(). The default value is none.
-   * @param string $options[config] Path to your own alternative openssl.conf file. The default value is none.
+   * @param string &$privateKey Receives the generated PEM-encoded private key.
+   * @param string &$publicKey Receives the generated PEM-encoded public key.
+   * @param array{
+   *   digest_alg?: string,
+   *   x509_extensions?: string,
+   *   req_extensions?: string,
+   *   private_key_bits?: int,
+   *   private_key_type?: int,
+   *   encrypt_key?: bool,
+   *   encrypt_key_cipher?: int,
+   *   curve_name?: string,
+   *   config?: string
+   * } $options OpenSSL key generation options:
+   *   - `digest_alg`: Digest method (see openssl_get_md_methods()). Default is "sha512".
+   *   - `private_key_bits`: Key length in bits. Default is 4096.
+   *   - `private_key_type`: Key type constant (OPENSSL_KEYTYPE_RSA, etc.). Default is OPENSSL_KEYTYPE_RSA.
+   *   - `config`: Path to alternative openssl.conf file.
    * @return void
    */
   public static function generateKeyPair(&$privateKey, &$publicKey, array $options=[]): void {
@@ -146,9 +159,10 @@ final class Cipher {
   }
 
   /**
-   * Encode OpenSSH public key.
-   * @param string $privateKey Private Key.
-   * @return string SSH-encoded Public key.
+   * Convert a PEM private key to OpenSSH public key format.
+   *
+   * @param string $privateKey PEM-encoded private key.
+   * @return string OpenSSH public key string (e.g., "ssh-rsa AAAA...").
    */
   public static function encodeOpenSshPublicKey(string $privateKey): string {
     $privateKeyResource = openssl_pkey_get_private($privateKey);
@@ -158,9 +172,10 @@ final class Cipher {
   }
 
   /**
-   * OpenSSH encode the buffer.
-   * @param string $buffer buffer.
-   * @return string SSH encoded buffer.
+   * Encode a binary buffer in OpenSSH wire format.
+   *
+   * @param string $buffer Binary data to encode.
+   * @return string Length-prefixed encoded buffer.
    */
   private static function encodeOpenSshBuffer(string $buffer): string {
     $len = strlen($buffer);
@@ -172,10 +187,12 @@ final class Cipher {
   }
 
   /**
-   * Generate a random string.
-   * @param int $len (optional) Characters. Default is 64.
-   * @param string $chars (optional) Characters to be used. Default is one-byte alphanumeric characters.
-   * @return string Random string.
+   * Generate a cryptographically secure random string.
+   *
+   * @param int $len String length. Default is 64.
+   * @param string $chars Character set to use. Default is alphanumeric (a-z, A-Z, 0-9).
+   * @return string Random string of the specified length.
+   * @throws \RangeException If length is less than 1.
    */
   public static function randStr(int $len=64, string $chars='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string {
     if ($len < 1)
@@ -187,9 +204,13 @@ final class Cipher {
   }
 
   /**
-   * Generate a random token68 string.
-   * @param int $len (optional) Characters. Default is 64.
-   * @return string token68 string.
+   * Generate a random token68-compliant string.
+   *
+   * Token68 format is defined in RFC 7235, allowing alphanumeric chars
+   * plus `-._~+/` and optionally trailing `=`.
+   *
+   * @param int $len String length. Default is 64.
+   * @return string Random token68 string.
    */
   public static function randToken68(int $len=64): string {
     $equal = $len > 1 && random_int(0, 1) === 1 ? '=' : '';

@@ -4,33 +4,40 @@ namespace X\Model;
 /**
  * Interface for session management models.
  *
- * Defines the contract for session data manipulation.
+ * Defines the contract for storing and retrieving user session data.
  */
 interface SessionModelInterface {
   /**
-   * Set session.
-   * @param string $id It is ID if there is only one argument, column name if there are two arguments.
-   * @param mixed $value Set value.
-   * @return string Subclass Name.
+   * Set session data.
+   *
+   * With one argument, loads full user data into session.
+   * With two arguments, updates a single session field.
+   *
+   * @param string $id User ID (1 arg) or field name (2 args).
+   * @param mixed $value Field value when updating a single field.
+   * @return string Called class name for method chaining.
    */
   public static function set(string $id, $value=null): string;
 
   /**
-   * Session discarded.
-   * @return string Subclass Name.
+   * Destroy the current user session.
+   *
+   * @return string Called class name for method chaining.
    */
   public static function unset(): string;
 
   /**
-   * Isset session.
-   * @return bool Whether the session exists.
+   * Check if a user session exists.
+   *
+   * @return bool True if session data is set.
    */
   public static function isset(): bool;
 
   /**
-   * Get session.
-   * @param string $field (optional) If you want to retrieve only a specific field from the session, specify the name of that field.
-   * @return stdClass|string Session data.
+   * Get session data.
+   *
+   * @param string|null $field Field name to retrieve. Null returns all data.
+   * @return \stdClass|mixed|null All session data, a single field value, or null if no session.
    */
   public static function get(string $field=null);
 }

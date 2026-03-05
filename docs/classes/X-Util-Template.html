@@ -228,14 +228,14 @@ cache busting for assets, and global variables (baseUrl, session, action).</p>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Initialize Template.</dd>
+<dd>Initialize Template engine.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Template.html#method_load">load()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Get compiled template.</dd>
+<dd>Render a Twig template and return the compiled output.</dd>
 
     </dl>
 
@@ -307,27 +307,50 @@ cache busting for assets, and global variables (baseUrl, session, action).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Template.php"><a href="files/src-x-util-template.html"><abbr title="src/X/Util/Template.php">Template.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize Template.</p>
+        <p class="phpdocumentor-summary">Initialize Template engine.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array{paths?: string[], environment?: array{cache?: string|false, debug?: bool, autoescape?: string|false}, lexer?: array{tag_comment?: array, tag_block?: array, tag_variable?: array, interpolation?: array}}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Automatically registers the <code class="prettyprint">cache_busting()</code> function and global
+variables (<code class="prettyprint">baseUrl</code>, <code class="prettyprint">session</code>, <code class="prettyprint">action</code>) in the Twig environment.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array{paths?: string[], environment?: array{cache?: string|false, debug?: bool, autoescape?: string|false}, lexer?: array{tag_comment?: array, tag_block?: array, tag_variable?: array, interpolation?: array}}</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Configuration options:</p>
+<ul>
+<li>
+<code class="prettyprint">paths</code>: Template directory paths. Default is [VIEWPATH].</li>
+<li>
+<code class="prettyprint">environment.cache</code>: Compiled template cache path. Default from config <code class="prettyprint">cache_templates</code>.</li>
+<li>
+<code class="prettyprint">environment.debug</code>: Enable debug mode. Default is true for non-production.</li>
+<li>
+<code class="prettyprint">environment.autoescape</code>: Auto-escaping strategy. Default is &quot;html&quot;.</li>
+<li>
+<code class="prettyprint">lexer.tag_comment</code>: Comment delimiters. Default is ['{#', '#}'].</li>
+<li>
+<code class="prettyprint">lexer.tag_block</code>: Block delimiters. Default is ['{%', '%}'].</li>
+<li>
+<code class="prettyprint">lexer.tag_variable</code>: Variable delimiters. Default is ['{{', '}}'].</li>
+<li>
+<code class="prettyprint">lexer.interpolation</code>: Interpolation delimiters. Default is ['#{', '}'].</li>
+</ul>
+</section>
+
             </dd>
             </dl>
 
@@ -349,11 +372,11 @@ cache busting for assets, and global variables (baseUrl, session, action).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Template.php"><a href="files/src-x-util-template.html"><abbr title="src/X/Util/Template.php">Template.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get compiled template.</p>
+        <p class="phpdocumentor-summary">Render a Twig template and return the compiled output.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -369,7 +392,7 @@ cache busting for assets, and global variables (baseUrl, session, action).</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Template Path.</p>
+                    <section class="phpdocumentor-description"><p>Template path relative to the template directory (without extension).</p>
 </section>
 
             </dd>
@@ -378,7 +401,7 @@ cache busting for assets, and global variables (baseUrl, session, action).</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Template Variables.</p>
+                    <section class="phpdocumentor-description"><p>Template variables for interpolation.</p>
 </section>
 
             </dd>
@@ -387,7 +410,7 @@ cache busting for assets, and global variables (baseUrl, session, action).</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;html&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Template file extension. Default is &quot;html&quot;.</p>
+                    <section class="phpdocumentor-description"><p>Template file extension. Default is &quot;html&quot;.</p>
 </section>
 
             </dd>
@@ -399,7 +422,7 @@ cache busting for assets, and global variables (baseUrl, session, action).</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Compiled template.</p>
+                <section class="phpdocumentor-description"><p>Rendered template content.</p>
 </section>
 
             </section>

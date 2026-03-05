@@ -10,10 +10,14 @@ use \X\Util\Logger;
  */
 final class CsvHelper {
   /**
-   * Put row.
+   * Append a row to a CSV file.
+   *
+   * Uses file locking (LOCK_EX) to prevent concurrent write corruption.
+   *
    * @param string $filePath CSV file path.
-   * @param array $row An array of fields.
+   * @param array $row Array of field values to write.
    * @return void
+   * @throws \RuntimeException If unable to acquire file lock.
    */
   public static function putRow(string $filePath, array $row): void {
     if (empty($row))
@@ -27,10 +31,14 @@ final class CsvHelper {
   }
 
   /**
-   * Read the CSV.
+   * Read all rows from a CSV file.
+   *
+   * An optional callback can transform or filter each row.
+   * If the callback returns null/empty, the row is excluded.
+   *
    * @param string $filePath CSV file path.
-   * @param callable|null $callback Receives the rows to be registered in the result set and modifies the rows if necessary.
-   * @return array|null List of rows.
+   * @param callable|null $callback Row transformer: `function(array $row): ?array`. Return null to skip row.
+   * @return array[]|null Array of rows, or null if file does not exist or is empty.
    */
   public static function read(string $filePath, callable $callback=null) {
     if (!file_exists($filePath))

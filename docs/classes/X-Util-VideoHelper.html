@@ -214,14 +214,14 @@ format detection, and file writing.</p>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Convert video Data URL to blob.</dd>
+<dd>Convert a video Data URL to binary blob data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-VideoHelper.html#method_isDataURL">isDataURL()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if string is a video Data URL.</dd>
+<dd>Check if a string is a valid video Data URL.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-VideoHelper.html#method_writeDataURLToFile">writeDataURLToFile()</a>
@@ -259,11 +259,11 @@ format detection, and file writing.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/VideoHelper.php"><a href="files/src-x-util-videohelper.html"><abbr title="src/X/Util/VideoHelper.php">VideoHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Convert video Data URL to blob.</p>
+        <p class="phpdocumentor-summary">Convert a video Data URL to binary blob data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -279,7 +279,7 @@ format detection, and file writing.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Video Data URL.</p>
+                    <section class="phpdocumentor-description"><p>Video Data URL string.</p>
 </section>
 
             </dd>
@@ -288,7 +288,7 @@ format detection, and file writing.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) If specified, the MIME type detected from the Data URL is set.</p>
+                    <section class="phpdocumentor-description"><p>Receives the detected MIME subtype (e.g., &quot;mp4&quot;, &quot;webm&quot;).</p>
 </section>
 
             </dd>
@@ -317,7 +317,7 @@ format detection, and file writing.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Blob data.</p>
+                <section class="phpdocumentor-description"><p>Decoded binary data.</p>
 </section>
 
             </section>
@@ -337,11 +337,11 @@ format detection, and file writing.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/VideoHelper.php"><a href="files/src-x-util-videohelper.html"><abbr title="src/X/Util/VideoHelper.php">VideoHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if string is a video Data URL.</p>
+        <p class="phpdocumentor-summary">Check if a string is a valid video Data URL.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -357,7 +357,7 @@ format detection, and file writing.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>String to check.</p>
+                    <section class="phpdocumentor-description"><p>String to validate.</p>
 </section>
 
             </dd>
@@ -366,7 +366,7 @@ format detection, and file writing.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) If specified, the MIME type detected from the Data URL is set.</p>
+                    <section class="phpdocumentor-description"><p>Receives the detected MIME subtype (e.g., &quot;mp4&quot;, &quot;webm&quot;).</p>
 </section>
 
             </dd>
@@ -378,7 +378,7 @@ format detection, and file writing.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>True if valid video Data URL.</p>
+                <section class="phpdocumentor-description"><p>True if the string matches the video Data URL format.</p>
 </section>
 
             </section>
@@ -424,7 +424,7 @@ VideoHelper::writeDataURLToFile('data:video/mp4;base64,iVBOR...', '/tmp/sample.m
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Video Data URL.</p>
+                    <section class="phpdocumentor-description"><p>Video Data URL (e.g., &quot;data:video/mp4;base64,...&quot;).</p>
 </section>
 
             </dd>
@@ -433,7 +433,7 @@ VideoHelper::writeDataURLToFile('data:video/mp4;base64,iVBOR...', '/tmp/sample.m
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Destination directory or file path.</p>
+                    <section class="phpdocumentor-description"><p>Destination directory, or full file path when $filename is omitted.</p>
 </section>
 
             </dd>
@@ -442,7 +442,7 @@ VideoHelper::writeDataURLToFile('data:video/mp4;base64,iVBOR...', '/tmp/sample.m
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) File name. If omitted, extracted from $dir.</p>
+                    <section class="phpdocumentor-description"><p>Output filename. If omitted, extracted from $dir. Extension auto-appended if missing.</p>
 </section>
 
             </dd>
@@ -454,7 +454,7 @@ VideoHelper::writeDataURLToFile('data:video/mp4;base64,iVBOR...', '/tmp/sample.m
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Output file name.</p>
+                <section class="phpdocumentor-description"><p>Name of the output file.</p>
 </section>
 
             </section>

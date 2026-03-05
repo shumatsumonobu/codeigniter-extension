@@ -1,357 +1,70 @@
-# CodeIgniter Extension
+<p align="center">
+  <img src="https://img.shields.io/packagist/v/takuya-motoshima/codeigniter-extension?style=flat-square&color=007bff" alt="Version">
+  <img src="https://img.shields.io/packagist/dt/takuya-motoshima/codeigniter-extension?style=flat-square&color=28a745" alt="Downloads">
+  <img src="https://img.shields.io/packagist/php-v/takuya-motoshima/codeigniter-extension?style=flat-square&color=6f42c1" alt="PHP">
+  <img src="https://img.shields.io/packagist/l/takuya-motoshima/codeigniter-extension?style=flat-square&color=6c757d" alt="License">
+</p>
 
-[![PHP Version](https://img.shields.io/packagist/php-v/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
-[![License](https://img.shields.io/packagist/l/takuya-motoshima/codeigniter-extension)](LICENSE)
-[![Packagist Downloads](https://img.shields.io/packagist/dt/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
-[![Latest Version](https://img.shields.io/packagist/v/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
+<h1 align="center">CodeIgniter Extension</h1>
 
-[English](README.md) | [Changelog](CHANGELOG.md) | [変更履歴](CHANGELOG_ja.md)
+<p align="center">
+  <strong>CodeIgniter 3 の開発体験を、もっと快適に。</strong><br>
+  コントローラー・モデル・ユーティリティ・AWS 連携を一括拡張するパッケージ。
+</p>
 
-CodeIgniter 3の拡張パッケージで、拡張されたコアクラス(コントローラー、モデル、ビュー)とユーティリティクラスを提供します。
+<p align="center">
+  <a href="README.md">English</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG_ja.md">変更履歴</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://takuya-motoshima.github.io/codeigniter-extension/">API Docs</a>
+</p>
 
-## 目次
+---
 
-- [機能](#機能)
-- [要件](#要件)
-- [インストール](#インストール)
-- [クイックスタート](#クイックスタート)
-- [設定](#設定)
-- [アーキテクチャ](#アーキテクチャ)
-- [使用例](#使用例)
-- [APIリファレンス](#apiリファレンス)
-- [トラブルシューティング](#トラブルシューティング)
-- [テスト](#テスト)
-- [ドキュメント](#ドキュメント)
-- [ライセンス](#ライセンス)
+## なぜ CodeIgniter Extension？
 
-## 機能
+CodeIgniter 3 は軽量で高速 — でもモダンな開発に必要な機能が足りない。このパッケージがそのギャップを埋めます。
 
-### コア拡張
-- **拡張コントローラー** - JSONレスポンス、テンプレートレンダリング、アクセス制御
-- **拡張モデル** - クエリキャッシュ、バッチ操作、ヘルパーメソッド
-- **拡張ルーター** - アノテーションベースのアクセス制御
+| | 何が手に入るか |
+|---|---|
+| **コントローラー** | JSON / HTML / Twig レスポンス、CORS、アノテーションベースのアクセス制御 |
+| **モデル** | 流れるようなクエリビルダー、`INSERT ... ON DUPLICATE KEY UPDATE`、ヘルパーメソッド |
+| **ユーティリティ** | 画像・動画処理、暗号化、CSV、REST クライアント、バリデーション、ロギング |
+| **AWS** | Rekognition（顔検出・比較）、SES（メール配信） |
+| **スキャフォールド** | コマンド一発で認証・ダッシュボード・フロントエンド付きアプリを生成 |
 
-### ユーティリティクラス
-- **画像処理** - リサイズ、クロップ、フォーマット変換、GIFフレーム抽出、PDFから画像へ変換
-- **動画処理** - 動画ファイルの操作と変換
-- **ファイル操作** - ロック機能付き高度なファイルとディレクトリ操作
-- **CSV処理** - インポート/エクスポートユーティリティ
-- **メール** - テンプレートベースのメール、Amazon SES統合
-- **RESTクライアント** - API統合用HTTPクライアント
-- **セキュリティ** - 暗号化/復号化、IP検証
-- **バリデーション** - カスタムルール(ホスト名、IP、CIDR、日時、パス)
-- **セッション管理** - カスタムカラム付きデータベースバックセッション、PHP 7.0+ SessionHandlerInterface準拠
-- **ロギング** - コンテキスト付き拡張ロギング
-- **テンプレートエンジン** - セッション変数統合Twig
+---
 
-### AWS統合
-- **Amazon Rekognition** - 顔検出、比較、分析
-- **Amazon SES** - 信頼性の高いメール配信サービス
-
-## 要件
-
-- **PHP** 7.3.0以上
-- **Composer**
-- **PHP拡張:**
-  - php-gd
-  - php-mbstring
-  - php-xml
-  - php-imagick (オプション、GIF操作用)
-
-### オプション: ImageMagickインストール
-
-`\X\Util\ImageHelper`の`extractFirstFrameOfGif`メソッドに必要です。
-
-**Amazon Linux 2:**
-```sh
-sudo yum -y install ImageMagick php-imagick
-```
-
-**Amazon Linux 2023:**
-```sh
-# ImageMagickとPECLをインストール
-sudo dnf -y install ImageMagick ImageMagick-devel php-pear.noarch
-
-# imagick拡張をインストール
-sudo pecl install imagick
-echo "extension=imagick.so" | sudo tee -a /etc/php.ini
-
-# サービスを再起動
-sudo systemctl restart nginx php-fpm
-```
-
-## インストール
-
-Composerを使用して新しいプロジェクトを作成:
+## クイックスタート
 
 ```sh
 composer create-project takuya-motoshima/codeigniter-extension myapp
 cd myapp
 ```
 
-## クイックスタート
-
-### 1. パーミッション設定
+パーミッションと Web サーバーの設定：
 
 ```sh
 sudo chmod -R 755 public/upload application/{logs,cache,session}
 sudo chown -R nginx:nginx public/upload application/{logs,cache,session}
-```
-
-### 2. Webサーバー設定
-
-Nginx設定をコピー:
-
-```sh
 sudo cp nginx.sample.conf /etc/nginx/conf.d/myapp.conf
 sudo systemctl restart nginx
 ```
 
-### 3. データベースセットアップ
-
-データベーススキーマをインポート:
+データベースのインポートとアセットのビルド：
 
 ```sh
 mysql -u root -p your_database < skeleton/init.sql
+cd client && npm install && npm run build
 ```
 
-### 4. フロントエンドアセットのビルド
+`http://{your-server-ip}:3000/` を開く — デフォルト認証情報: `robin@example.com` / `password`
 
-```sh
-cd client
-npm install
-npm run build
-```
-
-### 5. アプリケーションへアクセス
-
-ブラウザで`http://{your-server-ip}:3000/`を開きます。
-
-**デフォルト認証情報:**
-- メール: `robin@example.com`
-- パスワード: `password`
-
-### スクリーンショット
-
-<p align="left">
+<p align="center">
   <img alt="サインイン" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
   <img alt="ユーザーリスト" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
 </p>
 
-## 設定
+---
 
-### 基本設定 (`application/config/config.php`)
-
-<table>
-  <thead>
-    <tr>
-      <th>設定項目</th>
-      <th>デフォルト</th>
-      <th>推奨</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>base_url</td>
-      <td><em>空</em></td>
-      <td>if (!empty($_SERVER['HTTP_HOST'])) $config['base_url'] = '//' . $_SERVER['HTTP_HOST'] . str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);</td>
-    </tr>
-    <tr>
-      <td>enable_hooks</td>
-      <td>FALSE</td>
-      <td>TRUE</td>
-    </tr>
-    <tr>
-      <td>permitted_uri_chars</td>
-      <td>a-z 0-9~%.:_\-</td>
-      <td>a-z 0-9~%.:_\-,</td>
-    </tr>
-    <tr>
-      <td>sess_save_path</td>
-      <td>NULL</td>
-      <td>APPPATH . 'session';</td>
-    </tr>
-    <tr>
-      <td>cookie_httponly</td>
-      <td>FALSE</td>
-      <td>TRUE</td>
-    </tr>
-    <tr>
-      <td>composer_autoload</td>
-      <td>FALSE</td>
-      <td>realpath(APPPATH . '../vendor/autoload.php');</td>
-    </tr>
-    <tr>
-      <td>index_page</td>
-      <td>index.php</td>
-      <td><em>空</em></td>
-    </tr>
-  </tbody>
-</table>
-
-### アクセス制御のセットアップ
-
-#### 1. デフォルトルートの定義
-
-`application/config/routes.php`:
-
-```php
-$route['default_controller'] = 'users/login';
-```
-
-#### 2. セッション定数の設定
-
-`application/config/constants.php`:
-
-```php
-const SESSION_NAME = 'session';
-```
-
-#### 3. フックの設定
-
-`application/config/hooks.php`:
-
-```php
-use \X\Annotation\AnnotationReader;
-use \X\Util\Logger;
-
-$hook['post_controller_constructor'] = function() {
-  if (is_cli()) return;
-
-  $CI =& get_instance();
-  $meta = AnnotationReader::getAccessibility($CI->router->class, $CI->router->method);
-  $loggedin = !empty($_SESSION[SESSION_NAME]);
-
-  if (!$meta->allow_http)
-    throw new \RuntimeException('HTTP access is not allowed');
-  else if ($loggedin && !$meta->allow_login)
-    redirect('/users/index');
-  else if (!$loggedin && !$meta->allow_logoff)
-    redirect('/users/login');
-};
-
-$hook['pre_system'] = function () {
-  $dotenv = Dotenv\Dotenv::createImmutable(ENV_DIR);
-  $dotenv->load();
-  set_exception_handler(function ($e) {
-    Logger::error($e);
-    show_error($e->getMessage(), 500);
-  });
-};
-```
-
-### セッション管理
-
-このパッケージは、CodeIgniterのデータベースセッションドライバーをPHP 7.0+ SessionHandlerInterface準拠に拡張しています:
-
-**機能:**
-- **カスタムセッションカラム** - 追加データ(例: email, user_id)をセッションテーブルに直接保存
-- **updateTimestamp実装** - PHP 7.0+ SessionHandlerInterface要件に準拠
-- **警告ログなし** - PHP 7.0+での「セッションデータの書き込みに失敗しました」警告を防止
-
-**設定** (`application/config/config.php`):
-
-```php
-$config['sess_driver'] = 'database';
-$config['sess_save_path'] = 'session';
-$config['sess_table_additional_columns'] = ['email'];
-```
-
-**技術詳細:**
-
-`SessionDatabaseDriver`クラスは、PHP 7.0+のSessionHandlerInterfaceで必要な`updateTimestamp()`メソッドを実装しています。これにより、PHPがデフォルトのファイルハンドラーにフォールバックすることを防ぎ、以下のような警告を回避します:
-
-```
-Warning: session_write_close(): Failed to write session data using user defined save handler.
-```
-
-詳細については、[PHP SessionHandlerInterfaceドキュメント](https://www.php.net/manual/ja/class.sessionhandlerinterface.php)を参照してください。
-
-## アーキテクチャ
-
-### ディレクトリ構造
-
-```
-src/X/
-├── Annotation/          # アクセス制御アノテーション
-│   ├── Access.php           # @Accessアノテーション定義
-│   └── AnnotationReader.php # アノテーションパーサー
-├── Composer/            # Composerインストーラー
-│   └── Installer.php        # create-project後処理
-├── Constant/            # 定数
-│   ├── Environment.php      # 環境定数 (DEVELOPMENT, TESTING, PRODUCTION)
-│   └── HttpStatus.php       # HTTPステータスコード定数
-├── Controller/          # コントローラー拡張
-│   └── Controller.php       # レスポンスヘルパー付き基底コントローラー
-├── Core/                # CodeIgniterコア拡張
-│   ├── Loader.php           # 拡張ローダー
-│   ├── Router.php           # 拡張ルーター
-│   └── URI.php              # 拡張URI
-├── Database/            # データベース拡張
-│   ├── DB.php               # DBファクトリー
-│   ├── Driver.php           # 基底ドライバー
-│   ├── QueryBuilder.php     # 拡張クエリビルダー
-│   └── Result.php           # 拡張結果セット
-├── Exception/           # カスタム例外
-│   ├── AccessDeniedException.php
-│   └── RestClientException.php
-├── Hook/                # フック
-│   └── Authenticate.php     # 認証フック
-├── Library/             # ライブラリ拡張
-│   ├── FormValidation.php   # 拡張フォームバリデーション
-│   ├── Input.php            # 拡張入力ライブラリ
-│   ├── Router.php           # ルーターライブラリ
-│   └── SessionDatabaseDriver.php # DBセッションドライバー (PHP 7.0+)
-├── Model/               # モデル拡張
-│   ├── Model.php            # クエリビルダー付き基底モデル
-│   ├── AddressModel.php     # 住所モデル
-│   ├── SessionModel.php     # セッションモデル
-│   └── SessionModelInterface.php
-├── Rekognition/         # AWS Rekognition
-│   └── Client.php           # 顔検出/比較クライアント
-└── Util/                # ユーティリティクラス (21クラス)
-    ├── AmazonSesClient.php  # Amazon SESメール
-    ├── ArrayHelper.php      # 配列操作
-    ├── Cipher.php           # 暗号化 (AES-256-CTR)
-    ├── CsvHelper.php        # CSVインポート/エクスポート
-    ├── DateHelper.php       # 日付操作
-    ├── EMail.php            # テンプレート付きメール
-    ├── FileHelper.php       # ファイル/ディレクトリ操作
-    ├── HtmlHelper.php       # HTMLユーティリティ
-    ├── HttpInput.php        # HTTP入力処理
-    ├── HttpResponse.php     # HTTPレスポンスビルダー
-    ├── ImageHelper.php      # 画像処理
-    ├── IpUtils.php          # IPアドレスユーティリティ
-    ├── Iterator.php         # 組み合わせ演算
-    ├── Loader.php           # リソースローダー
-    ├── Logger.php           # ロギング
-    ├── RestClient.php       # REST APIクライアント
-    ├── SessionHelper.php    # セッションユーティリティ
-    ├── StringHelper.php     # 文字列操作
-    ├── Template.php         # Twig統合
-    ├── UrlHelper.php        # URLユーティリティ
-    ├── Validation.php       # データバリデーション
-    └── VideoHelper.php      # 動画処理
-```
-
-### アプリケーション構造 (skeleton/)
-
-このパッケージで作成されるプロジェクトは以下の構造に従います:
-
-```
-application/
-├── core/
-│   ├── AppController.php    # \X\Controller\Controller を継承
-│   └── AppModel.php         # \X\Model\Model を継承
-├── config/
-│   ├── hooks.php            # AnnotationReaderによるアクセス制御
-│   └── constants.php        # SESSION_NAME, ENV_DIR 定数
-├── controllers/             # アプリケーションコントローラー
-├── models/                  # アプリケーションモデル
-└── views/                   # Twigテンプレート
-```
-
-## 使用例
+## 使い方
 
 ### コントローラー
 
@@ -359,20 +72,16 @@ application/
 use \X\Annotation\Access;
 
 class Users extends AppController {
-  /**
-   * @Access(allow_login=true, allow_logoff=false, allow_role="admin")
-   */
+
+  /** @Access(allow_login=true, allow_logoff=false, allow_role="admin") */
   public function index() {
     $users = $this->UserModel->get()->result_array();
     parent::set('users', $users)->view('users/index');
   }
 
-  /**
-   * @Access(allow_http=true)
-   */
+  /** @Access(allow_http=true) */
   public function api() {
-    $data = ['message' => 'Success'];
-    parent::set($data)->json();
+    parent::set(['message' => 'Success'])->json();
   }
 }
 ```
@@ -393,17 +102,30 @@ class UserModel extends AppModel {
 }
 ```
 
-### Twigテンプレート
-
-セッション変数は自動的に利用可能です:
+### ユーティリティ
 
 ```php
-// PHP
-$_SESSION['user'] = ['name' => 'John Smith', 'role' => 'admin'];
+use \X\Util\{ImageHelper, FileHelper, Cipher, RestClient};
+
+// 画像処理
+ImageHelper::resize('/path/to/image.jpg', '/path/to/output.jpg', 800, 600);
+
+// ファイル操作
+FileHelper::makeDirectory('/path/to/dir', 0755);
+
+// 暗号化
+$encrypted = Cipher::encrypt('secret data', 'encryption-key');
+
+// REST クライアント
+$client = new RestClient(['base_url' => 'https://api.example.com']);
+$response = $client->get('/users');
 ```
 
+### Twig テンプレート
+
+セッション変数は自動的に利用可能：
+
 ```twig
-{# テンプレート #}
 {% if session.user is defined %}
   <p>ようこそ、{{ session.user.name }}さん！</p>
   {% if session.user.role == 'admin' %}
@@ -412,54 +134,42 @@ $_SESSION['user'] = ['name' => 'John Smith', 'role' => 'admin'];
 {% endif %}
 ```
 
-### ユーティリティの使用
+---
 
-```php
-// 画像処理
-use \X\Util\ImageHelper;
-ImageHelper::resize('/path/to/image.jpg', '/path/to/output.jpg', 800, 600);
+## API 早見表
 
-// ファイル操作
-use \X\Util\FileHelper;
-FileHelper::makeDirectory('/path/to/dir', 0755);
-
-// 暗号化
-use \X\Util\Cipher;
-$encrypted = Cipher::encrypt('secret data', 'encryption-key');
-
-// RESTクライアント
-use \X\Util\RestClient;
-$client = new RestClient(['base_url' => 'https://api.example.com']);
-$response = $client->get('/users');
-```
-
-## APIリファレンス
-
-### コントローラーメソッド
+<details>
+<summary><strong>コントローラーメソッド</strong></summary>
 
 | メソッド | 説明 |
 |---------|------|
-| `json()` | JSONレスポンスを送信 |
-| `view($template)` | Twigテンプレートをレンダリング |
-| `html($html)` | HTMLレスポンスを送信 |
+| `json()` | JSON レスポンスを送信 |
+| `view($template)` | Twig テンプレートをレンダリング |
+| `html($html)` | HTML レスポンスを送信 |
 | `text($text)` | プレーンテキストレスポンスを送信 |
 | `image($path)` | 画像レスポンスを送信 |
 | `download($filename, $content)` | ファイルダウンロードを強制 |
 | `set($key, $value)` | レスポンスデータを設定 |
-| `setCorsHeader($origin)` | CORSヘッダーを設定 |
+| `setCorsHeader($origin)` | CORS ヘッダーを設定 |
 
-### モデルメソッド
+</details>
+
+<details>
+<summary><strong>モデルメソッド</strong></summary>
 
 | メソッド | 説明 |
 |---------|------|
 | `get_all()` | 全レコードを取得 |
-| `get_by_id($id)` | IDでレコードを取得 |
-| `count_by_id($id)` | IDでレコード数をカウント |
+| `get_by_id($id)` | ID でレコードを取得 |
+| `count_by_id($id)` | ID でレコード数をカウント |
 | `exists_by_id($id)` | レコードの存在確認 |
-| `insert_on_duplicate_update()` | INSERT ... ON DUPLICATE KEY UPDATE |
-| `insert_on_duplicate_update_batch()` | バッチアップサート |
+| `insert_on_duplicate_update()` | 単一レコードの UPSERT |
+| `insert_on_duplicate_update_batch()` | バッチ UPSERT |
 
-### ユーティリティクラス
+</details>
+
+<details>
+<summary><strong>ユーティリティクラス</strong></summary>
 
 | クラス | 主要メソッド |
 |--------|-------------|
@@ -472,94 +182,153 @@ $response = $client->get('/users');
 | `IpUtils` | `isIPv4()`, `isIPv6()`, `inRange()` |
 | `Template` | `load($template, $params)` |
 
-## トラブルシューティング
+</details>
 
-### よくある問題
+---
 
-#### 「セッションデータの書き込みに失敗しました」警告
+## 設定
 
-**問題:** PHP 7.0+でセッション書き込み警告が表示される。
+<details>
+<summary><strong>推奨 config.php 設定</strong></summary>
 
-**解決策:** このパッケージにはPHP 7.0+互換の`updateTimestamp()`を実装した`SessionDatabaseDriver`が含まれています。以下を使用していることを確認してください:
+| 設定項目 | デフォルト | 推奨 |
+|---------|-----------|------|
+| `base_url` | *空* | 動的: `'//' . $_SERVER['HTTP_HOST'] . ...` |
+| `enable_hooks` | `FALSE` | `TRUE` |
+| `permitted_uri_chars` | `a-z 0-9~%.:_\-` | `a-z 0-9~%.:_\-,` |
+| `sess_save_path` | `NULL` | `APPPATH . 'session'` |
+| `cookie_httponly` | `FALSE` | `TRUE` |
+| `composer_autoload` | `FALSE` | `realpath(APPPATH . '../vendor/autoload.php')` |
+| `index_page` | `index.php` | *空* |
+
+</details>
+
+<details>
+<summary><strong>アクセス制御 (hooks.php)</strong></summary>
+
+```php
+use \X\Annotation\AnnotationReader;
+use \X\Util\Logger;
+
+$hook['post_controller_constructor'] = function() {
+  if (is_cli()) return;
+
+  $CI =& get_instance();
+  $meta = AnnotationReader::getAccessibility($CI->router->class, $CI->router->method);
+  $loggedin = !empty($_SESSION[SESSION_NAME]);
+
+  if (!$meta->allow_http)
+    throw new \RuntimeException('HTTP access is not allowed');
+  else if ($loggedin && !$meta->allow_login)
+    redirect('/users/index');
+  else if (!$loggedin && !$meta->allow_logoff)
+    redirect('/users/login');
+};
+```
+
+</details>
+
+<details>
+<summary><strong>データベースセッションドライバー</strong></summary>
+
+PHP 7.0+ 互換のセッションハンドラー。カスタムカラムもサポート：
 
 ```php
 $config['sess_driver'] = 'database';
+$config['sess_save_path'] = 'session';
+$config['sess_table_additional_columns'] = ['email'];
 ```
 
-#### Imagick拡張が見つからない
+`updateTimestamp()` を実装し、`Failed to write session data` 警告を防止。
 
-**問題:** `extractFirstFrameOfGif()`がエラーをスローする。
+</details>
 
-**解決策:** ImageMagickとphp-imagickをインストール:
+---
 
+## 要件
+
+- **PHP** 8.0+
+- **Composer**
+- **拡張:** php-gd, php-mbstring, php-xml, php-imagick（オプション）
+
+<details>
+<summary><strong>ImageMagick のインストール</strong></summary>
+
+`\X\Util\ImageHelper` の `extractFirstFrameOfGif()` に必要。
+
+**Amazon Linux 2:**
 ```sh
-# Amazon Linux 2023
+sudo yum -y install ImageMagick php-imagick
+```
+
+**Amazon Linux 2023:**
+```sh
 sudo dnf -y install ImageMagick ImageMagick-devel php-pear.noarch
 sudo pecl install imagick
 echo "extension=imagick.so" | sudo tee -a /etc/php.ini
-sudo systemctl restart php-fpm
+sudo systemctl restart nginx php-fpm
 ```
 
-#### Accessアノテーションが機能しない
+</details>
 
-**問題:** `@Access`アノテーションが無視される。
+---
 
-**解決策:**
-1. `config.php`でフックを有効化: `$config['enable_hooks'] = TRUE;`
-2. `hooks.php`で`AnnotationReader::getAccessibility()`を設定
+## アーキテクチャ
 
-#### テンプレートキャッシュの問題
-
-**問題:** Twigテンプレートが更新されない。
-
-**解決策:** キャッシュディレクトリをクリア:
-
-```sh
-rm -rf application/cache/templates/*
 ```
+src/X/
+├── Annotation/        アクセス制御アノテーション
+├── Composer/          インストール後のスキャフォールド
+├── Constant/          環境定数・HTTP ステータス定数
+├── Controller/        レスポンスヘルパー付き基底コントローラー
+├── Core/              拡張 Loader, Router, URI
+├── Database/          クエリビルダー、ドライバー、結果セット
+├── Exception/         カスタム例外
+├── Hook/              認証フック
+├── Library/           フォームバリデーション、入力、セッションドライバー
+├── Model/             クエリヘルパー付き基底モデル
+├── Rekognition/       AWS 顔検出・比較
+└── Util/              21 のユーティリティクラス
+```
+
+---
 
 ## テスト
-
-ユニットテストの実行:
 
 ```sh
 composer test
 ```
 
-テストファイルの場所:
-- `__tests__/*.php` - テストケース
-- `phpunit.xml` - 設定
-- `phpunit-printer.yml` - 出力フォーマット
+---
 
 ## ドキュメント
 
-- **[APIドキュメント](https://takuya-motoshima.github.io/codeigniter-extension/)** - 完全なAPIリファレンス
-- **[デモアプリケーション](demo/)** - 完全な動作例
-- **[変更履歴](CHANGELOG_ja.md)** - バージョン履歴と変更内容
-- **[CodeIgniter 3ガイド](https://codeigniter.com/userguide3/)** - 公式フレームワークドキュメント
+- [API リファレンス](https://takuya-motoshima.github.io/codeigniter-extension/)
+- [デモアプリケーション](demo/)
+- [変更履歴](CHANGELOG_ja.md)
+- [CodeIgniter 3 ユーザーガイド](https://codeigniter.com/userguide3/)
 
-### PHPDocの生成
+---
 
-```sh
-# phpDocumentorをダウンロード(初回のみ)
-wget https://phpdoc.org/phpDocumentor.phar
-chmod +x phpDocumentor.phar
+## トラブルシューティング
 
-# ドキュメント生成
-php phpDocumentor.phar run -d src/ --ignore vendor --ignore src/X/Database/Driver/ -t docs/
-```
+| 問題 | 解決策 |
+|------|--------|
+| 「セッションデータの書き込みに失敗しました」警告 | `$config['sess_driver'] = 'database'` を使用 — 同梱の `SessionDatabaseDriver` が PHP 7.0+ 互換性を処理 |
+| Imagick 拡張が見つからない | ImageMagick + php-imagick をインストール（要件を参照） |
+| `@Access` アノテーションが無視される | フックを有効化: `$config['enable_hooks'] = TRUE` + `hooks.php` を設定 |
+| Twig テンプレートが更新されない | キャッシュをクリア: `rm -rf application/cache/templates/*` |
 
-## 貢献
+---
 
-プルリクエストを歓迎します！お気軽にご投稿ください。
+## コントリビュート
+
+プルリクエスト歓迎です！お気軽にご投稿ください。
 
 ## 著者
 
-**Takuya Motoshima**
-- GitHub: [@takuya-motoshima](https://github.com/takuya-motoshima)
-- Twitter: [@TakuyaMotoshima](https://x.com/takuya_motech)
-- Facebook: [takuya.motoshima.7](https://www.facebook.com/takuya.motoshima.7)
+**Takuya Motoshima** — [GitHub](https://github.com/takuya-motoshima) / [Twitter](https://x.com/takuya_motech) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
 
 ## ライセンス
 
-[MIT License](LICENSE)
+[MIT](LICENSE)

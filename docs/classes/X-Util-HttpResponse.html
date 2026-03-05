@@ -250,35 +250,35 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
     <span>
                                 &nbsp;: <a href="classes/X-Util-HttpResponse.html"><abbr title="\X\Util\HttpResponse">HttpResponse</abbr></a>    </span>
 </dt>
-<dd>Clear response.</dd>
+<dd>Clear all response data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_download">download()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Download file.</dd>
+<dd>Send file download response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_error">error()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Error response.</dd>
+<dd>Send error response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_html">html()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response HTML.</dd>
+<dd>Send HTML response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_image">image()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response image.</dd>
+<dd>Send image response with appropriate Content-Type.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_internalRedirect">internalRedirect()</a>
@@ -292,49 +292,49 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response js.</dd>
+<dd>Send JavaScript response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_json">json()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response JSON.</dd>
+<dd>Send JSON response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_set">set()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-HttpResponse.html"><abbr title="\X\Util\HttpResponse">HttpResponse</abbr></a>    </span>
 </dt>
-<dd>Set response.</dd>
+<dd>Set response data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_setCorsHeader">setCorsHeader()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Sets the CORS header.</dd>
+<dd>Set CORS (Cross-Origin Resource Sharing) headers.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_status">status()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-HttpResponse.html"><abbr title="\X\Util\HttpResponse">HttpResponse</abbr></a>    </span>
 </dt>
-<dd>Set HTTP status.</dd>
+<dd>Set the HTTP response status code.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_text">text()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Response Plain text.</dd>
+<dd>Send plain text response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-HttpResponse.html#method_view">view()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Responds with the result of compiling the specified template into HTML.</dd>
+<dd>Render a Twig template and send as HTML response.</dd>
 
     </dl>
 
@@ -506,11 +506,11 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Clear response.</p>
+        <p class="phpdocumentor-summary">Clear all response data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -525,6 +525,10 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-HttpResponse.html"><abbr title="\X\Util\HttpResponse">HttpResponse</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -542,11 +546,11 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">174</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Download file.</p>
+        <p class="phpdocumentor-summary">Send file download response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -562,7 +566,7 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Download file name.</p>
+                    <section class="phpdocumentor-description"><p>Download filename for the browser.</p>
 </section>
 
             </dd>
@@ -571,7 +575,7 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Downloadable Content.</p>
+                    <section class="phpdocumentor-description"><p>File content to download.</p>
 </section>
 
             </dd>
@@ -580,7 +584,7 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) MIME Type. The default is false and the MIME type is automatically detected.</p>
+                    <section class="phpdocumentor-description"><p>MIME type. False for auto-detection.</p>
 </section>
 
             </dd>
@@ -604,11 +608,11 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">185</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Error response.</p>
+        <p class="phpdocumentor-summary">Send error response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -616,7 +620,10 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>For AJAX requests or when forced, responds with JSON.
+Otherwise, uses CodeIgniter's show_error() for HTML error pages.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -633,7 +640,7 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">500</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) HTTP status.</p>
+                    <section class="phpdocumentor-description"><p>HTTP status code. Default is 500.</p>
 </section>
 
             </dd>
@@ -642,13 +649,30 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Force a response with Content-Type &quot;application/json&quot;.</p>
+                    <section class="phpdocumentor-description"><p>Force JSON response format. Default is false.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-HttpResponse.html#method_error#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\LogicException">LogicException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If JSON encoding fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -666,11 +690,11 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response HTML.</p>
+        <p class="phpdocumentor-summary">Send HTML response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -686,7 +710,7 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>HTML string.</p>
+                    <section class="phpdocumentor-description"><p>HTML content string.</p>
 </section>
 
             </dd>
@@ -710,11 +734,11 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">186</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response image.</p>
+        <p class="phpdocumentor-summary">Send image response with appropriate Content-Type.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -730,7 +754,7 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Image path.</p>
+                    <section class="phpdocumentor-description"><p>Path to the image file.</p>
 </section>
 
             </dd>
@@ -754,7 +778,7 @@ Supports CORS headers and internal redirects for Nginx X-Accel-Redirect.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">230</span>
+    <span class="phpdocumentor-element-found-in__line">251</span>
 
     </aside>
 
@@ -820,11 +844,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">131</span>
+    <span class="phpdocumentor-element-found-in__line">144</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response js.</p>
+        <p class="phpdocumentor-summary">Send JavaScript response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -840,7 +864,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>JS Code.</p>
+                    <section class="phpdocumentor-description"><p>JavaScript code.</p>
 </section>
 
             </dd>
@@ -864,11 +888,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response JSON.</p>
+        <p class="phpdocumentor-summary">Send JSON response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -876,7 +900,9 @@ class Sample extends \X\Controller\Controller {
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Outputs response data as JSON with Content-Type application/json.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -884,7 +910,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Outputs an object rather than an array when a non-associative array is used.</p>
+                    <section class="phpdocumentor-description"><p>Force object output for non-associative arrays.</p>
 </section>
 
             </dd>
@@ -893,13 +919,30 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Use whitespace in returned data to format it.</p>
+                    <section class="phpdocumentor-description"><p>Pretty-print JSON with indentation.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-HttpResponse.html#method_json#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\LogicException">LogicException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If JSON encoding fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -917,11 +960,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set response.</p>
+        <p class="phpdocumentor-summary">Set response data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -929,7 +972,10 @@ class Sample extends \X\Controller\Controller {
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>With one argument, replaces all response data.
+With two arguments, sets a single field.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -937,7 +983,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>If one argument, the response data. If two arguments, the field name of the response data.</p>
+                    <section class="phpdocumentor-description"><p>Response data (1 arg) or field name (2 args).</p>
 </section>
 
             </dd>
@@ -946,7 +992,7 @@ class Sample extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">mixed|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Response data.</p>
+                    <section class="phpdocumentor-description"><p>Field value when using 2 arguments.</p>
 </section>
 
             </dd>
@@ -957,6 +1003,10 @@ class Sample extends \X\Controller\Controller {
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-HttpResponse.html"><abbr title="\X\Util\HttpResponse">HttpResponse</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -974,11 +1024,11 @@ class Sample extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">262</span>
+    <span class="phpdocumentor-element-found-in__line">284</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Sets the CORS header.</p>
+        <p class="phpdocumentor-summary">Set CORS (Cross-Origin Resource Sharing) headers.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1033,11 +1083,11 @@ abstract class AppController extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set HTTP status.</p>
+        <p class="phpdocumentor-summary">Set the HTTP response status code.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1053,7 +1103,7 @@ abstract class AppController extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>HTTP status.</p>
+                    <section class="phpdocumentor-description"><p>HTTP status code (e.g., 200, 404, 500).</p>
 </section>
 
             </dd>
@@ -1064,6 +1114,10 @@ abstract class AppController extends \X\Controller\Controller {
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-HttpResponse.html"><abbr title="\X\Util\HttpResponse">HttpResponse</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1081,11 +1135,11 @@ abstract class AppController extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Response Plain text.</p>
+        <p class="phpdocumentor-summary">Send plain text response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1101,7 +1155,7 @@ abstract class AppController extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Plain text.</p>
+                    <section class="phpdocumentor-description"><p>Plain text content.</p>
 </section>
 
             </dd>
@@ -1125,11 +1179,11 @@ abstract class AppController extends \X\Controller\Controller {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/HttpResponse.php"><a href="files/src-x-util-httpresponse.html"><abbr title="src/X/Util/HttpResponse.php">HttpResponse.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Responds with the result of compiling the specified template into HTML.</p>
+        <p class="phpdocumentor-summary">Render a Twig template and send as HTML response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1145,7 +1199,7 @@ abstract class AppController extends \X\Controller\Controller {
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Template path.</p>
+                    <section class="phpdocumentor-description"><p>Template path relative to views directory.</p>
 </section>
 
             </dd>

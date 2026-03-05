@@ -214,14 +214,14 @@ proper encoding support and row manipulation callbacks.</p>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Put row.</dd>
+<dd>Append a row to a CSV file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-CsvHelper.html#method_read">read()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                                &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;|null    </span>
 </dt>
-<dd>Read the CSV.</dd>
+<dd>Read all rows from a CSV file.</dd>
 
     </dl>
 
@@ -252,11 +252,11 @@ proper encoding support and row manipulation callbacks.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/CsvHelper.php"><a href="files/src-x-util-csvhelper.html"><abbr title="src/X/Util/CsvHelper.php">CsvHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Put row.</p>
+        <p class="phpdocumentor-summary">Append a row to a CSV file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -264,7 +264,9 @@ proper encoding support and row manipulation callbacks.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Uses file locking (LOCK_EX) to prevent concurrent write corruption.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -281,13 +283,30 @@ proper encoding support and row manipulation callbacks.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>An array of fields.</p>
+                    <section class="phpdocumentor-description"><p>Array of field values to write.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-CsvHelper.html#method_putRow#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If unable to acquire file lock.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -305,19 +324,22 @@ proper encoding support and row manipulation callbacks.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/CsvHelper.php"><a href="files/src-x-util-csvhelper.html"><abbr title="src/X/Util/CsvHelper.php">CsvHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Read the CSV.</p>
+        <p class="phpdocumentor-summary">Read all rows from a CSV file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">read</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filePath</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$callback</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">read</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filePath</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$callback</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>An optional callback can transform or filter each row.
+If the callback returns null/empty, the row is excluded.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -334,7 +356,7 @@ proper encoding support and row manipulation callbacks.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Receives the rows to be registered in the result set and modifies the rows if necessary.</p>
+                    <section class="phpdocumentor-description"><p>Row transformer: <code class="prettyprint">function(array $row): ?array</code>. Return null to skip row.</p>
 </section>
 
             </dd>
@@ -344,9 +366,9 @@ proper encoding support and row manipulation callbacks.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>List of rows.</p>
+                <section class="phpdocumentor-description"><p>Array of rows, or null if file does not exist or is empty.</p>
 </section>
 
             </section>

@@ -228,91 +228,91 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Assign file attachments.</dd>
+<dd>Add a file attachment.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_attachmentCid">attachmentCid()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: string|false    </span>
 </dt>
-<dd>Set and return attachment Content-ID. Useful for attached inline pictures.</dd>
+<dd>Get the Content-ID for an inline attachment.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_bcc">bcc()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set BCC email address.</dd>
+<dd>Set BCC recipient address.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_from">from()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set the sender.</dd>
+<dd>Set the sender address.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_initialize">initialize()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Initialize EMail.</dd>
+<dd>Initialize the email library with custom settings.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_message">message()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set Body.</dd>
+<dd>Set the email body text.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_messageFromTemplate">messageFromTemplate()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set the mail body based on Template.</dd>
+<dd>Set the email body from a Twig template.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_messageFromXml">messageFromXml()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set the mail body based on XML.</dd>
+<dd>Set subject and body from an XML template.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_send">send()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd>Send.</dd>
+<dd>Send the email.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_setMailType">setMailType()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set mail type.</dd>
+<dd>Set the email content type.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_subject">subject()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set Subject.</dd>
+<dd>Set the email subject line.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-EMail.html#method_to">to()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set Destination email address.</dd>
+<dd>Set the recipient address.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Util-EMail.html#method_email">email()</a>
     <span>
-                                &nbsp;: <abbr title="\X\Util\CI_Email">CI_Email</abbr>    </span>
+                                &nbsp;: <abbr title="\CI_Email">CI_Email</abbr>    </span>
 </dt>
-<dd>Get CI_Email instance.</dd>
+<dd>Get or create singleton CI_Email instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Util-EMail.html#method_template">template()</a>
@@ -410,15 +410,15 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">152</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Assign file attachments.</p>
+        <p class="phpdocumentor-summary">Add a file attachment.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">attach</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$disposition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newname</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mime</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">attach</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$disposition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newname</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mime</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -430,7 +430,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>File name.</p>
+                    <section class="phpdocumentor-description"><p>File path or buffered data.</p>
 </section>
 
             </dd>
@@ -439,16 +439,16 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) &quot;disposition&quot; of the attachment.</p>
+                    <section class="phpdocumentor-description"><p>Content-Disposition (&quot;attachment&quot; or &quot;inline&quot;).</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$newname</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Custom file name to use in the e-mail.</p>
+                    <section class="phpdocumentor-description"><p>Custom filename in the email.</p>
 </section>
 
             </dd>
@@ -457,7 +457,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) MIME type to use (useful for buffered data).</p>
+                    <section class="phpdocumentor-description"><p>MIME type (required for buffered data).</p>
 </section>
 
             </dd>
@@ -469,7 +469,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>This class name.</p>
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
 </section>
 
             </section>
@@ -489,19 +489,21 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">162</span>
+    <span class="phpdocumentor-element-found-in__line">180</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set and return attachment Content-ID. Useful for attached inline pictures.</p>
+        <p class="phpdocumentor-summary">Get the Content-ID for an inline attachment.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">attachmentCid</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">attachmentCid</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|false</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Useful for embedding images in HTML emails.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -519,9 +521,9 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
+        <span class="phpdocumentor-signature__response_type">string|false</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Attachment Content-ID or FALSE if not found.</p>
+                <section class="phpdocumentor-description"><p>Content-ID string, or false if attachment not found.</p>
 </section>
 
             </section>
@@ -541,15 +543,15 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set BCC email address.</p>
+        <p class="phpdocumentor-summary">Set BCC recipient address.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">bcc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bcc</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">bcc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bcc</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -558,10 +560,10 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$bcc</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>BCC email address.</p>
+                    <section class="phpdocumentor-description"><p>BCC email address or array of addresses.</p>
 </section>
 
             </dd>
@@ -570,7 +572,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) BCC Batch max number size. Default is blank.</p>
+                    <section class="phpdocumentor-description"><p>BCC batch max size. Default is blank.</p>
 </section>
 
             </dd>
@@ -581,6 +583,10 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -598,15 +604,15 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set the sender.</p>
+        <p class="phpdocumentor-summary">Set the sender address.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">from</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fromName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$returnPath</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">from</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fromName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$returnPath</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -627,16 +633,16 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Sender name.</p>
+                    <section class="phpdocumentor-description"><p>Display name for the sender.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$returnPath</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Return-Path.</p>
+                    <section class="phpdocumentor-description"><p>Return-Path header value.</p>
 </section>
 
             </dd>
@@ -647,6 +653,10 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -664,11 +674,11 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize EMail.</p>
+        <p class="phpdocumentor-summary">Initialize the email library with custom settings.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -684,7 +694,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">array()</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>EMail settings.</p>
+                    <section class="phpdocumentor-description"><p>Email configuration (merges with defaults).</p>
 </section>
 
             </dd>
@@ -696,7 +706,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>This class name.</p>
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
 </section>
 
             </section>
@@ -716,11 +726,11 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set Body.</p>
+        <p class="phpdocumentor-summary">Set the email body text.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -736,7 +746,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Body.</p>
+                    <section class="phpdocumentor-description"><p>Email body content.</p>
 </section>
 
             </dd>
@@ -748,7 +758,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>This class name.</p>
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
 </section>
 
             </section>
@@ -768,11 +778,11 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set the mail body based on Template.</p>
+        <p class="phpdocumentor-summary">Set the email body from a Twig template.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -788,7 +798,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Path of the Template file. Relative path from <code class="prettyprint">application/views/</code>.</p>
+                    <section class="phpdocumentor-description"><p>Template path relative to <code class="prettyprint">application/views/</code>.</p>
 </section>
 
             </dd>
@@ -797,7 +807,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Embedded variables for subject and body text.</p>
+                    <section class="phpdocumentor-description"><p>Template variables for interpolation.</p>
 </section>
 
             </dd>
@@ -809,7 +819,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>This class name.</p>
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
 </section>
 
             </section>
@@ -829,11 +839,11 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set the mail body based on XML.</p>
+        <p class="phpdocumentor-summary">Set subject and body from an XML template.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -841,7 +851,9 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>The XML file should contain <code class="prettyprint">&lt;subject&gt;</code> and <code class="prettyprint">&lt;message&gt;</code> elements.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -849,7 +861,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Path of the XML file. Relative path from <code class="prettyprint">application/views/</code>.</p>
+                    <section class="phpdocumentor-description"><p>XML template path relative to <code class="prettyprint">application/views/</code>.</p>
 </section>
 
             </dd>
@@ -858,7 +870,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Embedded variables for subject and body text.</p>
+                    <section class="phpdocumentor-description"><p>Template variables for interpolation.</p>
 </section>
 
             </dd>
@@ -870,7 +882,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>This class name.</p>
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
 </section>
 
             </section>
@@ -890,15 +902,15 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Send.</p>
+        <p class="phpdocumentor-summary">Send the email.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">send</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$autoClear</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">send</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$autoClear</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -910,7 +922,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Whether to clear the destination and other transmission information after transmission. Default is true.</p>
+                    <section class="phpdocumentor-description"><p>Clear recipients and message data after sending. Default is true.</p>
 </section>
 
             </dd>
@@ -918,7 +930,15 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
 
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success.</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -934,11 +954,11 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set mail type.</p>
+        <p class="phpdocumentor-summary">Set the email content type.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -954,7 +974,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">"text"|"html"</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;text&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Mail type. Default is &quot;text&quot;.</p>
+                    <section class="phpdocumentor-description"><p>Mail content type. Default is &quot;text&quot;.</p>
 </section>
 
             </dd>
@@ -966,7 +986,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>This class name.</p>
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
 </section>
 
             </section>
@@ -986,11 +1006,11 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set Subject.</p>
+        <p class="phpdocumentor-summary">Set the email subject line.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1006,7 +1026,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Subject.</p>
+                    <section class="phpdocumentor-description"><p>Subject text.</p>
 </section>
 
             </dd>
@@ -1018,7 +1038,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>This class name.</p>
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
 </section>
 
             </section>
@@ -1038,15 +1058,15 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set Destination email address.</p>
+        <p class="phpdocumentor-summary">Set the recipient address.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">to</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">to</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1055,10 +1075,10 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$to</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Destination email address.</p>
+                    <section class="phpdocumentor-description"><p>Recipient email address or array of addresses.</p>
 </section>
 
             </dd>
@@ -1070,7 +1090,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>This class name.</p>
+                <section class="phpdocumentor-description"><p>This class name for static method chaining.</p>
 </section>
 
             </section>
@@ -1090,15 +1110,15 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">189</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get CI_Email instance.</p>
+        <p class="phpdocumentor-summary">Get or create singleton CI_Email instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">email</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\X\Util\CI_Email">CI_Email</abbr></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">email</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\CI_Email">CI_Email</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1108,9 +1128,9 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\X\Util\CI_Email">CI_Email</abbr></span>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\CI_Email">CI_Email</abbr></span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>CI_Email instance.</p>
+                <section class="phpdocumentor-description"><p>Cached email library instance.</p>
 </section>
 
             </section>
@@ -1130,7 +1150,7 @@ with support for HTML/text emails, attachments, and CC/BCC recipients.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/EMail.php"><a href="files/src-x-util-email.html"><abbr title="src/X/Util/EMail.php">EMail.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">184</span>
+    <span class="phpdocumentor-element-found-in__line">203</span>
 
     </aside>
 

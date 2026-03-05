@@ -10,9 +10,10 @@ use \X\Util\Logger;
  */
 final class SessionHelper {
   /**
-   * Unserialize the session.
-   * @param string $session Serialized session data.
-   * @return array Unserialized session data.
+   * Unserialize session data using regex-based splitting.
+   *
+   * @param string $session Serialized session string.
+   * @return array Associative array of session key-value pairs.
    */
   public static function unserialize(string $session) {
     $unserialized = [];
@@ -23,9 +24,13 @@ final class SessionHelper {
   }
 
   /**
-   * Unserialize the session. When session.serialize_handler is "php"
-   * @param string $session Serialized session data.
-   * @return array Unserialized session data.
+   * Unserialize session data for the "php" serialize handler.
+   *
+   * Parses the pipe-delimited format used when session.serialize_handler = "php".
+   *
+   * @param string $session Serialized session string.
+   * @return array Associative array of session key-value pairs.
+   * @throws \RuntimeException If session data is malformed.
    */
   public static function unserializePhp(string $session): array {
     $unserialized = [];
@@ -45,9 +50,13 @@ final class SessionHelper {
   }
 
   /**
-   * Unserialize the session. When session.serialize_handler is "php_binary".
-   * @param string $session Serialized session data.
-   * @return array Unserialized session data.
+   * Unserialize session data for the "php_binary" serialize handler.
+   *
+   * Parses the binary length-prefixed format used when
+   * session.serialize_handler = "php_binary".
+   *
+   * @param string $session Serialized session string.
+   * @return array Associative array of session key-value pairs.
    */
   public static function unserializePhpBinary(string $session): array {
     $unserialized = [];

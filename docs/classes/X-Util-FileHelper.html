@@ -214,14 +214,14 @@ copying, permission handling, and path manipulation.</p>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Copy directory.</dd>
+<dd>Copy a directory recursively.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_copyFile">copyFile()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Copy file.</dd>
+<dd>Copy a single file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_delete">delete()</a>
@@ -242,14 +242,14 @@ copying, permission handling, and path manipulation.</p>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
-<dd>Find only one file.</dd>
+<dd>Find a single file matching a glob pattern.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_findRandomFileName">findRandomFileName()</a>
     <span>
-                                &nbsp;: string|null    </span>
+                                &nbsp;: string    </span>
 </dt>
-<dd>One is taken at random from the files matching the pattern.</dd>
+<dd>Get a random filename from files matching a glob pattern.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_getDirectorySize">getDirectorySize()</a>
@@ -263,14 +263,14 @@ copying, permission handling, and path manipulation.</p>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Get the MIME type predicted from the content of the file.</dd>
+<dd>Detect MIME type from file content using finfo.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_getRandomFileContent">getRandomFileContent()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Get the contents of one file taken at random from the files matching the pattern.</dd>
+<dd>Read the contents of a random file matching a glob pattern.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_humanFilesize">humanFilesize()</a>
@@ -284,28 +284,28 @@ copying, permission handling, and path manipulation.</p>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Make directory.</dd>
+<dd>Create a directory recursively.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_move">move()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Move a file or directory.</dd>
+<dd>Move (rename) a file or directory.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_replace">replace()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Replace file content.</dd>
+<dd>Replace strings in a file using search/replace pairs.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-FileHelper.html#method_validationMime">validationMime()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if the file is of the specified Mime type.</dd>
+<dd>Validate that a file matches the expected MIME type.</dd>
 
     </dl>
 
@@ -336,11 +336,11 @@ copying, permission handling, and path manipulation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Copy directory.</p>
+        <p class="phpdocumentor-summary">Copy a directory recursively.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -356,7 +356,7 @@ copying, permission handling, and path manipulation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Copy source path.</p>
+                    <section class="phpdocumentor-description"><p>Source directory path.</p>
 </section>
 
             </dd>
@@ -365,13 +365,30 @@ copying, permission handling, and path manipulation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Copy destination path.</p>
+                    <section class="phpdocumentor-description"><p>Destination directory path.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-FileHelper.html#method_copyDirectory#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If source does not exist or is not a directory.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -389,11 +406,11 @@ copying, permission handling, and path manipulation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Copy file.</p>
+        <p class="phpdocumentor-summary">Copy a single file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -401,7 +418,9 @@ copying, permission handling, and path manipulation.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Creates destination directory if it does not exist.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -409,7 +428,7 @@ copying, permission handling, and path manipulation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Copy source path.</p>
+                    <section class="phpdocumentor-description"><p>Source file path.</p>
 </section>
 
             </dd>
@@ -418,7 +437,7 @@ copying, permission handling, and path manipulation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Copy destination path.</p>
+                    <section class="phpdocumentor-description"><p>Destination file path.</p>
 </section>
 
             </dd>
@@ -427,7 +446,7 @@ copying, permission handling, and path manipulation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Owning group.</p>
+                    <section class="phpdocumentor-description"><p>Ownership group to set on destination.</p>
 </section>
 
             </dd>
@@ -436,13 +455,30 @@ copying, permission handling, and path manipulation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Owning user.</p>
+                    <section class="phpdocumentor-description"><p>Ownership user to set on destination.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-FileHelper.html#method_copyFile#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If source does not exist, is not a file, or copy fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -460,7 +496,7 @@ copying, permission handling, and path manipulation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -519,7 +555,7 @@ FileHelper::delete('/test', $deleteSelf, $enableLock);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">197</span>
+    <span class="phpdocumentor-element-found-in__line">212</span>
 
     </aside>
 
@@ -592,11 +628,11 @@ GLOB_ERR: Stop on read errors (like unreadable directories), by default errors a
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">209</span>
+    <span class="phpdocumentor-element-found-in__line">225</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Find only one file.</p>
+        <p class="phpdocumentor-summary">Find a single file matching a glob pattern.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -612,7 +648,7 @@ GLOB_ERR: Stop on read errors (like unreadable directories), by default errors a
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Patterns of files to find.</p>
+                    <section class="phpdocumentor-description"><p>Glob pattern.</p>
 </section>
 
             </dd>
@@ -624,7 +660,7 @@ GLOB_ERR: Stop on read errors (like unreadable directories), by default errors a
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Path of the found file.</p>
+                <section class="phpdocumentor-description"><p>Basename of the first match, or null if none found.</p>
 </section>
 
             </section>
@@ -644,15 +680,15 @@ GLOB_ERR: Stop on read errors (like unreadable directories), by default errors a
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">221</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">One is taken at random from the files matching the pattern.</p>
+        <p class="phpdocumentor-summary">Get a random filename from files matching a glob pattern.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">findRandomFileName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pattern</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">findRandomFileName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pattern</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -664,7 +700,7 @@ GLOB_ERR: Stop on read errors (like unreadable directories), by default errors a
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Patterns of files to find.</p>
+                    <section class="phpdocumentor-description"><p>Glob pattern.</p>
 </section>
 
             </dd>
@@ -674,9 +710,9 @@ GLOB_ERR: Stop on read errors (like unreadable directories), by default errors a
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string|null</span>
+        <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Path of the found file.</p>
+                <section class="phpdocumentor-description"><p>Basename of a randomly selected file.</p>
 </section>
 
             </section>
@@ -696,7 +732,7 @@ GLOB_ERR: Stop on read errors (like unreadable directories), by default errors a
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">275</span>
+    <span class="phpdocumentor-element-found-in__line">296</span>
 
     </aside>
 
@@ -766,11 +802,11 @@ FileHelper::getDirectorySize([ '/var/log/php-fpm' '/var/log/nginx' ]);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">241</span>
+    <span class="phpdocumentor-element-found-in__line">261</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get the MIME type predicted from the content of the file.</p>
+        <p class="phpdocumentor-summary">Detect MIME type from file content using finfo.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -786,19 +822,36 @@ FileHelper::getDirectorySize([ '/var/log/php-fpm' '/var/log/nginx' ]);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>File Path.</p>
+                    <section class="phpdocumentor-description"><p>File path.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-FileHelper.html#method_getMimeByConent#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If file does not exist or is not a file.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>MIME type.</p>
+                <section class="phpdocumentor-description"><p>MIME type string (e.g., &quot;image/png&quot;).</p>
 </section>
 
             </section>
@@ -818,11 +871,11 @@ FileHelper::getDirectorySize([ '/var/log/php-fpm' '/var/log/nginx' ]);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">232</span>
+    <span class="phpdocumentor-element-found-in__line">250</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get the contents of one file taken at random from the files matching the pattern.</p>
+        <p class="phpdocumentor-summary">Read the contents of a random file matching a glob pattern.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -838,7 +891,7 @@ FileHelper::getDirectorySize([ '/var/log/php-fpm' '/var/log/nginx' ]);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Patterns of files to find.</p>
+                    <section class="phpdocumentor-description"><p>Glob pattern.</p>
 </section>
 
             </dd>
@@ -850,7 +903,7 @@ FileHelper::getDirectorySize([ '/var/log/php-fpm' '/var/log/nginx' ]);
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Contents of the found file.</p>
+                <section class="phpdocumentor-description"><p>File contents of a randomly selected file.</p>
 </section>
 
             </section>
@@ -870,7 +923,7 @@ FileHelper::getDirectorySize([ '/var/log/php-fpm' '/var/log/nginx' ]);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">307</span>
+    <span class="phpdocumentor-element-found-in__line">328</span>
 
     </aside>
 
@@ -941,11 +994,11 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Make directory.</p>
+        <p class="phpdocumentor-summary">Create a directory recursively.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -953,7 +1006,9 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Does nothing if the directory already exists.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -961,7 +1016,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Directory path.</p>
+                    <section class="phpdocumentor-description"><p>Directory path to create.</p>
 </section>
 
             </dd>
@@ -970,7 +1025,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">0755</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Permissions. Default is 0755.</p>
+                    <section class="phpdocumentor-description"><p>Directory permissions. Default is 0755.</p>
 </section>
 
             </dd>
@@ -982,7 +1037,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Whether the directory was successfully created or not.</p>
+                <section class="phpdocumentor-description"><p>True if created, false if already exists or creation failed.</p>
 </section>
 
             </section>
@@ -1002,11 +1057,11 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Move a file or directory.</p>
+        <p class="phpdocumentor-summary">Move (rename) a file or directory.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1014,7 +1069,10 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>If the destination contains no directory separator, the file is moved
+within the same directory. Missing extension is inherited from source.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1022,7 +1080,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Moving source path.</p>
+                    <section class="phpdocumentor-description"><p>Source path.</p>
 </section>
 
             </dd>
@@ -1031,7 +1089,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Destination path.</p>
+                    <section class="phpdocumentor-description"><p>Destination path or filename.</p>
 </section>
 
             </dd>
@@ -1040,7 +1098,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Owning group.</p>
+                    <section class="phpdocumentor-description"><p>Ownership group to set on destination.</p>
 </section>
 
             </dd>
@@ -1049,13 +1107,30 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Owning user.</p>
+                    <section class="phpdocumentor-description"><p>Ownership user to set on destination.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-FileHelper.html#method_move#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If source does not exist or rename fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1073,11 +1148,11 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">173</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Replace file content.</p>
+        <p class="phpdocumentor-summary">Replace strings in a file using search/replace pairs.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1093,7 +1168,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>File Path.</p>
+                    <section class="phpdocumentor-description"><p>File path to modify.</p>
 </section>
 
             </dd>
@@ -1102,7 +1177,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Replacement content.</p>
+                    <section class="phpdocumentor-description"><p>Associative array of search =&gt; replace pairs.</p>
 </section>
 
             </dd>
@@ -1126,11 +1201,11 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/FileHelper.php"><a href="files/src-x-util-filehelper.html"><abbr title="src/X/Util/FileHelper.php">FileHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">256</span>
+    <span class="phpdocumentor-element-found-in__line">277</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if the file is of the specified Mime type.</p>
+        <p class="phpdocumentor-summary">Validate that a file matches the expected MIME type.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1146,7 +1221,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>File Path.</p>
+                    <section class="phpdocumentor-description"><p>File path.</p>
 </section>
 
             </dd>
@@ -1155,7 +1230,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>MIME type.</p>
+                    <section class="phpdocumentor-description"><p>Expected MIME type (e.g., &quot;image/jpeg&quot;).</p>
 </section>
 
             </dd>
@@ -1167,7 +1242,7 @@ FileHelper::humanFilesize('/var/somefile.txt');// 120.56KB
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Whether the file is of the specified Mime type.</p>
+                <section class="phpdocumentor-description"><p>True if the file's detected MIME type matches.</p>
 </section>
 
             </section>

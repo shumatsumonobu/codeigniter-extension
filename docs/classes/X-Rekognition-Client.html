@@ -253,105 +253,105 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Add a collection.</dd>
+<dd>Create a face collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_addFaceToCollection">addFaceToCollection()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Add a face to the collection.</dd>
+<dd>Add a face to a collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_compareFaces">compareFaces()</a>
     <span>
                                 &nbsp;: float    </span>
 </dt>
-<dd>Comparison of faces.</dd>
+<dd>Compare two face images for similarity.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_deleteCollection">deleteCollection()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Delete a collection.</dd>
+<dd>Delete a face collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_deleteFaceFromCollection">deleteFaceFromCollection()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Delete a face from the collection.</dd>
+<dd>Delete faces from a collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_detectionFaces">detectionFaces()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
 </dt>
-<dd>Face detection.</dd>
+<dd>Detect faces in an image.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_existsCollection">existsCollection()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if a collection exists.</dd>
+<dd>Check if a face collection exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_existsFaceFromCollection">existsFaceFromCollection()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if a face exists in the collection.</dd>
+<dd>Check if a matching face exists in a collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_generateCollectionId">generateCollectionId()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Generate collection ID.</dd>
+<dd>Generate a unique collection ID.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_getAllCollections">getAllCollections()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
-<dd>Get all collections.</dd>
+<dd>List all face collection IDs.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_getAllFacesFromCollection">getAllFacesFromCollection()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
 </dt>
-<dd>Get face data from a collection.</dd>
+<dd>List all faces in a collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_getCollection">getCollection()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
 </dt>
-<dd>Get Collection.</dd>
+<dd>Describe a face collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_getFaceFromCollectionByImage">getFaceFromCollectionByImage()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array{faceId: string, similarity: float}|null    </span>
 </dt>
-<dd>Get the face data most similar to the face image from the collection.</dd>
+<dd>Search for the most similar face in a collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_getMultipleFacesFromCollectionByImage">getMultipleFacesFromCollectionByImage()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, array{faceId: string, similarity: float}&gt;    </span>
 </dt>
-<dd>Get all face data from the collection that are similar to the face image.</dd>
+<dd>Search for all similar faces in a collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Rekognition-Client.html#method_getNumberOfFaces">getNumberOfFaces()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Get the number of faces in the image.</dd>
+<dd>Count the number of faces detected in an image.</dd>
 
     </dl>
 
@@ -457,7 +457,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -465,7 +465,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array{region?: string, key: string, secret: string, connect_timeout?: int, debug?: bool}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -474,14 +474,45 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array{region?: string, key: string, secret: string, connect_timeout?: int, debug?: bool}</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Configuration options:</p>
+<ul>
+<li>
+<code class="prettyprint">region</code>: AWS region to connect to. Default is &quot;ap-northeast-1&quot;.</li>
+<li>
+<code class="prettyprint">key</code>: <strong>(required)</strong> AWS access key ID.</li>
+<li>
+<code class="prettyprint">secret</code>: <strong>(required)</strong> AWS secret access key.</li>
+<li>
+<code class="prettyprint">connect_timeout</code>: Connection timeout in seconds. Default is 5.</li>
+<li>
+<code class="prettyprint">debug</code>: Output Rekognition responses to debug log. Default is false.</li>
+</ul>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If key or secret is not provided.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -499,11 +530,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Add a collection.</p>
+        <p class="phpdocumentor-summary">Create a face collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -511,7 +542,9 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>If the collection already exists, this method does nothing.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -526,6 +559,33 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_addCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If creation fails for reasons other than duplicate.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Aws\Rekognition\Exception\RekognitionException">RekognitionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>On AWS API error.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -543,11 +603,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">195</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Add a face to the collection.</p>
+        <p class="phpdocumentor-summary">Add a face to a collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -555,7 +615,9 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>The image must contain exactly one face.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -572,19 +634,36 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data URL, Blob, or path of face images.</p>
+                    <section class="phpdocumentor-description"><p>Face image as Data URL, binary blob, or file path.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_addFaceToCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If no face or multiple faces are detected, or indexing fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Face ID.</p>
+                <section class="phpdocumentor-description"><p>Unique face ID assigned by Rekognition.</p>
 </section>
 
             </section>
@@ -604,11 +683,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">301</span>
+    <span class="phpdocumentor-element-found-in__line">347</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Comparison of faces.</p>
+        <p class="phpdocumentor-summary">Compare two face images for similarity.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -616,7 +695,9 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Returns 0.0 if no face is detected in either image.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -624,7 +705,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data URL, Blob, or path of face images.</p>
+                    <section class="phpdocumentor-description"><p>Source face image as Data URL, binary blob, or file path.</p>
 </section>
 
             </dd>
@@ -633,19 +714,36 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data URL, Blob, or path of face images.</p>
+                    <section class="phpdocumentor-description"><p>Target face image as Data URL, binary blob, or file path.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_compareFaces#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If comparison fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">float</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Similarity rate (rate) of two faces.</p>
+                <section class="phpdocumentor-description"><p>Similarity percentage (0.0 to 100.0) between the two faces.</p>
 </section>
 
             </section>
@@ -665,11 +763,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">161</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Delete a collection.</p>
+        <p class="phpdocumentor-summary">Delete a face collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -677,7 +775,9 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>If the collection does not exist, this method does nothing.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -692,6 +792,33 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_deleteCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If deletion fails.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Aws\Rekognition\Exception\RekognitionException">RekognitionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>On AWS API error.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -709,11 +836,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">278</span>
+    <span class="phpdocumentor-element-found-in__line">319</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Delete a face from the collection.</p>
+        <p class="phpdocumentor-summary">Delete faces from a collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -738,13 +865,30 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Face ID list.</p>
+                    <section class="phpdocumentor-description"><p>Array of face IDs to delete.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_deleteFaceFromCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If deletion fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -762,15 +906,15 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">335</span>
+    <span class="phpdocumentor-element-found-in__line">383</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Face detection.</p>
+        <p class="phpdocumentor-summary">Detect faces in an image.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">detectionFaces</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$faceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$threshold</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">90</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;DEFAULT&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">detectionFaces</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$faceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$threshold</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">90</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">"DEFAULT"|"ALL"&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;DEFAULT&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -782,7 +926,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data URL, Blob, or path of face images.</p>
+                    <section class="phpdocumentor-description"><p>Face image as Data URL, binary blob, or file path.</p>
 </section>
 
             </dd>
@@ -791,26 +935,45 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">90</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Face recognition threshold (percent). Default is 90.</p>
+                    <section class="phpdocumentor-description"><p>Minimum confidence percentage for face detection. Default is 90.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$attributes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">"DEFAULT"|"ALL"</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;DEFAULT&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Detail level. &quot;ALL&quot; returns full facial analysis. Default is &quot;DEFAULT&quot;.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_detectionFaces#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If detection fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Detected face data.</p>
+                <section class="phpdocumentor-description"><p>Array of detected face details above the confidence threshold.</p>
 </section>
 
             </section>
@@ -830,11 +993,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">181</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if a collection exists.</p>
+        <p class="phpdocumentor-summary">Check if a face collection exists.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -862,7 +1025,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Whether the collection exists or not.</p>
+                <section class="phpdocumentor-description"><p>True if the collection exists.</p>
 </section>
 
             </section>
@@ -882,11 +1045,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">268</span>
+    <span class="phpdocumentor-element-found-in__line">307</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if a face exists in the collection.</p>
+        <p class="phpdocumentor-summary">Check if a matching face exists in a collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -911,7 +1074,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data URL, Blob, or path of face images.</p>
+                    <section class="phpdocumentor-description"><p>Face image as Data URL, binary blob, or file path.</p>
 </section>
 
             </dd>
@@ -920,7 +1083,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">80</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Face match threshold (in percent). Default is 80.</p>
+                    <section class="phpdocumentor-description"><p>Minimum similarity percentage. Default is 80.</p>
 </section>
 
             </dd>
@@ -932,7 +1095,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Whether the face exists in the collection or not.</p>
+                <section class="phpdocumentor-description"><p>True if a matching face is found.</p>
 </section>
 
             </section>
@@ -952,11 +1115,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">291</span>
+    <span class="phpdocumentor-element-found-in__line">333</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generate collection ID.</p>
+        <p class="phpdocumentor-summary">Generate a unique collection ID.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -972,7 +1135,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Collection ID.</p>
+                <section class="phpdocumentor-description"><p>Randomly generated collection ID.</p>
 </section>
 
             </section>
@@ -992,11 +1155,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get all collections.</p>
+        <p class="phpdocumentor-summary">List all face collection IDs.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1007,12 +1170,29 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_getAllCollections#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If retrieval fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>List of collection data.</p>
+                <section class="phpdocumentor-description"><p>Array of collection IDs.</p>
 </section>
 
             </section>
@@ -1032,15 +1212,15 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">229</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get face data from a collection.</p>
+        <p class="phpdocumentor-summary">List all faces in a collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getAllFacesFromCollection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collectionId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxResults</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">4096</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">getAllFacesFromCollection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collectionId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxResults</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">4096</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1061,19 +1241,36 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">4096</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Maximum number of face data to retrieve. Default is 4096.</p>
+                    <section class="phpdocumentor-description"><p>Maximum number of faces to retrieve. Default is 4096.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_getAllFacesFromCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If retrieval fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>List of face data.</p>
+                <section class="phpdocumentor-description"><p>Array of face metadata from the collection.</p>
 </section>
 
             </section>
@@ -1093,15 +1290,15 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">102</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get Collection.</p>
+        <p class="phpdocumentor-summary">Describe a face collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getCollection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collectionId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getCollection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collectionId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1120,12 +1317,39 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_getCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If retrieval fails.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Aws\Rekognition\Exception\RekognitionException">RekognitionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>On AWS API error.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">mixed</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Collection Data.</p>
+                <section class="phpdocumentor-description"><p>Collection metadata, or null if not found.</p>
 </section>
 
             </section>
@@ -1145,19 +1369,21 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">215</span>
+    <span class="phpdocumentor-element-found-in__line">249</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get the face data most similar to the face image from the collection.</p>
+        <p class="phpdocumentor-summary">Search for the most similar face in a collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getFaceFromCollectionByImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collectionId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$faceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$threshold</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">80</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">getFaceFromCollectionByImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collectionId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$faceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$threshold</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">80</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array{faceId: string, similarity: float}|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Returns the single best match above the similarity threshold.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1174,7 +1400,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data URL, Blob, or path of face images.</p>
+                    <section class="phpdocumentor-description"><p>Face image as Data URL, binary blob, or file path.</p>
 </section>
 
             </dd>
@@ -1183,7 +1409,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">80</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Face match threshold (in percent). Default is 80.</p>
+                    <section class="phpdocumentor-description"><p>Minimum similarity percentage. Default is 80.</p>
 </section>
 
             </dd>
@@ -1193,9 +1419,9 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array{faceId: string, similarity: float}|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Face data.</p>
+                <section class="phpdocumentor-description"><p>Best match, or null if no match found.</p>
 </section>
 
             </section>
@@ -1215,19 +1441,21 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">229</span>
+    <span class="phpdocumentor-element-found-in__line">267</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get all face data from the collection that are similar to the face image.</p>
+        <p class="phpdocumentor-summary">Search for all similar faces in a collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getMultipleFacesFromCollectionByImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collectionId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$faceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$threshold</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">80</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxFaces</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">4096</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">getMultipleFacesFromCollectionByImage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collectionId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$faceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$threshold</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">80</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxFaces</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">4096</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, array{faceId: string, similarity: float}&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Returns all faces matching above the similarity threshold.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1244,7 +1472,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data URL, Blob, or path of face images.</p>
+                    <section class="phpdocumentor-description"><p>Face image as Data URL, binary blob, or file path.</p>
 </section>
 
             </dd>
@@ -1253,7 +1481,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">80</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Face match threshold (in percent). Default is 80.</p>
+                    <section class="phpdocumentor-description"><p>Minimum similarity percentage. Default is 80.</p>
 </section>
 
             </dd>
@@ -1262,17 +1490,36 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">4096</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Maximum number of matches to return. Default is 4096.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Rekognition-Client.html#method_getMultipleFacesFromCollectionByImage#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If search fails.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, array{faceId: string, similarity: float}&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Face data.</p>
+                <section class="phpdocumentor-description"><p>Array of matching faces with similarity scores.</p>
 </section>
 
             </section>
@@ -1292,11 +1539,11 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Rekognition/Client.php"><a href="files/src-x-rekognition-client.html"><abbr title="src/X/Rekognition/Client.php">Client.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">360</span>
+    <span class="phpdocumentor-element-found-in__line">409</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get the number of faces in the image.</p>
+        <p class="phpdocumentor-summary">Count the number of faces detected in an image.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1312,7 +1559,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Data URL, Blob, or path of face images.</p>
+                    <section class="phpdocumentor-description"><p>Face image as Data URL, binary blob, or file path.</p>
 </section>
 
             </dd>
@@ -1321,7 +1568,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">90</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Face recognition threshold (percent). Default is 90.</p>
+                    <section class="phpdocumentor-description"><p>Minimum confidence percentage for face detection. Default is 90.</p>
 </section>
 
             </dd>
@@ -1333,7 +1580,7 @@ $match = $client-&gt;getFaceFromCollectionByImage('my-collection', $searchImage)
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Number of faces found.</p>
+                <section class="phpdocumentor-description"><p>Number of faces detected above the confidence threshold.</p>
 </section>
 
             </section>

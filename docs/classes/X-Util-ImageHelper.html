@@ -250,7 +250,7 @@ Uses Intervention Image and Imagick for advanced operations.</p>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Convert PDF to image.</dd>
+<dd>Convert PDF pages to images using Imagick.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-ImageHelper.html#method_readAsBlob">readAsBlob()</a>
@@ -628,15 +628,15 @@ ImageHelper::extractFirstFrameOfGif('sample.gif');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/ImageHelper.php"><a href="files/src-x-util-imagehelper.html"><abbr title="src/X/Util/ImageHelper.php">ImageHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">218</span>
+    <span class="phpdocumentor-element-found-in__line">227</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Convert PDF to image.</p>
+        <p class="phpdocumentor-summary">Convert PDF pages to images using Imagick.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">pdf2Image</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$src</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">pdf2Image</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$src</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array{pageNumber?: int|null, xResolution?: int, yResolution?: int, width?: int|null, height?: int|null}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -648,7 +648,7 @@ ImageHelper::extractFirstFrameOfGif('sample.gif');
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Input file path.</p>
+                    <section class="phpdocumentor-description"><p>Input PDF file path.</p>
 </section>
 
             </dd>
@@ -657,20 +657,51 @@ ImageHelper::extractFirstFrameOfGif('sample.gif');
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Output file path.</p>
+                    <section class="phpdocumentor-description"><p>Output image file path.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array{pageNumber?: int|null, xResolution?: int, yResolution?: int, width?: int|null, height?: int|null}</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Conversion options:</p>
+<ul>
+<li>
+<code class="prettyprint">pageNumber</code>: Page to convert (0-based). Null outputs all pages. Default is null.</li>
+<li>
+<code class="prettyprint">xResolution</code>: Horizontal resolution in DPI. Default is 288.</li>
+<li>
+<code class="prettyprint">yResolution</code>: Vertical resolution in DPI. Default is 288.</li>
+<li>
+<code class="prettyprint">width</code>: Resize width in pixels. Default is null (no resize).</li>
+<li>
+<code class="prettyprint">height</code>: Resize height in pixels. Default is null (no resize).</li>
+</ul>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-ImageHelper.html#method_pdf2Image#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Throwable">Throwable</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>On PDF conversion or Imagick errors.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 </article>

@@ -83,17 +83,25 @@ class RestClient {
 
   /**
    * Initialize RestClient.
-   * @param string[] $options[headers] (optional) HTTP request header to be applied to all transmissions.
-   * @param mixed[] $options[parameters] (optional) Request parameters that apply to all submissions. For POST and PUT, this is the request body, and for GET, it is the query parameter.
-   * @param mixed[] $options[curl_option] (optional) CURL options that apply to all submissions.
-   * @param string $options[user_agent] (optional) User agent to be applied to all submissions. Defaults to "PHP RestClient".
-   * @param string $options[base_url] (optional) Base URL of the request.
-   * @param string $options[username] (optional) User name to be applied to `CURLOPT_USERPWD`.
-   * @param string $options[password] (optional) Password to be applied to `CURLOPT_USERPWD`.
-   * @param string $options[ssl][cert_file] (optional) Pem file path required for SSL authentication, set to `CURLOPT_SSLCERT`.
-   * @param string $options[ssl][ca_file] (optional) CA certificate path required for SSL authentication. Set to `CURLOPT_SSLCERT`.
-   * @param string $options[ssl][secret_key_file] (optional) The private key path required for SSL authentication, set to `CURLOPT_SSLKEY`.
-   * @param string $options[ssl][secret_key_passphrase] (optional) Password required to use the SSL private key, set to `CURLOPT_SSLKEYPASSWD`.
+   *
+   * @param array{
+   *   headers?: array<string, string|string[]>,
+   *   parameters?: array,
+   *   curl_option?: array,
+   *   user_agent?: string,
+   *   base_url?: string,
+   *   username?: string,
+   *   password?: string,
+   *   ssl?: array{cert_file?: string, ca_file?: string, secret_key_file?: string, secret_key_passphrase?: string}
+   * } $options Configuration options:
+   *   - `headers`: Default HTTP headers for all requests.
+   *   - `parameters`: Default parameters (query for GET, body for POST/PUT).
+   *   - `curl_option`: Additional cURL options.
+   *   - `user_agent`: User agent string. Default is "PHP RestClient".
+   *   - `base_url`: Base URL prepended to all request URLs.
+   *   - `username`: Basic auth username.
+   *   - `password`: Basic auth password.
+   *   - `ssl`: SSL client certificate settings (cert_file, ca_file, secret_key_file, secret_key_passphrase).
    */  
   public function __construct(array $options=[]) {
     $this->options = array_merge([
@@ -116,56 +124,66 @@ class RestClient {
   }
 
   /**
-   * GET Request.
-   * @param string $url Request URL.
-   * @param array $params (optional) Query Parameters.
-   * @param array $headers (optional) Request headers.
-   * @return RestClient
+   * Send a GET request.
+   *
+   * @param string $url Request URL (appended to base_url if set).
+   * @param array|string $params Query parameters.
+   * @param array $headers Additional request headers.
+   * @return RestClient Cloned instance with response data populated.
+   * @throws \X\Exception\RestClientException If response status is not 2xx/3xx.
    */
   public function get(string $url, $params=[], array $headers=[]): RestClient {
     return $this->send($url, 'GET', $params, $headers);
   }
 
   /**
-   * Send POST request.
-   * @param string $url Request URL.
-   * @param array $params (optional) Request Body.
-   * @param array $headers (optional) Request headers.
-   * @return RestClient
+   * Send a POST request.
+   *
+   * @param string $url Request URL (appended to base_url if set).
+   * @param array|string $params Request body parameters.
+   * @param array $headers Additional request headers.
+   * @return RestClient Cloned instance with response data populated.
+   * @throws \X\Exception\RestClientException If response status is not 2xx/3xx.
    */
   public function post(string $url, $params=[], array $headers=[]): RestClient {
     return $this->send($url, 'POST', $params, $headers);
   }
 
   /**
-   * Send PUT request.
-   * @param string $url Request URL.
-   * @param array $params (optional) Request Body.
-   * @param array $headers (optional) Request headers.
-   * @return RestClient
+   * Send a PUT request.
+   *
+   * @param string $url Request URL (appended to base_url if set).
+   * @param array|string $params Request body parameters.
+   * @param array $headers Additional request headers.
+   * @return RestClient Cloned instance with response data populated.
+   * @throws \X\Exception\RestClientException If response status is not 2xx/3xx.
    */
   public function put(string $url, $params=[], array $headers=[]): RestClient {
     return $this->send($url, 'PUT', $params, $headers);
   }
 
   /**
-   * Send DELETE request.
-   * @param string $url Request URL.
-   * @param array $params (optional) Request Body.
-   * @param array $headers (optional) Request headers.
-   * @return RestClient
+   * Send a DELETE request.
+   *
+   * @param string $url Request URL (appended to base_url if set).
+   * @param array|string $params Request body parameters.
+   * @param array $headers Additional request headers.
+   * @return RestClient Cloned instance with response data populated.
+   * @throws \X\Exception\RestClientException If response status is not 2xx/3xx.
    */
   public function delete(string $url, $params=[], array $headers=[]): RestClient {
     return $this->send($url, 'DELETE', $params, $headers);
   }
 
   /**
-   * Common Requests.
+   * Execute an HTTP request via cURL.
+   *
    * @param string $url Request URL.
-   * @param string $method HTTP Method.
-   * @param array $params (optional) Query parameter in case of GET, request body otherwise.
-   * @param array $headers (optional) Request headers.
-   * @return RestClient
+   * @param string $method HTTP method (GET, POST, PUT, DELETE).
+   * @param array|string $params Query parameters (GET) or request body (POST/PUT/DELETE).
+   * @param array $headers Additional request headers.
+   * @return RestClient Cloned instance with response data populated.
+   * @throws \X\Exception\RestClientException If response status is not 2xx/3xx.
    */
   private function send(string $url, string $method, $params=[], array $headers=[]): RestClient {
     $client = clone $this;
@@ -253,8 +271,9 @@ class RestClient {
   }
 
   /**
-   * Set response data (responseHeaders,responseRaw,response).
-   * @param string $res Response data (curl_exec($ch)).
+   * Parse raw cURL response into headers, status, and body.
+   *
+   * @param string $res Raw response from curl_exec().
    * @return void
    */
   private function parse(string $res): void {

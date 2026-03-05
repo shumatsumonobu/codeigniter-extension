@@ -214,21 +214,21 @@ empty checking, and text ellipsis truncation.</p>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Omit strings that are too long. Characters longer than the specified length will be replaced by &quot;...&quot;.</dd>
+<dd>Truncate a long string with ellipsis in the middle.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-StringHelper.html#method_empty">empty()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd>Trims the string to determine if it is empty.</dd>
+<dd>Check if a string is empty after trimming whitespace.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-StringHelper.html#method_trim">trim()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Trim front and rear spaces.</dd>
+<dd>Trim whitespace from both ends of a string.</dd>
 
     </dl>
 
@@ -259,11 +259,11 @@ empty checking, and text ellipsis truncation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/StringHelper.php"><a href="files/src-x-util-stringhelper.html"><abbr title="src/X/Util/StringHelper.php">StringHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Omit strings that are too long. Characters longer than the specified length will be replaced by &quot;...&quot;.</p>
+        <p class="phpdocumentor-summary">Truncate a long string with ellipsis in the middle.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -271,7 +271,10 @@ empty checking, and text ellipsis truncation.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Preserves the beginning and end of the string, replacing the
+middle portion with &quot;...&quot; when the string exceeds the max length.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -279,7 +282,7 @@ empty checking, and text ellipsis truncation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>String.</p>
+                    <section class="phpdocumentor-description"><p>Input string.</p>
 </section>
 
             </dd>
@@ -288,7 +291,7 @@ empty checking, and text ellipsis truncation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">100</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Length of string. Default is 100.</p>
+                    <section class="phpdocumentor-description"><p>Maximum character length. Default is 100.</p>
 </section>
 
             </dd>
@@ -300,7 +303,7 @@ empty checking, and text ellipsis truncation.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>String.</p>
+                <section class="phpdocumentor-description"><p>Truncated string, or original if within length.</p>
 </section>
 
             </section>
@@ -320,15 +323,15 @@ empty checking, and text ellipsis truncation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/StringHelper.php"><a href="files/src-x-util-stringhelper.html"><abbr title="src/X/Util/StringHelper.php">StringHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Trims the string to determine if it is empty.</p>
+        <p class="phpdocumentor-summary">Check if a string is empty after trimming whitespace.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">empty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$str</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">empty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$str</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -340,7 +343,7 @@ empty checking, and text ellipsis truncation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>String.</p>
+                    <section class="phpdocumentor-description"><p>Input string.</p>
 </section>
 
             </dd>
@@ -350,9 +353,9 @@ empty checking, and text ellipsis truncation.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
+        <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>String.</p>
+                <section class="phpdocumentor-description"><p>True if the trimmed string is empty.</p>
 </section>
 
             </section>
@@ -372,11 +375,11 @@ empty checking, and text ellipsis truncation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/StringHelper.php"><a href="files/src-x-util-stringhelper.html"><abbr title="src/X/Util/StringHelper.php">StringHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Trim front and rear spaces.</p>
+        <p class="phpdocumentor-summary">Trim whitespace from both ends of a string.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -384,7 +387,9 @@ empty checking, and text ellipsis truncation.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Handles standard whitespace characters plus full-width spaces.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -392,7 +397,7 @@ empty checking, and text ellipsis truncation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>String.</p>
+                    <section class="phpdocumentor-description"><p>Input string.</p>
 </section>
 
             </dd>
@@ -404,7 +409,7 @@ empty checking, and text ellipsis truncation.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>String.</p>
+                <section class="phpdocumentor-description"><p>Trimmed string.</p>
 </section>
 
             </section>

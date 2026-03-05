@@ -10,10 +10,13 @@ use \X\Util\Logger;
  */
 final class FileHelper {
   /**
-   * Make directory.
-   * @param string $dir Directory path.
-   * @param int $mode Permissions. Default is 0755.
-   * @return bool Whether the directory was successfully created or not.
+   * Create a directory recursively.
+   *
+   * Does nothing if the directory already exists.
+   *
+   * @param string $dir Directory path to create.
+   * @param int $mode Directory permissions. Default is 0755.
+   * @return bool True if created, false if already exists or creation failed.
    */
   public static function makeDirectory(string $dir, int $mode=0755): bool {
     if (file_exists($dir))
@@ -32,12 +35,17 @@ final class FileHelper {
   }
 
   /**
-   * Move a file or directory.
-   * @param string $src Moving source path.
-   * @param string $dest Destination path.
-   * @param string|null $group (optional) Owning group.
-   * @param string|null $user (optional) Owning user.
+   * Move (rename) a file or directory.
+   *
+   * If the destination contains no directory separator, the file is moved
+   * within the same directory. Missing extension is inherited from source.
+   *
+   * @param string $src Source path.
+   * @param string $dest Destination path or filename.
+   * @param string|null $group Ownership group to set on destination.
+   * @param string|null $user Ownership user to set on destination.
    * @return void
+   * @throws \RuntimeException If source does not exist or rename fails.
    */
   public static function move(string $src, string $dest, $group=null, $user=null): void {
     if (!file_exists($src))
@@ -57,12 +65,16 @@ final class FileHelper {
   }
 
   /**
-   * Copy file.
-   * @param string $src Copy source path.
-   * @param string $dest Copy destination path.
-   * @param string|null $group (optional) Owning group.
-   * @param string|null $user (optional) Owning user.
+   * Copy a single file.
+   *
+   * Creates destination directory if it does not exist.
+   *
+   * @param string $src Source file path.
+   * @param string $dest Destination file path.
+   * @param string|null $group Ownership group to set on destination.
+   * @param string|null $user Ownership user to set on destination.
    * @return void
+   * @throws \RuntimeException If source does not exist, is not a file, or copy fails.
    */
   public static function copyFile(string $src, string $dest, $group=null, $user=null): void {
     if (!file_exists($src))
@@ -79,10 +91,12 @@ final class FileHelper {
   }
 
   /**
-   * Copy directory.
-   * @param string $src Copy source path.
-   * @param string $dest Copy destination path.
+   * Copy a directory recursively.
+   *
+   * @param string $src Source directory path.
+   * @param string $dest Destination directory path.
    * @return void
+   * @throws \RuntimeException If source does not exist or is not a directory.
    */
   public static function copyDirectory(string $src, string $dest): void {
     if (!file_exists($src))
@@ -165,9 +179,10 @@ final class FileHelper {
   }
 
   /**
-   * Replace file content.
-   * @param string $filePath File Path.
-   * @param array $replacement Replacement content.
+   * Replace strings in a file using search/replace pairs.
+   *
+   * @param string $filePath File path to modify.
+   * @param array $replacement Associative array of search => replace pairs.
    * @return void
    */
   public static function replace(string $filePath, array $replacement): void {
@@ -202,9 +217,10 @@ final class FileHelper {
   }
 
   /**
-   * Find only one file.
-   * @param string $pattern Patterns of files to find.
-   * @return string|null Path of the found file.
+   * Find a single file matching a glob pattern.
+   *
+   * @param string $pattern Glob pattern.
+   * @return string|null Basename of the first match, or null if none found.
    */
   public static function findOne(string $pattern): ?string {
     $files = self::find($pattern);
@@ -214,9 +230,10 @@ final class FileHelper {
   }
 
   /**
-   * One is taken at random from the files matching the pattern.
-   * @param string $pattern Patterns of files to find.
-   * @return string|null Path of the found file.
+   * Get a random filename from files matching a glob pattern.
+   *
+   * @param string $pattern Glob pattern.
+   * @return string Basename of a randomly selected file.
    */
   public static function findRandomFileName(string $pattern): string {
     $files = self::find($pattern);
@@ -225,18 +242,21 @@ final class FileHelper {
   }
 
   /**
-   * Get the contents of one file taken at random from the files matching the pattern.
-   * @param string $pattern Patterns of files to find.
-   * @return string Contents of the found file.
+   * Read the contents of a random file matching a glob pattern.
+   *
+   * @param string $pattern Glob pattern.
+   * @return string File contents of a randomly selected file.
    */
   public static function getRandomFileContent(string $pattern): string {
     return file_get_contents(dirname($pattern) . '/' . self::findRandomFileName($pattern));
   }
 
   /**
-   * Get the MIME type predicted from the content of the file.
-   * @param string $filePath File Path.
-   * @return string MIME type.
+   * Detect MIME type from file content using finfo.
+   *
+   * @param string $filePath File path.
+   * @return string MIME type string (e.g., "image/png").
+   * @throws \RuntimeException If file does not exist or is not a file.
    */
   public static function getMimeByConent(string $filePath): string {
     if (!file_exists($filePath))
@@ -248,10 +268,11 @@ final class FileHelper {
   }
 
   /**
-   * Check if the file is of the specified Mime type.
-   * @param string $filePath File Path.
-   * @param string $mime MIME type.
-   * @return bool Whether the file is of the specified Mime type.
+   * Validate that a file matches the expected MIME type.
+   *
+   * @param string $filePath File path.
+   * @param string $mime Expected MIME type (e.g., "image/jpeg").
+   * @return bool True if the file's detected MIME type matches.
    */
   public static function validationMime(string $filePath, string $mime): bool {
     return self::getMimeByConent($filePath) ===  $mime;

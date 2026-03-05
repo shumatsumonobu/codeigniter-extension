@@ -169,7 +169,7 @@
 
             <p class="phpdocumentor-summary">Interface for session management models.</p>
 
-    <section class="phpdocumentor-description"><p>Defines the contract for session data manipulation.</p>
+    <section class="phpdocumentor-description"><p>Defines the contract for storing and retrieving user session data.</p>
 </section>
 
 
@@ -200,30 +200,30 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-SessionModelInterface.html#method_get">get()</a>
     <span>
-                                &nbsp;: <abbr title="\X\Model\stdClass">stdClass</abbr>|string    </span>
+                                &nbsp;: <abbr title="\stdClass">stdClass</abbr>|mixed|null    </span>
 </dt>
-<dd>Get session.</dd>
+<dd>Get session data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-SessionModelInterface.html#method_isset">isset()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Isset session.</dd>
+<dd>Check if a user session exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-SessionModelInterface.html#method_set">set()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Set session.</dd>
+<dd>Set session data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Model-SessionModelInterface.html#method_unset">unset()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Session discarded.</dd>
+<dd>Destroy the current user session.</dd>
 
     </dl>
 
@@ -252,15 +252,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/SessionModelInterface.php"><a href="files/src-x-model-sessionmodelinterface.html"><abbr title="src/X/Model/SessionModelInterface.php">SessionModelInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get session.</p>
+        <p class="phpdocumentor-summary">Get session data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$field</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\X\Model\stdClass">stdClass</abbr>|string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$field</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\stdClass">stdClass</abbr>|mixed|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -269,10 +269,10 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$field</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) If you want to retrieve only a specific field from the session, specify the name of that field.</p>
+                    <section class="phpdocumentor-description"><p>Field name to retrieve. Null returns all data.</p>
 </section>
 
             </dd>
@@ -282,9 +282,9 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\X\Model\stdClass">stdClass</abbr>|string</span>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\stdClass">stdClass</abbr>|mixed|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Session data.</p>
+                <section class="phpdocumentor-description"><p>All session data, a single field value, or null if no session.</p>
 </section>
 
             </section>
@@ -304,11 +304,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/SessionModelInterface.php"><a href="files/src-x-model-sessionmodelinterface.html"><abbr title="src/X/Model/SessionModelInterface.php">SessionModelInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Isset session.</p>
+        <p class="phpdocumentor-summary">Check if a user session exists.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -324,7 +324,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Whether the session exists.</p>
+                <section class="phpdocumentor-description"><p>True if session data is set.</p>
 </section>
 
             </section>
@@ -344,11 +344,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/SessionModelInterface.php"><a href="files/src-x-model-sessionmodelinterface.html"><abbr title="src/X/Model/SessionModelInterface.php">SessionModelInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set session.</p>
+        <p class="phpdocumentor-summary">Set session data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -356,7 +356,10 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>With one argument, loads full user data into session.
+With two arguments, updates a single session field.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -364,7 +367,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>It is ID if there is only one argument, column name if there are two arguments.</p>
+                    <section class="phpdocumentor-description"><p>User ID (1 arg) or field name (2 args).</p>
 </section>
 
             </dd>
@@ -373,7 +376,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Set value.</p>
+                    <section class="phpdocumentor-description"><p>Field value when updating a single field.</p>
 </section>
 
             </dd>
@@ -385,7 +388,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Subclass Name.</p>
+                <section class="phpdocumentor-description"><p>Called class name for method chaining.</p>
 </section>
 
             </section>
@@ -405,11 +408,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Model/SessionModelInterface.php"><a href="files/src-x-model-sessionmodelinterface.html"><abbr title="src/X/Model/SessionModelInterface.php">SessionModelInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Session discarded.</p>
+        <p class="phpdocumentor-summary">Destroy the current user session.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -425,7 +428,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Subclass Name.</p>
+                <section class="phpdocumentor-description"><p>Called class name for method chaining.</p>
 </section>
 
             </section>

@@ -205,15 +205,24 @@ final class ImageHelper {
   }
 
   /**
-   * Convert PDF to image.
-   * @param string $src Input file path.
-   * @param string $dest Output file path.
-   * @param int|null $options[pageNumber] (optional) Page number to out. Default is null, which outputs all pages. Offset is zero.
-   * @param int $options[xResolution] (optional) The horizontal resolution. Default is 288.
-   * @param int $options[yResolution] (optional) The vertical resolution. Default is 288.
-   * @param int $options[width] (optional) Resize width. Default is no resizing (null).
-   * @param int $options[height] (optional) Resize Height. Default is no resizing (null).
+   * Convert PDF pages to images using Imagick.
+   *
+   * @param string $src Input PDF file path.
+   * @param string $dest Output image file path.
+   * @param array{
+   *   pageNumber?: int|null,
+   *   xResolution?: int,
+   *   yResolution?: int,
+   *   width?: int|null,
+   *   height?: int|null
+   * } $options Conversion options:
+   *   - `pageNumber`: Page to convert (0-based). Null outputs all pages. Default is null.
+   *   - `xResolution`: Horizontal resolution in DPI. Default is 288.
+   *   - `yResolution`: Vertical resolution in DPI. Default is 288.
+   *   - `width`: Resize width in pixels. Default is null (no resize).
+   *   - `height`: Resize height in pixels. Default is null (no resize).
    * @return void
+   * @throws \Throwable On PDF conversion or Imagick errors.
    */
   public static function pdf2Image(string $src, string $dest, array $options=[]): void {
     try {

@@ -1,24 +1,44 @@
+# IDE / Editor
 .vscode/
+.idea/
+.idea_modules/
 *.sublime-project
 *.sublime-workspace
 sftp-config.json
-.idea/
-.idea_modules/
-*.log
+
+# AI tools
+.claude/
+
+# Dependencies
 node_modules/
 vendor/
+
+# Logs
+*.log
+
+# Test
+.phpunit.result.cache
+
+# Demo app - keep directories, ignore contents
 !demo/application/logs/
 demo/application/logs/*
 !demo/application/cache/
 demo/application/cache/*
 !demo/application/session/
 demo/application/session/*
+
+# Demo app - build artifacts
 demo/public/build/
+
+# Demo app - uploads (keep directory, ignore contents)
 !demo/public/upload/
 demo/public/upload/*
+
+# Environment variables (.sample files are tracked)
 demo/.env
 !demo/.env.sample
 __tests__/.env
 !__tests__/.env.sample
+
+# Always track .gitkeep
 !.gitkeep
-.phpunit.result.cache

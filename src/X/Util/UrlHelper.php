@@ -28,8 +28,8 @@ final class UrlHelper {
    * UrlHelper::withoutFile('//abc.com/index.html?name=foo');// => "//abc.com"
    * UrlHelper::withoutFile('//abc.com/def/index.html?name=foo');// => "//abc.com/abc"
    * ```
-   * @param string $url URL.
-   * @return string URL with filenames stripped.
+   * @param string $url URL to process.
+   * @return string URL with the filename component removed.
    */
   public static function withoutFile(string $url): string {
     $url = rtrim(strtok($url, '?'), '/');
@@ -64,8 +64,8 @@ final class UrlHelper {
    * UrlHelper::domain('//abc.com/index.html?name=foo');// "//abc.com"
    * UrlHelper::domain('//abc.com/def/index.html?name=foo');// "//abc.com"
    * ```
-   * @param string $url URL.
-   * @return string Protocol and origin taken from the URL.
+   * @param string $url URL to process.
+   * @return string Scheme and host portion of the URL (e.g., "https://abc.com").
    */
   public static function domain(string $url): string {
     $url = rtrim(strtok($url, '?'), '/');

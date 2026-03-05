@@ -214,28 +214,28 @@ and configuration files with extended query builder support.</p>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Load config.</dd>
+<dd>Load and retrieve a configuration value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Loader.html#method_database">database()</a>
     <span>
                                 &nbsp;: <abbr title="\X\Database\DB">DB</abbr>|null|false    </span>
 </dt>
-<dd>Load databse.</dd>
+<dd>Load a database connection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Loader.html#method_library">library()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Load library.</dd>
+<dd>Load one or more libraries into the CI instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Loader.html#method_model">model()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Load model.</dd>
+<dd>Load one or more models into the CI instance.</dd>
 
     </dl>
 
@@ -266,11 +266,11 @@ and configuration files with extended query builder support.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Loader.php"><a href="files/src-x-util-loader.html"><abbr title="src/X/Util/Loader.php">Loader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Load config.</p>
+        <p class="phpdocumentor-summary">Load and retrieve a configuration value.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -278,7 +278,9 @@ and configuration files with extended query builder support.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Results are cached after the first load.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -286,7 +288,7 @@ and configuration files with extended query builder support.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Name of the config file.</p>
+                    <section class="phpdocumentor-description"><p>Configuration file name (without .php extension).</p>
 </section>
 
             </dd>
@@ -295,7 +297,7 @@ and configuration files with extended query builder support.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) The name of the item in the config file to be retrieved. If omitted, an object with all items in the config file is obtained.</p>
+                    <section class="phpdocumentor-description"><p>Specific item to retrieve. Null returns all items.</p>
 </section>
 
             </dd>
@@ -307,7 +309,7 @@ and configuration files with extended query builder support.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">mixed</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Config data.</p>
+                <section class="phpdocumentor-description"><p>Configuration value, or empty string if item not found.</p>
 </section>
 
             </section>
@@ -327,11 +329,11 @@ and configuration files with extended query builder support.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Loader.php"><a href="files/src-x-util-loader.html"><abbr title="src/X/Util/Loader.php">Loader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Load databse.</p>
+        <p class="phpdocumentor-summary">Load a database connection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -347,7 +349,7 @@ and configuration files with extended query builder support.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;default&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Connection group name or database configuration options. Default is &quot;default&quot;.</p>
+                    <section class="phpdocumentor-description"><p>Connection group name or configuration array. Default is &quot;default&quot;.</p>
 </section>
 
             </dd>
@@ -356,7 +358,7 @@ and configuration files with extended query builder support.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Whether to return a DB instance. Default is false.</p>
+                    <section class="phpdocumentor-description"><p>Return the DB instance instead of assigning to CI. Default is false.</p>
 </section>
 
             </dd>
@@ -365,7 +367,7 @@ and configuration files with extended query builder support.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) An instance that overrides the existing CI_DB_query_builder.</p>
+                    <section class="phpdocumentor-description"><p>Custom query builder instance override.</p>
 </section>
 
             </dd>
@@ -374,7 +376,7 @@ and configuration files with extended query builder support.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Whether to overwrite the DB of the global CI_Controller instance with the DB instance generated this time. Default is false.</p>
+                    <section class="phpdocumentor-description"><p>Overwrite existing CI DB instance. Default is false.</p>
 </section>
 
             </dd>
@@ -386,7 +388,7 @@ and configuration files with extended query builder support.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\X\Database\DB">DB</abbr>|null|false</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Database object if return is set to true, false if return fails, null otherwise.</p>
+                <section class="phpdocumentor-description"><p>DB object if $return is true, false if already loaded, null otherwise.</p>
 </section>
 
             </section>
@@ -406,15 +408,15 @@ and configuration files with extended query builder support.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Loader.php"><a href="files/src-x-util-loader.html"><abbr title="src/X/Util/Loader.php">Loader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Load library.</p>
+        <p class="phpdocumentor-summary">Load one or more libraries into the CI instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">library</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$libraries</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">library</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$libraries</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -423,10 +425,10 @@ and configuration files with extended query builder support.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$libraries</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Library Name.</p>
+                    <section class="phpdocumentor-description"><p>Library name or array of library names.</p>
 </section>
 
             </dd>
@@ -450,15 +452,15 @@ and configuration files with extended query builder support.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Loader.php"><a href="files/src-x-util-loader.html"><abbr title="src/X/Util/Loader.php">Loader.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Load model.</p>
+        <p class="phpdocumentor-summary">Load one or more models into the CI instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">model</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$models</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">model</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$models</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -467,10 +469,10 @@ and configuration files with extended query builder support.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$models</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Model Name.</p>
+                    <section class="phpdocumentor-description"><p>Model name or array of model names.</p>
 </section>
 
             </dd>

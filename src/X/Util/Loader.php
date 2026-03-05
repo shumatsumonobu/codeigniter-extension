@@ -10,8 +10,9 @@ use \X\Util\Logger;
  */
 final class Loader {
   /**
-   * Load model.
-   * @param string|string[] $models Model Name.
+   * Load one or more models into the CI instance.
+   *
+   * @param string|string[]|null $models Model name or array of model names.
    * @return void
    */
   public static function model($models): void {
@@ -25,8 +26,9 @@ final class Loader {
   }
 
   /**
-   * Load library.
-   * @param string|string[] $libraries Library Name.
+   * Load one or more libraries into the CI instance.
+   *
+   * @param string|string[]|null $libraries Library name or array of library names.
    * @return void
    */
   public static function library($libraries): void {
@@ -40,12 +42,13 @@ final class Loader {
   }
 
   /**
-   * Load databse.
-   * @param mixed $config (optional) Connection group name or database configuration options. Default is "default".
-   * @param bool $return (optional) Whether to return a DB instance. Default is false.
-   * @param mixed $queryBuilder (optional) An instance that overrides the existing CI_DB_query_builder.
-   * @param bool $overwrite (optional) Whether to overwrite the DB of the global CI_Controller instance with the DB instance generated this time. Default is false.
-   * @return \X\Database\DB|null|false Database object if return is set to true, false if return fails, null otherwise.
+   * Load a database connection.
+   *
+   * @param mixed $config Connection group name or configuration array. Default is "default".
+   * @param bool $return Return the DB instance instead of assigning to CI. Default is false.
+   * @param mixed $queryBuilder Custom query builder instance override.
+   * @param bool $overwrite Overwrite existing CI DB instance. Default is false.
+   * @return \X\Database\DB|null|false DB object if $return is true, false if already loaded, null otherwise.
    */
   public static function database($config='default', bool $return=false, $queryBuilder=null, bool $overwrite=false) {
     $CI =& \get_instance();
@@ -67,10 +70,13 @@ final class Loader {
   }
 
   /**
-   * Load config.
-   * @param string $configFile Name of the config file.
-   * @param string|null $itemName (optional) The name of the item in the config file to be retrieved. If omitted, an object with all items in the config file is obtained.
-   * @return mixed Config data.
+   * Load and retrieve a configuration value.
+   *
+   * Results are cached after the first load.
+   *
+   * @param string $configFile Configuration file name (without .php extension).
+   * @param string|null $itemName Specific item to retrieve. Null returns all items.
+   * @return mixed Configuration value, or empty string if item not found.
    */
   public static function config(string $configFile, string $itemName=null) {
     static $config;

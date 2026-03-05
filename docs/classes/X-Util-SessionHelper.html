@@ -214,21 +214,21 @@ different serialize handlers (php, php_binary).</p>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Unserialize the session.</dd>
+<dd>Unserialize session data using regex-based splitting.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-SessionHelper.html#method_unserializePhp">unserializePhp()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Unserialize the session. When session.serialize_handler is &quot;php&quot;</dd>
+<dd>Unserialize session data for the &quot;php&quot; serialize handler.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-SessionHelper.html#method_unserializePhpBinary">unserializePhpBinary()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Unserialize the session. When session.serialize_handler is &quot;php_binary&quot;.</dd>
+<dd>Unserialize session data for the &quot;php_binary&quot; serialize handler.</dd>
 
     </dl>
 
@@ -259,11 +259,11 @@ different serialize handlers (php, php_binary).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/SessionHelper.php"><a href="files/src-x-util-sessionhelper.html"><abbr title="src/X/Util/SessionHelper.php">SessionHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Unserialize the session.</p>
+        <p class="phpdocumentor-summary">Unserialize session data using regex-based splitting.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -279,7 +279,7 @@ different serialize handlers (php, php_binary).</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Serialized session data.</p>
+                    <section class="phpdocumentor-description"><p>Serialized session string.</p>
 </section>
 
             </dd>
@@ -291,7 +291,7 @@ different serialize handlers (php, php_binary).</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Unserialized session data.</p>
+                <section class="phpdocumentor-description"><p>Associative array of session key-value pairs.</p>
 </section>
 
             </section>
@@ -311,11 +311,11 @@ different serialize handlers (php, php_binary).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/SessionHelper.php"><a href="files/src-x-util-sessionhelper.html"><abbr title="src/X/Util/SessionHelper.php">SessionHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Unserialize the session. When session.serialize_handler is &quot;php&quot;</p>
+        <p class="phpdocumentor-summary">Unserialize session data for the &quot;php&quot; serialize handler.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -323,7 +323,9 @@ different serialize handlers (php, php_binary).</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Parses the pipe-delimited format used when session.serialize_handler = &quot;php&quot;.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -331,19 +333,36 @@ different serialize handlers (php, php_binary).</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Serialized session data.</p>
+                    <section class="phpdocumentor-description"><p>Serialized session string.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-SessionHelper.html#method_unserializePhp#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If session data is malformed.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Unserialized session data.</p>
+                <section class="phpdocumentor-description"><p>Associative array of session key-value pairs.</p>
 </section>
 
             </section>
@@ -363,11 +382,11 @@ different serialize handlers (php, php_binary).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/SessionHelper.php"><a href="files/src-x-util-sessionhelper.html"><abbr title="src/X/Util/SessionHelper.php">SessionHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Unserialize the session. When session.serialize_handler is &quot;php_binary&quot;.</p>
+        <p class="phpdocumentor-summary">Unserialize session data for the &quot;php_binary&quot; serialize handler.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -375,7 +394,10 @@ different serialize handlers (php, php_binary).</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Parses the binary length-prefixed format used when
+session.serialize_handler = &quot;php_binary&quot;.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -383,7 +405,7 @@ different serialize handlers (php, php_binary).</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Serialized session data.</p>
+                    <section class="phpdocumentor-description"><p>Serialized session string.</p>
 </section>
 
             </dd>
@@ -395,7 +417,7 @@ different serialize handlers (php, php_binary).</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Unserialized session data.</p>
+                <section class="phpdocumentor-description"><p>Associative array of session key-value pairs.</p>
 </section>
 
             </section>

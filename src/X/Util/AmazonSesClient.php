@@ -101,11 +101,18 @@ class AmazonSesClient {
 
   /**
    * Initialize AmazonSesClient.
-   * @param string $options[credentials][key] AWS access key ID.
-   * @param string $options[credentials][secret] AWS secret access key.
-   * @param string $options[configuration] The name of the configuration set to use when sending the email. Default is null.
-   * @param string $options[region] The region to send service requests to.
-   * @param string $options[version] Amazon SES Version. Default is "latest".
+   *
+   * @param array{
+   *   credentials?: array{key: string, secret: string},
+   *   configuration?: string|null,
+   *   region?: string,
+   *   version?: string
+   * } $options Configuration options:
+   *   - `credentials.key`: AWS access key ID.
+   *   - `credentials.secret`: AWS secret access key.
+   *   - `configuration`: SES configuration set name. Default is null.
+   *   - `region`: AWS region for service requests.
+   *   - `version`: SES API version. Default is "latest".
    */
   public function __construct(array $options=[]) {
     $this->options = array_replace_recursive([
@@ -120,9 +127,10 @@ class AmazonSesClient {
   }
 
   /**
-   * Set charset.
-   * @param string $charset Character code of the email.
-   * @return AmazonSesClient
+   * Set the email character encoding.
+   *
+   * @param string $charset Character encoding (e.g., "UTF-8", "ISO-2022-JP").
+   * @return AmazonSesClient Method chaining.
    */
   public function charset(string $charset): AmazonSesClient {
     $this->charset = $charset;
@@ -130,10 +138,11 @@ class AmazonSesClient {
   }
 
   /**
-   * Set the sender.
+   * Set the sender address.
+   *
    * @param string $from Sender's email address.
-   * @param string $fromName Sender name.
-   * @return AmazonSesClient
+   * @param string|null $fromName Display name for the sender.
+   * @return AmazonSesClient Method chaining.
    */
   public function from(string $from, string $fromName=null): AmazonSesClient {
     $this->from = $from;
@@ -142,9 +151,10 @@ class AmazonSesClient {
   }
 
   /**
-   * Set Destination email address.
-   * @param string $to Destination email address.
-   * @return AmazonSesClient
+   * Set the recipient address.
+   *
+   * @param string|string[] $to Recipient email address or array of addresses.
+   * @return AmazonSesClient Method chaining.
    */
   public function to($to): AmazonSesClient {
     $this->to = $to;
@@ -152,9 +162,10 @@ class AmazonSesClient {
   }
 
   /**
-   * Set BCC email address.
-   * @param string $bcc BCC email address.
-   * @return AmazonSesClient
+   * Set BCC recipient address.
+   *
+   * @param string|string[] $bcc BCC email address or array of addresses.
+   * @return AmazonSesClient Method chaining.
    */
   public function bcc($bcc): AmazonSesClient {
     $this->bcc = $bcc;
@@ -162,9 +173,10 @@ class AmazonSesClient {
   }
 
   /**
-   * Set CC email address.
-   * @param string $cc CC email address.
-   * @return AmazonSesClient
+   * Set CC recipient address.
+   *
+   * @param string|string[] $cc CC email address or array of addresses.
+   * @return AmazonSesClient Method chaining.
    */
   public function cc($cc): AmazonSesClient {
     $this->cc = $cc;
@@ -172,9 +184,10 @@ class AmazonSesClient {
   }
 
   /**
-   * Set Subject.
-   * @param string $subject Subject.
-   * @return AmazonSesClient
+   * Set the email subject line.
+   *
+   * @param string $subject Subject text.
+   * @return AmazonSesClient Method chaining.
    */
   public function subject(string $subject): AmazonSesClient {
     $this->subject = $subject;
@@ -182,9 +195,10 @@ class AmazonSesClient {
   }
 
   /**
-   * Set Body.
-   * @param string $body Body.
-   * @return AmazonSesClient
+   * Set the email body text.
+   *
+   * @param string $message Email body content.
+   * @return AmazonSesClient Method chaining.
    */
   public function message(string $message): AmazonSesClient {
     $this->message = $message;
@@ -192,10 +206,14 @@ class AmazonSesClient {
   }
 
   /**
-   * Set the mail body based on XML.
-   * @param string $xmlPath Path of the XML file. Relative path from `application/views/`.
-   * @param array $params (optional) Embedded variables for subject and body text.
-   * @return AmazonSesClient
+   * Set subject and body from an XML template.
+   *
+   * The XML file should contain `<subject>` and `<message>` elements.
+   * Twig variables can be used in the template.
+   *
+   * @param string $xmlPath XML template path relative to `application/views/`.
+   * @param array $params Template variables for interpolation.
+   * @return AmazonSesClient Method chaining.
    */
   public function messageFromXml(string $xmlPath, array $params=[]): AmazonSesClient {
     static $template;
@@ -209,8 +227,12 @@ class AmazonSesClient {
   }
 
   /**
-   * Send.
-   * @return array{MessageId: string} Result of email transmission.
+   * Send the email via Amazon SES.
+   *
+   * After sending, all recipient and message fields are reset.
+   *
+   * @return \Aws\Result SES API response containing MessageId.
+   * @throws \InvalidArgumentException If the sender address is invalid.
    */
   public function send(): \Aws\Result {
     $CI =& get_instance();
@@ -255,8 +277,9 @@ class AmazonSesClient {
   }
 
   /**
-   * Get SES client instance.
-   * @return \Aws\Ses\SesClient SES client instance.
+   * Get or create singleton SES client instance.
+   *
+   * @return \Aws\Ses\SesClient Cached SES client instance.
    */
   private function client(): \Aws\Ses\SesClient {
     static $client;
@@ -270,7 +293,8 @@ class AmazonSesClient {
   }
 
   /**
-   * Reset options.
+   * Reset all message fields to defaults.
+   *
    * @return void
    */
   private function reset(): void {

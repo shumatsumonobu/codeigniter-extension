@@ -295,42 +295,42 @@ var_dump($res-&gt;response);
     <span>
                                 &nbsp;: <a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a>    </span>
 </dt>
-<dd>Send DELETE request.</dd>
+<dd>Send a DELETE request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-RestClient.html#method_get">get()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a>    </span>
 </dt>
-<dd>GET Request.</dd>
+<dd>Send a GET request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-RestClient.html#method_post">post()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a>    </span>
 </dt>
-<dd>Send POST request.</dd>
+<dd>Send a POST request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-RestClient.html#method_put">put()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a>    </span>
 </dt>
-<dd>Send PUT request.</dd>
+<dd>Send a PUT request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Util-RestClient.html#method_parse">parse()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Set response data (responseHeaders,responseRaw,response).</dd>
+<dd>Parse raw cURL response into headers, status, and body.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Util-RestClient.html#method_send">send()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a>    </span>
 </dt>
-<dd>Common Requests.</dd>
+<dd>Execute an HTTP request via cURL.</dd>
 
     </dl>
 
@@ -651,7 +651,7 @@ var_dump($res-&gt;response);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/RestClient.php"><a href="files/src-x-util-restclient.html"><abbr title="src/X/Util/RestClient.php">RestClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
@@ -659,7 +659,7 @@ var_dump($res-&gt;response);
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array{headers?: array<string,string|string[]>, parameters?: array, curl_option?: array, user_agent?: string, base_url?: string, username?: string, password?: string, ssl?: array{cert_file?: string, ca_file?: string, secret_key_file?: string, secret_key_passphrase?: string}}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -668,10 +668,30 @@ var_dump($res-&gt;response);
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array{headers?: array<string,string|string[]>, parameters?: array, curl_option?: array, user_agent?: string, base_url?: string, username?: string, password?: string, ssl?: array{cert_file?: string, ca_file?: string, secret_key_file?: string, secret_key_passphrase?: string}}</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Configuration options:</p>
+<ul>
+<li>
+<code class="prettyprint">headers</code>: Default HTTP headers for all requests.</li>
+<li>
+<code class="prettyprint">parameters</code>: Default parameters (query for GET, body for POST/PUT).</li>
+<li>
+<code class="prettyprint">curl_option</code>: Additional cURL options.</li>
+<li>
+<code class="prettyprint">user_agent</code>: User agent string. Default is &quot;PHP RestClient&quot;.</li>
+<li>
+<code class="prettyprint">base_url</code>: Base URL prepended to all request URLs.</li>
+<li>
+<code class="prettyprint">username</code>: Basic auth username.</li>
+<li>
+<code class="prettyprint">password</code>: Basic auth password.</li>
+<li>
+<code class="prettyprint">ssl</code>: SSL client certificate settings (cert_file, ca_file, secret_key_file, secret_key_passphrase).</li>
+</ul>
+</section>
+
             </dd>
             </dl>
 
@@ -693,15 +713,15 @@ var_dump($res-&gt;response);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/RestClient.php"><a href="files/src-x-util-restclient.html"><abbr title="src/X/Util/RestClient.php">RestClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">158</span>
+    <span class="phpdocumentor-element-found-in__line">174</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Send DELETE request.</p>
+        <p class="phpdocumentor-summary">Send a DELETE request.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -713,16 +733,16 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Request URL.</p>
+                    <section class="phpdocumentor-description"><p>Request URL (appended to base_url if set).</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Request Body.</p>
+                    <section class="phpdocumentor-description"><p>Request body parameters.</p>
 </section>
 
             </dd>
@@ -731,17 +751,38 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Request headers.</p>
+                    <section class="phpdocumentor-description"><p>Additional request headers.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-RestClient.html#method_delete#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/X-Exception-RestClientException.html"><abbr title="\X\Exception\RestClientException">RestClientException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If response status is not 2xx/3xx.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Cloned instance with response data populated.</p>
+</section>
+
             </section>
 
 </article>
@@ -759,15 +800,15 @@ var_dump($res-&gt;response);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/RestClient.php"><a href="files/src-x-util-restclient.html"><abbr title="src/X/Util/RestClient.php">RestClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">GET Request.</p>
+        <p class="phpdocumentor-summary">Send a GET request.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -779,16 +820,16 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Request URL.</p>
+                    <section class="phpdocumentor-description"><p>Request URL (appended to base_url if set).</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Query Parameters.</p>
+                    <section class="phpdocumentor-description"><p>Query parameters.</p>
 </section>
 
             </dd>
@@ -797,17 +838,38 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Request headers.</p>
+                    <section class="phpdocumentor-description"><p>Additional request headers.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-RestClient.html#method_get#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/X-Exception-RestClientException.html"><abbr title="\X\Exception\RestClientException">RestClientException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If response status is not 2xx/3xx.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Cloned instance with response data populated.</p>
+</section>
+
             </section>
 
 </article>
@@ -825,15 +887,15 @@ var_dump($res-&gt;response);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/RestClient.php"><a href="files/src-x-util-restclient.html"><abbr title="src/X/Util/RestClient.php">RestClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">136</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Send POST request.</p>
+        <p class="phpdocumentor-summary">Send a POST request.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">post</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">post</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -845,16 +907,16 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Request URL.</p>
+                    <section class="phpdocumentor-description"><p>Request URL (appended to base_url if set).</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Request Body.</p>
+                    <section class="phpdocumentor-description"><p>Request body parameters.</p>
 </section>
 
             </dd>
@@ -863,17 +925,38 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Request headers.</p>
+                    <section class="phpdocumentor-description"><p>Additional request headers.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-RestClient.html#method_post#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/X-Exception-RestClientException.html"><abbr title="\X\Exception\RestClientException">RestClientException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If response status is not 2xx/3xx.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Cloned instance with response data populated.</p>
+</section>
+
             </section>
 
 </article>
@@ -891,15 +974,15 @@ var_dump($res-&gt;response);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/RestClient.php"><a href="files/src-x-util-restclient.html"><abbr title="src/X/Util/RestClient.php">RestClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">161</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Send PUT request.</p>
+        <p class="phpdocumentor-summary">Send a PUT request.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">put</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">put</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -911,16 +994,16 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Request URL.</p>
+                    <section class="phpdocumentor-description"><p>Request URL (appended to base_url if set).</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Request Body.</p>
+                    <section class="phpdocumentor-description"><p>Request body parameters.</p>
 </section>
 
             </dd>
@@ -929,17 +1012,38 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Request headers.</p>
+                    <section class="phpdocumentor-description"><p>Additional request headers.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-RestClient.html#method_put#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/X-Exception-RestClientException.html"><abbr title="\X\Exception\RestClientException">RestClientException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If response status is not 2xx/3xx.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Cloned instance with response data populated.</p>
+</section>
+
             </section>
 
 </article>
@@ -957,11 +1061,11 @@ var_dump($res-&gt;response);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/RestClient.php"><a href="files/src-x-util-restclient.html"><abbr title="src/X/Util/RestClient.php">RestClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">260</span>
+    <span class="phpdocumentor-element-found-in__line">279</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set response data (responseHeaders,responseRaw,response).</p>
+        <p class="phpdocumentor-summary">Parse raw cURL response into headers, status, and body.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -977,7 +1081,7 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Response data (curl_exec($ch)).</p>
+                    <section class="phpdocumentor-description"><p>Raw response from curl_exec().</p>
 </section>
 
             </dd>
@@ -1001,15 +1105,15 @@ var_dump($res-&gt;response);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/RestClient.php"><a href="files/src-x-util-restclient.html"><abbr title="src/X/Util/RestClient.php">RestClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Common Requests.</p>
+        <p class="phpdocumentor-summary">Execute an HTTP request via cURL.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">send</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">send</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1030,16 +1134,16 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>HTTP Method.</p>
+                    <section class="phpdocumentor-description"><p>HTTP method (GET, POST, PUT, DELETE).</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Query parameter in case of GET, request body otherwise.</p>
+                    <section class="phpdocumentor-description"><p>Query parameters (GET) or request body (POST/PUT/DELETE).</p>
 </section>
 
             </dd>
@@ -1048,17 +1152,38 @@ var_dump($res-&gt;response);
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Request headers.</p>
+                    <section class="phpdocumentor-description"><p>Additional request headers.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-RestClient.html#method_send#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/X-Exception-RestClientException.html"><abbr title="\X\Exception\RestClientException">RestClientException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If response status is not 2xx/3xx.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-RestClient.html"><abbr title="\X\Util\RestClient">RestClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Cloned instance with response data populated.</p>
+</section>
+
             </section>
 
 </article>

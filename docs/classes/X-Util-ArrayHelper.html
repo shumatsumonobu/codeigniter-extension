@@ -221,7 +221,7 @@ sorting, filtering, and text table generation.</p>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Randomly takes elements out of an array. The array passed as an argument is also modified.</dd>
+<dd>Remove and return a random element from an array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-ArrayHelper.html#method_grouping">grouping()</a>
@@ -235,14 +235,14 @@ sorting, filtering, and text table generation.</p>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Returns true if the subscript is an array starting from 0.</dd>
+<dd>Check if an array is a sequential (non-associative) array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-ArrayHelper.html#method_resetArrayKeys">resetArrayKeys()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Reset array keys (0,1,2...).</dd>
+<dd>Re-index array with sequential numeric keys starting from 0.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-ArrayHelper.html#method_searchArrayByKey">searchArrayByKey()</a>
@@ -287,7 +287,7 @@ sorting, filtering, and text table generation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/ArrayHelper.php"><a href="files/src-x-util-arrayhelper.html"><abbr title="src/X/Util/ArrayHelper.php">ArrayHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">184</span>
 
     </aside>
 
@@ -386,11 +386,11 @@ print_r($staff);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/ArrayHelper.php"><a href="files/src-x-util-arrayhelper.html"><abbr title="src/X/Util/ArrayHelper.php">ArrayHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Randomly takes elements out of an array. The array passed as an argument is also modified.</p>
+        <p class="phpdocumentor-summary">Remove and return a random element from an array.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -398,7 +398,9 @@ print_r($staff);
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>The original array is modified (the element is removed).</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -406,7 +408,7 @@ print_r($staff);
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Array.</p>
+                    <section class="phpdocumentor-description"><p>Array to extract from (modified in place).</p>
 </section>
 
             </dd>
@@ -418,7 +420,7 @@ print_r($staff);
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">mixed</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Array elements.</p>
+                <section class="phpdocumentor-description"><p>The extracted element, or null if array is empty.</p>
 </section>
 
             </section>
@@ -438,7 +440,7 @@ print_r($staff);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/ArrayHelper.php"><a href="files/src-x-util-arrayhelper.html"><abbr title="src/X/Util/ArrayHelper.php">ArrayHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
@@ -520,11 +522,11 @@ ArrayHelper::grouping($foods, 'category');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/ArrayHelper.php"><a href="files/src-x-util-arrayhelper.html"><abbr title="src/X/Util/ArrayHelper.php">ArrayHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns true if the subscript is an array starting from 0.</p>
+        <p class="phpdocumentor-summary">Check if an array is a sequential (non-associative) array.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -540,7 +542,7 @@ ArrayHelper::grouping($foods, 'category');
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Array.</p>
+                    <section class="phpdocumentor-description"><p>Array to check.</p>
 </section>
 
             </dd>
@@ -552,7 +554,7 @@ ArrayHelper::grouping($foods, 'category');
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Returns true for vector arrays.</p>
+                <section class="phpdocumentor-description"><p>True if keys are sequential integers starting from 0.</p>
 </section>
 
             </section>
@@ -572,11 +574,11 @@ ArrayHelper::grouping($foods, 'category');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/ArrayHelper.php"><a href="files/src-x-util-arrayhelper.html"><abbr title="src/X/Util/ArrayHelper.php">ArrayHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Reset array keys (0,1,2...).</p>
+        <p class="phpdocumentor-summary">Re-index array with sequential numeric keys starting from 0.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -592,7 +594,7 @@ ArrayHelper::grouping($foods, 'category');
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Array.</p>
+                    <section class="phpdocumentor-description"><p>Array to re-index.</p>
 </section>
 
             </dd>
@@ -604,7 +606,7 @@ ArrayHelper::grouping($foods, 'category');
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Array.</p>
+                <section class="phpdocumentor-description"><p>Re-indexed array.</p>
 </section>
 
             </section>
@@ -704,7 +706,7 @@ ArrayHelper::searchArrayByKey('USA', [
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/ArrayHelper.php"><a href="files/src-x-util-arrayhelper.html"><abbr title="src/X/Util/ArrayHelper.php">ArrayHelper.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 

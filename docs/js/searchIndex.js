@@ -1133,27 +1133,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Model\\SessionModel\u003A\u003AgetUser\u0028\u0029",
             "name": "getUser",
-            "summary": "Callback\u0020set\u0020session.",
+            "summary": "Retrieve\u0020user\u0020data\u0020by\u0020ID\u0020for\u0020session\u0020storage.",
             "url": "classes/X-Model-SessionModel.html#method_getUser"
         },                {
             "fqsen": "\\X\\Model\\SessionModel\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "Set\u0020session.",
+            "summary": "Set\u0020session\u0020data.",
             "url": "classes/X-Model-SessionModel.html#method_set"
         },                {
             "fqsen": "\\X\\Model\\SessionModel\u003A\u003Aunset\u0028\u0029",
             "name": "unset",
-            "summary": "Session\u0020discarded.",
+            "summary": "Destroy\u0020the\u0020current\u0020user\u0020session.",
             "url": "classes/X-Model-SessionModel.html#method_unset"
         },                {
             "fqsen": "\\X\\Model\\SessionModel\u003A\u003Aisset\u0028\u0029",
             "name": "isset",
-            "summary": "Isset\u0020session.",
+            "summary": "Check\u0020if\u0020a\u0020user\u0020session\u0020exists.",
             "url": "classes/X-Model-SessionModel.html#method_isset"
         },                {
             "fqsen": "\\X\\Model\\SessionModel\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "Get\u0020session.",
+            "summary": "Get\u0020session\u0020data.",
             "url": "classes/X-Model-SessionModel.html#method_get"
         },                {
             "fqsen": "\\X\\Model\\SessionModel\u003A\u003ASESSION_NAME",
@@ -1168,22 +1168,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Model\\SessionModelInterface\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "Set\u0020session.",
+            "summary": "Set\u0020session\u0020data.",
             "url": "classes/X-Model-SessionModelInterface.html#method_set"
         },                {
             "fqsen": "\\X\\Model\\SessionModelInterface\u003A\u003Aunset\u0028\u0029",
             "name": "unset",
-            "summary": "Session\u0020discarded.",
+            "summary": "Destroy\u0020the\u0020current\u0020user\u0020session.",
             "url": "classes/X-Model-SessionModelInterface.html#method_unset"
         },                {
             "fqsen": "\\X\\Model\\SessionModelInterface\u003A\u003Aisset\u0028\u0029",
             "name": "isset",
-            "summary": "Isset\u0020session.",
+            "summary": "Check\u0020if\u0020a\u0020user\u0020session\u0020exists.",
             "url": "classes/X-Model-SessionModelInterface.html#method_isset"
         },                {
             "fqsen": "\\X\\Model\\SessionModelInterface\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "Get\u0020session.",
+            "summary": "Get\u0020session\u0020data.",
             "url": "classes/X-Model-SessionModelInterface.html#method_get"
         },                {
             "fqsen": "\\X\\Rekognition\\Client",
@@ -1198,77 +1198,77 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AaddCollection\u0028\u0029",
             "name": "addCollection",
-            "summary": "Add\u0020a\u0020collection.",
+            "summary": "Create\u0020a\u0020face\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_addCollection"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AgetCollection\u0028\u0029",
             "name": "getCollection",
-            "summary": "Get\u0020Collection.",
+            "summary": "Describe\u0020a\u0020face\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_getCollection"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AgetAllCollections\u0028\u0029",
             "name": "getAllCollections",
-            "summary": "Get\u0020all\u0020collections.",
+            "summary": "List\u0020all\u0020face\u0020collection\u0020IDs.",
             "url": "classes/X-Rekognition-Client.html#method_getAllCollections"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AdeleteCollection\u0028\u0029",
             "name": "deleteCollection",
-            "summary": "Delete\u0020a\u0020collection.",
+            "summary": "Delete\u0020a\u0020face\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_deleteCollection"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AexistsCollection\u0028\u0029",
             "name": "existsCollection",
-            "summary": "Check\u0020if\u0020a\u0020collection\u0020exists.",
+            "summary": "Check\u0020if\u0020a\u0020face\u0020collection\u0020exists.",
             "url": "classes/X-Rekognition-Client.html#method_existsCollection"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AaddFaceToCollection\u0028\u0029",
             "name": "addFaceToCollection",
-            "summary": "Add\u0020a\u0020face\u0020to\u0020the\u0020collection.",
+            "summary": "Add\u0020a\u0020face\u0020to\u0020a\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_addFaceToCollection"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AgetAllFacesFromCollection\u0028\u0029",
             "name": "getAllFacesFromCollection",
-            "summary": "Get\u0020face\u0020data\u0020from\u0020a\u0020collection.",
+            "summary": "List\u0020all\u0020faces\u0020in\u0020a\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_getAllFacesFromCollection"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AgetFaceFromCollectionByImage\u0028\u0029",
             "name": "getFaceFromCollectionByImage",
-            "summary": "Get\u0020the\u0020face\u0020data\u0020most\u0020similar\u0020to\u0020the\u0020face\u0020image\u0020from\u0020the\u0020collection.",
+            "summary": "Search\u0020for\u0020the\u0020most\u0020similar\u0020face\u0020in\u0020a\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_getFaceFromCollectionByImage"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AgetMultipleFacesFromCollectionByImage\u0028\u0029",
             "name": "getMultipleFacesFromCollectionByImage",
-            "summary": "Get\u0020all\u0020face\u0020data\u0020from\u0020the\u0020collection\u0020that\u0020are\u0020similar\u0020to\u0020the\u0020face\u0020image.",
+            "summary": "Search\u0020for\u0020all\u0020similar\u0020faces\u0020in\u0020a\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_getMultipleFacesFromCollectionByImage"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AexistsFaceFromCollection\u0028\u0029",
             "name": "existsFaceFromCollection",
-            "summary": "Check\u0020if\u0020a\u0020face\u0020exists\u0020in\u0020the\u0020collection.",
+            "summary": "Check\u0020if\u0020a\u0020matching\u0020face\u0020exists\u0020in\u0020a\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_existsFaceFromCollection"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AdeleteFaceFromCollection\u0028\u0029",
             "name": "deleteFaceFromCollection",
-            "summary": "Delete\u0020a\u0020face\u0020from\u0020the\u0020collection.",
+            "summary": "Delete\u0020faces\u0020from\u0020a\u0020collection.",
             "url": "classes/X-Rekognition-Client.html#method_deleteFaceFromCollection"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AgenerateCollectionId\u0028\u0029",
             "name": "generateCollectionId",
-            "summary": "Generate\u0020collection\u0020ID.",
+            "summary": "Generate\u0020a\u0020unique\u0020collection\u0020ID.",
             "url": "classes/X-Rekognition-Client.html#method_generateCollectionId"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AcompareFaces\u0028\u0029",
             "name": "compareFaces",
-            "summary": "Comparison\u0020of\u0020faces.",
+            "summary": "Compare\u0020two\u0020face\u0020images\u0020for\u0020similarity.",
             "url": "classes/X-Rekognition-Client.html#method_compareFaces"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AdetectionFaces\u0028\u0029",
             "name": "detectionFaces",
-            "summary": "Face\u0020detection.",
+            "summary": "Detect\u0020faces\u0020in\u0020an\u0020image.",
             "url": "classes/X-Rekognition-Client.html#method_detectionFaces"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003AgetNumberOfFaces\u0028\u0029",
             "name": "getNumberOfFaces",
-            "summary": "Get\u0020the\u0020number\u0020of\u0020faces\u0020in\u0020the\u0020image.",
+            "summary": "Count\u0020the\u0020number\u0020of\u0020faces\u0020detected\u0020in\u0020an\u0020image.",
             "url": "classes/X-Rekognition-Client.html#method_getNumberOfFaces"
         },                {
             "fqsen": "\\X\\Rekognition\\Client\u003A\u003A\u0024client",
@@ -1328,22 +1328,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003AmessageFromXml\u0028\u0029",
             "name": "messageFromXml",
-            "summary": "Set\u0020the\u0020mail\u0020body\u0020based\u0020on\u0020XML.",
+            "summary": "Set\u0020subject\u0020and\u0020body\u0020from\u0020an\u0020XML\u0020template.",
             "url": "classes/X-Util-AmazonSesClient.html#method_messageFromXml"
         },                {
             "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003Asend\u0028\u0029",
             "name": "send",
-            "summary": "Send.",
+            "summary": "Send\u0020the\u0020email\u0020via\u0020Amazon\u0020SES.",
             "url": "classes/X-Util-AmazonSesClient.html#method_send"
         },                {
             "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003Aclient\u0028\u0029",
             "name": "client",
-            "summary": "Get\u0020SES\u0020client\u0020instance.",
+            "summary": "Get\u0020or\u0020create\u0020singleton\u0020SES\u0020client\u0020instance.",
             "url": "classes/X-Util-AmazonSesClient.html#method_client"
         },                {
             "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003Areset\u0028\u0029",
             "name": "reset",
-            "summary": "Reset\u0020options.",
+            "summary": "Reset\u0020all\u0020message\u0020fields\u0020to\u0020defaults.",
             "url": "classes/X-Util-AmazonSesClient.html#method_reset"
         },                {
             "fqsen": "\\X\\Util\\AmazonSesClient\u003A\u003A\u0024options",
@@ -1368,12 +1368,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\ArrayHelper\u003A\u003AresetArrayKeys\u0028\u0029",
             "name": "resetArrayKeys",
-            "summary": "Reset\u0020array\u0020keys\u0020\u00280,1,2...\u0029.",
+            "summary": "Re\u002Dindex\u0020array\u0020with\u0020sequential\u0020numeric\u0020keys\u0020starting\u0020from\u00200.",
             "url": "classes/X-Util-ArrayHelper.html#method_resetArrayKeys"
         },                {
             "fqsen": "\\X\\Util\\ArrayHelper\u003A\u003AgetRandomValue\u0028\u0029",
             "name": "getRandomValue",
-            "summary": "Randomly\u0020takes\u0020elements\u0020out\u0020of\u0020an\u0020array.\u0020The\u0020array\u0020passed\u0020as\u0020an\u0020argument\u0020is\u0020also\u0020modified.",
+            "summary": "Remove\u0020and\u0020return\u0020a\u0020random\u0020element\u0020from\u0020an\u0020array.",
             "url": "classes/X-Util-ArrayHelper.html#method_getRandomValue"
         },                {
             "fqsen": "\\X\\Util\\ArrayHelper\u003A\u003Agrouping\u0028\u0029",
@@ -1383,7 +1383,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\ArrayHelper\u003A\u003AisVector\u0028\u0029",
             "name": "isVector",
-            "summary": "Returns\u0020true\u0020if\u0020the\u0020subscript\u0020is\u0020an\u0020array\u0020starting\u0020from\u00200.",
+            "summary": "Check\u0020if\u0020an\u0020array\u0020is\u0020a\u0020sequential\u0020\u0028non\u002Dassociative\u0029\u0020array.",
             "url": "classes/X-Util-ArrayHelper.html#method_isVector"
         },                {
             "fqsen": "\\X\\Util\\ArrayHelper\u003A\u003AtoTable\u0028\u0029",
@@ -1403,27 +1403,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003Aencode_sha256\u0028\u0029",
             "name": "encode_sha256",
-            "summary": "Encode\u0020with\u0020SHA\u002D256.",
+            "summary": "Generate\u0020SHA\u002D256\u0020hash\u0020with\u0020a\u0020secret\u0020key.",
             "url": "classes/X-Util-Cipher.html#method_encode_sha256"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003AgenerateInitialVector\u0028\u0029",
             "name": "generateInitialVector",
-            "summary": "Generate\u0020IV.",
+            "summary": "Generate\u0020a\u0020cryptographic\u0020initialization\u0020vector\u0020\u0028IV\u0029.",
             "url": "classes/X-Util-Cipher.html#method_generateInitialVector"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003Aencrypt\u0028\u0029",
             "name": "encrypt",
-            "summary": "Encryption.",
+            "summary": "Encrypt\u0020a\u0020string\u0020using\u0020symmetric\u0020encryption.",
             "url": "classes/X-Util-Cipher.html#method_encrypt"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003Adecrypt\u0028\u0029",
             "name": "decrypt",
-            "summary": "Decryption.",
+            "summary": "Decrypt\u0020a\u0020string\u0020encrypted\u0020with\u0020symmetric\u0020encryption.",
             "url": "classes/X-Util-Cipher.html#method_decrypt"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003AgenerateKey\u0028\u0029",
             "name": "generateKey",
-            "summary": "Generate\u0020a\u0020random\u0020key.",
+            "summary": "Generate\u0020a\u0020random\u0020base64\u002Dencoded\u0020key.",
             "url": "classes/X-Util-Cipher.html#method_generateKey"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003AgenerateKeyPair\u0028\u0029",
@@ -1433,22 +1433,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003AencodeOpenSshPublicKey\u0028\u0029",
             "name": "encodeOpenSshPublicKey",
-            "summary": "Encode\u0020OpenSSH\u0020public\u0020key.",
+            "summary": "Convert\u0020a\u0020PEM\u0020private\u0020key\u0020to\u0020OpenSSH\u0020public\u0020key\u0020format.",
             "url": "classes/X-Util-Cipher.html#method_encodeOpenSshPublicKey"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003AencodeOpenSshBuffer\u0028\u0029",
             "name": "encodeOpenSshBuffer",
-            "summary": "OpenSSH\u0020encode\u0020the\u0020buffer.",
+            "summary": "Encode\u0020a\u0020binary\u0020buffer\u0020in\u0020OpenSSH\u0020wire\u0020format.",
             "url": "classes/X-Util-Cipher.html#method_encodeOpenSshBuffer"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003ArandStr\u0028\u0029",
             "name": "randStr",
-            "summary": "Generate\u0020a\u0020random\u0020string.",
+            "summary": "Generate\u0020a\u0020cryptographically\u0020secure\u0020random\u0020string.",
             "url": "classes/X-Util-Cipher.html#method_randStr"
         },                {
             "fqsen": "\\X\\Util\\Cipher\u003A\u003ArandToken68\u0028\u0029",
             "name": "randToken68",
-            "summary": "Generate\u0020a\u0020random\u0020token68\u0020string.",
+            "summary": "Generate\u0020a\u0020random\u0020token68\u002Dcompliant\u0020string.",
             "url": "classes/X-Util-Cipher.html#method_randToken68"
         },                {
             "fqsen": "\\X\\Util\\CsvHelper",
@@ -1458,12 +1458,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\CsvHelper\u003A\u003AputRow\u0028\u0029",
             "name": "putRow",
-            "summary": "Put\u0020row.",
+            "summary": "Append\u0020a\u0020row\u0020to\u0020a\u0020CSV\u0020file.",
             "url": "classes/X-Util-CsvHelper.html#method_putRow"
         },                {
             "fqsen": "\\X\\Util\\CsvHelper\u003A\u003Aread\u0028\u0029",
             "name": "read",
-            "summary": "Read\u0020the\u0020CSV.",
+            "summary": "Read\u0020all\u0020rows\u0020from\u0020a\u0020CSV\u0020file.",
             "url": "classes/X-Util-CsvHelper.html#method_read"
         },                {
             "fqsen": "\\X\\Util\\DateHelper",
@@ -1488,67 +1488,67 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
-            "summary": "Initialize\u0020EMail.",
+            "summary": "Initialize\u0020the\u0020email\u0020library\u0020with\u0020custom\u0020settings.",
             "url": "classes/X-Util-EMail.html#method_initialize"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Asend\u0028\u0029",
             "name": "send",
-            "summary": "Send.",
+            "summary": "Send\u0020the\u0020email.",
             "url": "classes/X-Util-EMail.html#method_send"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Afrom\u0028\u0029",
             "name": "from",
-            "summary": "Set\u0020the\u0020sender.",
+            "summary": "Set\u0020the\u0020sender\u0020address.",
             "url": "classes/X-Util-EMail.html#method_from"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Ato\u0028\u0029",
             "name": "to",
-            "summary": "Set\u0020Destination\u0020email\u0020address.",
+            "summary": "Set\u0020the\u0020recipient\u0020address.",
             "url": "classes/X-Util-EMail.html#method_to"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Abcc\u0028\u0029",
             "name": "bcc",
-            "summary": "Set\u0020BCC\u0020email\u0020address.",
+            "summary": "Set\u0020BCC\u0020recipient\u0020address.",
             "url": "classes/X-Util-EMail.html#method_bcc"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Asubject\u0028\u0029",
             "name": "subject",
-            "summary": "Set\u0020Subject.",
+            "summary": "Set\u0020the\u0020email\u0020subject\u0020line.",
             "url": "classes/X-Util-EMail.html#method_subject"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Amessage\u0028\u0029",
             "name": "message",
-            "summary": "Set\u0020Body.",
+            "summary": "Set\u0020the\u0020email\u0020body\u0020text.",
             "url": "classes/X-Util-EMail.html#method_message"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003AmessageFromTemplate\u0028\u0029",
             "name": "messageFromTemplate",
-            "summary": "Set\u0020the\u0020mail\u0020body\u0020based\u0020on\u0020Template.",
+            "summary": "Set\u0020the\u0020email\u0020body\u0020from\u0020a\u0020Twig\u0020template.",
             "url": "classes/X-Util-EMail.html#method_messageFromTemplate"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003AmessageFromXml\u0028\u0029",
             "name": "messageFromXml",
-            "summary": "Set\u0020the\u0020mail\u0020body\u0020based\u0020on\u0020XML.",
+            "summary": "Set\u0020subject\u0020and\u0020body\u0020from\u0020an\u0020XML\u0020template.",
             "url": "classes/X-Util-EMail.html#method_messageFromXml"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003AsetMailType\u0028\u0029",
             "name": "setMailType",
-            "summary": "Set\u0020mail\u0020type.",
+            "summary": "Set\u0020the\u0020email\u0020content\u0020type.",
             "url": "classes/X-Util-EMail.html#method_setMailType"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Aattach\u0028\u0029",
             "name": "attach",
-            "summary": "Assign\u0020file\u0020attachments.",
+            "summary": "Add\u0020a\u0020file\u0020attachment.",
             "url": "classes/X-Util-EMail.html#method_attach"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003AattachmentCid\u0028\u0029",
             "name": "attachmentCid",
-            "summary": "Set\u0020and\u0020return\u0020attachment\u0020Content\u002DID.\u0020Useful\u0020for\u0020attached\u0020inline\u0020pictures.",
+            "summary": "Get\u0020the\u0020Content\u002DID\u0020for\u0020an\u0020inline\u0020attachment.",
             "url": "classes/X-Util-EMail.html#method_attachmentCid"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Aemail\u0028\u0029",
             "name": "email",
-            "summary": "Get\u0020CI_Email\u0020instance.",
+            "summary": "Get\u0020or\u0020create\u0020singleton\u0020CI_Email\u0020instance.",
             "url": "classes/X-Util-EMail.html#method_email"
         },                {
             "fqsen": "\\X\\Util\\EMail\u003A\u003Atemplate\u0028\u0029",
@@ -1568,22 +1568,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AmakeDirectory\u0028\u0029",
             "name": "makeDirectory",
-            "summary": "Make\u0020directory.",
+            "summary": "Create\u0020a\u0020directory\u0020recursively.",
             "url": "classes/X-Util-FileHelper.html#method_makeDirectory"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003Amove\u0028\u0029",
             "name": "move",
-            "summary": "Move\u0020a\u0020file\u0020or\u0020directory.",
+            "summary": "Move\u0020\u0028rename\u0029\u0020a\u0020file\u0020or\u0020directory.",
             "url": "classes/X-Util-FileHelper.html#method_move"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AcopyFile\u0028\u0029",
             "name": "copyFile",
-            "summary": "Copy\u0020file.",
+            "summary": "Copy\u0020a\u0020single\u0020file.",
             "url": "classes/X-Util-FileHelper.html#method_copyFile"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AcopyDirectory\u0028\u0029",
             "name": "copyDirectory",
-            "summary": "Copy\u0020directory.",
+            "summary": "Copy\u0020a\u0020directory\u0020recursively.",
             "url": "classes/X-Util-FileHelper.html#method_copyDirectory"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003Adelete\u0028\u0029",
@@ -1593,7 +1593,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003Areplace\u0028\u0029",
             "name": "replace",
-            "summary": "Replace\u0020file\u0020content.",
+            "summary": "Replace\u0020strings\u0020in\u0020a\u0020file\u0020using\u0020search\/replace\u0020pairs.",
             "url": "classes/X-Util-FileHelper.html#method_replace"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003Afind\u0028\u0029",
@@ -1603,27 +1603,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AfindOne\u0028\u0029",
             "name": "findOne",
-            "summary": "Find\u0020only\u0020one\u0020file.",
+            "summary": "Find\u0020a\u0020single\u0020file\u0020matching\u0020a\u0020glob\u0020pattern.",
             "url": "classes/X-Util-FileHelper.html#method_findOne"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AfindRandomFileName\u0028\u0029",
             "name": "findRandomFileName",
-            "summary": "One\u0020is\u0020taken\u0020at\u0020random\u0020from\u0020the\u0020files\u0020matching\u0020the\u0020pattern.",
+            "summary": "Get\u0020a\u0020random\u0020filename\u0020from\u0020files\u0020matching\u0020a\u0020glob\u0020pattern.",
             "url": "classes/X-Util-FileHelper.html#method_findRandomFileName"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AgetRandomFileContent\u0028\u0029",
             "name": "getRandomFileContent",
-            "summary": "Get\u0020the\u0020contents\u0020of\u0020one\u0020file\u0020taken\u0020at\u0020random\u0020from\u0020the\u0020files\u0020matching\u0020the\u0020pattern.",
+            "summary": "Read\u0020the\u0020contents\u0020of\u0020a\u0020random\u0020file\u0020matching\u0020a\u0020glob\u0020pattern.",
             "url": "classes/X-Util-FileHelper.html#method_getRandomFileContent"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AgetMimeByConent\u0028\u0029",
             "name": "getMimeByConent",
-            "summary": "Get\u0020the\u0020MIME\u0020type\u0020predicted\u0020from\u0020the\u0020content\u0020of\u0020the\u0020file.",
+            "summary": "Detect\u0020MIME\u0020type\u0020from\u0020file\u0020content\u0020using\u0020finfo.",
             "url": "classes/X-Util-FileHelper.html#method_getMimeByConent"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AvalidationMime\u0028\u0029",
             "name": "validationMime",
-            "summary": "Check\u0020if\u0020the\u0020file\u0020is\u0020of\u0020the\u0020specified\u0020Mime\u0020type.",
+            "summary": "Validate\u0020that\u0020a\u0020file\u0020matches\u0020the\u0020expected\u0020MIME\u0020type.",
             "url": "classes/X-Util-FileHelper.html#method_validationMime"
         },                {
             "fqsen": "\\X\\Util\\FileHelper\u003A\u003AgetDirectorySize\u0028\u0029",
@@ -1713,57 +1713,57 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "Set\u0020response.",
+            "summary": "Set\u0020response\u0020data.",
             "url": "classes/X-Util-HttpResponse.html#method_set"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Aclear\u0028\u0029",
             "name": "clear",
-            "summary": "Clear\u0020response.",
+            "summary": "Clear\u0020all\u0020response\u0020data.",
             "url": "classes/X-Util-HttpResponse.html#method_clear"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Astatus\u0028\u0029",
             "name": "status",
-            "summary": "Set\u0020HTTP\u0020status.",
+            "summary": "Set\u0020the\u0020HTTP\u0020response\u0020status\u0020code.",
             "url": "classes/X-Util-HttpResponse.html#method_status"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Ajson\u0028\u0029",
             "name": "json",
-            "summary": "Response\u0020JSON.",
+            "summary": "Send\u0020JSON\u0020response.",
             "url": "classes/X-Util-HttpResponse.html#method_json"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Ahtml\u0028\u0029",
             "name": "html",
-            "summary": "Response\u0020HTML.",
+            "summary": "Send\u0020HTML\u0020response.",
             "url": "classes/X-Util-HttpResponse.html#method_html"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Aview\u0028\u0029",
             "name": "view",
-            "summary": "Responds\u0020with\u0020the\u0020result\u0020of\u0020compiling\u0020the\u0020specified\u0020template\u0020into\u0020HTML.",
+            "summary": "Render\u0020a\u0020Twig\u0020template\u0020and\u0020send\u0020as\u0020HTML\u0020response.",
             "url": "classes/X-Util-HttpResponse.html#method_view"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Ajs\u0028\u0029",
             "name": "js",
-            "summary": "Response\u0020js.",
+            "summary": "Send\u0020JavaScript\u0020response.",
             "url": "classes/X-Util-HttpResponse.html#method_js"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Atext\u0028\u0029",
             "name": "text",
-            "summary": "Response\u0020Plain\u0020text.",
+            "summary": "Send\u0020plain\u0020text\u0020response.",
             "url": "classes/X-Util-HttpResponse.html#method_text"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Adownload\u0028\u0029",
             "name": "download",
-            "summary": "Download\u0020file.",
+            "summary": "Send\u0020file\u0020download\u0020response.",
             "url": "classes/X-Util-HttpResponse.html#method_download"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Aimage\u0028\u0029",
             "name": "image",
-            "summary": "Response\u0020image.",
+            "summary": "Send\u0020image\u0020response\u0020with\u0020appropriate\u0020Content\u002DType.",
             "url": "classes/X-Util-HttpResponse.html#method_image"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003Aerror\u0028\u0029",
             "name": "error",
-            "summary": "Error\u0020response.",
+            "summary": "Send\u0020error\u0020response.",
             "url": "classes/X-Util-HttpResponse.html#method_error"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003AinternalRedirect\u0028\u0029",
@@ -1773,7 +1773,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003AsetCorsHeader\u0028\u0029",
             "name": "setCorsHeader",
-            "summary": "Sets\u0020the\u0020CORS\u0020header.",
+            "summary": "Set\u0020CORS\u0020\u0028Cross\u002DOrigin\u0020Resource\u0020Sharing\u0029\u0020headers.",
             "url": "classes/X-Util-HttpResponse.html#method_setCorsHeader"
         },                {
             "fqsen": "\\X\\Util\\HttpResponse\u003A\u003A\u0024data",
@@ -1848,7 +1848,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\ImageHelper\u003A\u003Apdf2Image\u0028\u0029",
             "name": "pdf2Image",
-            "summary": "Convert\u0020PDF\u0020to\u0020image.",
+            "summary": "Convert\u0020PDF\u0020pages\u0020to\u0020images\u0020using\u0020Imagick.",
             "url": "classes/X-Util-ImageHelper.html#method_pdf2Image"
         },                {
             "fqsen": "\\X\\Util\\IpUtils",
@@ -1923,22 +1923,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Loader\u003A\u003Amodel\u0028\u0029",
             "name": "model",
-            "summary": "Load\u0020model.",
+            "summary": "Load\u0020one\u0020or\u0020more\u0020models\u0020into\u0020the\u0020CI\u0020instance.",
             "url": "classes/X-Util-Loader.html#method_model"
         },                {
             "fqsen": "\\X\\Util\\Loader\u003A\u003Alibrary\u0028\u0029",
             "name": "library",
-            "summary": "Load\u0020library.",
+            "summary": "Load\u0020one\u0020or\u0020more\u0020libraries\u0020into\u0020the\u0020CI\u0020instance.",
             "url": "classes/X-Util-Loader.html#method_library"
         },                {
             "fqsen": "\\X\\Util\\Loader\u003A\u003Adatabase\u0028\u0029",
             "name": "database",
-            "summary": "Load\u0020databse.",
+            "summary": "Load\u0020a\u0020database\u0020connection.",
             "url": "classes/X-Util-Loader.html#method_database"
         },                {
             "fqsen": "\\X\\Util\\Loader\u003A\u003Aconfig\u0028\u0029",
             "name": "config",
-            "summary": "Load\u0020config.",
+            "summary": "Load\u0020and\u0020retrieve\u0020a\u0020configuration\u0020value.",
             "url": "classes/X-Util-Loader.html#method_config"
         },                {
             "fqsen": "\\X\\Util\\Logger",
@@ -1983,32 +1983,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\RestClient\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "GET\u0020Request.",
+            "summary": "Send\u0020a\u0020GET\u0020request.",
             "url": "classes/X-Util-RestClient.html#method_get"
         },                {
             "fqsen": "\\X\\Util\\RestClient\u003A\u003Apost\u0028\u0029",
             "name": "post",
-            "summary": "Send\u0020POST\u0020request.",
+            "summary": "Send\u0020a\u0020POST\u0020request.",
             "url": "classes/X-Util-RestClient.html#method_post"
         },                {
             "fqsen": "\\X\\Util\\RestClient\u003A\u003Aput\u0028\u0029",
             "name": "put",
-            "summary": "Send\u0020PUT\u0020request.",
+            "summary": "Send\u0020a\u0020PUT\u0020request.",
             "url": "classes/X-Util-RestClient.html#method_put"
         },                {
             "fqsen": "\\X\\Util\\RestClient\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "Send\u0020DELETE\u0020request.",
+            "summary": "Send\u0020a\u0020DELETE\u0020request.",
             "url": "classes/X-Util-RestClient.html#method_delete"
         },                {
             "fqsen": "\\X\\Util\\RestClient\u003A\u003Asend\u0028\u0029",
             "name": "send",
-            "summary": "Common\u0020Requests.",
+            "summary": "Execute\u0020an\u0020HTTP\u0020request\u0020via\u0020cURL.",
             "url": "classes/X-Util-RestClient.html#method_send"
         },                {
             "fqsen": "\\X\\Util\\RestClient\u003A\u003Aparse\u0028\u0029",
             "name": "parse",
-            "summary": "Set\u0020response\u0020data\u0020\u0028responseHeaders,responseRaw,response\u0029.",
+            "summary": "Parse\u0020raw\u0020cURL\u0020response\u0020into\u0020headers,\u0020status,\u0020and\u0020body.",
             "url": "classes/X-Util-RestClient.html#method_parse"
         },                {
             "fqsen": "\\X\\Util\\RestClient\u003A\u003A\u0024options",
@@ -2058,17 +2058,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\SessionHelper\u003A\u003Aunserialize\u0028\u0029",
             "name": "unserialize",
-            "summary": "Unserialize\u0020the\u0020session.",
+            "summary": "Unserialize\u0020session\u0020data\u0020using\u0020regex\u002Dbased\u0020splitting.",
             "url": "classes/X-Util-SessionHelper.html#method_unserialize"
         },                {
             "fqsen": "\\X\\Util\\SessionHelper\u003A\u003AunserializePhp\u0028\u0029",
             "name": "unserializePhp",
-            "summary": "Unserialize\u0020the\u0020session.\u0020When\u0020session.serialize_handler\u0020is\u0020\u0022php\u0022",
+            "summary": "Unserialize\u0020session\u0020data\u0020for\u0020the\u0020\u0022php\u0022\u0020serialize\u0020handler.",
             "url": "classes/X-Util-SessionHelper.html#method_unserializePhp"
         },                {
             "fqsen": "\\X\\Util\\SessionHelper\u003A\u003AunserializePhpBinary\u0028\u0029",
             "name": "unserializePhpBinary",
-            "summary": "Unserialize\u0020the\u0020session.\u0020When\u0020session.serialize_handler\u0020is\u0020\u0022php_binary\u0022.",
+            "summary": "Unserialize\u0020session\u0020data\u0020for\u0020the\u0020\u0022php_binary\u0022\u0020serialize\u0020handler.",
             "url": "classes/X-Util-SessionHelper.html#method_unserializePhpBinary"
         },                {
             "fqsen": "\\X\\Util\\StringHelper",
@@ -2078,17 +2078,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\StringHelper\u003A\u003Atrim\u0028\u0029",
             "name": "trim",
-            "summary": "Trim\u0020front\u0020and\u0020rear\u0020spaces.",
+            "summary": "Trim\u0020whitespace\u0020from\u0020both\u0020ends\u0020of\u0020a\u0020string.",
             "url": "classes/X-Util-StringHelper.html#method_trim"
         },                {
             "fqsen": "\\X\\Util\\StringHelper\u003A\u003Aempty\u0028\u0029",
             "name": "empty",
-            "summary": "Trims\u0020the\u0020string\u0020to\u0020determine\u0020if\u0020it\u0020is\u0020empty.",
+            "summary": "Check\u0020if\u0020a\u0020string\u0020is\u0020empty\u0020after\u0020trimming\u0020whitespace.",
             "url": "classes/X-Util-StringHelper.html#method_empty"
         },                {
             "fqsen": "\\X\\Util\\StringHelper\u003A\u003Aellipsis\u0028\u0029",
             "name": "ellipsis",
-            "summary": "Omit\u0020strings\u0020that\u0020are\u0020too\u0020long.\u0020Characters\u0020longer\u0020than\u0020the\u0020specified\u0020length\u0020will\u0020be\u0020replaced\u0020by\u0020\u0022...\u0022.",
+            "summary": "Truncate\u0020a\u0020long\u0020string\u0020with\u0020ellipsis\u0020in\u0020the\u0020middle.",
             "url": "classes/X-Util-StringHelper.html#method_ellipsis"
         },                {
             "fqsen": "\\X\\Util\\Template",
@@ -2098,12 +2098,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Template\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Initialize\u0020Template.",
+            "summary": "Initialize\u0020Template\u0020engine.",
             "url": "classes/X-Util-Template.html#method___construct"
         },                {
             "fqsen": "\\X\\Util\\Template\u003A\u003Aload\u0028\u0029",
             "name": "load",
-            "summary": "Get\u0020compiled\u0020template.",
+            "summary": "Render\u0020a\u0020Twig\u0020template\u0020and\u0020return\u0020the\u0020compiled\u0020output.",
             "url": "classes/X-Util-Template.html#method_load"
         },                {
             "fqsen": "\\X\\Util\\Template\u003A\u003A\u0024engine",
@@ -2133,42 +2133,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Ahostname\u0028\u0029",
             "name": "hostname",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020host\u0020name.",
+            "summary": "Validate\u0020hostname\u0020format.",
             "url": "classes/X-Util-Validation.html#method_hostname"
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Aipaddress\u0028\u0029",
             "name": "ipaddress",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020an\u0020IP.",
+            "summary": "Validate\u0020IPv4\u0020address\u0020format.",
             "url": "classes/X-Util-Validation.html#method_ipaddress"
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Aipaddress_or_cidr\u0028\u0029",
             "name": "ipaddress_or_cidr",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020IP\u0020or\u0020CIDR\u0020format.",
+            "summary": "Validate\u0020IPv4\u0020address\u0020or\u0020CIDR\u0020notation\u0020format.",
             "url": "classes/X-Util-Validation.html#method_ipaddress_or_cidr"
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Ahostname_or_ipaddress\u0028\u0029",
             "name": "hostname_or_ipaddress",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020host\u0020name\u0020or\u0020IP.",
+            "summary": "Validate\u0020hostname\u0020or\u0020IPv4\u0020address\u0020format.",
             "url": "classes/X-Util-Validation.html#method_hostname_or_ipaddress"
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Aunix_username\u0028\u0029",
             "name": "unix_username",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020unix\u0020user\u0020name.",
+            "summary": "Validate\u0020Unix\u0020username\u0020format.",
             "url": "classes/X-Util-Validation.html#method_unix_username"
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Aport\u0028\u0029",
             "name": "port",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020port\u0020number.",
+            "summary": "Validate\u0020port\u0020number\u0020\u00280\u002D65535\u0029.",
             "url": "classes/X-Util-Validation.html#method_port"
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Aemail\u0028\u0029",
             "name": "email",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020an\u0020e\u002Dmail.",
+            "summary": "Validate\u0020email\u0020address\u0020format.",
             "url": "classes/X-Util-Validation.html#method_email"
         },                {
             "fqsen": "\\X\\Util\\Validation\u003A\u003Ais_path\u0028\u0029",
             "name": "is_path",
-            "summary": "Check\u0020if\u0020it\u0020is\u0020a\u0020file\u0020\u0028directory\u0029\u0020path.",
+            "summary": "Validate\u0020Unix\u0020file\u0020or\u0020directory\u0020path\u0020format.",
             "url": "classes/X-Util-Validation.html#method_is_path"
         },                {
             "fqsen": "\\X\\Util\\VideoHelper",
@@ -2183,12 +2183,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\X\\Util\\VideoHelper\u003A\u003AdataURL2Blob\u0028\u0029",
             "name": "dataURL2Blob",
-            "summary": "Convert\u0020video\u0020Data\u0020URL\u0020to\u0020blob.",
+            "summary": "Convert\u0020a\u0020video\u0020Data\u0020URL\u0020to\u0020binary\u0020blob\u0020data.",
             "url": "classes/X-Util-VideoHelper.html#method_dataURL2Blob"
         },                {
             "fqsen": "\\X\\Util\\VideoHelper\u003A\u003AisDataURL\u0028\u0029",
             "name": "isDataURL",
-            "summary": "Check\u0020if\u0020string\u0020is\u0020a\u0020video\u0020Data\u0020URL.",
+            "summary": "Check\u0020if\u0020a\u0020string\u0020is\u0020a\u0020valid\u0020video\u0020Data\u0020URL.",
             "url": "classes/X-Util-VideoHelper.html#method_isDataURL"
         },                {
             "fqsen": "\\",

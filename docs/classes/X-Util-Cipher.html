@@ -214,42 +214,42 @@ IV generation, and secure random token generation.</p>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Decryption.</dd>
+<dd>Decrypt a string encrypted with symmetric encryption.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Cipher.html#method_encode_sha256">encode_sha256()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Encode with SHA-256.</dd>
+<dd>Generate SHA-256 hash with a secret key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Cipher.html#method_encodeOpenSshPublicKey">encodeOpenSshPublicKey()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Encode OpenSSH public key.</dd>
+<dd>Convert a PEM private key to OpenSSH public key format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Cipher.html#method_encrypt">encrypt()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Encryption.</dd>
+<dd>Encrypt a string using symmetric encryption.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Cipher.html#method_generateInitialVector">generateInitialVector()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Generate IV.</dd>
+<dd>Generate a cryptographic initialization vector (IV).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Cipher.html#method_generateKey">generateKey()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Generate a random key.</dd>
+<dd>Generate a random base64-encoded key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Cipher.html#method_generateKeyPair">generateKeyPair()</a>
@@ -265,21 +265,21 @@ use \X\Util\Cipher;</dd>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Generate a random string.</dd>
+<dd>Generate a cryptographically secure random string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Cipher.html#method_randToken68">randToken68()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Generate a random token68 string.</dd>
+<dd>Generate a random token68-compliant string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Util-Cipher.html#method_encodeOpenSshBuffer">encodeOpenSshBuffer()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>OpenSSH encode the buffer.</dd>
+<dd>Encode a binary buffer in OpenSSH wire format.</dd>
 
     </dl>
 
@@ -310,11 +310,11 @@ use \X\Util\Cipher;</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Decryption.</p>
+        <p class="phpdocumentor-summary">Decrypt a string encrypted with symmetric encryption.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -398,11 +398,11 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Encode with SHA-256.</p>
+        <p class="phpdocumentor-summary">Generate SHA-256 hash with a secret key.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -418,7 +418,7 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>String to be hashed.</p>
+                    <section class="phpdocumentor-description"><p>String to hash.</p>
 </section>
 
             </dd>
@@ -427,17 +427,38 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
                 : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Encoding key. If not specified, get it from &quot;encryption_key&quot; in &quot;application/config/config.php&quot;.</p>
+                    <section class="phpdocumentor-description"><p>Secret key appended before hashing. Default is <code class="prettyprint">encryption_key</code> from config.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-Cipher.html#method_encode_sha256#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If no key is provided and encryption_key is not configured.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>64-character hexadecimal hash string.</p>
+</section>
+
             </section>
 
 </article>
@@ -455,11 +476,11 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">153</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Encode OpenSSH public key.</p>
+        <p class="phpdocumentor-summary">Convert a PEM private key to OpenSSH public key format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -475,7 +496,7 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Private Key.</p>
+                    <section class="phpdocumentor-description"><p>PEM-encoded private key.</p>
 </section>
 
             </dd>
@@ -487,7 +508,7 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>SSH-encoded Public key.</p>
+                <section class="phpdocumentor-description"><p>OpenSSH public key string (e.g., &quot;ssh-rsa AAAA...&quot;).</p>
 </section>
 
             </section>
@@ -507,11 +528,11 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Encryption.</p>
+        <p class="phpdocumentor-summary">Encrypt a string using symmetric encryption.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -595,11 +616,11 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generate IV.</p>
+        <p class="phpdocumentor-summary">Generate a cryptographic initialization vector (IV).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -615,7 +636,7 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;AES-256-CTR&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Cryptographic Algorithm. Default is &quot;AES-256-CTR&quot;.</p>
+                    <section class="phpdocumentor-description"><p>Cipher algorithm. Default is &quot;AES-256-CTR&quot;.</p>
 </section>
 
             </dd>
@@ -627,7 +648,7 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>IV.</p>
+                <section class="phpdocumentor-description"><p>Binary IV string of the appropriate length for the algorithm.</p>
 </section>
 
             </section>
@@ -647,11 +668,11 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generate a random key.</p>
+        <p class="phpdocumentor-summary">Generate a random base64-encoded key.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -667,19 +688,36 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">32</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Key length. Default is 32.</p>
+                    <section class="phpdocumentor-description"><p>Number of random bytes to generate. Default is 32.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-Cipher.html#method_generateKey#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If length is less than 1.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Key.</p>
+                <section class="phpdocumentor-description"><p>Base64-encoded random key.</p>
 </section>
 
             </section>
@@ -699,7 +737,7 @@ $decrypted = Cipher::decrypt($encrypted, $key, $iv);// Hello, World.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">150</span>
 
     </aside>
 
@@ -709,7 +747,7 @@ use \X\Util\Cipher;</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">generateKeyPair</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$privateKey</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$publicKey</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">generateKeyPair</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$privateKey</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$publicKey</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array{digest_alg?: string, x509_extensions?: string, req_extensions?: string, private_key_bits?: int, private_key_type?: int, encrypt_key?: bool, encrypt_key_cipher?: int, curve_name?: string, config?: string}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -746,7 +784,7 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The generated private key is set.</p>
+                    <section class="phpdocumentor-description"><p>Receives the generated PEM-encoded private key.</p>
 </section>
 
             </dd>
@@ -755,16 +793,28 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The generated public key is set.</p>
+                    <section class="phpdocumentor-description"><p>Receives the generated PEM-encoded public key.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array{digest_alg?: string, x509_extensions?: string, req_extensions?: string, private_key_bits?: int, private_key_type?: int, encrypt_key?: bool, encrypt_key_cipher?: int, curve_name?: string, config?: string}</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>OpenSSL key generation options:</p>
+<ul>
+<li>
+<code class="prettyprint">digest_alg</code>: Digest method (see openssl_get_md_methods()). Default is &quot;sha512&quot;.</li>
+<li>
+<code class="prettyprint">private_key_bits</code>: Key length in bits. Default is 4096.</li>
+<li>
+<code class="prettyprint">private_key_type</code>: Key type constant (OPENSSL_KEYTYPE_RSA, etc.). Default is OPENSSL_KEYTYPE_RSA.</li>
+<li>
+<code class="prettyprint">config</code>: Path to alternative openssl.conf file.</li>
+</ul>
+</section>
+
             </dd>
             </dl>
 
@@ -786,11 +836,11 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">180</span>
+    <span class="phpdocumentor-element-found-in__line">197</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generate a random string.</p>
+        <p class="phpdocumentor-summary">Generate a cryptographically secure random string.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -806,7 +856,7 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">64</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Characters. Default is 64.</p>
+                    <section class="phpdocumentor-description"><p>String length. Default is 64.</p>
 </section>
 
             </dd>
@@ -815,19 +865,36 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Characters to be used. Default is one-byte alphanumeric characters.</p>
+                    <section class="phpdocumentor-description"><p>Character set to use. Default is alphanumeric (a-z, A-Z, 0-9).</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-Cipher.html#method_randStr#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RangeException">RangeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If length is less than 1.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Random string.</p>
+                <section class="phpdocumentor-description"><p>Random string of the specified length.</p>
 </section>
 
             </section>
@@ -847,11 +914,11 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">194</span>
+    <span class="phpdocumentor-element-found-in__line">215</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generate a random token68 string.</p>
+        <p class="phpdocumentor-summary">Generate a random token68-compliant string.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -859,7 +926,10 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Token68 format is defined in RFC 7235, allowing alphanumeric chars
+plus <code class="prettyprint">-._~+/</code> and optionally trailing <code class="prettyprint">=</code>.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -867,7 +937,7 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">64</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Characters. Default is 64.</p>
+                    <section class="phpdocumentor-description"><p>String length. Default is 64.</p>
 </section>
 
             </dd>
@@ -879,7 +949,7 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>token68 string.</p>
+                <section class="phpdocumentor-description"><p>Random token68 string.</p>
 </section>
 
             </section>
@@ -899,11 +969,11 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Cipher.php"><a href="files/src-x-util-cipher.html"><abbr title="src/X/Util/Cipher.php">Cipher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">165</span>
+    <span class="phpdocumentor-element-found-in__line">180</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">OpenSSH encode the buffer.</p>
+        <p class="phpdocumentor-summary">Encode a binary buffer in OpenSSH wire format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -919,7 +989,7 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>buffer.</p>
+                    <section class="phpdocumentor-description"><p>Binary data to encode.</p>
 </section>
 
             </dd>
@@ -931,7 +1001,7 @@ echo 'OpenSSH-encoded public key:' . PHP_EOL . $publicKey;</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>SSH encoded buffer.</p>
+                <section class="phpdocumentor-description"><p>Length-prefixed encoded buffer.</p>
 </section>
 
             </section>

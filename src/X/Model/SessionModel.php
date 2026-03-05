@@ -30,17 +30,26 @@ abstract class SessionModel implements SessionModelInterface {
   const SESSION_NAME = 'user';
 
   /**
-   * Callback set session.
+   * Retrieve user data by ID for session storage.
+   *
+   * Subclasses must implement this to define how user data is fetched
+   * (e.g., from a database model).
+   *
    * @param string $id User ID.
-   * @return array User data.
+   * @return array User data to store in session.
    */
   abstract protected static function getUser(string $id): array;
 
   /**
-   * Set session.
-   * @param string $id It is ID if there is only one argument, column name if there are two arguments.
-   * @param mixed $value Set value.
-   * @return string Subclass Name.
+   * Set session data.
+   *
+   * With one argument, loads full user data into session via getUser().
+   * With two arguments, updates a single session field.
+   *
+   * @param string $id User ID (1 arg) or field name (2 args).
+   * @param mixed $value Field value when updating a single field.
+   * @return string Called class name for method chaining.
+   * @throws \RuntimeException If the specified field does not exist in session data.
    */
   public final static function set(string $id, $value=null): string {
     if (count(func_get_args()) === 1)
@@ -55,8 +64,9 @@ abstract class SessionModel implements SessionModelInterface {
   }
 
   /**
-   * Session discarded.
-   * @return string Subclass Name.
+   * Destroy the current user session.
+   *
+   * @return string Called class name for method chaining.
    */
   public final static function unset(): string {
     unset($_SESSION[self::SESSION_NAME]);
@@ -64,17 +74,22 @@ abstract class SessionModel implements SessionModelInterface {
   }
 
   /**
-   * Isset session.
-   * @return bool Whether the session exists.
+   * Check if a user session exists.
+   *
+   * @return bool True if session data is set.
    */
   public final static function isset(): bool {
     return isset($_SESSION[self::SESSION_NAME]);
   }
 
   /**
-   * Get session.
-   * @param string $field (optional) If you want to retrieve only a specific field from the session, specify the name of that field.
-   * @return stdClass|string Session data.
+   * Get session data.
+   *
+   * Returns all session data as an object, or a single field value
+   * if a field name is specified.
+   *
+   * @param string|null $field Field name to retrieve. Null returns all data.
+   * @return \stdClass|mixed|null All session data, a single field value, or null if no session.
    */
   public final static function get(string $field=null) {
     if (!self::isset())

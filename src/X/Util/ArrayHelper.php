@@ -42,18 +42,22 @@ final class ArrayHelper {
   }
 
   /**
-   * Reset array keys (0,1,2...).
-   * @param array $arr Array.
-   * @return array Array.
+   * Re-index array with sequential numeric keys starting from 0.
+   *
+   * @param array $arr Array to re-index.
+   * @return array Re-indexed array.
    */
   public static function resetArrayKeys(array $arr): array {
     return array_values($arr);
   }
 
   /**
-   * Randomly takes elements out of an array. The array passed as an argument is also modified.
-   * @param array &$arr Array.
-   * @return mixed Array elements.
+   * Remove and return a random element from an array.
+   *
+   * The original array is modified (the element is removed).
+   *
+   * @param array &$arr Array to extract from (modified in place).
+   * @return mixed The extracted element, or null if array is empty.
    */
   public static function getRandomValue(array &$arr) {
     if (empty($arr))
@@ -99,9 +103,10 @@ final class ArrayHelper {
   }
 
   /**
-   * Returns true if the subscript is an array starting from 0.
-   * @param array $arr Array.
-   * @return bool Returns true for vector arrays.
+   * Check if an array is a sequential (non-associative) array.
+   *
+   * @param array $arr Array to check.
+   * @return bool True if keys are sequential integers starting from 0.
    */
   public static function isVector(array $arr): bool {
     return array_values($arr) === $arr;

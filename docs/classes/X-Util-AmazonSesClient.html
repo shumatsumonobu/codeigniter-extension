@@ -314,77 +314,77 @@ Hi {{ name }}.
     <span>
                                 &nbsp;: <a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a>    </span>
 </dt>
-<dd>Set BCC email address.</dd>
+<dd>Set BCC recipient address.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-AmazonSesClient.html#method_cc">cc()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a>    </span>
 </dt>
-<dd>Set CC email address.</dd>
+<dd>Set CC recipient address.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-AmazonSesClient.html#method_charset">charset()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a>    </span>
 </dt>
-<dd>Set charset.</dd>
+<dd>Set the email character encoding.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-AmazonSesClient.html#method_from">from()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a>    </span>
 </dt>
-<dd>Set the sender.</dd>
+<dd>Set the sender address.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-AmazonSesClient.html#method_message">message()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a>    </span>
 </dt>
-<dd>Set Body.</dd>
+<dd>Set the email body text.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-AmazonSesClient.html#method_messageFromXml">messageFromXml()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a>    </span>
 </dt>
-<dd>Set the mail body based on XML.</dd>
+<dd>Set subject and body from an XML template.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-AmazonSesClient.html#method_send">send()</a>
     <span>
-                                &nbsp;: array{MessageId: string}    </span>
+                                &nbsp;: <abbr title="\Aws\Result">Result</abbr>    </span>
 </dt>
-<dd>Send.</dd>
+<dd>Send the email via Amazon SES.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-AmazonSesClient.html#method_subject">subject()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a>    </span>
 </dt>
-<dd>Set Subject.</dd>
+<dd>Set the email subject line.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-AmazonSesClient.html#method_to">to()</a>
     <span>
                                 &nbsp;: <a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a>    </span>
 </dt>
-<dd>Set Destination email address.</dd>
+<dd>Set the recipient address.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Util-AmazonSesClient.html#method_client">client()</a>
     <span>
                                 &nbsp;: <abbr title="\Aws\Ses\SesClient">SesClient</abbr>    </span>
 </dt>
-<dd>Get SES client instance.</dd>
+<dd>Get or create singleton SES client instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/X-Util-AmazonSesClient.html#method_reset">reset()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Reset options.</dd>
+<dd>Reset all message fields to defaults.</dd>
 
     </dl>
 
@@ -735,7 +735,7 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
@@ -743,7 +743,7 @@ Hi {{ name }}.
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array{credentials?: array{key: string, secret: string}, configuration?: string|null, region?: string, version?: string}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -752,10 +752,24 @@ Hi {{ name }}.
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array{credentials?: array{key: string, secret: string}, configuration?: string|null, region?: string, version?: string}</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Configuration options:</p>
+<ul>
+<li>
+<code class="prettyprint">credentials.key</code>: AWS access key ID.</li>
+<li>
+<code class="prettyprint">credentials.secret</code>: AWS secret access key.</li>
+<li>
+<code class="prettyprint">configuration</code>: SES configuration set name. Default is null.</li>
+<li>
+<code class="prettyprint">region</code>: AWS region for service requests.</li>
+<li>
+<code class="prettyprint">version</code>: SES API version. Default is &quot;latest&quot;.</li>
+</ul>
+</section>
+
             </dd>
             </dl>
 
@@ -777,15 +791,15 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set BCC email address.</p>
+        <p class="phpdocumentor-summary">Set BCC recipient address.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">bcc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bcc</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">bcc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bcc</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -794,10 +808,10 @@ Hi {{ name }}.
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$bcc</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>BCC email address.</p>
+                    <section class="phpdocumentor-description"><p>BCC email address or array of addresses.</p>
 </section>
 
             </dd>
@@ -808,6 +822,10 @@ Hi {{ name }}.
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -825,15 +843,15 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">181</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set CC email address.</p>
+        <p class="phpdocumentor-summary">Set CC recipient address.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">cc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cc</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">cc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cc</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -842,10 +860,10 @@ Hi {{ name }}.
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$cc</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>CC email address.</p>
+                    <section class="phpdocumentor-description"><p>CC email address or array of addresses.</p>
 </section>
 
             </dd>
@@ -856,6 +874,10 @@ Hi {{ name }}.
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -873,11 +895,11 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set charset.</p>
+        <p class="phpdocumentor-summary">Set the email character encoding.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -893,7 +915,7 @@ Hi {{ name }}.
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Character code of the email.</p>
+                    <section class="phpdocumentor-description"><p>Character encoding (e.g., &quot;UTF-8&quot;, &quot;ISO-2022-JP&quot;).</p>
 </section>
 
             </dd>
@@ -904,6 +926,10 @@ Hi {{ name }}.
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -921,15 +947,15 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">147</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set the sender.</p>
+        <p class="phpdocumentor-summary">Set the sender address.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">from</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fromName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">from</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fromName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -947,10 +973,10 @@ Hi {{ name }}.
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$fromName</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Sender name.</p>
+                    <section class="phpdocumentor-description"><p>Display name for the sender.</p>
 </section>
 
             </dd>
@@ -961,6 +987,10 @@ Hi {{ name }}.
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -978,11 +1008,11 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">203</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set Body.</p>
+        <p class="phpdocumentor-summary">Set the email body text.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -998,7 +1028,9 @@ Hi {{ name }}.
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Email body content.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1007,6 +1039,10 @@ Hi {{ name }}.
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1024,11 +1060,11 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">200</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set the mail body based on XML.</p>
+        <p class="phpdocumentor-summary">Set subject and body from an XML template.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1036,7 +1072,10 @@ Hi {{ name }}.
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>The XML file should contain <code class="prettyprint">&lt;subject&gt;</code> and <code class="prettyprint">&lt;message&gt;</code> elements.
+Twig variables can be used in the template.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1044,7 +1083,7 @@ Hi {{ name }}.
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Path of the XML file. Relative path from <code class="prettyprint">application/views/</code>.</p>
+                    <section class="phpdocumentor-description"><p>XML template path relative to <code class="prettyprint">application/views/</code>.</p>
 </section>
 
             </dd>
@@ -1053,7 +1092,7 @@ Hi {{ name }}.
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>(optional) Embedded variables for subject and body text.</p>
+                    <section class="phpdocumentor-description"><p>Template variables for interpolation.</p>
 </section>
 
             </dd>
@@ -1064,6 +1103,10 @@ Hi {{ name }}.
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1081,27 +1124,46 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">215</span>
+    <span class="phpdocumentor-element-found-in__line">237</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Send.</p>
+        <p class="phpdocumentor-summary">Send the email via Amazon SES.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">send</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array{MessageId: string}</span></code>
+                    <span class="phpdocumentor-signature__name">send</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Aws\Result">Result</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+        <section class="phpdocumentor-description"><p>After sending, all recipient and message fields are reset.</p>
+</section>
+
     
     
-    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/X-Util-AmazonSesClient.html#method_send#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the sender address is invalid.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array{MessageId: string}</span>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Aws\Result">Result</abbr></span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Result of email transmission.</p>
+                <section class="phpdocumentor-description"><p>SES API response containing MessageId.</p>
 </section>
 
             </section>
@@ -1121,11 +1183,11 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set Subject.</p>
+        <p class="phpdocumentor-summary">Set the email subject line.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1141,7 +1203,7 @@ Hi {{ name }}.
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Subject.</p>
+                    <section class="phpdocumentor-description"><p>Subject text.</p>
 </section>
 
             </dd>
@@ -1152,6 +1214,10 @@ Hi {{ name }}.
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1169,15 +1235,15 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">159</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set Destination email address.</p>
+        <p class="phpdocumentor-summary">Set the recipient address.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">to</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">to</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1186,10 +1252,10 @@ Hi {{ name }}.
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$to</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, string&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Destination email address.</p>
+                    <section class="phpdocumentor-description"><p>Recipient email address or array of addresses.</p>
 </section>
 
             </dd>
@@ -1200,6 +1266,10 @@ Hi {{ name }}.
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/X-Util-AmazonSesClient.html"><abbr title="\X\Util\AmazonSesClient">AmazonSesClient</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Method chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1217,11 +1287,11 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">261</span>
+    <span class="phpdocumentor-element-found-in__line">284</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get SES client instance.</p>
+        <p class="phpdocumentor-summary">Get or create singleton SES client instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1237,7 +1307,7 @@ Hi {{ name }}.
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Aws\Ses\SesClient">SesClient</abbr></span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>SES client instance.</p>
+                <section class="phpdocumentor-description"><p>Cached SES client instance.</p>
 </section>
 
             </section>
@@ -1257,11 +1327,11 @@ Hi {{ name }}.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/AmazonSesClient.php"><a href="files/src-x-util-amazonsesclient.html"><abbr title="src/X/Util/AmazonSesClient.php">AmazonSesClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">276</span>
+    <span class="phpdocumentor-element-found-in__line">300</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Reset options.</p>
+        <p class="phpdocumentor-summary">Reset all message fields to defaults.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>

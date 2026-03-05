@@ -1,215 +1,205 @@
-# CodeIgniter Extension
+<p align="center">
+  <img src="https://img.shields.io/packagist/v/takuya-motoshima/codeigniter-extension?style=flat-square&color=007bff" alt="Version">
+  <img src="https://img.shields.io/packagist/dt/takuya-motoshima/codeigniter-extension?style=flat-square&color=28a745" alt="Downloads">
+  <img src="https://img.shields.io/packagist/php-v/takuya-motoshima/codeigniter-extension?style=flat-square&color=6f42c1" alt="PHP">
+  <img src="https://img.shields.io/packagist/l/takuya-motoshima/codeigniter-extension?style=flat-square&color=6c757d" alt="License">
+</p>
 
-[![PHP Version](https://img.shields.io/packagist/php-v/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
-[![License](https://img.shields.io/packagist/l/takuya-motoshima/codeigniter-extension)](LICENSE)
-[![Packagist Downloads](https://img.shields.io/packagist/dt/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
-[![Latest Version](https://img.shields.io/packagist/v/takuya-motoshima/codeigniter-extension)](https://packagist.org/packages/takuya-motoshima/codeigniter-extension)
+<h1 align="center">CodeIgniter Extension</h1>
 
-[日本語](README_ja.md) | [Changelog](CHANGELOG.md) | [変更履歴](CHANGELOG_ja.md)
+<p align="center">
+  <strong>Supercharge your CodeIgniter 3 workflow.</strong><br>
+  Extended controllers, models, utilities, and AWS integrations — all in one package.
+</p>
 
-An enhanced CodeIgniter 3 package providing extended core classes (controllers, models, views) and utility classes.
+<p align="center">
+  <a href="README_ja.md">日本語</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG_ja.md">変更履歴</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://takuya-motoshima.github.io/codeigniter-extension/">API Docs</a>
+</p>
 
-## Table of Contents
 
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Configuration](#configuration)
-- [Architecture](#architecture)
-- [Usage Examples](#usage-examples)
-- [API Reference](#api-reference)
-- [Troubleshooting](#troubleshooting)
-- [Testing](#testing)
-- [Documentation](#documentation)
-- [License](#license)
+## Why CodeIgniter Extension?
 
-## Features
+CodeIgniter 3 is fast and lightweight — but it lacks modern conveniences. This package fills the gaps without compromising simplicity.
 
-### Core Extensions
-- **Enhanced Controllers** - JSON response, template rendering, access control
-- **Advanced Models** - Query caching, batch operations, helper methods
-- **Enhanced Router** - Annotation-based access control
+| | What you get |
+|---|---|
+| **Controllers** | JSON / HTML / Twig responses, CORS, annotation-based access control |
+| **Models** | Fluent query builder, `INSERT ... ON DUPLICATE KEY UPDATE`, helper methods |
+| **Utilities** | Image/video processing, encryption, CSV, REST client, validation, logging |
+| **AWS** | Rekognition (face detection & comparison), SES (email delivery) |
+| **Scaffold** | One command to create a fully working app with auth, dashboard & frontend |
 
-### Utility Classes
-- **Image Processing** - Resize, crop, format conversion, GIF frame extraction, PDF to image
-- **Video Processing** - Video file manipulation and conversion
-- **File Operations** - Advanced file and directory operations with locking
-- **CSV Handling** - Import/export utilities
-- **Email** - Template-based emails, Amazon SES integration
-- **REST Client** - HTTP client for API integrations
-- **Security** - Encryption/decryption, IP validation
-- **Validation** - Custom rules (hostname, IP, CIDR, datetime, paths)
-- **Session Management** - Database-backed sessions with custom columns, PHP 7.0+ SessionHandlerInterface compliance
-- **Logging** - Enhanced logging with context
-- **Template Engine** - Twig integration with session variables
 
-### AWS Integration
-- **Amazon Rekognition** - Face detection, comparison, and analysis
-- **Amazon SES** - Reliable email delivery service
-
-## Requirements
-
-- **PHP** 7.3.0 or later
-- **Composer**
-- **PHP Extensions:**
-  - php-gd
-  - php-mbstring
-  - php-xml
-  - php-imagick (optional, for GIF operations)
-
-### Optional: ImageMagick Installation
-
-Required for `extractFirstFrameOfGif` method in `\X\Util\ImageHelper`.
-
-**Amazon Linux 2:**
-```sh
-sudo yum -y install ImageMagick php-imagick
-```
-
-**Amazon Linux 2023:**
-```sh
-# Install ImageMagick and PECL
-sudo dnf -y install ImageMagick ImageMagick-devel php-pear.noarch
-
-# Install imagick extension
-sudo pecl install imagick
-echo "extension=imagick.so" | sudo tee -a /etc/php.ini
-
-# Restart services
-sudo systemctl restart nginx php-fpm
-```
-
-## Installation
-
-Create a new project using Composer:
+## Quick Start
 
 ```sh
 composer create-project takuya-motoshima/codeigniter-extension myapp
 cd myapp
 ```
 
-## Quick Start
-
-### 1. Set Permissions
+Set up permissions and web server:
 
 ```sh
 sudo chmod -R 755 public/upload application/{logs,cache,session}
 sudo chown -R nginx:nginx public/upload application/{logs,cache,session}
-```
-
-### 2. Configure Web Server
-
-Copy the Nginx configuration:
-
-```sh
 sudo cp nginx.sample.conf /etc/nginx/conf.d/myapp.conf
 sudo systemctl restart nginx
 ```
 
-### 3. Set Up Database
-
-Import the database schema:
+Import the database and build assets:
 
 ```sh
 mysql -u root -p your_database < skeleton/init.sql
+cd client && npm install && npm run build
 ```
 
-### 4. Build Frontend Assets
+Open `http://{your-server-ip}:3000/` — default credentials: `robin@example.com` / `password`
 
-```sh
-cd client
-npm install
-npm run build
-```
-
-### 5. Access Application
-
-Open `http://{your-server-ip}:3000/` in your browser.
-
-**Default Credentials:**
-- Email: `robin@example.com`
-- Password: `password`
-
-### Screenshots
-
-<p align="left">
+<p align="center">
   <img alt="Sign In" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/sign-in.png" width="45%">
   <img alt="User List" src="https://raw.githubusercontent.com/takuya-motoshima/codeigniter-extension/master/screencaps/list-of-users.png" width="45%">
 </p>
 
+
+## Usage
+
+### Controller
+
+```php
+use \X\Annotation\Access;
+
+class Users extends AppController {
+
+  /** @Access(allow_login=true, allow_logoff=false, allow_role="admin") */
+  public function index() {
+    $users = $this->UserModel->get()->result_array();
+    parent::set('users', $users)->view('users/index');
+  }
+
+  /** @Access(allow_http=true) */
+  public function api() {
+    parent::set(['message' => 'Success'])->json();
+  }
+}
+```
+
+### Model
+
+```php
+class UserModel extends AppModel {
+  const TABLE = 'user';
+
+  public function getActiveUsers() {
+    return $this
+      ->where('active', 1)
+      ->order_by('name', 'ASC')
+      ->get()
+      ->result_array();
+  }
+}
+```
+
+### Utilities
+
+```php
+use \X\Util\{ImageHelper, FileHelper, Cipher, RestClient};
+
+// Image
+ImageHelper::resize('/path/to/image.jpg', '/path/to/output.jpg', 800, 600);
+
+// Files
+FileHelper::makeDirectory('/path/to/dir', 0755);
+
+// Encryption
+$encrypted = Cipher::encrypt('secret data', 'encryption-key');
+
+// REST
+$client = new RestClient(['base_url' => 'https://api.example.com']);
+$response = $client->get('/users');
+```
+
+### Twig Templates
+
+Session variables are automatically available:
+
+```twig
+{% if session.user is defined %}
+  <p>Welcome, {{ session.user.name }}!</p>
+  {% if session.user.role == 'admin' %}
+    <a href="/admin">Admin Panel</a>
+  {% endif %}
+{% endif %}
+```
+
+
+## API at a Glance
+
+<details>
+<summary><strong>Controller Methods</strong></summary>
+
+| Method | Description |
+|--------|-------------|
+| `json()` | Send JSON response |
+| `view($template)` | Render Twig template |
+| `html($html)` | Send HTML response |
+| `text($text)` | Send plain text response |
+| `image($path)` | Send image response |
+| `download($filename, $content)` | Force file download |
+| `set($key, $value)` | Set response data |
+| `setCorsHeader($origin)` | Set CORS headers |
+
+</details>
+
+<details>
+<summary><strong>Model Methods</strong></summary>
+
+| Method | Description |
+|--------|-------------|
+| `get_all()` | Get all records |
+| `get_by_id($id)` | Get record by ID |
+| `count_by_id($id)` | Count records by ID |
+| `exists_by_id($id)` | Check if record exists |
+| `insert_on_duplicate_update()` | Upsert single record |
+| `insert_on_duplicate_update_batch()` | Batch upsert |
+
+</details>
+
+<details>
+<summary><strong>Utility Classes</strong></summary>
+
+| Class | Key Methods |
+|-------|-------------|
+| `ImageHelper` | `resize()`, `crop()`, `writeDataURLToFile()`, `pdf2Image()` |
+| `FileHelper` | `makeDirectory()`, `delete()`, `copyFile()`, `move()` |
+| `Cipher` | `encrypt()`, `decrypt()`, `encode_sha256()` |
+| `RestClient` | `get()`, `post()`, `put()`, `delete()` |
+| `Logger` | `debug()`, `info()`, `error()`, `display()` |
+| `Validation` | `hostname()`, `ipaddress()`, `email()`, `is_path()` |
+| `IpUtils` | `isIPv4()`, `isIPv6()`, `inRange()` |
+| `Template` | `load($template, $params)` |
+
+</details>
+
+
 ## Configuration
 
-### Basic Config (`application/config/config.php`)
+<details>
+<summary><strong>Recommended config.php settings</strong></summary>
 
-<table>
-  <thead>
-    <tr>
-      <th>Setting</th>
-      <th>Default</th>
-      <th>Recommended</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>base_url</td>
-      <td><em>empty</em></td>
-      <td>if (!empty($_SERVER['HTTP_HOST'])) $config['base_url'] = '//' . $_SERVER['HTTP_HOST'] . str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);</td>
-    </tr>
-    <tr>
-      <td>enable_hooks</td>
-      <td>FALSE</td>
-      <td>TRUE</td>
-    </tr>
-    <tr>
-      <td>permitted_uri_chars</td>
-      <td>a-z 0-9~%.:_\-</td>
-      <td>a-z 0-9~%.:_\-,</td>
-    </tr>
-    <tr>
-      <td>sess_save_path</td>
-      <td>NULL</td>
-      <td>APPPATH . 'session';</td>
-    </tr>
-    <tr>
-      <td>cookie_httponly</td>
-      <td>FALSE</td>
-      <td>TRUE</td>
-    </tr>
-    <tr>
-      <td>composer_autoload</td>
-      <td>FALSE</td>
-      <td>realpath(APPPATH . '../vendor/autoload.php');</td>
-    </tr>
-    <tr>
-      <td>index_page</td>
-      <td>index.php</td>
-      <td><em>empty</em></td>
-    </tr>
-  </tbody>
-</table>
+| Setting | Default | Recommended |
+|---------|---------|-------------|
+| `base_url` | *empty* | Dynamic: `'//' . $_SERVER['HTTP_HOST'] . ...` |
+| `enable_hooks` | `FALSE` | `TRUE` |
+| `permitted_uri_chars` | `a-z 0-9~%.:_\-` | `a-z 0-9~%.:_\-,` |
+| `sess_save_path` | `NULL` | `APPPATH . 'session'` |
+| `cookie_httponly` | `FALSE` | `TRUE` |
+| `composer_autoload` | `FALSE` | `realpath(APPPATH . '../vendor/autoload.php')` |
+| `index_page` | `index.php` | *empty* |
 
-### Access Control Setup
+</details>
 
-#### 1. Define Default Route
-
-In `application/config/routes.php`:
-
-```php
-$route['default_controller'] = 'users/login';
-```
-
-#### 2. Set Session Constant
-
-In `application/config/constants.php`:
-
-```php
-const SESSION_NAME = 'session';
-```
-
-#### 3. Configure Hooks
-
-In `application/config/hooks.php`:
+<details>
+<summary><strong>Access Control (hooks.php)</strong></summary>
 
 ```php
 use \X\Annotation\AnnotationReader;
@@ -229,27 +219,14 @@ $hook['post_controller_constructor'] = function() {
   else if (!$loggedin && !$meta->allow_logoff)
     redirect('/users/login');
 };
-
-$hook['pre_system'] = function () {
-  $dotenv = Dotenv\Dotenv::createImmutable(ENV_DIR);
-  $dotenv->load();
-  set_exception_handler(function ($e) {
-    Logger::error($e);
-    show_error($e->getMessage(), 500);
-  });
-};
 ```
 
-### Session Management
+</details>
 
-The package extends CodeIgniter's database session driver with PHP 7.0+ SessionHandlerInterface compatibility:
+<details>
+<summary><strong>Database Session Driver</strong></summary>
 
-**Features:**
-- **Custom Session Columns** - Store additional data (e.g., email, user_id) directly in session table
-- **updateTimestamp Implementation** - Complies with PHP 7.0+ SessionHandlerInterface requirements
-- **No Warning Logs** - Prevents "Failed to write session data" warnings in PHP 7.0+
-
-**Configuration** (`application/config/config.php`):
+PHP 7.0+ compatible session handler with custom column support:
 
 ```php
 $config['sess_driver'] = 'database';
@@ -257,297 +234,81 @@ $config['sess_save_path'] = 'session';
 $config['sess_table_additional_columns'] = ['email'];
 ```
 
-**Technical Details:**
+Implements `updateTimestamp()` to prevent `Failed to write session data` warnings.
 
-The `SessionDatabaseDriver` class implements the `updateTimestamp()` method required by PHP 7.0+'s SessionHandlerInterface. This prevents PHP from falling back to the default file handler, which causes warnings like:
+</details>
 
-```
-Warning: session_write_close(): Failed to write session data using user defined save handler.
-```
 
-For more information, see the [PHP SessionHandlerInterface documentation](https://www.php.net/manual/en/class.sessionhandlerinterface.php).
+## Requirements
 
-## Architecture
+- **PHP** 8.0+
+- **Composer**
+- **Extensions:** php-gd, php-mbstring, php-xml, php-imagick (optional)
 
-### Directory Structure
+<details>
+<summary><strong>ImageMagick Installation</strong></summary>
 
-```
-src/X/
-├── Annotation/          # Access control annotations
-│   ├── Access.php           # @Access annotation definition
-│   └── AnnotationReader.php # Annotation parser
-├── Composer/            # Composer installer
-│   └── Installer.php        # Post create-project handler
-├── Constant/            # Constants
-│   ├── Environment.php      # Environment constants (DEVELOPMENT, TESTING, PRODUCTION)
-│   └── HttpStatus.php       # HTTP status code constants
-├── Controller/          # Controller extensions
-│   └── Controller.php       # Base controller with response helpers
-├── Core/                # CodeIgniter core extensions
-│   ├── Loader.php           # Extended loader
-│   ├── Router.php           # Extended router
-│   └── URI.php              # Extended URI
-├── Database/            # Database extensions
-│   ├── DB.php               # DB factory
-│   ├── Driver.php           # Base driver
-│   ├── QueryBuilder.php     # Extended query builder
-│   └── Result.php           # Extended result set
-├── Exception/           # Custom exceptions
-│   ├── AccessDeniedException.php
-│   └── RestClientException.php
-├── Hook/                # Hooks
-│   └── Authenticate.php     # Authentication hook
-├── Library/             # Library extensions
-│   ├── FormValidation.php   # Extended form validation
-│   ├── Input.php            # Extended input library
-│   ├── Router.php           # Router library
-│   └── SessionDatabaseDriver.php # Database session driver (PHP 7.0+)
-├── Model/               # Model extensions
-│   ├── Model.php            # Base model with query builder
-│   ├── AddressModel.php     # Address model
-│   ├── SessionModel.php     # Session model
-│   └── SessionModelInterface.php
-├── Rekognition/         # AWS Rekognition
-│   └── Client.php           # Face detection/comparison client
-└── Util/                # Utility classes (21 classes)
-    ├── AmazonSesClient.php  # Amazon SES email
-    ├── ArrayHelper.php      # Array operations
-    ├── Cipher.php           # Encryption (AES-256-CTR)
-    ├── CsvHelper.php        # CSV import/export
-    ├── DateHelper.php       # Date operations
-    ├── EMail.php            # Email with templates
-    ├── FileHelper.php       # File/directory operations
-    ├── HtmlHelper.php       # HTML utilities
-    ├── HttpInput.php        # HTTP input processing
-    ├── HttpResponse.php     # HTTP response builder
-    ├── ImageHelper.php      # Image processing
-    ├── IpUtils.php          # IP address utilities
-    ├── Iterator.php         # Combinatorics
-    ├── Loader.php           # Resource loader
-    ├── Logger.php           # Logging
-    ├── RestClient.php       # REST API client
-    ├── SessionHelper.php    # Session utilities
-    ├── StringHelper.php     # String operations
-    ├── Template.php         # Twig integration
-    ├── UrlHelper.php        # URL utilities
-    ├── Validation.php       # Data validation
-    └── VideoHelper.php      # Video processing
-```
+Required for `extractFirstFrameOfGif()` in `\X\Util\ImageHelper`.
 
-### Application Structure (skeleton/)
-
-Projects created with this package follow this structure:
-
-```
-application/
-├── core/
-│   ├── AppController.php    # Extends \X\Controller\Controller
-│   └── AppModel.php         # Extends \X\Model\Model
-├── config/
-│   ├── hooks.php            # Access control via AnnotationReader
-│   └── constants.php        # SESSION_NAME, ENV_DIR constants
-├── controllers/             # Application controllers
-├── models/                  # Application models
-└── views/                   # Twig templates
-```
-
-## Usage Examples
-
-### Controllers
-
-```php
-use \X\Annotation\Access;
-
-class Users extends AppController {
-  /**
-   * @Access(allow_login=true, allow_logoff=false, allow_role="admin")
-   */
-  public function index() {
-    $users = $this->UserModel->get()->result_array();
-    parent::set('users', $users)->view('users/index');
-  }
-
-  /**
-   * @Access(allow_http=true)
-   */
-  public function api() {
-    $data = ['message' => 'Success'];
-    parent::set($data)->json();
-  }
-}
-```
-
-### Models
-
-```php
-class UserModel extends AppModel {
-  const TABLE = 'user';
-
-  public function getActiveUsers() {
-    return $this
-      ->where('active', 1)
-      ->order_by('name', 'ASC')
-      ->get()
-      ->result_array();
-  }
-}
-```
-
-### Twig Templates
-
-Session variables are automatically available:
-
-```php
-// PHP
-$_SESSION['user'] = ['name' => 'John Smith', 'role' => 'admin'];
-```
-
-```twig
-{# Template #}
-{% if session.user is defined %}
-  <p>Welcome, {{ session.user.name }}!</p>
-  {% if session.user.role == 'admin' %}
-    <a href="/admin">Admin Panel</a>
-  {% endif %}
-{% endif %}
-```
-
-### Using Utilities
-
-```php
-// Image processing
-use \X\Util\ImageHelper;
-ImageHelper::resize('/path/to/image.jpg', '/path/to/output.jpg', 800, 600);
-
-// File operations
-use \X\Util\FileHelper;
-FileHelper::makeDirectory('/path/to/dir', 0755);
-
-// Encryption
-use \X\Util\Cipher;
-$encrypted = Cipher::encrypt('secret data', 'encryption-key');
-
-// REST client
-use \X\Util\RestClient;
-$client = new RestClient(['base_url' => 'https://api.example.com']);
-$response = $client->get('/users');
-```
-
-## API Reference
-
-### Controller Methods
-
-| Method | Description |
-|--------|-------------|
-| `json()` | Send JSON response |
-| `view($template)` | Render Twig template |
-| `html($html)` | Send HTML response |
-| `text($text)` | Send plain text response |
-| `image($path)` | Send image response |
-| `download($filename, $content)` | Force file download |
-| `set($key, $value)` | Set response data |
-| `setCorsHeader($origin)` | Set CORS headers |
-
-### Model Methods
-
-| Method | Description |
-|--------|-------------|
-| `get_all()` | Get all records |
-| `get_by_id($id)` | Get record by ID |
-| `count_by_id($id)` | Count records by ID |
-| `exists_by_id($id)` | Check if record exists |
-| `insert_on_duplicate_update()` | INSERT ... ON DUPLICATE KEY UPDATE |
-| `insert_on_duplicate_update_batch()` | Batch upsert |
-
-### Utility Classes
-
-| Class | Key Methods |
-|-------|-------------|
-| `ImageHelper` | `resize()`, `crop()`, `writeDataURLToFile()`, `pdf2Image()` |
-| `FileHelper` | `makeDirectory()`, `delete()`, `copyFile()`, `move()` |
-| `Cipher` | `encrypt()`, `decrypt()`, `encode_sha256()` |
-| `RestClient` | `get()`, `post()`, `put()`, `delete()` |
-| `Logger` | `debug()`, `info()`, `error()`, `display()` |
-| `Validation` | `hostname()`, `ipaddress()`, `email()`, `is_path()` |
-| `IpUtils` | `isIPv4()`, `isIPv6()`, `inRange()` |
-| `Template` | `load($template, $params)` |
-
-## Troubleshooting
-
-### Common Issues
-
-#### "Failed to write session data" Warning
-
-**Problem:** PHP 7.0+ shows session write warnings.
-
-**Solution:** This package includes `SessionDatabaseDriver` which implements `updateTimestamp()` for PHP 7.0+ compatibility. Ensure you're using:
-
-```php
-$config['sess_driver'] = 'database';
-```
-
-#### Imagick Extension Not Found
-
-**Problem:** `extractFirstFrameOfGif()` throws error.
-
-**Solution:** Install ImageMagick and php-imagick:
-
+**Amazon Linux 2:**
 ```sh
-# Amazon Linux 2023
+sudo yum -y install ImageMagick php-imagick
+```
+
+**Amazon Linux 2023:**
+```sh
 sudo dnf -y install ImageMagick ImageMagick-devel php-pear.noarch
 sudo pecl install imagick
 echo "extension=imagick.so" | sudo tee -a /etc/php.ini
-sudo systemctl restart php-fpm
+sudo systemctl restart nginx php-fpm
 ```
 
-#### Access Annotation Not Working
+</details>
 
-**Problem:** `@Access` annotations are ignored.
 
-**Solution:**
-1. Enable hooks in `config.php`: `$config['enable_hooks'] = TRUE;`
-2. Configure `hooks.php` with `AnnotationReader::getAccessibility()`
+## Architecture
 
-#### Template Cache Issues
-
-**Problem:** Twig templates not updating.
-
-**Solution:** Clear the cache directory:
-
-```sh
-rm -rf application/cache/templates/*
 ```
+src/X/
+├── Annotation/        Access control annotations
+├── Composer/          Post-install scaffolding
+├── Constant/          Environment & HTTP status constants
+├── Controller/        Base controller with response helpers
+├── Core/              Extended Loader, Router, URI
+├── Database/          Query builder, drivers, result set
+├── Exception/         Custom exceptions
+├── Hook/              Authentication hook
+├── Library/           Form validation, input, session driver
+├── Model/             Base model with query helpers
+├── Rekognition/       AWS face detection & comparison
+└── Util/              21 utility classes
+```
+
 
 ## Testing
-
-Run unit tests:
 
 ```sh
 composer test
 ```
 
-Test files are located in:
-- `__tests__/*.php` - Test cases
-- `phpunit.xml` - Configuration
-- `phpunit-printer.yml` - Output format
 
 ## Documentation
 
-- **[API Documentation](https://takuya-motoshima.github.io/codeigniter-extension/)** - Complete API reference
-- **[Demo Application](demo/)** - Full working example
-- **[Changelog](CHANGELOG.md)** - Version history and changes
-- **[CodeIgniter 3 Guide](https://codeigniter.com/userguide3/)** - Official framework documentation
+- [API Reference](https://takuya-motoshima.github.io/codeigniter-extension/)
+- [Demo Application](demo/)
+- [Changelog](CHANGELOG.md)
+- [CodeIgniter 3 User Guide](https://codeigniter.com/userguide3/)
 
-### Generate PHPDoc
 
-```sh
-# Download phpDocumentor (one-time)
-wget https://phpdoc.org/phpDocumentor.phar
-chmod +x phpDocumentor.phar
+## Troubleshooting
 
-# Generate docs
-php phpDocumentor.phar run -d src/ --ignore vendor --ignore src/X/Database/Driver/ -t docs/
-```
+| Problem | Solution |
+|---------|----------|
+| "Failed to write session data" warning | Use `$config['sess_driver'] = 'database'` — the included `SessionDatabaseDriver` handles PHP 7.0+ compatibility |
+| Imagick extension not found | Install ImageMagick + php-imagick (see Requirements) |
+| `@Access` annotations ignored | Enable hooks: `$config['enable_hooks'] = TRUE` and configure `hooks.php` |
+| Twig templates not updating | Clear cache: `rm -rf application/cache/templates/*` |
+
 
 ## Contributing
 
@@ -555,11 +316,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Author
 
-**Takuya Motoshima**
-- GitHub: [@takuya-motoshima](https://github.com/takuya-motoshima)
-- Twitter: [@TakuyaMotoshima](https://x.com/takuya_motech)
-- Facebook: [takuya.motoshima.7](https://www.facebook.com/takuya.motoshima.7)
+**Takuya Motoshima** — [GitHub](https://github.com/takuya-motoshima) / [Twitter](https://x.com/takuya_motech) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
 
 ## License
 
-[MIT License](LICENSE)
+[MIT](LICENSE)

@@ -214,56 +214,56 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is an e-mail.</dd>
+<dd>Validate email address format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Validation.html#method_hostname">hostname()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a host name.</dd>
+<dd>Validate hostname format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Validation.html#method_hostname_or_ipaddress">hostname_or_ipaddress()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a host name or IP.</dd>
+<dd>Validate hostname or IPv4 address format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Validation.html#method_ipaddress">ipaddress()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is an IP.</dd>
+<dd>Validate IPv4 address format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Validation.html#method_ipaddress_or_cidr">ipaddress_or_cidr()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is IP or CIDR format.</dd>
+<dd>Validate IPv4 address or CIDR notation format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Validation.html#method_is_path">is_path()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a file (directory) path.</dd>
+<dd>Validate Unix file or directory path format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Validation.html#method_port">port()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a port number.</dd>
+<dd>Validate port number (0-65535).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/X-Util-Validation.html#method_unix_username">unix_username()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check if it is a unix user name.</dd>
+<dd>Validate Unix username format.</dd>
 
     </dl>
 
@@ -294,11 +294,11 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Validation.php"><a href="files/src-x-util-validation.html"><abbr title="src/X/Util/Validation.php">Validation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is an e-mail.</p>
+        <p class="phpdocumentor-summary">Validate email address format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -306,7 +306,9 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Uses the FormValidation.io library's regular expression for validation.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -314,7 +316,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value to be validated.</p>
+                    <section class="phpdocumentor-description"><p>String to validate.</p>
 </section>
 
             </dd>
@@ -326,7 +328,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Pass is true, fail is false.</p>
+                <section class="phpdocumentor-description"><p>True if valid email address.</p>
 </section>
 
             </section>
@@ -346,11 +348,11 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Validation.php"><a href="files/src-x-util-validation.html"><abbr title="src/X/Util/Validation.php">Validation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a host name.</p>
+        <p class="phpdocumentor-summary">Validate hostname format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -358,7 +360,9 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Accepts standard domain names and &quot;localhost&quot;.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -366,7 +370,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value to be validated.</p>
+                    <section class="phpdocumentor-description"><p>String to validate.</p>
 </section>
 
             </dd>
@@ -378,7 +382,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Pass is true, fail is false.</p>
+                <section class="phpdocumentor-description"><p>True if valid hostname.</p>
 </section>
 
             </section>
@@ -398,11 +402,11 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Validation.php"><a href="files/src-x-util-validation.html"><abbr title="src/X/Util/Validation.php">Validation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a host name or IP.</p>
+        <p class="phpdocumentor-summary">Validate hostname or IPv4 address format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -418,7 +422,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value to be validated.</p>
+                    <section class="phpdocumentor-description"><p>String to validate.</p>
 </section>
 
             </dd>
@@ -430,7 +434,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Pass is true, fail is false.</p>
+                <section class="phpdocumentor-description"><p>True if valid hostname or IPv4 address.</p>
 </section>
 
             </section>
@@ -450,11 +454,11 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Validation.php"><a href="files/src-x-util-validation.html"><abbr title="src/X/Util/Validation.php">Validation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is an IP.</p>
+        <p class="phpdocumentor-summary">Validate IPv4 address format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -470,7 +474,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value to be validated.</p>
+                    <section class="phpdocumentor-description"><p>String to validate.</p>
 </section>
 
             </dd>
@@ -482,7 +486,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Pass is true, fail is false.</p>
+                <section class="phpdocumentor-description"><p>True if valid IPv4 address.</p>
 </section>
 
             </section>
@@ -502,11 +506,11 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Validation.php"><a href="files/src-x-util-validation.html"><abbr title="src/X/Util/Validation.php">Validation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is IP or CIDR format.</p>
+        <p class="phpdocumentor-summary">Validate IPv4 address or CIDR notation format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -522,7 +526,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value to be validated.</p>
+                    <section class="phpdocumentor-description"><p>String to validate (e.g., &quot;192.168.1.0&quot; or &quot;192.168.1.0/24&quot;).</p>
 </section>
 
             </dd>
@@ -534,7 +538,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Pass is true, fail is false.</p>
+                <section class="phpdocumentor-description"><p>True if valid IPv4 address or CIDR notation.</p>
 </section>
 
             </section>
@@ -554,11 +558,11 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Validation.php"><a href="files/src-x-util-validation.html"><abbr title="src/X/Util/Validation.php">Validation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a file (directory) path.</p>
+        <p class="phpdocumentor-summary">Validate Unix file or directory path format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -574,7 +578,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value to be validated.</p>
+                    <section class="phpdocumentor-description"><p>String to validate.</p>
 </section>
 
             </dd>
@@ -583,7 +587,9 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Reject paths starting with &quot;/&quot;. Default is false.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -593,7 +599,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Pass is true, fail is false.</p>
+                <section class="phpdocumentor-description"><p>True if valid path.</p>
 </section>
 
             </section>
@@ -613,11 +619,11 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Validation.php"><a href="files/src-x-util-validation.html"><abbr title="src/X/Util/Validation.php">Validation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a port number.</p>
+        <p class="phpdocumentor-summary">Validate port number (0-65535).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -633,7 +639,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value to be validated.</p>
+                    <section class="phpdocumentor-description"><p>String to validate.</p>
 </section>
 
             </dd>
@@ -645,7 +651,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Pass is true, fail is false.</p>
+                <section class="phpdocumentor-description"><p>True if valid port number.</p>
 </section>
 
             </section>
@@ -665,11 +671,11 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/X/Util/Validation.php"><a href="files/src-x-util-validation.html"><abbr title="src/X/Util/Validation.php">Validation.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check if it is a unix user name.</p>
+        <p class="phpdocumentor-summary">Validate Unix username format.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -677,7 +683,10 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Must start with lowercase letter or underscore, followed by up to 31
+lowercase alphanumeric chars, hyphens, or underscores.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -685,7 +694,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Value to be validated.</p>
+                    <section class="phpdocumentor-description"><p>String to validate.</p>
 </section>
 
             </dd>
@@ -697,7 +706,7 @@ IP address, CIDR notation, email, port number, Unix username, and file paths.</p
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Pass is true, fail is false.</p>
+                <section class="phpdocumentor-description"><p>True if valid Unix username.</p>
 </section>
 
             </section>

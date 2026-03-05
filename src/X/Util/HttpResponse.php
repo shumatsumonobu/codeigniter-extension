@@ -37,10 +37,14 @@ final class HttpResponse {
   }
 
   /**
-   * Set response.
-   * @param mixed $key If one argument, the response data. If two arguments, the field name of the response data.
-   * @param mixed|null $value Response data.
-   * @return HttpResponse
+   * Set response data.
+   *
+   * With one argument, replaces all response data.
+   * With two arguments, sets a single field.
+   *
+   * @param mixed $key Response data (1 arg) or field name (2 args).
+   * @param mixed|null $value Field value when using 2 arguments.
+   * @return HttpResponse Method chaining.
    */
   public function set($key, $value=null): HttpResponse {
     if (func_num_args() === 2) {
@@ -53,8 +57,9 @@ final class HttpResponse {
   }
 
   /**
-   * Clear response.
-   * @return HttpResponse
+   * Clear all response data.
+   *
+   * @return HttpResponse Method chaining.
    */
   public function clear(): HttpResponse {
     $this->data = [];
@@ -62,9 +67,10 @@ final class HttpResponse {
   }
 
   /**
-   * Set HTTP status.
-   * @param int $httpStatus HTTP status.
-   * @return HttpResponse
+   * Set the HTTP response status code.
+   *
+   * @param int $httpStatus HTTP status code (e.g., 200, 404, 500).
+   * @return HttpResponse Method chaining.
    */
   public function status(int $httpStatus): HttpResponse {
     $this->httpStatus = $httpStatus;
@@ -72,10 +78,14 @@ final class HttpResponse {
   }
 
   /**
-   * Response JSON.
-   * @param bool $forceObject (optional) Outputs an object rather than an array when a non-associative array is used.
-   * @param bool $prettyrint (optional) Use whitespace in returned data to format it.
+   * Send JSON response.
+   *
+   * Outputs response data as JSON with Content-Type application/json.
+   *
+   * @param bool $forceObject Force object output for non-associative arrays.
+   * @param bool $prettyrint Pretty-print JSON with indentation.
    * @return void
+   * @throws \LogicException If JSON encoding fails.
    */
  public function json(bool $forceObject=false, bool $prettyrint=false): void {
     $options = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
@@ -101,8 +111,9 @@ final class HttpResponse {
   }
 
   /**
-   * Response HTML.
-   * @param string $html HTML string.
+   * Send HTML response.
+   *
+   * @param string $html HTML content string.
    * @return void
    */
   public function html(string $html): void {
@@ -113,8 +124,9 @@ final class HttpResponse {
   }
 
   /**
-   * Responds with the result of compiling the specified template into HTML.
-   * @param string $templatePath Template path.
+   * Render a Twig template and send as HTML response.
+   *
+   * @param string $templatePath Template path relative to views directory.
    * @return void
    */
   public function view(string $templatePath): void {
@@ -124,8 +136,9 @@ final class HttpResponse {
   }
 
   /**
-   * Response js.
-   * @param string $js JS Code.
+   * Send JavaScript response.
+   *
+   * @param string $js JavaScript code.
    * @return void
    */
   public function js(string $js): void {
@@ -137,8 +150,9 @@ final class HttpResponse {
   }
 
   /**
-   * Response Plain text.
-   * @param string $plainText Plain text.
+   * Send plain text response.
+   *
+   * @param string $plainText Plain text content.
    * @return void
    */
   public function text(string $plainText): void {
@@ -150,10 +164,11 @@ final class HttpResponse {
   }
 
   /**
-   * Download file.
-   * @param string $filename Download file name.
-   * @param string $content (optional) Downloadable Content.
-   * @param bool $mime (optional) MIME Type. The default is false and the MIME type is automatically detected.
+   * Send file download response.
+   *
+   * @param string $filename Download filename for the browser.
+   * @param string $content File content to download.
+   * @param bool $mime MIME type. False for auto-detection.
    * @return void
    */
   public function download(string $filename, string $content='', bool $mime=false): void {
@@ -163,8 +178,9 @@ final class HttpResponse {
   }
 
   /**
-   * Response image.
-   * @param string $imagePath Image path.
+   * Send image response with appropriate Content-Type.
+   *
+   * @param string $imagePath Path to the image file.
    * @return void
    */
   public function image(string $imagePath): void {
@@ -176,11 +192,16 @@ final class HttpResponse {
   }
 
   /**
-   * Error response.
+   * Send error response.
+   *
+   * For AJAX requests or when forced, responds with JSON.
+   * Otherwise, uses CodeIgniter's show_error() for HTML error pages.
+   *
    * @param string $message Error message.
-   * @param int $httpStatus (optional) HTTP status.
-   * @param bool $forceJsonResponse (optional) Force a response with Content-Type "application/json".
+   * @param int $httpStatus HTTP status code. Default is 500.
+   * @param bool $forceJsonResponse Force JSON response format. Default is false.
    * @return void
+   * @throws \LogicException If JSON encoding fails.
    */
   public function error(string $message, int $httpStatus=500, bool $forceJsonResponse=false): void {
     if ($forceJsonResponse || $this->CI->input->is_ajax_request()) {
@@ -240,7 +261,8 @@ final class HttpResponse {
   }
 
   /**
-   * Sets the CORS header.
+   * Set CORS (Cross-Origin Resource Sharing) headers.
+   *
    * ```php
    * // Allow all.
    * parent::setCorsHeader('*');

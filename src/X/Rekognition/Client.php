@@ -41,11 +41,20 @@ class Client {
  
   /**
    * Initialize Amazon Rekognition API client.
-   * @param string $options[region] AWS Region to connect to.The default is "ap-northeast-1".
-   * @param string $options[key] AWS access key ID.This is required.
-   * @param string $options[secret] AWS secret access key.This is required.
-   * @param int $options[connect_timeout] A float describing the number of seconds to wait while trying to connect to a server. The default is 5 (seconds).
-   * @param bool $options[debug] Specify true to output the result of Rekognition to the debug log.The default is false and no debug log is output.
+   *
+   * @param array{
+   *   region?: string,
+   *   key: string,
+   *   secret: string,
+   *   connect_timeout?: int,
+   *   debug?: bool
+   * } $options Configuration options:
+   *   - `region`: AWS region to connect to. Default is "ap-northeast-1".
+   *   - `key`: **(required)** AWS access key ID.
+   *   - `secret`: **(required)** AWS secret access key.
+   *   - `connect_timeout`: Connection timeout in seconds. Default is 5.
+   *   - `debug`: Output Rekognition responses to debug log. Default is false.
+   * @throws \RuntimeException If key or secret is not provided.
    */
   public function __construct(array $options) {
     $options = array_merge([
@@ -76,9 +85,14 @@ class Client {
   }
 
   /**
-   * Add a collection.
+   * Create a face collection.
+   *
+   * If the collection already exists, this method does nothing.
+   *
    * @param string $collectionId Collection ID.
    * @return void
+   * @throws \RuntimeException If creation fails for reasons other than duplicate.
+   * @throws RekognitionException On AWS API error.
    */
   public function addCollection(string $collectionId): void {
     try {
@@ -95,9 +109,12 @@ class Client {
   }
 
   /**
-   * Get Collection.
+   * Describe a face collection.
+   *
    * @param string $collectionId Collection ID.
-   * @return mixed Collection Data.
+   * @return array|null Collection metadata, or null if not found.
+   * @throws \RuntimeException If retrieval fails.
+   * @throws RekognitionException On AWS API error.
    */
   public function getCollection(string $collectionId): ?array {
     try {
@@ -116,8 +133,10 @@ class Client {
   }
 
   /**
-   * Get all collections.
-   * @return string[] List of collection data.
+   * List all face collection IDs.
+   *
+   * @return string[] Array of collection IDs.
+   * @throws \RuntimeException If retrieval fails.
    */
   public function getAllCollections(): array {
     $res = $this->client->listCollections()->toArray();
@@ -130,9 +149,14 @@ class Client {
   }
 
   /**
-   * Delete a collection.
+   * Delete a face collection.
+   *
+   * If the collection does not exist, this method does nothing.
+   *
    * @param string $collectionId Collection ID.
    * @return void
+   * @throws \RuntimeException If deletion fails.
+   * @throws RekognitionException On AWS API error.
    */
   public function deleteCollection(string $collectionId): void {
     try {
@@ -149,19 +173,24 @@ class Client {
   }
 
   /**
-   * Check if a collection exists.
+   * Check if a face collection exists.
+   *
    * @param string $collectionId Collection ID.
-   * @return bool Whether the collection exists or not.
+   * @return bool True if the collection exists.
    */
   public function existsCollection(string $collectionId): bool {
     return !empty($this->getCollection($collectionId));
   }
 
   /**
-   * Add a face to the collection.
+   * Add a face to a collection.
+   *
+   * The image must contain exactly one face.
+   *
    * @param string $collectionId Collection ID.
-   * @param string $faceImage Data URL, Blob, or path of face images.
-   * @return string Face ID.
+   * @param string $faceImage Face image as Data URL, binary blob, or file path.
+   * @return string Unique face ID assigned by Rekognition.
+   * @throws \RuntimeException If no face or multiple faces are detected, or indexing fails.
    */
   public function addFaceToCollection(string $collectionId, string $faceImage): string {
     if (ImageHelper::isDataURL($faceImage))
@@ -190,10 +219,12 @@ class Client {
   }
 
   /**
-   * Get face data from a collection.
+   * List all faces in a collection.
+   *
    * @param string $collectionId Collection ID.
-   * @param int $maxResults (optional) Maximum number of face data to retrieve. Default is 4096.
-   * @return array List of face data.
+   * @param int $maxResults Maximum number of faces to retrieve. Default is 4096.
+   * @return array[] Array of face metadata from the collection.
+   * @throws \RuntimeException If retrieval fails.
    */
   public function getAllFacesFromCollection(string $collectionId, int $maxResults=4096): array {
     $res = $this->client->listFaces(['CollectionId' => $collectionId, 'MaxResults' => $maxResults ])->toArray();
@@ -206,11 +237,14 @@ class Client {
   }
 
   /**
-   * Get the face data most similar to the face image from the collection.
+   * Search for the most similar face in a collection.
+   *
+   * Returns the single best match above the similarity threshold.
+   *
    * @param string $collectionId Collection ID.
-   * @param string $faceImage Data URL, Blob, or path of face images.
-   * @param int $threshold (optional) Face match threshold (in percent). Default is 80.
-   * @return array Face data.
+   * @param string $faceImage Face image as Data URL, binary blob, or file path.
+   * @param int $threshold Minimum similarity percentage. Default is 80.
+   * @return array{faceId: string, similarity: float}|null Best match, or null if no match found.
    */
   public function getFaceFromCollectionByImage(string $collectionId, string $faceImage, int $threshold=80): ?array {
     $maxFaces = 1;
@@ -219,12 +253,16 @@ class Client {
   }
 
   /**
-   * Get all face data from the collection that are similar to the face image.
+   * Search for all similar faces in a collection.
+   *
+   * Returns all faces matching above the similarity threshold.
+   *
    * @param string $collectionId Collection ID.
-   * @param string $faceImage Data URL, Blob, or path of face images.
-   * @param int $threshold (optional) Face match threshold (in percent). Default is 80.
-   * @param int $maxResults (optional) Maximum number of face data to retrieve. Default is 4096.
-   * @return array Face data.
+   * @param string $faceImage Face image as Data URL, binary blob, or file path.
+   * @param int $threshold Minimum similarity percentage. Default is 80.
+   * @param int $maxFaces Maximum number of matches to return. Default is 4096.
+   * @return array{faceId: string, similarity: float}[] Array of matching faces with similarity scores.
+   * @throws \RuntimeException If search fails.
    */
   public function getMultipleFacesFromCollectionByImage(string $collectionId, string $faceImage, int $threshold=80, int $maxFaces=4096): array {
     if (\preg_match('/^\//', $faceImage) && \is_file($faceImage))
@@ -259,21 +297,24 @@ class Client {
   }
 
   /**
-   * Check if a face exists in the collection.
+   * Check if a matching face exists in a collection.
+   *
    * @param string $collectionId Collection ID.
-   * @param string $faceImage Data URL, Blob, or path of face images.
-   * @param int $threshold (optional) Face match threshold (in percent). Default is 80.
-   * @return bool Whether the face exists in the collection or not.
+   * @param string $faceImage Face image as Data URL, binary blob, or file path.
+   * @param int $threshold Minimum similarity percentage. Default is 80.
+   * @return bool True if a matching face is found.
    */
   public function existsFaceFromCollection(string $collectionId, string $faceImage, int $threshold=80): bool {
     return !empty($this->getFaceFromCollectionByImage($collectionId, $faceImage, $threshold));
   }
 
   /**
-   * Delete a face from the collection.
+   * Delete faces from a collection.
+   *
    * @param string $collectionId Collection ID.
-   * @param string[] $faceIds Face ID list.
+   * @param string[] $faceIds Array of face IDs to delete.
    * @return void
+   * @throws \RuntimeException If deletion fails.
    */
   public function deleteFaceFromCollection(string $collectionId, array $faceIds): void {
     $res = $this->client->deleteFaces([ 'CollectionId' => $collectionId, 'FaceIds' => $faceIds ])->toArray();
@@ -285,18 +326,23 @@ class Client {
   }
 
   /**
-   * Generate collection ID.
-   * @return string Collection ID.
+   * Generate a unique collection ID.
+   *
+   * @return string Randomly generated collection ID.
    */
   public function generateCollectionId(): string {
     return uniqid(bin2hex(random_bytes(1)));
   }
 
   /**
-   * Comparison of faces.
-   * @param string $faceImage1 Data URL, Blob, or path of face images.
-   * @param string $faceImage2 Data URL, Blob, or path of face images.
-   * @return float Similarity rate (rate) of two faces.
+   * Compare two face images for similarity.
+   *
+   * Returns 0.0 if no face is detected in either image.
+   *
+   * @param string $faceImage1 Source face image as Data URL, binary blob, or file path.
+   * @param string $faceImage2 Target face image as Data URL, binary blob, or file path.
+   * @return float Similarity percentage (0.0 to 100.0) between the two faces.
+   * @throws \RuntimeException If comparison fails.
    */
   public function compareFaces(string $faceImage1, string $faceImage2): float {
     if (\preg_match('/^\//', $faceImage1) && \is_file($faceImage1))
@@ -326,11 +372,13 @@ class Client {
   }
 
   /**
-   * Face detection.
-   * @param string $faceImage Data URL, Blob, or path of face images.
-   * @param int $threshold (optional) Face recognition threshold (percent). Default is 90.
-   * @param 'DEFAULT'|'ALL' (optional) $attributes If 'ALL', more detailed facial information is retrieved. Default is "DEFAULT".
-   * @return array Detected face data.
+   * Detect faces in an image.
+   *
+   * @param string $faceImage Face image as Data URL, binary blob, or file path.
+   * @param int $threshold Minimum confidence percentage for face detection. Default is 90.
+   * @param 'DEFAULT'|'ALL' $attributes Detail level. "ALL" returns full facial analysis. Default is "DEFAULT".
+   * @return array[] Array of detected face details above the confidence threshold.
+   * @throws \RuntimeException If detection fails.
    */
   public function detectionFaces(string $faceImage, int $threshold=90, $attributes='DEFAULT'): array {
     // If the image is a file path, read it as DataURL.
@@ -352,10 +400,11 @@ class Client {
   }
 
   /**
-   * Get the number of faces in the image.
-   * @param string $faceImage Data URL, Blob, or path of face images.
-   * @param int $threshold (optional) Face recognition threshold (percent). Default is 90.
-   * @return int Number of faces found.
+   * Count the number of faces detected in an image.
+   *
+   * @param string $faceImage Face image as Data URL, binary blob, or file path.
+   * @param int $threshold Minimum confidence percentage for face detection. Default is 90.
+   * @return int Number of faces detected above the confidence threshold.
    */
   public function getNumberOfFaces(string $faceImage, int $threshold=90): int {
     return count($this->detectionFaces($faceImage, $threshold));
