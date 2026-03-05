@@ -316,7 +316,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Author
 
-**Takuya Motoshima** — [GitHub](https://github.com/shumatsumonobu) / [Twitter](https://x.com/shumatsumonobu) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
+**shumatsumonobu** — [GitHub](https://github.com/shumatsumonobu) / [Twitter](https://x.com/shumatsumonobu) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
 
 ## License
 

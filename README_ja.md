@@ -327,7 +327,7 @@ composer test
 
 ## 著者
 
-**Takuya Motoshima** — [GitHub](https://github.com/shumatsumonobu) / [Twitter](https://x.com/shumatsumonobu) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
+**shumatsumonobu** — [GitHub](https://github.com/shumatsumonobu) / [Twitter](https://x.com/shumatsumonobu) / [Facebook](https://www.facebook.com/takuya.motoshima.7)
 
 ## ライセンス
 
