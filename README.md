@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="README_ja.md">日本語</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG_ja.md">変更履歴</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://shumatsumonobu.github.io/codeigniter-extension/">API Docs</a>
+  <a href="README_ja.md">日本語</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://shumatsumonobu.github.io/codeigniter-extension/">API Docs</a>
 </p>
 
 

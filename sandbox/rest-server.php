@@ -1,6 +1,6 @@
 <?php
 ini_set('log_errors', 'on');
-ini_set('error_log', 'logs/' . date('Ymd') . '.log');
+ini_set('error_log', __DIR__ . '/output/' . date('Ymd') . '.log');
 
 // Check request headers.
 $headers = getallheaders();

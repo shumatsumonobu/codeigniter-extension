@@ -57,4 +57,16 @@ final class AwsRekognitionClientTest extends TestCase {
     );
     $this->assertEquals($similarity, 0);
   }
+
+  /**
+   * When key/secret are omitted the client must NOT throw at construction;
+   * credentials are resolved lazily by the AWS SDK default provider chain
+   * (e.g. EC2 instance profile / IAM role). This guards the migration from
+   * IAM user access keys to IAM roles. No AWS API call is made and no
+   * credentials are needed here.
+   */
+  public function testCanInstantiateWithoutCredentials(): void {
+    $client = new Client([]);
+    $this->assertInstanceOf(Client::class, $client);
+  }
 }

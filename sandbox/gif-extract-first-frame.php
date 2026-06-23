@@ -1,10 +1,10 @@
 <?php
 /**
  * ```sh
- * php sandbox/extract-first-frame-of-gif.php
+ * php sandbox/gif-extract-first-frame.php
  * ```
  */
-$im = new \Imagick(__DIR__ . '/input/animated.gif');
+$im = new \Imagick(__DIR__ . '/input/sample-animated.gif');
 
 // Write the first frame as an image.
 $im = $im->coalesceImages();

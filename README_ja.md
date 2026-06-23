@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="README.md">English</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG_ja.md">変更履歴</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://shumatsumonobu.github.io/codeigniter-extension/">API Docs</a>
+  <a href="README.md">English</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="CHANGELOG.md">Changelog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://shumatsumonobu.github.io/codeigniter-extension/">API Docs</a>
 </p>
 
 ---
@@ -305,7 +305,7 @@ composer test
 
 - [API リファレンス](https://shumatsumonobu.github.io/codeigniter-extension/)
 - [デモアプリケーション](demo/)
-- [変更履歴](CHANGELOG_ja.md)
+- [変更履歴](CHANGELOG.md)
 - [CodeIgniter 3 ユーザーガイド](https://codeigniter.com/userguide3/)
 
 ---

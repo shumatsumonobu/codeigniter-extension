@@ -13,11 +13,16 @@ use \X\Util\Logger;
  *
  * Usage:
  * ```php
+ * // Explicit credentials (IAM user access key)
  * $client = new Client([
  *   'key' => 'AWS_ACCESS_KEY',
  *   'secret' => 'AWS_SECRET_KEY',
  *   'region' => 'ap-northeast-1'
  * ]);
+ *
+ * // IAM role (EC2 instance profile) — credentials resolved by the
+ * // AWS SDK default provider chain when key/secret are omitted
+ * $client = new Client(['region' => 'ap-northeast-1']);
  *
  * // Add face to collection
  * $faceId = $client->addFaceToCollection('my-collection', $imageDataUrl);
@@ -44,17 +49,18 @@ class Client {
    *
    * @param array{
    *   region?: string,
-   *   key: string,
-   *   secret: string,
+   *   key?: string,
+   *   secret?: string,
    *   connect_timeout?: int,
    *   debug?: bool
    * } $options Configuration options:
    *   - `region`: AWS region to connect to. Default is "ap-northeast-1".
-   *   - `key`: **(required)** AWS access key ID.
-   *   - `secret`: **(required)** AWS secret access key.
+   *   - `key`: AWS access key ID. Optional. When omitted (along with `secret`),
+   *     credentials are resolved by the AWS SDK default provider chain
+   *     (e.g. EC2 instance profile / IAM role).
+   *   - `secret`: AWS secret access key. Optional. See `key`.
    *   - `connect_timeout`: Connection timeout in seconds. Default is 5.
    *   - `debug`: Output Rekognition responses to debug log. Default is false.
-   * @throws \RuntimeException If key or secret is not provided.
    */
   public function __construct(array $options) {
     $options = array_merge([
@@ -64,23 +70,27 @@ class Client {
       'connect_timeout' => 5,
       'debug' => false
     ], $options);
-    if (empty($options['key']))
-      throw new \RuntimeException('Amazon Rekognition access key is required');
-    else if (empty($options['secret']))
-      throw new \RuntimeException('Amazon Rekognition secret key is required');
-    if ($options['debug'])
-      Logger::debug('Options: ', $options);
-    $this->client = new RekognitionClient([
+    if ($options['debug']) {
+      $maskedOptions = $options;
+      if (!empty($maskedOptions['key']))
+        $maskedOptions['key'] = '***';
+      if (!empty($maskedOptions['secret']))
+        $maskedOptions['secret'] = '***';
+      Logger::debug('Options: ', $maskedOptions);
+    }
+    $config = [
       'region' => $options['region'],
       'version' => 'latest',
-      'credentials' => [
-        'key' => $options['key'],
-        'secret' => $options['secret']
-      ],
       'http' => [
         'connect_timeout' => $options['connect_timeout']
       ]
-    ]);
+    ];
+    if (!empty($options['key']) && !empty($options['secret']))
+      $config['credentials'] = [
+        'key' => $options['key'],
+        'secret' => $options['secret']
+      ];
+    $this->client = new RekognitionClient($config);
     $this->debug = $options['debug'];
   }
 

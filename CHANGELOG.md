@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 > Looking for older versions? See the [changelog archive (v3.3.8 — v4.1.9)](CHANGELOG_archive.md).
 
+## [5.0.7] - 2026/6/23
+
+### Added
+- Amazon Rekognition client (`\X\Rekognition\Client`) now supports IAM role authentication — omit `key`/`secret` to use the AWS SDK default provider chain (e.g. EC2 instance profile).
+- Sandbox scripts for Rekognition face detection and comparison (`sandbox/rekognition-detect-faces.php`, `sandbox/rekognition-compare-faces.php`).
+
+### Changed
+- `\X\Rekognition\Client` `key`/`secret` options are now optional (previously required). Existing key/secret usage is unchanged.
+- Mask `key`/`secret` in the Rekognition client debug log.
+- Tidied `sandbox/` — consistent script names, flattened `rest/`, and added `sandbox/README.md`.
+
+### Removed
+- Japanese changelog files (`CHANGELOG_ja.md`, `CHANGELOG_ja_archive.md`).
+
 ## [5.0.6] - 2026/3/5
 
 ### Fixed
@@ -85,3 +99,4 @@ All notable changes to this project will be documented in this file.
 [5.0.4]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.3...v5.0.4
 [5.0.5]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.4...v5.0.5
 [5.0.6]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.5...v5.0.6
+[5.0.7]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.6...v5.0.7

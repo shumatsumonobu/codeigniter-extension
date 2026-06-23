@@ -1,9 +1,9 @@
 <?php
 /**
  * ```sh
- * php sandbox/get-number-of-gif-frames.php
+ * php sandbox/gif-count-frames.php
  * ```
  */
-$im = new \Imagick(__DIR__ . '/input/animated.gif');
+$im = new \Imagick(__DIR__ . '/input/sample-animated.gif');
 $frameCount = $im->getNumberImages();
 echo '$frameCount=' . $frameCount . PHP_EOL;

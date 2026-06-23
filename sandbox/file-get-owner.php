@@ -1,7 +1,7 @@
 <?php
 /**
  * ```sh
- * php sandbox/get-file-owner.php
+ * php sandbox/file-get-owner.php
  * ```
  * 
  * All usernames and IDs can be checked with the following command
