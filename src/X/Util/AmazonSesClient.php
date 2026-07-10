@@ -12,14 +12,23 @@ use \X\Util\Template;
  * ```php
  * use \X\Util\AmazonSesClient;
  *
- * $ses  = new AmazonSesClient([
+ * // Explicit credentials (IAM user access key)
+ * $ses = new AmazonSesClient([
  *   'region' => $_ENV['AMS_SES_REGION'],
  *   'credentials' => [
  *     'key' => $_ENV['AMS_SES_ACCESS_KEY'],
- *     'secret' => $_ENV['AMS_SES_SECRET_KEY']
+ *     'secret' => $_ENV['AMS_SES_SECRET_KEY'],
  *   ],
  *   'configuration' => $_ENV['AMS_SES_CONFIGURATION'],
  * ]);
+ *
+ * // IAM role (EC2 instance profile) — credentials resolved by the
+ * // AWS SDK default provider chain when credentials are omitted
+ * $ses = new AmazonSesClient([
+ *   'region' => $_ENV['AMS_SES_REGION'],
+ *   'configuration' => $_ENV['AMS_SES_CONFIGURATION'],
+ * ]);
+ *
  * $ses
  *   ->from('from@example.com')
  *   ->to('to@example.com')
@@ -41,12 +50,6 @@ use \X\Util\Template;
 class AmazonSesClient {
   /**
    * SES client options.
-   *
-   * - credentials: array with 'key' and 'secret' for AWS credentials
-   * - configuration: string|null configuration set name
-   * - region: string AWS region (e.g., 'ap-northeast-1')
-   * - version: string API version (default: 'latest')
-   *
    * @var array
    */
   private $options = null;
@@ -103,27 +106,36 @@ class AmazonSesClient {
    * Initialize AmazonSesClient.
    *
    * @param array{
+   *   region?: string,
    *   credentials?: array{key: string, secret: string},
    *   configuration?: string|null,
-   *   region?: string,
-   *   version?: string
+   *   version?: string,
+   *   debug?: bool
    * } $options Configuration options:
-   *   - `credentials.key`: AWS access key ID.
-   *   - `credentials.secret`: AWS secret access key.
-   *   - `configuration`: SES configuration set name. Default is null.
    *   - `region`: AWS region for service requests.
+   *   - `credentials`: AWS credentials array with `key` and `secret`. Optional.
+   *     When omitted, credentials are resolved by the AWS SDK default provider chain
+   *     (e.g. EC2 instance profile / IAM role).
+   *   - `configuration`: SES configuration set name. Default is null.
    *   - `version`: SES API version. Default is "latest".
+   *   - `debug`: Output SES options to debug log. Default is false.
    */
   public function __construct(array $options=[]) {
     $this->options = array_replace_recursive([
-      'credentials' => [
-        'key' => null,
-        'secret' => null,
-      ],
+      'credentials' => null,
       'configuration' => null,
       'region' => null,
       'version' => 'latest',
+      'debug' => false,
     ], $options);
+    if ($this->options['debug']) {
+      $maskedOptions = $this->options;
+      if (!empty($maskedOptions['credentials']['key']))
+        $maskedOptions['credentials']['key'] = '***';
+      if (!empty($maskedOptions['credentials']['secret']))
+        $maskedOptions['credentials']['secret'] = '***';
+      Logger::debug('AmazonSesClient options: ', $maskedOptions);
+    }
   }
 
   /**
@@ -232,34 +244,17 @@ class AmazonSesClient {
    * After sending, all recipient and message fields are reset.
    *
    * @return \Aws\Result SES API response containing MessageId.
-   * @throws \InvalidArgumentException If the sender address is invalid.
    */
   public function send(): \Aws\Result {
-    $CI =& get_instance();
-    $CI->load->library('form_validation'); 
-    $CI->form_validation
-      ->reset_validation()
-      ->set_data([
-        // 'to' => $this->to,
-        'from' => $this->from
-      ])
-      // ->set_rules('to', 'To Email', 'required|valid_email')
-      ->set_rules('from', 'From Email', 'required|valid_email');
-    if (!$CI->form_validation->run())
-      throw new \InvalidArgumentException(implode('', $CI->form_validation->error_array()));
     $destination['ToAddresses'] = is_array($this->to) ? $this->to : [$this->to];
     isset($this->cc) && $destination['CcAddresses'] = $this->cc;
     isset($this->bcc) && $destination['BccAddresses'] = $this->bcc;
-    $res = $this->client()->sendEmail([
+    $params = [
       'Destination' => $destination,
       'ReplyToAddresses' => [$this->from],
       'Source' => isset($this->fromName) ? sprintf('%s <%s>', $this->fromName, $this->from) : $this->from,
       'Message' => [
         'Body' => [
-          // 'Html' => [
-          //     'Charset' => $this->charset,
-          //     'Data' => $this->message,
-          // ],
           'Text' => [
             'Charset' => $this->charset,
             'Data' => $this->message,
@@ -270,8 +265,10 @@ class AmazonSesClient {
           'Data' => $this->subject,
         ],
       ],
-      'ConfigurationSetName' => $this->options['configuration'],
-    ]);
+    ];
+    if (!empty($this->options['configuration']))
+      $params['ConfigurationSetName'] = $this->options['configuration'];
+    $res = $this->client()->sendEmail($params);
     $this->reset();
     return $res;
   }
@@ -283,12 +280,15 @@ class AmazonSesClient {
    */
   private function client(): \Aws\Ses\SesClient {
     static $client;
-    if (!isset($client))
-      $client = new \Aws\Ses\SesClient([
-        'credentials' => $this->options['credentials'],
+    if (!isset($client)) {
+      $config = [
         'version' => $this->options['version'],
         'region' => $this->options['region'],
-      ]);
+      ];
+      if (!empty($this->options['credentials']))
+        $config['credentials'] = $this->options['credentials'];
+      $client = new \Aws\Ses\SesClient($config);
+    }
     return $client;
   }
 

@@ -12,7 +12,10 @@
       <file>__tests__/ImageHelperTest.php</file>
     </testsuite>
     <testsuite name="AWS Rekognition Client">
-      <file>__tests__/Rekognition/ClientTest.php</file>
+      <file>__tests__/AwsRekognitionClientTest.php</file>
+    </testsuite>
+    <testsuite name="Amazon SES Client">
+      <file>__tests__/AmazonSesClientTest.php</file>
     </testsuite>
     <testsuite name="File Helper">
       <file>__tests__/FileHelperTest.php</file>

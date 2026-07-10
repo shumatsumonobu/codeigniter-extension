@@ -1,21 +1,11 @@
 {
   "description" : "The CodeIgniter Application with Composer",
-  "repositories": {
-    "takuya-motoshima/codeigniter-extension": {
-      "type": "path",
-      "url": "../",
-      "options": {
-        "symlink": true
-      }
-    }
-  },
-
   "scripts": {
     "syntax-check": "find application -name \"*.php\" | xargs -n1 php -l",
     "log": "tail -f $(/bin/ls -1tr application/logs/* | /bin/sed -ne '$p')"
   },
   "require": {
-    "php": "^8.0",
+    "php": "^7.3",
     "takuya-motoshima/codeigniter-extension": "dev-main",
     "maennchen/zipstream-php": "^2.1",
     "intervention/image": "^2.5",

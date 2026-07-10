@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 > Looking for older versions? See the [changelog archive (v3.3.8 — v4.1.9)](CHANGELOG_archive.md).
 
+## [5.0.8] - 2026/7/10
+
+### Added
+- Amazon SES client (`\X\Util\AmazonSesClient`) now supports IAM role authentication — omit `credentials` to use the AWS SDK default provider chain (e.g. EC2 instance profile).
+- `debug` option for `\X\Util\AmazonSesClient` — logs options with `key`/`secret` masked.
+- PHPUnit test suite for `\X\Util\AmazonSesClient` (`__tests__/AmazonSesClientTest.php`).
+- IAM role integration tests for both Rekognition and SES clients (`@group iam-role`).
+- Test commands in README for `--group` / `--exclude-group iam-role`.
+
+### Changed
+- PHP minimum version lowered from 8.0 to 7.3 (`composer.json`, `composer.json.dist`, `demo/composer.json`).
+- `\X\Util\AmazonSesClient` `credentials` option is now optional (previously required). Existing credentials usage is unchanged.
+- `\X\Util\AmazonSesClient` `configuration` option no longer sent to SES API when null.
+- Removed CodeIgniter dependency (`get_instance()` / `form_validation`) from `\X\Util\AmazonSesClient::send()`.
+- Regenerated `composer.lock` and `demo/composer.lock` for PHP 7.3 compatibility.
+- Fixed `phpunit.xml` — corrected Rekognition test path and added SES test suite.
+- Fixed test warnings — converted global constants to class constants in `ImageHelperTest` and `FileHelperTest`.
+- Added `log_message()` stub in test bootstrap for non-CodeIgniter environments.
+- Skip Imagick-dependent tests when the extension is not installed.
+
 ## [5.0.7] - 2026/6/23
 
 ### Added
@@ -100,3 +120,4 @@ All notable changes to this project will be documented in this file.
 [5.0.5]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.4...v5.0.5
 [5.0.6]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.5...v5.0.6
 [5.0.7]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.6...v5.0.7
+[5.0.8]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.7...v5.0.8

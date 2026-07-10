@@ -69,4 +69,19 @@ final class AwsRekognitionClientTest extends TestCase {
     $client = new Client([]);
     $this->assertInstanceOf(Client::class, $client);
   }
+
+  /**
+   * Compare faces using IAM role authentication (no explicit credentials).
+   * Only works on EC2 instances with an IAM role that has Rekognition permissions.
+   *
+   * @group iam-role
+   */
+  public function testCompareFacesWithIamRole(): void {
+    $client = new Client([]);
+    $similarity = $client->compareFaces(
+      self::TMPDIR . '/person1_1.jpg',
+      self::TMPDIR . '/person1_2.jpg'
+    );
+    $this->assertTrue($similarity > 90);
+  }
 }

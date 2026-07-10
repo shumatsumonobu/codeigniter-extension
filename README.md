@@ -241,7 +241,7 @@ Implements `updateTimestamp()` to prevent `Failed to write session data` warning
 
 ## Requirements
 
-- **PHP** 8.0+
+- **PHP** 7.3+
 - **Composer**
 - **Extensions:** php-gd, php-mbstring, php-xml, php-imagick (optional)
 
@@ -288,7 +288,14 @@ src/X/
 ## Testing
 
 ```sh
+# Run all tests
 composer test
+
+# Exclude IAM role tests (for local development without IAM role)
+./vendor/bin/phpunit --exclude-group iam-role
+
+# Run only IAM role tests (on EC2 with IAM role)
+./vendor/bin/phpunit --group iam-role
 ```
 
 

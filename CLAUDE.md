@@ -173,7 +173,7 @@ application/
 
 ## 依存関係
 
-- PHP 8.0+
+- PHP 7.3+
 - CodeIgniter 3.1.x
 - Twig 2.x (テンプレートエンジン)
 - Doctrine Common (アノテーション)

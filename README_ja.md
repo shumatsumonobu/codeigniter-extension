@@ -247,7 +247,7 @@ $config['sess_table_additional_columns'] = ['email'];
 
 ## 要件
 
-- **PHP** 8.0+
+- **PHP** 7.3+
 - **Composer**
 - **拡張:** php-gd, php-mbstring, php-xml, php-imagick（オプション）
 
@@ -296,7 +296,14 @@ src/X/
 ## テスト
 
 ```sh
+# 全テスト実行
 composer test
+
+# IAM ロールテストを除外（ローカル開発向け）
+./vendor/bin/phpunit --exclude-group iam-role
+
+# IAM ロールテストのみ実行（EC2 上で実行）
+./vendor/bin/phpunit --group iam-role
 ```
 
 ---
