@@ -12,6 +12,8 @@ All notable changes to this project will be documented in this file.
 - PHPUnit test suite for `\X\Util\AmazonSesClient` (`__tests__/AmazonSesClientTest.php`).
 - IAM role integration tests for both Rekognition and SES clients (`@group iam-role`).
 - Test commands in README for `--group` / `--exclude-group iam-role`.
+- Docker local development environment for demo app — `docker compose up --build` starts nginx, PHP 7.3-fpm (Amazon Linux 2), and MariaDB 10.6.
+- Sample user avatar images in `demo/public/upload/`.
 
 ### Changed
 - PHP minimum version lowered from 8.0 to 7.3 (`composer.json`, `composer.json.dist`, `demo/composer.json`).
@@ -23,6 +25,10 @@ All notable changes to this project will be documented in this file.
 - Fixed test warnings — converted global constants to class constants in `ImageHelperTest` and `FileHelperTest`.
 - Added `log_message()` stub in test bootstrap for non-CodeIgniter environments.
 - Skip Imagick-dependent tests when the extension is not installed.
+- Demo app `database.php` now reads DB credentials from environment variables with fallback defaults.
+- Demo app `demo/README.md` rewritten with Docker-first setup instructions.
+- Moved `demo/init.sql` to `demo/docker/init.sql` and added section comments to both `demo/docker/init.sql` and `skeleton/init.sql`.
+- Fixed `demo/client/src/shared/Api.js` — removed hardcoded `Content-Type: application/json` that broke FormData requests.
 
 ## [5.0.7] - 2026/6/23
 

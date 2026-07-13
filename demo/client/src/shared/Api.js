@@ -15,8 +15,6 @@ export default class {
       // timeout: 5000,
       headers: {
         'accept': 'application/json',
-        'Content-Type': 'application/json',
-        // 'X-Requested-With': 'XMLHttpRequest'
       },
       responseType: 'json',
       // transformRequest: [

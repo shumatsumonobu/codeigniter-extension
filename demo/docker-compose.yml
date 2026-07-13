@@ -1,0 +1,55 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: ./docker
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: password
+      DB_NAME: sample_db
+    volumes:
+      - .:/var/www/html
+      - ..:/opt/codeigniter-extension
+    depends_on:
+      db:
+        condition: service_healthy
+    working_dir: /var/www/html
+    command: >
+      bash -c "
+        cp composer.lock /tmp/composer.lock.orig &&
+        sed -i 's|\"url\": \"..\"|\"url\": \"/opt/codeigniter-extension\"|' composer.lock &&
+        composer install --no-interaction &&
+        cp /tmp/composer.lock.orig composer.lock &&
+        cd client && npm install && npm run build && cd .. &&
+        mkdir -p public/upload application/logs application/cache application/session &&
+        chmod -R 775 application/logs application/cache application/session public/upload &&
+        cp -n .env.sample .env 2>/dev/null || true &&
+        php-fpm -F -R
+      "
+
+  db:
+    image: mariadb:10.6
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sample_db
+    volumes:
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppassword"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  db_data:

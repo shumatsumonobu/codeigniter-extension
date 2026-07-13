@@ -30,9 +30,11 @@ demo/application/session/*
 # Demo app - build artifacts
 demo/public/build/
 
-# Demo app - uploads (keep directory, ignore contents)
+# Demo app - uploads (keep sample images 1-8, ignore user uploads)
 !demo/public/upload/
 demo/public/upload/*
+!demo/public/upload/[1-8].png
+!demo/public/upload/.gitkeep
 
 # Environment variables (.sample files are tracked)
 demo/.env

@@ -70,12 +70,12 @@
 */
 $active_group = 'default';
 $query_builder = true;
-$database = 'sample_db';
-$username = 'root';
-$password = 'password';
+$database = getenv('DB_NAME') ?: 'sample_db';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASSWORD') ?: 'password';
 $db['default'] = array(
   'dsn' => '',
-  'hostname' => 'localhost',
+  'hostname' => getenv('DB_HOST') ?: 'localhost',
   'username' => $username,
   'password' => $password,
   'database' => $database,
