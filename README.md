@@ -291,11 +291,17 @@ src/X/
 # Run all tests
 composer test
 
-# Exclude IAM role tests (for local development without IAM role)
-./vendor/bin/phpunit --exclude-group iam-role
+# Exclude tests that need AWS credentials or send real email
+./vendor/bin/phpunit --exclude-group iam-role,ses-send,assume-role
 
 # Run only IAM role tests (on EC2 with IAM role)
 ./vendor/bin/phpunit --group iam-role
+
+# Send a real email via SES using explicit credentials
+./vendor/bin/phpunit --group ses-send
+
+# Send a real email via SES using cross-account AssumeRole (requires roleArn)
+./vendor/bin/phpunit --group assume-role
 ```
 
 

@@ -29,6 +29,12 @@ use \X\Util\Template;
  *   'configuration' => $_ENV['AMS_SES_CONFIGURATION'],
  * ]);
  *
+ * // Cross-account AssumeRole — SES is in a different AWS account
+ * $ses = new AmazonSesClient([
+ *   'region' => 'us-west-2',
+ *   'roleArn' => $_ENV['AWS_SES_ROLE_ARN'],
+ * ]);
+ *
  * $ses
  *   ->from('from@example.com')
  *   ->to('to@example.com')
@@ -103,11 +109,19 @@ class AmazonSesClient {
   private $message = null;
 
   /**
+   * Cached SES client instance.
+   * @var \Aws\Ses\SesClient|null
+   */
+  private $client = null;
+
+  /**
    * Initialize AmazonSesClient.
    *
    * @param array{
    *   region?: string,
    *   credentials?: array{key: string, secret: string},
+   *   roleArn?: string|null,
+   *   roleSessionName?: string|null,
    *   configuration?: string|null,
    *   version?: string,
    *   debug?: bool
@@ -116,6 +130,10 @@ class AmazonSesClient {
    *   - `credentials`: AWS credentials array with `key` and `secret`. Optional.
    *     When omitted, credentials are resolved by the AWS SDK default provider chain
    *     (e.g. EC2 instance profile / IAM role).
+   *   - `roleArn`: IAM role ARN for cross-account SES access via STS AssumeRole.
+   *     When set, temporary credentials are obtained by assuming this role.
+   *     When empty, falls back to `credentials` or the default provider chain.
+   *   - `roleSessionName`: Session name for STS AssumeRole. Default is "ses-sending".
    *   - `configuration`: SES configuration set name. Default is null.
    *   - `version`: SES API version. Default is "latest".
    *   - `debug`: Output SES options to debug log. Default is false.
@@ -125,6 +143,8 @@ class AmazonSesClient {
       'credentials' => null,
       'configuration' => null,
       'region' => null,
+      'roleArn' => null,
+      'roleSessionName' => null,
       'version' => 'latest',
       'debug' => false,
     ], $options);
@@ -274,22 +294,41 @@ class AmazonSesClient {
   }
 
   /**
-   * Get or create singleton SES client instance.
+   * Get or create the SES client for this instance.
+   *
+   * The client is cached per instance, so clients created with different
+   * options (region, credentials, roleArn) do not interfere with each other.
    *
    * @return \Aws\Ses\SesClient Cached SES client instance.
    */
   private function client(): \Aws\Ses\SesClient {
-    static $client;
-    if (!isset($client)) {
+    if (!isset($this->client)) {
       $config = [
         'version' => $this->options['version'],
         'region' => $this->options['region'],
       ];
-      if (!empty($this->options['credentials']))
+      if (!empty($this->options['roleArn'])) {
+        $stsClient = new \Aws\Sts\StsClient([
+          'region' => $this->options['region'],
+          'version' => 'latest',
+        ]);
+        // Temporary AssumeRole credentials expire (1 hour by default), so use a
+        // memoized provider that re-assumes the role automatically on expiry.
+        $config['credentials'] = \Aws\Credentials\CredentialProvider::memoize(
+          new \Aws\Credentials\AssumeRoleCredentialProvider([
+            'client' => $stsClient,
+            'assume_role_params' => [
+              'RoleArn' => $this->options['roleArn'],
+              'RoleSessionName' => $this->options['roleSessionName'] ?? 'ses-sending',
+            ],
+          ])
+        );
+      } else if (!empty($this->options['credentials'])) {
         $config['credentials'] = $this->options['credentials'];
-      $client = new \Aws\Ses\SesClient($config);
+      }
+      $this->client = new \Aws\Ses\SesClient($config);
     }
-    return $client;
+    return $this->client;
   }
 
   /**

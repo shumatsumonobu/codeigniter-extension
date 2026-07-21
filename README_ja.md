@@ -299,11 +299,17 @@ src/X/
 # 全テスト実行
 composer test
 
-# IAM ロールテストを除外（ローカル開発向け）
-./vendor/bin/phpunit --exclude-group iam-role
+# AWS 認証情報が必要なテスト・実際にメールを送るテストを除外（ローカル開発向け）
+./vendor/bin/phpunit --exclude-group iam-role,ses-send,assume-role
 
 # IAM ロールテストのみ実行（EC2 上で実行）
 ./vendor/bin/phpunit --group iam-role
+
+# SES で実際にメール送信（キー認証）
+./vendor/bin/phpunit --group ses-send
+
+# SES で実際にメール送信（クロスアカウント AssumeRole、roleArn が必要）
+./vendor/bin/phpunit --group assume-role
 ```
 
 ---

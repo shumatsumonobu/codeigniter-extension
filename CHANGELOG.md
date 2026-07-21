@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 > Looking for older versions? See the [changelog archive (v3.3.8 — v4.1.9)](CHANGELOG_archive.md).
 
+## [5.0.9] - 2026/7/21
+
+### Added
+- `\X\Util\AmazonSesClient` now supports cross-account SES access via STS AssumeRole — set `roleArn` (and optionally `roleSessionName`) to send through a role in another AWS account.
+- AssumeRole integration test for `\X\Util\AmazonSesClient` (`@group assume-role`).
+- `AWS_SES_ROLE_ARN` in `__tests__/.env.sample`.
+
+### Fixed
+- `\X\Util\AmazonSesClient` cached its SES client in a method-level `static`, so the client built by the first instance was reused by every other instance in the process — later instances silently ignored their own `region`, `credentials`, and `roleArn`. The client is now cached per instance.
+- AssumeRole credentials are obtained through `AssumeRoleCredentialProvider` + `CredentialProvider::memoize`, so they refresh automatically instead of expiring after an hour in long-running processes.
+
 ## [5.0.8] - 2026/7/10
 
 ### Added
@@ -127,3 +138,4 @@ All notable changes to this project will be documented in this file.
 [5.0.6]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.5...v5.0.6
 [5.0.7]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.6...v5.0.7
 [5.0.8]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.7...v5.0.8
+[5.0.9]: https://github.com/shumatsumonobu/codeigniter-extension/compare/v5.0.8...v5.0.9
